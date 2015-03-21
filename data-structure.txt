@@ -1,55 +1,107 @@
-first name (string)
-last name (string)
+Current DB structure
+--------------------
 
-date born (date)
-place born (map)
-
-date died (date)
-place died (map)
-
-category (autocomplete from db)
-
-awards (autocomplete from db)
-
-inventions
-
-firsts
-
-tagline (string)
-
-about (richtext/html)
-
-portrait (image)
-
-additional tags (multiple, comma-separated)
-
-woman of color (y/n)
-	-- ethnicity
+awards
+	id (int unsigned primary)
+	count (int unsigned)
+	name (text)
 	
-disabled (y/n)
-	-- specific
+categories
+	id (int unsigned primary)
+	title (varchar(255))
+	count (int unsigned)
+	
+category-woman
+	category_id (int uns primary)
+	her_id (int uns primary)
+	
+feeds
+	id (int uns primary)
+	title (text)
+	type (varchar(64))
+	url (text)
+	hashtag (varchar(255))
+	her_id (int uns)
+	
+links
+	id (int uns primary)
+	title (text)
+	url (text)
+	description (text)
+	her_id (int uns)
+	is_authored (tinyint) -- bool
+	created_at (timestamp)
+	created_by (varchar(64))
+list-woman
+	list_id (int uns primary)
+	her_id (int uns primary)
+	pos_in_list (int uns)
+	comment (text)
+	
+lists
+	id (int uns primary)
+	title (varchar(128))
+	created_at (timestamp)
+	created_by (varchar(64))
+	description (text)
+	private (tinyint) -- bool
+	
+tag-list
+	tag_id (int uns primary)
+	list_id (int uns primary)
 
-LGBTA+ (y/n)
-	trans
+tag-woman
+	tag_id (int uns primary)
+	her_id (int uns primary)
+	
+tags
+	id (int uns primary)
+	title (varchar(255))
+	count (int uns)
+	
+women
+	id (int uns primary)
+	last_edited_at (timestamp)
+	created_at (timestamp)
+	last_edited_by (varchar(64))
+	created_by (varchar(64))
+	date_born (varchar(16))
+	date_died (varchar(16))
+	place_born (text)
+	place_died (text)
+	inventions (text)
+	firsts (text)
+	tagline (text)
+	about (mediumtext)
+	orientation (varchar(64))
+	gender_identity (varchar(64))
+	is_poc (tinyint) -- bool
+	is_disabled (tinyint) -- bool
+	disability (text)
+	ethnicity (text)
+	
+	
+---------------------------
+
+options for `orientation`:
+	straight
 	lesbian
 	bisexual
 	asexual, aromantic
-	bigender, pangender, agender, genderfluid
-	other/unspecified
-	(dropdown/radio)
-
-
-links
------ 
-her work (writing/art)
+	other (write in)
+	unknown	
 	
+options for `gender_identity`:
+	cis woman
+	trans woman
+	trans man
+	bigender, agender, pangender
+	gender-fluid
+	other (write in)
+	unknown
+	
+(TODO: specific vars into the db somehow?)	
 
-article
-book
-video
-fanfic
-fanart
-fan group/fan website/organization
 	
 	
 
