@@ -1,0 +1,55 @@
+first name (string)
+last name (string)
+
+date born (date)
+place born (map)
+
+date died (date)
+place died (map)
+
+category (autocomplete from db)
+
+awards (autocomplete from db)
+
+inventions
+
+firsts
+
+tagline (string)
+
+about (richtext/html)
+
+portrait (image)
+
+additional tags (multiple, comma-separated)
+
+woman of color (y/n)
+	-- ethnicity
+	
+disabled (y/n)
+	-- specific
+
+LGBTA+ (y/n)
+	trans
+	lesbian
+	bisexual
+	asexual, aromantic
+	bigender, pangender, agender, genderfluid
+	other/unspecified
+	(dropdown/radio)
+
+
+links
+----- 
+her work (writing/art)
+	
+
+article
+book
+video
+fanfic
+fanart
+fan group/fan website/organization
+	
+	
+
