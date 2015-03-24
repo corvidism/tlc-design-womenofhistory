@@ -19,8 +19,30 @@ require_once 'site_settings.php';
 		
 	    <link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/foundation.min.css" />
-	    <link rel="stylesheet" href="css/base.css" />
+		
+	    <link rel="stylesheet" href="stylesheets/screen.css" />
+	    
 	    <script src="modernizr.js"></script>
   </head>
-	<body class="no-js">
-		<div id="wrapper" class="row">
+	<body class="no-js" id="outline">
+		<nav id="navline">
+			<ul>
+			<li><a href="#">The Lucy Collective</a></li>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Lists</a></li>
+			<li><a href="#">Links</a></li>
+			<li><a href="#">Stats</a></li>	
+			</ul>
+			
+			
+			
+			<div id="user-controls">
+				<img id="user-icon" src="" />
+				<a href="#" title="your user profile">Annathecrow</a>
+				<ul>
+					<li><a href="">My lists</a></li>
+					<li><a href="#">Settings</a></li>
+				</ul>
+				<a href="#">(logout)</a>
+			</div>
+		</nav>
