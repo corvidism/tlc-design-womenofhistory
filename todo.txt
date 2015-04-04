@@ -1,0 +1,44 @@
+header
+	design
+
+search.php
+	search-box 
+		layout
+		design
+		function (PHP)
+		function (JS)
+	
+	sorting
+		function (JS)
+		design
+		
+	list-box
+		layout
+		function (JS)
+		
+single.php
+	layout
+	design
+	form layout 
+	form design
+	function (PHP)
+	function (JS)
+
+about.php
+	text
+	layout
+
+list.php
+	design
+	layout
+	form layout
+	form function (JS)
+
+
+--
+women in fiction - single.php
+	design
+
+
+
+

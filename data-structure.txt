@@ -102,6 +102,28 @@ options for `gender_identity`:
 	
 (TODO: specific vars into the db somehow?)	
 
+
+--------------------------------------------
+
+search:
+
+anything --> text input field
+name --> text
+place of birth --> text
+place of death --> text
+date of birth --> from __ to __
+date of death --> from __ to __
+inventions --> text + checkbox
+firsts --> checkbox + field
+story --> text
+tags --> text w autocomplete
+category --> select
+links --> text
+ethnicity --> text
+woman of color --> checkbox
+lgbtq --> checkbox + field
+disability --> checkbox + field
+
 	
 	
 

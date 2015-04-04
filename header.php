@@ -17,32 +17,37 @@ require_once 'site_settings.php';
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<!-- Place favicon.ico in the root directory -->
 		
-	    <link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/foundation.min.css" />
+		<link rel="stylesheet" href="stylesheets/screen.css" />	
 		
-	    <link rel="stylesheet" href="stylesheets/screen.css" />
-	    
-	    <script src="modernizr.js"></script>
+	    <script src="js/vendor/modernizr.js"></script>
   </head>
-	<body class="no-js" id="outline">
-		<nav id="navline">
-			<ul>
-			<li><a href="#">The Lucy Collective</a></li>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Lists</a></li>
-			<li><a href="#">Links</a></li>
-			<li><a href="#">Stats</a></li>	
-			</ul>
-			
-			
-			
-			<div id="user-controls">
-				<img id="user-icon" src="" />
-				<a href="#" title="your user profile">Annathecrow</a>
-				<ul>
-					<li><a href="">My lists</a></li>
+	<body class="no-js" id="" >
+	<nav class="top-bar" data-topbar role="navigation">	
+		<ul class="title-area">
+		    <li class="name">
+		    </li>
+		    <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+		  </ul>	
+		<section class="top-bar-section">
+		     <ul class="left">
+		    	<li><a href="#">The Women</a></li>
+				<li><a href="#">User Lists</a></li>
+				<li><a href="#">Links</a></li>
+				<li><a href="#">Infographics</a></li>
+				<li><a href="#">About</a></li>
+		      </ul>
+		       <ul class="right">
+		    	<li class="has-dropdown">
+			      <a href="#">annathecrow</a>
+			      <ul class="dropdown">
+			        <li><a href="">My lists</a></li>
 					<li><a href="#">Settings</a></li>
-				</ul>
-				<a href="#">(logout)</a>
-			</div>
+					<li><a href="#">(logout)</a></li>
+			      </ul>
+			    </li>
+		    </ul>
+		    </ul>
+		  </section>
 		</nav>

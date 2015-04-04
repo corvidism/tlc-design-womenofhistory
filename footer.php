@@ -1,5 +1,7 @@
 		
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/foundation.min.js"></script>
+		<script src="js/home.js"></script>
+		<script> $(document).foundation(); </script>
 	</body>
 </html>
