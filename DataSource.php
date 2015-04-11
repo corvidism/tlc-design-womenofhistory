@@ -22,6 +22,27 @@ class DataSource
 		$this->data['women'] = $this->db_calls['women']->FetchAll();
 		return $this->data['women'];
 	}
+	
+	public function getWomanBy($what,$value) {
+		if ($what = 'id') {
+			return $this->getWomanById($value);
+		}
+	}
+	
+	public function getWomanById($id) {
+		if (is_nan($id)) return false;
+		if (!isset($this->db_calls['single']) || !$this->db_calls['single'] instanceof PDOStatement) {
+			$this->db_calls['single'] = $this->db->prepare("SELECT * FROM `women` WHERE `id` = ?");	
+		}
+		$this->db_calls['single']->bindValue(1,$id);
+		$this->db_calls['single']->execute();
+		$woman = $this->db_calls['single']->Fetch();
+		//get category title
+		//get tags 
+		//get awards
+		
+		return $woman;		
+	}
 }
 
 ?>

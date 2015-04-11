@@ -72,11 +72,11 @@ women
 	inventions (text)
 	firsts (text)
 	tagline (text)
-	about (mediumtext)
+	story (mediumtext)
 	orientation (varchar(64))
 	gender_identity (varchar(64))
 	is_poc (tinyint) -- bool
-	is_disabled (tinyint) -- bool
+	has_disability (tinyint) -- bool
 	disability (text)
 	ethnicity (text)
 	
