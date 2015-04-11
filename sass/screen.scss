@@ -6,11 +6,17 @@
 //@import "compass/reset";
 
 $pink:rgba(200,0,50,0.1);
+$grey:#bbb;
 
-//$base:#008cba;
-$base:#E0144E;
-$pale:tint($base,70%);
-$darker:shade($base, 30%);
+$type-color:#333;
+
+$base:#fcfcfc;
+$navbar-color:shade($base,10%);
+
+//$accent:#008cba;
+$accent:#E0144E;
+$accent-light:tint($accent,70%);
+$accent-dark:shade($accent, 30%);
 
 $padsize: 1.1em;
 
@@ -28,12 +34,20 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 
 body {  
   background:#fcfcfc;
+  color:$type-color;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
+
+/************** TEMP (DEVSTYLES) **************/
 
 body#blank 
 {
   * {
-    color:transparent;
+    color:transparent !important;
   } 
 
   div, ol, ul, li, canvas {
@@ -61,44 +75,160 @@ body#outline {
   }
 }
 
+/************** STYLES **************/
+
+
 div#wrapper {
   
   a {
-    color:$base;
+    color:$accent;
   }
   
   a:hover {
-    color:$darker;
+    color:$accent-dark;
   }
   
   .button {
-    background-color:$base;
+    background-color:$accent;
     color:white;
   }
   
   .button:hover {
-    color:$pale;  
+    color:$accent-light;  
   }
   
   
   ul.pagination {
     li.current a {
-      background-color:$base;
+      background-color:$accent;
       color:white;
     }
   }
 }
 
+
+/************** TOPBAR **************/
+
+.top-bar {
+  background-color:$navbar-color;
+  color:$type-color;
+  
+  .toggle-topbar a {
+    color:$type-color;
+  }
+  
+}
+
+.top-bar.expanded .title-area {
+  background-color:$navbar-color;
+  color:$type-color;
+}
+
+
+.top-bar-section {
+  $hover-navbar-color:shade($navbar-color,10%);  
+  
+  ul li > a {
+    color:$type-color;
+  }
+  
+  li:not(.has-form) {
+    a:not(.button)  {
+      background-color:$navbar-color;
+    }
+    
+    a:hover:not(.button) {
+      background-color:$hover-navbar-color;
+    }    
+  }
+  
+  ul li:hover:not(.has-form) > a {    
+      background-color:$hover-navbar-color;
+  }
+  
+  .dropdown {
+    
+    li a {
+      color:$type-color;
+    } 
+    
+    li:not(.has-form):not(.active) > a:not(.button) {
+      background-color:$navbar-color;
+      color:$type-color;
+    }
+    
+    li:hover:not(.has-form):not(.active) > a:not(.button) {
+      background-color:$hover-navbar-color;
+    }
+    
+  }  
+  
+  li.active:not(.has-form) a:not(.button) {
+    background-color:$accent;
+  }
+  
+  li.active:not(.has-form) a:hover:not(.button) {
+    background-color:$accent-dark;
+  }
+  
+}
+
+#menutitle {
+  color:$type-color;
+  
+  @media screen and (min-width: $medium) {
+      display:none; //do not show elsewhere but mobile
+    }
+}
+
+
+/************** HEADING **************/
+
+header#pagetitle {
+  display:none;
+  
+  height:5em;
+  
+  text-align:center;
+  
+  h1 {
+    font-size:2rem;
+    height:5rem;
+    margin-top:4rem;
+    
+    span#subtitle {
+      display:none; //not on mobile
+      font-size:1rem;
+      
+      @media screen and (min-width: $medium) {
+        display:block;
+        text-align:center;
+      }
+    }
+  }
+  
+}
+
+/************** SEARCH.PHP **************/
+
 #search-box {
   padding:$padsize;
   background-color:#eee;
   
-  #search-mode-toggle {
+  ol {
+    margin-left:0;
+    list-style:none;
+  }
+  
+  .search-row.minimized {
+    @media screen and (min-width: $medium) {
+      display:none;
+    } 
+  }
+  
+  .search-mode-toggle {
     padding-bottom:1em;
   
-    
-    
-    
     input[type="radio"] {
       display:none;
     }    
@@ -110,13 +240,22 @@ div#wrapper {
       padding-left:0.5em;
       width:48%;
       line-height:60%;
-      background-color:$pale;
+      background-color:$accent-light;
     }
     
     input[type="radio"]:checked + label {
-      background-color:$base;
+      background-color:$accent;
     } 
       
+  }
+  
+  .centered {
+    text-align: center;
+    line-height: 2.125rem;
+    display:block;
+    text-align:center;
+    width:100%;
+    font-size: 0.875rem;
   } 
   
   .added-row {
@@ -130,7 +269,7 @@ div#wrapper {
   }
   
   div.no-label-col {
-    @media screen and (min-width: 40.063em) {
+    @media screen and (min-width: $medium) {
       padding-top:1.3125rem; //replaces missing label to get it to line up with the rest of the query line
     }
   }
@@ -161,19 +300,9 @@ div#wrapper {
       display:none;
     }  
   }
+  
+  
 }
-
-
-
-
-#label-search-mode-is{
-      border-right:2px solid $darker;
-      left:2px;
-    }
-#label-search-mode-not{
-      border-left:2px solid $darker;
-      right:2px;
-    }
 
 #list-box {
   //padding:$padsize;
@@ -185,6 +314,24 @@ div#wrapper {
   li.woman {
       padding:$padsize;
       margin:$padsize 0;
+      
+      ul.action-buttons {
+        list-style:none;
+        margin-left:0;
+        //display:table;
+        
+        
+        li {
+          //display:table-cell;
+          border:1px solid #ddd;
+          text-align:center;
+        }
+        
+        li:nth-child(2){
+          text-align:left;
+          padding-left:1em;
+        }
+      }
     }
   }
   
@@ -194,33 +341,39 @@ div#wrapper {
   
 }
 
+/************** SINGLE.PHP **************/
 
-canvas#header-graphics {
-  width:100%;
-  height:15em;
-  position:absolute;
-  top:0;
-  left:0;
-}
-
-header#pagetitle {
-  height:10em;
-  text-align:center;
+article.woman {
+  //padding:$padsize;
   
-  h1 {
-    height:10rem;
-    margin-top:4rem;
+  div.portrait-img {
+    width:100%;
+    height:8em;
+    overflow:hidden;
     
-    span {
-      font-size:0.5em;
-      display:block;
-    } 
+    img {
+      width:100%;
+      position:relative;
+      top:-50%;
+    }
   }
   
+  .inner {
+    padding:$padsize;
+    
+    .tagline {
+      border-bottom:1px solid $grey;
+      padding-bottom:1em;
+    }
+    
+    .story {
+      text-align:justify;
+    }
+  }
 }
 
 
-
+/************** FOOTER **************/
 
 footer#pagefooter {
   height:10em;

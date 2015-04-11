@@ -6,7 +6,7 @@
 require_once 'site_settings.php';
 ?>
  
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,6 +27,7 @@ require_once 'site_settings.php';
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
+		    	<h1><a id="menutitle" href="">Women of History</a></h1>
 		    </li>
 		    <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
 		  </ul>	
@@ -42,7 +43,7 @@ require_once 'site_settings.php';
 		    	<li class="has-dropdown">
 			      <a href="#">annathecrow</a>
 			      <ul class="dropdown">
-			        <li><a href="">My lists</a></li>
+			        <li  class="active"><a href="">My lists</a></li>
 					<li><a href="#">Settings</a></li>
 					<li><a href="#">(logout)</a></li>
 			      </ul>
@@ -51,3 +52,11 @@ require_once 'site_settings.php';
 		    </ul>
 		  </section>
 		</nav>
+		
+<div id="wrapper" class="row">
+	<header id="pagetitle" class="collumn small-12 centered">
+		<h1>
+			<span id="subtitle">The Lucy Collective: </span>
+			Women of History
+		</h1>
+	</header>
