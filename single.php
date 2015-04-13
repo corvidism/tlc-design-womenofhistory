@@ -9,6 +9,8 @@
 
 require_once 'DataSource.php';
 require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
+require_once 'functions.php';
+
 	
 $dsn = "mysql:dbname=".DB_Name;
 try {
@@ -31,25 +33,63 @@ $page = array(
 require_once 'header.php';
 ?>
 
-<article class="woman">
-	<div class="portrait-img">
-		<img src="women/images/<?php printf("%'.09d\n", $woman['id']) ?>_01.jpg" class="portrait" />	
+<article class="woman row">
+	<div class="portrait-img small-12 medium-4 medium-push-8 columns">
+		<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
 	</div>
 	
-	<div class="inner">
-		<h2><?php echo $woman['name']?></h2>
-		<p class="dates">
-			<span class="born"></span><span class="died"></span>
-		</p>
-		<p class="tagline"><?php echo $woman['tagline']; ?></p>
+	<div class="inner small-12  medium-8 medium-pull-4 columns">
+		<header>
+			<h2><?php echo $woman['name']?></h2>
+			<p class="dates">
+				<span class="born"></span><span class="died"></span>
+			</p>
+			<p class="tagline"><?php echo $woman['tagline']; ?></p>
+		
+		</header>
+		
 		<div class="specs">
-			<p class="category"><?php echo $woman['category']; ?></p>
-			<p class="tags"></p>
-			<p class="ethnicity"></p>
-			<p class="poc"><strong></strong>, <span class="ethnicity"></span></p>
+			<p class="category"><strong>category: </strong>
+			<?php
+				if ($woman['category']) {
+					echo '<a href="search.php?category='.$woman['category']['id'].'">'.$woman['category']['title'].'</a>';
+				} else {
+					echo "(none)";
+				}				 
+			?></p>
+			<p class="is_poc">
+			<?php
+				if ($woman['is_poc']) {
+					echo '<strong><a href="search.php?is_poc=1">person of color</a></strong>';
+				}				 
+			?>
+			</p>
+			<p class="ethnicity">
+			<?php
+			
+			//error.
+			
+				if ($woman['ethnicity']) {
+					echo '<strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a>';
+				}				 
+			?>	
+			</p>
+			<p class="orientation">
+				
+			</p>
+			<p
 			<p class="lgbt"><strong></strong>, <span class="gender_identity"></span></p>
-			<p class="has_disability"><strong></strong>, <span class="disability"></span></p>	
-		</div>
+			<p class="has_disability"><strong></strong>, <span class="disability"></span></p>
+			<p class="tags"><strong>tags:</strong> 
+				<?php
+					foreach ($woman['tags'] as $tag_id=>$tag_title) {
+						$tag_ar[] = '<a href="search.php?tags='.$tag_id.'">'.$tag_title.'</a>';
+					};
+					echo implode(', ',$tag_ar); 
+				?>
+			</p>	
+		</div>		
+		
 		
 		<div class="story">
 			<?php echo $woman['story']; ?>
@@ -67,15 +107,50 @@ require_once 'header.php';
 			</ul>
 		</div>
 		<div class="links">
+			<h3>Links</h3>
+			<ul>
+				<?php
+					$links = $data_source->getLinksByWoman($woman['id']);
+					
+					foreach($links as $link)  : 
+						?>
+						<li>
+							<img class="thumb" src="<?php echo get_image("links/images/",$link['id']); ?>">
+							<h4><a href="<?php echo $link['url'] ?>"><?php echo $link['title'] ?></a></h4>
+							<p><?php echo $link['description'] ?></p>
+						</li>						
+					<?php 
+					endforeach;
+				?>
+			</ul>
 			
 		</div>
-		<div class="in_lists">
+		<div class="lists">
+			<h3>Featured in these lists</h3>
+			<ul>
+			<?php
 			
+			$lists = $data_source->getPublicListsByWoman($woman['id']);
+			foreach($lists as $list)  : ?>
+				<li>
+					<img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>">
+					<h4><a href="lists.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
+					<!--
+					<?php echo $list['description'] ?>
+					<span class="by"><a href="user.php?u=<?php echo $list['created_by'] ?>">created by <?php echo $list['created_by'] ?></a></span>
+					-->
+				</li>						
+			<?php 
+			endforeach;
+			?>
+			</ul>
 		</div>
-		
 		
 		<footer>
-			Last edited by <a href="">annathecrow</a> on 23th March 2015.
+			<p>
+			Last edited by <a href="">annathecrow</a> on 23th March 2015.	
+			</p>
+			
 		</footer>
 	</div>
 	

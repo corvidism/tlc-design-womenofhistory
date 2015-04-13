@@ -10,15 +10,23 @@ $grey:#bbb;
 
 $type-color:#333;
 
-$base:#fcfcfc;
-$navbar-color:shade($base,10%);
+//$base:#fcfcfc;
+$base:#fff;
+$navbar-color:$base;
 
 //$accent:#008cba;
 $accent:#E0144E;
 $accent-light:tint($accent,70%);
 $accent-dark:shade($accent, 30%);
 
-$padsize: 1.1em;
+
+@mixin t_style() {
+  background-color:$base;
+  color:$type-color;
+  border-bottom:1px solid black;
+}
+
+$padsize: 1.1rem;
 
 //query widths:
 
@@ -33,7 +41,7 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 
 
 body {  
-  background:#fcfcfc;
+  background:$base;
   color:$type-color;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -113,8 +121,12 @@ div#wrapper {
   background-color:$navbar-color;
   color:$type-color;
   
+  @include t_style();
+  
   .toggle-topbar a {
     color:$type-color;
+    
+    
   }
   
 }
@@ -122,6 +134,8 @@ div#wrapper {
 .top-bar.expanded .title-area {
   background-color:$navbar-color;
   color:$type-color;
+  
+  
 }
 
 
@@ -135,6 +149,8 @@ div#wrapper {
   li:not(.has-form) {
     a:not(.button)  {
       background-color:$navbar-color;
+      @include t_style();
+      line-height:44px; //minus 1px from default, else it fucks up the entire Foundation layout
     }
     
     a:hover:not(.button) {
@@ -347,7 +363,7 @@ article.woman {
   //padding:$padsize;
   
   div.portrait-img {
-    width:100%;
+    //width:100%;
     height:8em;
     overflow:hidden;
     
@@ -356,6 +372,10 @@ article.woman {
       position:relative;
       top:-50%;
     }
+    
+     @media screen and (min-width: $medium) {
+      height:auto;
+    }  
   }
   
   .inner {
@@ -367,7 +387,29 @@ article.woman {
     }
     
     .story {
-      text-align:justify;
+      
+    }
+    
+    header, > div, footer {
+      padding:$padsize;
+    }
+    
+    .links, .lists, .successes {
+      ul {
+        list-style:none;
+        margin-left:0;      
+      }
+    }
+    
+    .lists {
+      img.thumb {
+        width:100%;
+      }
+    }
+    
+    footer p {
+      border-top:1px solid $grey;
+      padding-top:1em;
     }
   }
 }

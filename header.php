@@ -33,19 +33,19 @@ require_once 'site_settings.php';
 		  </ul>	
 		<section class="top-bar-section">
 		     <ul class="left">
-		    	<li><a href="#">The Women</a></li>
-				<li><a href="#">User Lists</a></li>
-				<li><a href="#">Links</a></li>
-				<li><a href="#">Infographics</a></li>
-				<li><a href="#">About</a></li>
+		    	<li><a href="search.php">The Women</a></li>
+				<li><a href="list-seach.php">User Lists</a></li>
+				<li><a href="link-search.php">Links</a></li>
+				<li><a href="stats.php">Infographics</a></li>
+				<li><a href="about.php">About</a></li>
 		      </ul>
 		       <ul class="right">
 		    	<li class="has-dropdown">
 			      <a href="#">annathecrow</a>
 			      <ul class="dropdown">
-			        <li  class="active"><a href="">My lists</a></li>
-					<li><a href="#">Settings</a></li>
-					<li><a href="#">(logout)</a></li>
+			        <li  class="active"><a href="user/lists.php">My lists</a></li>
+					<li><a href="user/settings.php">Settings</a></li>
+					<li><a href="user/logout.php">(logout)</a></li>
 			      </ul>
 			    </li>
 		    </ul>
