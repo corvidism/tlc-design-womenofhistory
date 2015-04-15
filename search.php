@@ -117,7 +117,27 @@ $women = $data_source->getAllWomen();
 				
 			</div>
 		</form>
+		
+		
 </section>
+	<form id="searchline">
+			Search where <select><option>this</option><option>that</option></select> is <input type="text">. <br>(add search parameter)
+		</form>
+		
+		<form id="searchline2">
+			<p>Search where <span>something</span> is&nbsp;</p>
+			<p> <span>something</span>.</p>
+				
+			<span class="addp">(add search parameter)</span>
+			<ul>
+				<li>test 0</li>
+				<li class="one">test 1</li>
+				<li class="two">test 2</li>
+				<li class="three">test 3</li>
+				<li class="four">test 4</li>
+				<li class="five">test 5</li>
+			</ul>
+		</form>
 	<div id="list-box">
 		<h2>Results</h2>
 		<ol>

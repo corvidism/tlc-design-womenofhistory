@@ -40,6 +40,18 @@ $xlarge-max:120em;
 $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 
 
+//font-sizes
+
+$ms0: 1rem;
+$r: 1.5;
+
+$ms1: $r*$ms0;
+$ms2: $r*$ms1;
+$ms3: $r*$ms2;
+$ms4: $r*$ms3;
+$ms5: $r*$ms4;
+
+
 body {  
   background:$base;
   color:$type-color;
@@ -48,6 +60,13 @@ body {
   -ms-hyphens: auto;
   -o-hyphens: auto;
   hyphens: auto;
+}
+
+h1 {
+}
+
+h2 {
+  font-size:$ms2;
 }
 
 /************** TEMP (DEVSTYLES) **************/
@@ -120,12 +139,18 @@ div#wrapper {
 .top-bar {
   background-color:$navbar-color;
   color:$type-color;
+  font-size:$ms0 !important;
+  text-transform:none !important;
   
   @include t_style();
   
   .toggle-topbar a {
     color:$type-color;
-    
+    text-transform: none;
+    font-weight: normal;
+    font-size: 1rem;
+    border-left: 1px solid black;
+    padding-left: 1rem;
     
   }
   
@@ -203,22 +228,27 @@ div#wrapper {
 header#pagetitle {
   display:none;
   
-  height:5em;
+  @media screen and (min-width: $medium) {
+      display:block;
+      height:$ms5;
+    } 
   
-  text-align:center;
+  
+  
+  //text-align:center;
   
   h1 {
-    font-size:2rem;
-    height:5rem;
-    margin-top:4rem;
+    font-size:$ms2;
+    height:$ms5;
+    margin-top:$ms3;
     
     span#subtitle {
       display:none; //not on mobile
-      font-size:1rem;
+      font-size:$ms0;
       
       @media screen and (min-width: $medium) {
         display:block;
-        text-align:center;
+        //text-align:center;
       }
     }
   }
@@ -322,6 +352,15 @@ header#pagetitle {
 
 #list-box {
   //padding:$padsize;
+  padding-top:$ms2;
+  
+  h2 {
+    font-size:$ms1;
+  }
+  
+  h3 {
+    font-size:$ms2;
+  }
   
   ol {
     margin-left:0;
@@ -355,6 +394,72 @@ header#pagetitle {
     text-align:center;
   }
   
+}
+
+#search-box {
+  display:none;
+}
+
+#searchline {
+  display:none;
+  font-size:3em;
+  
+  select, input {
+    display:inline;
+    border:0;
+    border-bottom:1px dashed black;
+    color:$accent;
+    width: auto;
+    font-size: inherit;
+    line-height: inherit;
+    height: inherit;
+  }
+}
+
+#searchline2 {
+  
+  p {
+    font-size:$ms2;
+    line-height:$ms3;
+    margin:0;
+    padding:0;
+    
+    @media screen and (min-width: $medium) {
+      display:inline;
+      font-size:$ms3;
+    } 
+  }
+  
+  span {
+    color:$accent;
+    border-bottom:1px dashed black;
+  }
+  
+  .addp {
+    font-size:$ms0;
+    border:0;
+  }
+  
+  ul {
+    display:none;
+    font-size:$ms0;
+    
+    .one {
+      font-size:$ms1;
+    }
+    .two {
+      font-size:$ms2;
+    }
+    .three {
+      font-size:$ms3;
+    }
+    .four {
+      font-size:$ms4;
+    }
+    .five {
+      font-size:$ms5;
+    }
+  }
 }
 
 /************** SINGLE.PHP **************/
