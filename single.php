@@ -47,8 +47,31 @@ require_once 'header.php';
 			<p class="tagline"><?php echo $woman['tagline']; ?></p>
 		
 		</header>
+		<div class="non_priv_groups">
+			<?php
+				if ($woman['is_poc']) {
+					echo '<p class="is_poc"><strong><a href="search.php?is_poc=1">person of color</a></strong></p>';
+				}
+				
+				if ($woman['is_lgbt']) {
+					echo "<p><strong>LGBTQ</strong></p>";
+					//echo gender and sex.id
+				}
+				if ($woman['has_disability']) {
+					echo "<p><strong>woman with disability</strong></p>";
+					//echo dis
+				}
+			?>
+			<?php
+			
+				if ($woman['ethnicity']) {
+					echo '<p class="ethnicity"><strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a></p>';
+				}				 
+			?>	
+		</div>
 		
-		<div class="specs">
+		<div class="category_and_tags">
+			
 			<p class="category"><strong>category: </strong>
 			<?php
 				if ($woman['category']) {
@@ -57,29 +80,6 @@ require_once 'header.php';
 					echo "(none)";
 				}				 
 			?></p>
-			<p class="is_poc">
-			<?php
-				if ($woman['is_poc']) {
-					echo '<strong><a href="search.php?is_poc=1">person of color</a></strong>';
-				}				 
-			?>
-			</p>
-			<p class="ethnicity">
-			<?php
-			
-			//error.
-			
-				if ($woman['ethnicity']) {
-					echo '<strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a>';
-				}				 
-			?>	
-			</p>
-			<p class="orientation">
-				
-			</p>
-			<p
-			<p class="lgbt"><strong></strong>, <span class="gender_identity"></span></p>
-			<p class="has_disability"><strong></strong>, <span class="disability"></span></p>
 			<p class="tags"><strong>tags:</strong> 
 				<?php
 					foreach ($woman['tags'] as $tag_id=>$tag_title) {

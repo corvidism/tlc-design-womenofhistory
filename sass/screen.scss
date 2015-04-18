@@ -26,6 +26,11 @@ $accent-dark:shade($accent, 30%);
   border-bottom:1px solid black;
 }
 
+@mixin t_style_hover() {
+  background-color:$base;
+  color:$accent;
+}
+
 $padsize: 1.1rem;
 
 //query widths:
@@ -43,7 +48,7 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 //font-sizes
 
 $ms0: 1rem;
-$r: 1.5;
+$r: 1.2;
 
 $ms1: $r*$ms0;
 $ms2: $r*$ms1;
@@ -142,7 +147,7 @@ div#wrapper {
   font-size:$ms0 !important;
   text-transform:none !important;
   
-  @include t_style();
+  //@include t_style();
   
   .toggle-topbar a {
     color:$type-color;
@@ -179,12 +184,12 @@ div#wrapper {
     }
     
     a:hover:not(.button) {
-      background-color:$hover-navbar-color;
+      @include t_style_hover();
     }    
   }
   
   ul li:hover:not(.has-form) > a {    
-      background-color:$hover-navbar-color;
+      @include t_style_hover();
   }
   
   .dropdown {
@@ -199,17 +204,17 @@ div#wrapper {
     }
     
     li:hover:not(.has-form):not(.active) > a:not(.button) {
-      background-color:$hover-navbar-color;
+      @include t_style_hover();
     }
     
   }  
   
   li.active:not(.has-form) a:not(.button) {
-    background-color:$accent;
+    @include t_style_hover();
   }
   
   li.active:not(.has-form) a:hover:not(.button) {
-    background-color:$accent-dark;
+    @include t_style_hover();
   }
   
 }
@@ -230,7 +235,7 @@ header#pagetitle {
   
   @media screen and (min-width: $medium) {
       display:block;
-      height:$ms5;
+      height:5*$ms2;
     } 
   
   
@@ -428,6 +433,39 @@ header#pagetitle {
       display:inline;
       font-size:$ms3;
     } 
+  }
+  
+  select, textarea {
+    display:inline;
+    border:0;
+    border-bottom:1px dashed black;
+    color:$accent;
+    width: auto;
+    font-size: inherit;
+    line-height: inherit;
+    height: inherit;
+    background:transparent;
+    background-image:none;
+    box-shadow:none;    
+    padding:0;
+  }
+  
+  select {
+    -moz-appearance:none;
+  }
+  
+  textarea {
+    width:100%;
+    height:$ms3;
+    font-size:$ms2;
+    line-height:$ms3;
+    padding:0;
+    
+    @media screen and (min-width: $medium) {
+      display:inline;
+      font-size:$ms3;
+      height:$ms4;
+    }
   }
   
   span {

@@ -121,22 +121,85 @@ $women = $data_source->getAllWomen();
 		
 </section>
 	<form id="searchline">
-			Search where <select><option>this</option><option>that</option></select> is <input type="text">. <br>(add search parameter)
+			Search where  is <input type="text">. <br>(add search parameter)
+			
+			<p>Search where</p><p> 
+				<select>
+								<option value="any">her anything</option>
+								<option value="name">her name</option>
+								<option value="place_born">her place of birth</option>
+								<option value="place_died">her place of death</option>
+								<option value="date_born">her date of birth</option>
+								<option value="date_died">her date of death</option>
+								<option value="inventions">her inventions</option>
+								<option value="firsts">her firsts</option>
+								<option value="story">her story</option>
+								<option value="tags">her tags</option>
+								<option value="category">her category</option>
+								<option value="links">her links</option>
+								<option value="ethnicity">her ethnicity</option>
+							</select> contains&nbsp;</p>
+			<textarea class="field" placeholder="something"></textarea>
+				
+			<span class="addp">(add search parameter)</span>
 		</form>
 		
 		<form id="searchline2">
-			<p>Search where <span>something</span> is&nbsp;</p>
-			<p> <span>something</span>.</p>
-				
-			<span class="addp">(add search parameter)</span>
-			<ul>
-				<li>test 0</li>
-				<li class="one">test 1</li>
-				<li class="two">test 2</li>
-				<li class="three">test 3</li>
-				<li class="four">test 4</li>
-				<li class="five">test 5</li>
-			</ul>
+			
+			
+			
+			
+			<p>Search where </p>
+			<p><span>her anything</span> contains </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her name</span> contains </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her place of birth</span> contains </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her place of death</span> contains </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her date of birth</span> is <span>earlier than</span></p>
+			<p><span>1895/11/24 </p>
+			<p>and </p>
+			<p><span>her date of death</span> is <span>later than</span></p>
+			<p><span>1995/04/24 </p>
+			<p>and </p>
+			<p><span>her inventions</span> contain </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her firsts</span> contain </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her story</span> contains </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>she is tagged with</span> </p>
+			<p><span>string with autofill</span> </p>
+			<p>and </p>
+			<p><span>the category she is in</span> is </p>
+			<p>select </p>
+			<p>and </p>
+			<p><span>her links</span> contain </p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>she is</span> </p>
+			<p><span>a woman of color</span></p>
+			<p>and </p>
+			<p><span>her ethnicity</span> is</p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>she is</span> </p>
+			<p><span>LGBTQ</span></p>
+			<p>and </p>
+			<p><span>her sexual orientation</span> is</p>
+			<p><span>short to medium input string</span> </p>
+			<p>and </p>
+			<p><span>her* gender identity is</span></p>
+			<p><span>selector</span></p>
 		</form>
 	<div id="list-box">
 		<h2>Results</h2>
