@@ -50,10 +50,10 @@ require_once 'header.php';
 		<div class="non_priv_groups">
 			<?php
 				if ($woman['is_poc']) {
-					echo '<p class="is_poc"><strong><a href="search.php?is_poc=1">person of color</a></strong></p>';
+					echo '<p class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></p>';
 				}
 				
-				if ($woman['is_lgbt']) {
+				if ($woman['is_queer']) {
 					echo "<p><strong>LGBTQ</strong></p>";
 					//echo gender and sex.id
 				}

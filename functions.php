@@ -16,4 +16,16 @@ function get_image($path,$id) {
 	return $link_thumb;
 }
 
+function logme($message) {
+	if (is_array($message) || is_object($message)) {
+        error_log(print_r($message, true));
+    } else {
+        error_log($message);
+    }
+}
+
+function logmeline($message) {
+	
+}
+
 ?>

@@ -41,4 +41,33 @@ women in fiction - single.php
 
 
 
+-----
 
+
+priorities:
+search javascript
+columns search.php (~big screen)
+item search.php (what where - category, tags, links...)
+columns single.php
+header!
+
+
+
+fonts:
+
+Amaranth (only search, h1)
+Sawasdee (body, search would need larger)
+
+
+woman portrait: thin strip left of block
+add images to woman? (then embed into text) maybe have a waiting period (say "can't upload images unless member for longer than 1month")
+comments!!!!!! (where? how? who???)
+
+interractions:
+on hover append select box
+
+
+TODO:
+
+categories for search.php listing!!
+limit how many women are listed

@@ -12,11 +12,11 @@ $page = array(
 	'title'=> 'Search',
 );
 require_once 'header.php';
- 
+require_once 'functions.php';
 require_once 'DataSource.php';
 require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 	
-$dsn = "mysql:dbname=".DB_Name;
+$dsn = "mysql:dbname=".DB_Name.";host=".DB_Host;
 try {
    	$pdo = new PDO($dsn,DB_User,DB_Pass);
 } catch(PDOException $e) {
@@ -29,102 +29,12 @@ $women = $data_source->getAllWomen();
 
 <!-- TODO: add this with javascript - it won't run on anything that doesn't use JS anyway, and it takes space in HTML-only -->
 
-	<section role="search" id="search-box">
-		<h2>Search</h2>		
-		<form>
-			<ol>
-				<!--
-				<li class="row collapse search-row minimized" id="search-row-2">
-					<div class="small-12 medium columns">
-						<label>Search where...</label>
-						<p><em>anything</em> is <em>thing</em> <a href="">(change)</a></p>
-					</div>					
-				</li>
-				-->
-				<li class="row collapse search-row" id="search-row-2">
-					<div class="small-10 medium-4 columns">
-						<label class="explanatory">Search where...</label>
-							<select>
-								<option value="any">anything</option>
-								<option value="name">name</option>
-								<option value="place_born">place of birth</option>
-								<option value="place_died">place of death</option>
-								<option value="date_born">date of birth</option>
-								<option value="date_died">date of death</option>
-								<option value="inventions">inventions</option>
-								<option value="firsts">firsts</option>
-								<option value="story">story</option>
-								<option value="tags">tags</option>
-								<option value="category">category</option>
-								<option value="links">links</option>
-								<option value="ethnicity">ethnicity</option>
-							</select>
-						
-					</div>
-					<div class="small-2 medium-1 columns no-label-col">
-						<p class="mode-toggle centered">is</p>
-					</div>
-					<div class="small-12 medium-5 columns no-label-col">
-						<input type="text" placeholder="thing" />
-					</div>
-					<div class="small-12 medium-2 columns no-label-col">
-							<p class="logic-toggle centered"><a href="" class="selected">and</a>/<a href="">or</a></p>
-					</div>
-				</li>
-				<li class="row collapse search-row added-row" id="search-row-3">
-					
-					<div class="small-10 medium-4 columns">
-						<label class="explanatory">Search where...</label>
-							<select>
-								<option value="any">anything</option>
-								<option value="name">name</option>
-								<option value="place_born">place of birth</option>
-								<option value="place_died">place of death</option>
-								<option value="date_born">date of birth</option>
-								<option value="date_died">date of death</option>
-								<option value="inventions">inventions</option>
-								<option value="firsts">firsts</option>
-								<option value="story">story</option>
-								<option value="tags">tags</option>
-								<option value="category">category</option>
-								<option value="links">links</option>
-								<option value="ethnicity">ethnicity</option>
-							</select>
-						
-					</div>
-					<div class="small-2 medium-1 columns no-label-col">
-						<p class="mode-toggle centered">is</p>
-					</div>
-					<div class="small-12 medium-5 columns no-label-col">
-						<input type="text" placeholder="thing" />
-					</div>
-					<div class="small-12 medium-1 columns no-label-col">
-						<a class="button postfix" href="" id="search-btn">Search</a>
-					</div>
-					<div class="small-12 medium-1 columns no-label-col">
-						<a class="plus-query last button postfix" href="">+<span class="plus-query-text">&nbsp;add a parameter</span></a>					
-					</div>
-				</li>
-			</ol>
-			<div>
-				Sort by:<br><br>
-			</div>
-			<div>
-				add search to list:<br>
-				select all<br>
-				deselect all<br>
-				add selected to list:<br>
-				
-			</div>
-		</form>
-		
-		
-</section>
-	<form id="searchline">
-			Search where  is <input type="text">. <br>(add search parameter)
-			
-			<p>Search where</p><p> 
-				<select>
+	<section role="search" id="search-box" class="medium-5 large-4 columns">
+		<form id="searchform">
+			<label>Search where</label>
+			<div class="search-query" id="search-query-1">
+				<div class="select">
+				<select name="what">
 								<option value="any">her anything</option>
 								<option value="name">her name</option>
 								<option value="place_born">her place of birth</option>
@@ -138,71 +48,22 @@ $women = $data_source->getAllWomen();
 								<option value="category">her category</option>
 								<option value="links">her links</option>
 								<option value="ethnicity">her ethnicity</option>
-							</select> contains&nbsp;</p>
-			<textarea class="field" placeholder="something"></textarea>
-				
-			<span class="addp">(add search parameter)</span>
+			</select>
+			</div>
+			<div class="select">
+			<select>
+				<option value="contains">contains</option>
+				<option value="equals">equals</option>
+			</select>
+			</div>
+			<input type="text" name="anything" autocomplete="off" placeholder="short to medium input string">
+			</div>
+			<label>and... <a id="add-query" href="">(+)</a></label>
+			<div class="right"><a id="search-submit" href="">search</a></div>
+			
 		</form>
-		
-		<form id="searchline2">
-			
-			
-			
-			
-			<p>Search where </p>
-			<p><span>her anything</span> contains </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her name</span> contains </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her place of birth</span> contains </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her place of death</span> contains </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her date of birth</span> is <span>earlier than</span></p>
-			<p><span>1895/11/24 </p>
-			<p>and </p>
-			<p><span>her date of death</span> is <span>later than</span></p>
-			<p><span>1995/04/24 </p>
-			<p>and </p>
-			<p><span>her inventions</span> contain </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her firsts</span> contain </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her story</span> contains </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>she is tagged with</span> </p>
-			<p><span>string with autofill</span> </p>
-			<p>and </p>
-			<p><span>the category she is in</span> is </p>
-			<p>select </p>
-			<p>and </p>
-			<p><span>her links</span> contain </p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>she is</span> </p>
-			<p><span>a woman of color</span></p>
-			<p>and </p>
-			<p><span>her ethnicity</span> is</p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>she is</span> </p>
-			<p><span>LGBTQ</span></p>
-			<p>and </p>
-			<p><span>her sexual orientation</span> is</p>
-			<p><span>short to medium input string</span> </p>
-			<p>and </p>
-			<p><span>her* gender identity is</span></p>
-			<p><span>selector</span></p>
-		</form>
-	<div id="list-box">
-		<h2>Results</h2>
+	</section>		
+	<div id="list-box" class="medium-7 large-8 columns">
 		<ol>
 			<?php
 			
@@ -227,21 +88,52 @@ $women = $data_source->getAllWomen();
 			}
 			
 			
-			foreach($women as $index=>$item) {
-				error_log($item['id']);
+			foreach($women as $index=>$woman) {
+				//name
+				//
 			?>
-				<li class="woman" id="woman-<?php echo $item['id']; ?>">
-					<header>
-						<h3><a href="single.php?woman=<?php echo $item['id']; ?>"><?php echo $item['name']; ?></a></h3>
-						<span class="period" data-birth="<?php echo $item['date_born']; ?>" data-death="<?php echo $item['date_died']; ?>"><?php echo form_date($item['date_born'])." – ".form_date($item['date_died']); ?></span>	
+				<li class="woman row" id="woman-<?php echo $woman['id']; ?>">
+					<header class="small-12 columns">
+						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>	
 					</header>
-					<p class="tagline"><?php echo $item['tagline']; ?></p>
-					<footer>
-						<ul class="action-buttons" class="row collapse">
-							<li class="small-3 columns"><a href="#" class="select">select</a></li>
-							<li class="small-6 columns"><a href="#" class="add-to-list">add to list:</a></li>
-							<li class="small-3 columns"><a href="" class="more">(more)</a></li>
-						</ul>
+					<div class="woman-top medium-7 large-6 columns">
+						<!--<div class="portrait"><img src="women/images/000000005.jpg"></div>
+							
+						<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." – ".form_date($woman['date_died']); ?></span>
+							-->
+					
+					<p class="tagline"><?php echo $woman['tagline']; ?> <a href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
+					
+					</div>
+					<div class="specs small-12 medium-5 large-3 columns">
+						<ul>
+						<li><span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." – ".form_date($woman['date_died']); ?></span></li>
+						<li class="category"><a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a></li>
+						<?php
+							if ($woman['is_poc']) {
+								echo '<li class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></li>';
+							}
+							
+							if ($woman['is_queer']) {
+								echo '<li><strong><a href="search.php?is_queer=1">LGBTQ</a></strong></li>';
+								//echo gender and sex.id
+							}
+							if ($woman['has_disability']) {
+								echo '<li><strong><a href="search.php?has_disability=1">woman with disability</a></strong></li>';
+								//echo dis
+							}
+						?>						
+					</ul>
+					</div>
+					<div class="tags small-12 medium-6  large-3 columns">
+						<?php
+					foreach ($woman['tags'] as $tag_id=>$tag_title) {
+						$tag_ar[] = '<a href="search.php?tags='.$tag_id.'">'.$tag_title.'</a>';
+					};
+					echo implode(', ',$tag_ar); 
+				?>
+					</div>
+					<footer class="large-6 columns">						
 					</footer>
 				</li>
 			<?php	

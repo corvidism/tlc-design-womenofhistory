@@ -3,7 +3,7 @@
 class DataSource 
 {
 	private $data;
-	private $db_pdo;
+	private $db;
 	private $db_calls;
 	
 	public function __construct($pdo_connection) {
@@ -22,12 +22,50 @@ class DataSource
 	
 	public function getAllWomen() {
 		if (!isset($this->db_calls['women']) || !$this->db_calls['women'] instanceof PDOStatement) {
-			$this->db_calls['women'] = $this->db->query("SELECT * FROM `women`"); 
-			//TODO: load only necessary columns (e.g. not 'story' when on search.php);
-				
-		}		
-		$this->data['women'] = $this->db_calls['women']->FetchAll();
+			$columns_needed = array(
+				'id',
+				//'last_edited_at',
+				//'created_at',
+				//'last_edited_by',
+				//'created_by',
+				'name',
+				'category',
+				'date_born',
+				'date_died',
+				//'place_born',
+				//'place_died',
+				//'inventions',
+				//'firsts',
+				'tagline',
+				//'story',
+				'orientation',
+				'gender_identity',
+				'is_poc',
+				'is_queer',
+				'ethnicity',
+				'has_disability',
+				'disability',
+			);
+			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women`";
+			$this->db_calls['women'] = $this->db->query($query_str);
+		}
+		$women = $this->db_calls['women']->FetchAll();
 		
+		$cat_ids = array_column($women,'category');
+		$query_str = "SELECT * FROM `categories` WHERE id IN (".implode(",",$cat_ids).")"; 
+		$this->db_calls['cats_tmp']= $this->db->query($query_str);
+		$cat_result = $this->db_calls['cats_tmp']->FetchAll();
+		$categories = array();
+		foreach ($cat_result as $cat) {
+			$categories[$cat['id']] = $cat;
+		};
+		foreach($women as $id=>$woman) {
+			$women[$id]['category']= $categories[$woman['category']];
+		};
+		//logme('$women outside the loop: ');
+		//logme($women);
+		$this->data['women'] = $women; 
+		//logme($this->data['women']);
 		//future: this should return an array of Woman objects. 
 		//related to above: how to deal with incomplete records?
 		//should Woman do its own db queries? (probably not.) but what then?
