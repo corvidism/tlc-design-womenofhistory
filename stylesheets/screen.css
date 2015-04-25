@@ -88,134 +88,8 @@ div#wrapper ul.pagination li.current a {
   text-align: right;
 }
 
-/************** TOPBAR **************/
-/* line 159, ../sass/screen.scss */
-.top-bar {
-  background-color: white;
-  color: #333333;
-  font-size: 1rem !important;
-  text-transform: none !important;
-}
-/* line 167, ../sass/screen.scss */
-.top-bar .toggle-topbar a {
-  color: #333333;
-  text-transform: none;
-  font-weight: normal;
-  font-size: 1rem;
-  border-left: 1px solid cyan;
-  padding-left: 1rem;
-}
-
-/* line 179, ../sass/screen.scss */
-.top-bar.expanded .title-area {
-  background-color: white;
-  color: #333333;
-}
-
-/* line 190, ../sass/screen.scss */
-.top-bar-section ul li > a {
-  color: #333333;
-}
-/* line 195, ../sass/screen.scss */
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background-color: white;
-  background-color: white;
-  color: #333333;
-  border-bottom: 1px solid cyan;
-  line-height: 44px;
-}
-/* line 201, ../sass/screen.scss */
-.top-bar-section li:not(.has-form) a:hover:not(.button) {
-  background-color: white;
-  color: #7eb622;
-}
-/* line 206, ../sass/screen.scss */
-.top-bar-section ul li:hover:not(.has-form) > a {
-  background-color: white;
-  color: #7eb622;
-}
-/* line 212, ../sass/screen.scss */
-.top-bar-section .dropdown li a {
-  color: #333333;
-}
-/* line 216, ../sass/screen.scss */
-.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
-  background-color: white;
-  color: #333333;
-}
-/* line 221, ../sass/screen.scss */
-.top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
-  background-color: white;
-  color: #7eb622;
-}
-/* line 227, ../sass/screen.scss */
-.top-bar-section li.active:not(.has-form) a:not(.button) {
-  background-color: white;
-  color: #7eb622;
-}
-/* line 231, ../sass/screen.scss */
-.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
-  background-color: white;
-  color: #7eb622;
-}
-
-/* line 237, ../sass/screen.scss */
-#menutitle {
-  color: #7eb622;
-  border-bottom: 1px solid cyan;
-  height: 45px;
-  line-height: 42px;
-}
-
-/************** HEADING **************/
-/* line 251, ../sass/screen.scss */
-header#pagetitle {
-  display: none;
-}
-@media screen and (min-width: 40.063em) {
-  /* line 251, ../sass/screen.scss */
-  header#pagetitle {
-    height: 7.2rem;
-  }
-}
-/* line 262, ../sass/screen.scss */
-header#pagetitle h1 {
-  font-size: 1.44rem;
-  height: 2.48832rem;
-  margin-top: 1.728rem;
-}
-/* line 267, ../sass/screen.scss */
-header#pagetitle h1 span#subtitle {
-  display: none;
-  font-size: 1rem;
-}
-@media screen and (min-width: 40.063em) {
-  /* line 267, ../sass/screen.scss */
-  header#pagetitle h1 span#subtitle {
-    display: block;
-  }
-}
-
-/************** SEARCH.PHP **************/
-/* line 286, ../sass/screen.scss */
-#searchform {
-  font-size: 1.44rem;
-  line-height: 1.728rem;
-  margin: 0;
-  padding: 0;
-}
-/* line 293, ../sass/screen.scss */
-#searchform label, #searchform input {
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin: inherit;
-  padding: inherit;
-  width: 100%;
-  padding-left: 3px;
-}
-/* line 303, ../sass/screen.scss */
-#searchform select, #searchform textarea {
+/* line 158, ../sass/screen.scss */
+select {
   border: 0;
   color: #7eb622;
   font-size: inherit;
@@ -225,20 +99,22 @@ header#pagetitle h1 span#subtitle {
   background-image: none;
   box-shadow: none;
   padding: 0;
-}
-/* line 316, ../sass/screen.scss */
-#searchform select {
   -moz-appearance: none;
   margin-bottom: 0;
   width: 100%;
   z-index: 1;
 }
-/* line 322, ../sass/screen.scss */
-#searchform select option {
+/* line 174, ../sass/screen.scss */
+select option {
   color: #333333;
 }
-/* line 328, ../sass/screen.scss */
-#searchform .select:before {
+/* line 178, ../sass/screen.scss */
+select:hover {
+  background-color: transparent;
+}
+
+/* line 184, ../sass/screen.scss */
+.select:after {
   content: "⌄";
   display: inline-block;
   width: 1em;
@@ -246,7 +122,134 @@ header#pagetitle h1 span#subtitle {
   right: 1rem;
   z-index: -1;
 }
-/* line 338, ../sass/screen.scss */
+
+/************** TOPBAR **************/
+/* line 196, ../sass/screen.scss */
+.top-bar {
+  background-color: white;
+  color: #333333;
+  font-size: 1rem !important;
+  text-transform: none !important;
+}
+/* line 204, ../sass/screen.scss */
+.top-bar .toggle-topbar a {
+  color: #333333;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 1rem;
+  border-left: 1px solid cyan;
+  padding-left: 1rem;
+}
+
+/* line 216, ../sass/screen.scss */
+.top-bar.expanded .title-area {
+  background-color: white;
+  color: #333333;
+}
+
+/* line 227, ../sass/screen.scss */
+.top-bar-section ul li > a {
+  color: #333333;
+}
+/* line 232, ../sass/screen.scss */
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: white;
+  background-color: white;
+  color: #333333;
+  border-bottom: 1px solid cyan;
+  line-height: 44px;
+}
+/* line 238, ../sass/screen.scss */
+.top-bar-section li:not(.has-form) a:hover:not(.button) {
+  background-color: white;
+  color: #7eb622;
+}
+/* line 243, ../sass/screen.scss */
+.top-bar-section ul li:hover:not(.has-form) > a {
+  background-color: white;
+  color: #7eb622;
+}
+/* line 249, ../sass/screen.scss */
+.top-bar-section .dropdown li a {
+  color: #333333;
+}
+/* line 253, ../sass/screen.scss */
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+  background-color: white;
+  color: #333333;
+}
+/* line 258, ../sass/screen.scss */
+.top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
+  background-color: white;
+  color: #7eb622;
+}
+/* line 264, ../sass/screen.scss */
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: white;
+  color: #7eb622;
+}
+/* line 268, ../sass/screen.scss */
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+  background-color: white;
+  color: #7eb622;
+}
+
+/* line 274, ../sass/screen.scss */
+#menutitle {
+  color: #7eb622;
+  border-bottom: 1px solid cyan;
+  height: 45px;
+  line-height: 42px;
+}
+
+/************** HEADING **************/
+/* line 288, ../sass/screen.scss */
+header#pagetitle {
+  display: none;
+}
+@media screen and (min-width: 40.063em) {
+  /* line 288, ../sass/screen.scss */
+  header#pagetitle {
+    height: 7.2rem;
+  }
+}
+/* line 299, ../sass/screen.scss */
+header#pagetitle h1 {
+  font-size: 1.44rem;
+  height: 2.48832rem;
+  margin-top: 1.728rem;
+}
+/* line 304, ../sass/screen.scss */
+header#pagetitle h1 span#subtitle {
+  display: none;
+  font-size: 1rem;
+}
+@media screen and (min-width: 40.063em) {
+  /* line 304, ../sass/screen.scss */
+  header#pagetitle h1 span#subtitle {
+    display: block;
+  }
+}
+
+/************** SEARCH.PHP **************/
+/* line 323, ../sass/screen.scss */
+#searchform {
+  font-size: 1.44rem;
+  line-height: 1.728rem;
+  margin: 0;
+  padding: 0;
+}
+/* line 330, ../sass/screen.scss */
+#searchform label, #searchform input {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: inherit;
+  padding: inherit;
+  width: 100%;
+  padding-left: 3px;
+}
+/* line 340, ../sass/screen.scss */
 #searchform input[type="text"] {
   border: none;
   color: #7eb622;
@@ -254,11 +257,11 @@ header#pagetitle h1 span#subtitle {
   box-shadow: none;
   transition: none;
 }
-/* line 352, ../sass/screen.scss */
+/* line 354, ../sass/screen.scss */
 #searchform input[type="text"]:focus {
   box-shadow: none;
 }
-/* line 356, ../sass/screen.scss */
+/* line 358, ../sass/screen.scss */
 #searchform textarea {
   width: 100%;
   height: 1.728rem;
@@ -267,19 +270,19 @@ header#pagetitle h1 span#subtitle {
   padding: 0;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 356, ../sass/screen.scss */
+  /* line 358, ../sass/screen.scss */
   #searchform textarea {
     font-size: 1.728rem;
     height: 2.0736rem;
   }
 }
-/* line 369, ../sass/screen.scss */
+/* line 371, ../sass/screen.scss */
 #searchform #add-query {
   font-size: 1rem;
   line-height: 1.5em;
   vertical-align: top;
 }
-/* line 375, ../sass/screen.scss */
+/* line 377, ../sass/screen.scss */
 #searchform #search-submit {
   margin-top: 1rem;
   display: block;
@@ -287,12 +290,12 @@ header#pagetitle h1 span#subtitle {
   border-top: 1px solid cyan;
 }
 
-/* line 385, ../sass/screen.scss */
+/* line 387, ../sass/screen.scss */
 #list-box {
   padding-top: 1.44rem;
   border-left: 1px solid cyan;
 }
-/* line 389, ../sass/screen.scss */
+/* line 391, ../sass/screen.scss */
 #list-box div.portrait {
   float: left;
   height: 4rem;
@@ -300,115 +303,175 @@ header#pagetitle h1 span#subtitle {
   text-align: center;
   overflow: hidden;
 }
-/* line 396, ../sass/screen.scss */
+/* line 398, ../sass/screen.scss */
 #list-box div.portrait img {
   position: relative;
   left: 50%;
 }
-/* line 402, ../sass/screen.scss */
+/* line 404, ../sass/screen.scss */
 #list-box h2 {
   font-size: 1.2rem;
 }
-/* line 406, ../sass/screen.scss */
+/* line 408, ../sass/screen.scss */
 #list-box h3 {
   font-size: 1.44rem;
 }
-/* line 410, ../sass/screen.scss */
+/* line 412, ../sass/screen.scss */
 #list-box ol {
   margin-left: 0;
   margin-bottom: 2.2rem;
   list-style: none;
 }
-/* line 416, ../sass/screen.scss */
+/* line 418, ../sass/screen.scss */
 #list-box ol li.woman {
-  margin-top: 1.1rem;
-}
-/* line 420, ../sass/screen.scss */
-#list-box ol li.woman.selected {
-  background-color: rgba(0, 255, 255, 0.2);
-  border: 1px solid cyan;
+  margin-bottom: 2.2rem;
+  border: 1px solid transparent;
   border-width: 1px 0;
 }
-/* line 426, ../sass/screen.scss */
+/* line 424, ../sass/screen.scss */
+#list-box ol li.woman.selected, #list-box ol li.woman:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  border-color: cyan;
+}
+/* line 429, ../sass/screen.scss */
 #list-box ol li.woman .specs ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+/* line 435, ../sass/screen.scss */
+#list-box ol li.woman .tags {
+  display: none;
+}
 @media screen and (min-width: 64.063em) {
-  /* line 432, ../sass/screen.scss */
+  /* line 435, ../sass/screen.scss */
   #list-box ol li.woman .tags {
-    display: none;
+    display: block;
   }
 }
-/* line 443, ../sass/screen.scss */
+/* line 445, ../sass/screen.scss */
 #list-box ul.action-buttons {
   list-style: none;
   margin-left: 0;
 }
-/* line 449, ../sass/screen.scss */
+/* line 451, ../sass/screen.scss */
 #list-box ul.action-buttons li {
   border: 1px solid #ddd;
   text-align: center;
 }
-/* line 455, ../sass/screen.scss */
+/* line 457, ../sass/screen.scss */
 #list-box ul.action-buttons li:nth-child(2) {
   text-align: left;
   padding-left: 1em;
 }
-/* line 461, ../sass/screen.scss */
+/* line 463, ../sass/screen.scss */
 #list-box .pagination {
   text-align: center;
 }
 
-/************** SINGLE.PHP **************/
+/* line 469, ../sass/screen.scss */
+#list-sort-controls {
+  margin-bottom: 1.1rem;
+}
+
 /* line 473, ../sass/screen.scss */
+#list-actions {
+  display: none;
+}
+/* line 476, ../sass/screen.scss */
+#list-actions ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 480, ../sass/screen.scss */
+#list-actions ul li {
+  display: inline;
+}
+
+/* line 486, ../sass/screen.scss */
+#sort-actions {
+  text-align: right;
+  padding-right: 0;
+}
+/* line 490, ../sass/screen.scss */
+#sort-actions label {
+  display: inline;
+  font-size: inherit;
+}
+/* line 495, ../sass/screen.scss */
+#sort-actions select {
+  display: inline-block;
+  width: auto;
+}
+/* line 500, ../sass/screen.scss */
+#sort-actions .select {
+  display: inline-block;
+}
+/* line 502, ../sass/screen.scss */
+#sort-actions .select.sort {
+  display: none;
+}
+/* line 506, ../sass/screen.scss */
+#sort-actions .select.active {
+  display: inline;
+}
+/* line 510, ../sass/screen.scss */
+#sort-actions .select:after {
+  display: none;
+  position: relative;
+  left: 0em;
+  line-height: 0.1em;
+  bottom: 0.2em;
+}
+
+/************** SINGLE.PHP **************/
+/* line 529, ../sass/screen.scss */
 article.woman div.portrait-img {
   height: 8em;
   overflow: hidden;
 }
-/* line 478, ../sass/screen.scss */
+/* line 534, ../sass/screen.scss */
 article.woman div.portrait-img img {
   width: 100%;
   position: relative;
   top: -50%;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 473, ../sass/screen.scss */
+  /* line 529, ../sass/screen.scss */
   article.woman div.portrait-img {
     height: auto;
   }
 }
-/* line 489, ../sass/screen.scss */
+/* line 545, ../sass/screen.scss */
 article.woman .inner {
   padding: 1.1rem;
 }
-/* line 492, ../sass/screen.scss */
+/* line 548, ../sass/screen.scss */
 article.woman .inner .tagline {
   border-bottom: 1px solid #bbbbbb;
   padding-bottom: 1em;
 }
-/* line 501, ../sass/screen.scss */
+/* line 557, ../sass/screen.scss */
 article.woman .inner header, article.woman .inner > div, article.woman .inner footer {
   padding: 1.1rem;
 }
-/* line 506, ../sass/screen.scss */
+/* line 562, ../sass/screen.scss */
 article.woman .inner .links ul, article.woman .inner .lists ul, article.woman .inner .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 513, ../sass/screen.scss */
+/* line 569, ../sass/screen.scss */
 article.woman .inner .lists img.thumb {
   width: 100%;
 }
-/* line 518, ../sass/screen.scss */
+/* line 574, ../sass/screen.scss */
 article.woman .inner footer p {
   border-top: 1px solid #bbbbbb;
   padding-top: 1em;
 }
 
 /************** FOOTER **************/
-/* line 528, ../sass/screen.scss */
+/* line 584, ../sass/screen.scss */
 footer#pagefooter {
   height: 10em;
 }

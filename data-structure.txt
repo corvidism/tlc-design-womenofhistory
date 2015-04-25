@@ -79,6 +79,7 @@ women
 	has_disability (tinyint) -- bool
 	disability (text)
 	ethnicity (text)
+	tags (text)
 	
 	
 ---------------------------

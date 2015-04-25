@@ -10,19 +10,14 @@
 //header settings:
 $page = array(
 	'title'=> 'Search',
+	'id' => 'search',
 );
 require_once 'header.php';
 require_once 'functions.php';
 require_once 'DataSource.php';
 require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 	
-$dsn = "mysql:dbname=".DB_Name.";host=".DB_Host;
-try {
-   	$pdo = new PDO($dsn,DB_User,DB_Pass);
-} catch(PDOException $e) {
-    die('Could not connect to the database:<br/>' . $e);
-}
-$data_source = new DataSource($pdo); 
+$data_source = new DataSource(); 
 $women = $data_source->getAllWomen();
 
 ?>
@@ -51,19 +46,57 @@ $women = $data_source->getAllWomen();
 			</select>
 			</div>
 			<div class="select">
-			<select>
-				<option value="contains">contains</option>
-				<option value="equals">equals</option>
+			<select name="strict">
+				<option value="no">contains</option>
+				<option value="yes">equals</option>
 			</select>
 			</div>
-			<input type="text" name="anything" autocomplete="off" placeholder="short to medium input string">
+			<input type="text" name="any" autocomplete="off" placeholder="short to medium input string">
 			</div>
-			<label>and... <a id="add-query" href="">(+)</a></label>
+			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
 			<div class="right"><a id="search-submit" href="">search</a></div>
 			
 		</form>
 	</section>		
 	<div id="list-box" class="medium-7 large-8 columns">
+		<div id="list-sort-controls" class="row">
+			<div id="list-actions" class="small-12 medium-6 columns">
+				<ul>
+					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
+					<li><a href=""id="select-none">select none</a>&nbsp;–&nbsp;</li>
+					<li><a href="" id="add-to-list">add to list</a></li>
+				</ul>
+			</div>
+			<div id="sort-actions" class="small-12 medium-6 columns">
+				<label>order by:</label>
+				<div class="select">
+					<select name="order-by">
+					<option value="added">date added</option>
+					<option value="alphabet">name</option>
+					<!--<option value="alphabet">last name</option>-->
+					<option value="period">time period</option>
+					</select> 
+				</div>&nbsp;–&nbsp;
+				<div class="select sort active">
+				<select name="sort-added">
+					<option value="desc">last to first</option>
+					<option value="asc">first to last</option>
+				</select>
+				</div>
+				<div class="select sort">
+				<select name="sort-alphabet">
+					<option value="asc">A to Z</option>
+					<option value="desc">Z to A</option>
+				</select>
+				</div>
+				<div class="select sort">
+				<select name="sort-period">
+					<option value="desc">youngest to oldest</option>
+					<option value="asc">oldest to youngest</option>	
+				</select>
+				</div>
+			</div>
+		</div>
 		<ol>
 			<?php
 			
@@ -90,11 +123,10 @@ $women = $data_source->getAllWomen();
 			
 			foreach($women as $index=>$woman) {
 				//name
-				//
 			?>
 				<li class="woman row" id="woman-<?php echo $woman['id']; ?>">
 					<header class="small-12 columns">
-						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>	
+						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
 					</header>
 					<div class="woman-top medium-7 large-6 columns">
 						<!--<div class="portrait"><img src="women/images/000000005.jpg"></div>
@@ -125,12 +157,14 @@ $women = $data_source->getAllWomen();
 						?>						
 					</ul>
 					</div>
-					<div class="tags small-12 medium-6  large-3 columns">
+					<div class="tags small-12 medium-6 large-3 columns">
 						<?php
-					foreach ($woman['tags'] as $tag_id=>$tag_title) {
-						$tag_ar[] = '<a href="search.php?tags='.$tag_id.'">'.$tag_title.'</a>';
-					};
-					echo implode(', ',$tag_ar); 
+						$tags = explode(",",$woman['tags']);
+						$taglinks = array();
+						foreach($tags as $tag) {
+							$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+						}
+						echo implode(", ",$taglinks);
 				?>
 					</div>
 					<footer class="large-6 columns">						

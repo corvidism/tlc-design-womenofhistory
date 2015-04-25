@@ -1,17 +1,25 @@
 <?php
 
+require 'sensitive.php';
+
 class DataSource 
 {
 	private $data;
 	private $db;
 	private $db_calls;
 	
-	public function __construct($pdo_connection) {
+	public function __construct() {
 		$this->data = Array();
 		$this->db_calls = Array();
-		$this->db = $pdo_connection;
-		//establish a db connection
-		//load data
+		
+		
+		$dsn = "mysql:dbname=".DB_Name.";host=".DB_Host;
+		try {
+		   	$pdo = new PDO($dsn,DB_User,DB_Pass);
+		} catch(PDOException $e) {
+		    die('Could not connect to the database:<br/>' . $e);
+		}		
+		$this->db = $pdo;
 	}
 	
 	private function setupCall($title,$query) {
@@ -45,6 +53,7 @@ class DataSource
 				'ethnicity',
 				'has_disability',
 				'disability',
+				'tags',
 			);
 			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women`";
 			$this->db_calls['women'] = $this->db->query($query_str);
@@ -61,6 +70,7 @@ class DataSource
 		};
 		foreach($women as $id=>$woman) {
 			$women[$id]['category']= $categories[$woman['category']];
+			
 		};
 		//logme('$women outside the loop: ');
 		//logme($women);
@@ -97,11 +107,11 @@ class DataSource
 		$woman = $this->db_calls['single']->Fetch();
 		$woman['category']=$this->getCategoryById($woman['category']); //is it okay to overwrite like this?
 		
-		$this->setupCall('tags',"SELECT tags.id,tags.title FROM tags, tag_woman WHERE (tag_woman.her_id=? and tags.id=tag_woman.tag_id)");
-		$this->db_calls['tags']->bindValue(1,$woman['id']);
-		$this->db_calls['tags']->execute();
-		$tags = $this->db_calls['tags']->FetchAll();
-		$woman['tags'] = array_column($tags, 'title', 'id');
+		//$this->setupCall('tags',"SELECT tags.id,tags.title FROM tags, tag_woman WHERE (tag_woman.her_id=? and tags.id=tag_woman.tag_id)");
+		//$this->db_calls['tags']->bindValue(1,$woman['id']);
+		//$this->db_calls['tags']->execute();
+		//$tags = $this->db_calls['tags']->FetchAll();
+		//$woman['tags'] = array_column($tags, 'title', 'id');
 		//get awards
 		
 		return $woman;		

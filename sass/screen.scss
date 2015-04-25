@@ -154,6 +154,43 @@ div#wrapper {
   text-align:right;
 }
 
+
+select {
+  border:0;
+  //border-bottom:1px dotted black;
+  color:$accent;
+  font-size: inherit;
+  line-height: inherit;
+  height: inherit;
+  background:transparent;
+  background-image:none;
+  box-shadow:none;    
+  padding:0;
+  -moz-appearance:none;
+  margin-bottom:0;
+  width:100%;
+  z-index:1;
+  
+  option {
+    color:$type_color;
+  }  
+  
+  &:hover {
+    background-color:transparent;
+  }  
+}
+
+.select {
+  &:after {
+    content:"⌄";
+    display:inline-block;
+    width:1em;
+    position: absolute;
+    right: 1rem;
+    z-index:-1;
+  }
+}
+
 /************** TOPBAR **************/
 
 .top-bar {
@@ -300,41 +337,6 @@ header#pagetitle {
     padding-left:3px;
   }
   
-  select, textarea {
-    border:0;
-    //border-bottom:1px dotted black;
-    color:$accent;
-    font-size: inherit;
-    line-height: inherit;
-    height: inherit;
-    background:transparent;
-    background-image:none;
-    box-shadow:none;    
-    padding:0;
-  }
-  
-  select {
-    -moz-appearance:none;
-    margin-bottom:0;
-    width:100%;
-    z-index:1;
-    
-    option {
-      color:$type_color;
-    }    
-  }
-  
-  .select {
-    &:before {
-      content:"⌄";
-      display:inline-block;
-      width:1em;
-      position: absolute;
-      right: 1rem;
-      z-index:-1;
-    }
-  }
-  
   input[type="text"] {
     border:none;
     //border-bottom:1px dotted black;
@@ -414,13 +416,14 @@ header#pagetitle {
     
     
   li.woman {
-      margin-top:$padsize;
+      margin-bottom:2*$padsize;
       //padding:0 $padsize;
+      border:1px solid transparent;
+      border-width:1px 0;
       
-      &.selected {
+      &.selected, &:hover {
         background-color:rgba($secondary, 0.2);
-        border:1px solid $secondary;
-        border-width:1px 0;        
+        border-color:$secondary;   
       }
       
       .specs ul {
@@ -430,14 +433,13 @@ header#pagetitle {
       }
       
       .tags {
+        display:none;
+        
         @media screen and (min-width: $large) {
-          display:none;
+          display:block;
         } 
       }
-    }
-    
-    
-    
+    } 
   }
   
   ul.action-buttons {
@@ -463,6 +465,60 @@ header#pagetitle {
   }
   
 }
+
+#list-sort-controls {
+    margin-bottom:$padsize;
+}
+
+#list-actions {
+  display:none;
+  
+  ul {
+    margin:0;
+    padding:0;
+    
+    li {        
+      display:inline;
+    }
+  }
+}
+
+#sort-actions {
+  text-align:right;
+  padding-right:0;
+  
+  label {
+    display:inline;
+    font-size:inherit;
+  }
+  
+  select {
+    display:inline-block;
+    width:auto;
+  }
+  
+  .select {
+    display:inline-block;
+    &.sort {
+    display:none;
+    }
+    
+    &.active {
+      display:inline;
+    }
+    
+    &:after {
+      display:none;
+     position: relative;
+     left: 0em;
+     line-height: 0.1em;
+     bottom: 0.2em;
+    }
+  
+  }
+}
+  
+  
 
 
 /************** SINGLE.PHP **************/

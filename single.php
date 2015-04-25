@@ -12,13 +12,8 @@ require_once 'sensitive.php'; //this goes from the folder this is run from, not 
 require_once 'functions.php';
 
 	
-$dsn = "mysql:dbname=".DB_Name;
-try {
-   	$pdo = new PDO($dsn,DB_User,DB_Pass);
-} catch(PDOException $e) {
-    die('Could not connect to the database:<br/>' . $e);
-}
-$data_source = new DataSource($pdo); 
+
+$data_source = new DataSource(); 
 $id = $_GET['woman'];
 $woman = $data_source->getWomanBy('id',$id);
 //this should probably return an object Woman() with methods to echo values...
