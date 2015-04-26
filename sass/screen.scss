@@ -53,13 +53,15 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 //font-sizes
 
 $ms0: 1rem;
-$r: 1.2;
+$r: 1.5;
 
 $ms1: $r*$ms0;
 $ms2: $r*$ms1;
 $ms3: $r*$ms2;
 $ms4: $r*$ms3;
 $ms5: $r*$ms4;
+
+$line_r:1.2;
 
 
 body {  
@@ -73,10 +75,20 @@ body {
 }
 
 h1 {
+  font-size:$ms3;
 }
 
 h2 {
   font-size:$ms2;
+}
+
+h3 {
+  font-size:$ms1;
+}
+
+h4 {
+  font-size:$ms0;
+  font-weight:bold;
 }
 
 /************** TEMP (DEVSTYLES) **************/
@@ -322,8 +334,8 @@ header#pagetitle {
 
 #searchform {
   //color:$accent;
-  font-size:$ms2;
-  line-height:$ms3;
+  font-size:$ms1;
+  line-height:1.2;
   margin:0;
   padding:0;
   
@@ -333,7 +345,6 @@ header#pagetitle {
     line-height:inherit;
     margin:inherit;
     padding:inherit;
-    width:100%;
     padding-left:3px;
   }
   
@@ -354,20 +365,7 @@ header#pagetitle {
   input[type="text"]:focus {
     box-shadow:none;
   }
-  
-  textarea {
-    width:100%;
-    height:$ms3;
-    font-size:$ms2;
-    line-height:$ms3;
-    padding:0;
-    
-    @media screen and (min-width: $medium) {
-     font-size:$ms3;
-      height:$ms4;
-    }
-  }
-  
+ 
   #add-query {
     font-size:1rem;
     line-height:1.5em;
@@ -382,6 +380,53 @@ header#pagetitle {
     
   }
   
+  .logic {
+    color:$grey;
+    em {
+      font-style:normal;
+      color:$type_color;
+    }
+  }
+  
+}
+
+#nonpriv-groups {
+  margin-top:$padsize*2;
+  margin-bottom:$padsize;
+  font-size:$ms0;
+  line-height:1.5;
+  
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    font:inherit;
+    
+     li {
+      font:inherit;
+      color:inherit;
+      position:relative;
+      
+      label {
+        color:$accent;
+      }
+    }    
+  }
+  
+  label {
+    display:inline-block;
+    width: 100%;
+    margin:0;
+    
+    &:focus {
+      
+    }
+  }
+  
+  input[type="checkbox"] {
+    position:absolute;
+    right:0;
+  }
 }
 
 #list-box {
@@ -399,14 +444,6 @@ header#pagetitle {
       position:relative;
       left:50%;
     }
-  }
-  
-  h2 {
-    font-size:$ms1;
-  }
-  
-  h3 {
-    font-size:$ms2;
   }
   
   ol {
@@ -525,14 +562,17 @@ header#pagetitle {
 
 article.woman {
   //padding:$padsize;
+  //width:auto;
   
   div.portrait-img {
     //width:100%;
     height:8em;
     overflow:hidden;
+    padding:0;
+    margin:0;
     
     img {
-      width:100%;
+      //width:100%;
       position:relative;
       top:-50%;
     }
@@ -543,37 +583,47 @@ article.woman {
   }
   
   .inner {
-    padding:$padsize;
+    padding:0;
     
-    .tagline {
-      border-bottom:1px solid $grey;
-      padding-bottom:1em;
-    }
-    
-    .story {
-      
-    }
-    
-    header, > div, footer {
-      padding:$padsize;
-    }
-    
-    .links, .lists, .successes {
-      ul {
-        list-style:none;
-        margin-left:0;      
-      }
-    }
-    
-    .lists {
-      img.thumb {
-        width:100%;
-      }
+    & > div {
+      //padding-left:$padsize;
+      //padding-right:$padsize;
     }
     
     footer p {
       border-top:1px solid $grey;
       padding-top:1em;
+    }
+  }
+  .tagline {
+    border-bottom:1px solid $grey;
+    padding-bottom:1em;
+  }
+  
+  .story {
+    
+  }
+  
+  .links, .lists, .successes {
+    ul {
+      list-style:none;
+      margin-left:0;      
+    }
+  }
+  
+  .lists {
+    
+    .thumb-wrap {
+      width:150px;
+    }
+    img.thumb {
+      width:100%;
+    }
+  }
+    
+  .links {
+    img {
+      display:inline;
     }
   }
 }

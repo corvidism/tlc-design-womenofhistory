@@ -18,11 +18,50 @@ require_once 'DataSource.php';
 require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 	
 $data_source = new DataSource(); 
+
+
+/*
+ * query:
+ * any=%S
+ * name=%S
+ * place_born=%S
+ * place_died=%S
+ * date_born
+ * date_died
+ * inventions=%S
+ * firsts=%S
+ * story=%S
+ * tags=%S,%S
+ * category=%S
+ * links=%S
+ * ethnicity=%S
+ * is_poc=%B
+ * has_disability=%B
+ * is_queer=%B
+ * 
+ * glue char=","
+ * equals: "this is string" --> any=this%20is%20string
+ * contains: "this is string" --> any=this,is,string
+ * 
+ * and: --> "this is "
+ * 
+ * 
+ * orderby=%S
+ * sort=%S
+*/
+
+/* what to do:
+ * get query
+ * (format query?)
+ * pass the query to DataSource
+ * get only selected women  
+ */
+
+
+
 $women = $data_source->getAllWomen();
 
 ?>
-
-<!-- TODO: add this with javascript - it won't run on anything that doesn't use JS anyway, and it takes space in HTML-only -->
 
 	<section role="search" id="search-box" class="medium-5 large-4 columns">
 		<form id="searchform">
@@ -48,18 +87,31 @@ $women = $data_source->getAllWomen();
 			<div class="select">
 			<select name="strict">
 				<option value="no">contains</option>
+				<option value="yes">contains precisely</option>
 				<option value="yes">equals</option>
 			</select>
 			</div>
 			<input type="text" name="any" autocomplete="off" placeholder="short to medium input string">
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
+			<div id="nonpriv-groups">
+				<label>Show only</label>
+				<ul>
+					<li><label for="is_poc">women of color</label><input name="nonpriv_groups[]" value="is_poc" id="is_poc" type="checkbox"/></li>
+					<li><label for="has_disability">women with disability</label><input name="nonpriv_groups[]" value="has_disability" id="has_disability" type="checkbox"/></li>
+					<li><label for="is_queer">LGBTQ women</label><input name="nonpriv_groups[]" value="is_queer" id="is_queer" type="checkbox"/></li>
+				</ul>
+			</div>
 			<div class="right"><a id="search-submit" href="">search</a></div>
 			
 		</form>
 	</section>		
 	<div id="list-box" class="medium-7 large-8 columns">
 		<div id="list-sort-controls" class="row">
+			<!--
+				sort-actions first in small
+				sort-actions padding in medium and smaller 
+			-->
 			<div id="list-actions" class="small-12 medium-6 columns">
 				<ul>
 					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
@@ -159,13 +211,13 @@ $women = $data_source->getAllWomen();
 					</div>
 					<div class="tags small-12 medium-6 large-3 columns">
 						<?php
-						$tags = explode(",",$woman['tags']);
-						$taglinks = array();
-						foreach($tags as $tag) {
-							$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
-						}
-						echo implode(", ",$taglinks);
-				?>
+							$tags = explode(",",$woman['tags']);
+							$taglinks = array();
+							foreach($tags as $tag) {
+								$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+							}
+							echo implode(", ",$taglinks);
+						?>
 					</div>
 					<footer class="large-6 columns">						
 					</footer>

@@ -118,7 +118,7 @@ class DataSource
 	}
 	
 	public function getLinksByWoman($her_id) {
-		if (is_nan($id)) return false;
+		if (is_nan($her_id)) return false;
 		$this->setupCall('links',"SELECT id, title,url,description, is_authored FROM links WHERE (her_id=?)");
 		$this->db_calls['links']->bindValue(1,$her_id);
 		$this->db_calls['links']->execute();
@@ -127,7 +127,7 @@ class DataSource
 	}
 
 	public function getPublicListsByWoman($her_id) {
-		if (is_nan($id)) return false;
+		if (is_nan($her_id)) return false;
 		$this->setupCall('lists',"SELECT lists.id, lists.title,lists.created_by,lists.description FROM lists, list_woman WHERE (list_woman.her_id=? and lists.id=list_woman.list_id and lists.private=0)");
 		$this->db_calls['lists']->bindValue(1,$her_id);
 		$this->db_calls['lists']->execute();
