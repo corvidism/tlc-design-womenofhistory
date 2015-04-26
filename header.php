@@ -54,9 +54,3 @@ require_once 'site_settings.php';
 		</nav>
 		
 <div id="wrapper" class="row">
-	<header id="pagetitle" class="collumn small-12 centered">
-		<h1>
-			<span id="subtitle">The Lucy Collective: </span>
-			Women of History
-		</h1>
-	</header>
