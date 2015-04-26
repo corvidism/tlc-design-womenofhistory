@@ -169,7 +169,7 @@ $women = $data_source->getAllWomen();
 					</div>
 					<div class="specs small-12 medium-5 large-3 columns">
 						<ul>
-						<li><span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." – ".form_date($woman['date_died']); ?></span></li>
+						<li><span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." –&nbsp;".form_date($woman['date_died']); ?></span></li>
 						<li class="category"><a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a></li>
 						<?php
 							if ($woman['is_poc']) {

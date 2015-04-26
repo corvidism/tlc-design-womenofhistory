@@ -581,9 +581,16 @@ article.woman {
       height:auto;
     }  
   }
+  h2.name {
+    color:$accent;
+  }
+  
+  .tagline {
+    font-size:$ms1;
+    line-height:1.2;
+  }
   
   .inner {
-    padding:0;
     
     & > div {
       //padding-left:$padsize;
@@ -601,7 +608,7 @@ article.woman {
   }
   
   .story {
-    
+    margin-top:$padsize*2;
   }
   
   .links, .lists, .successes {
@@ -613,11 +620,18 @@ article.woman {
   
   .lists {
     
+    li {
+      clear:both;
+    }
+    
     .thumb-wrap {
-      width:150px;
+      //width:100px;
+      //float:left;
+      //margin-right:$padsize;
+      //margin-bottom:$padsize;
     }
     img.thumb {
-      width:100%;
+      width:150px;
     }
   }
     
@@ -625,6 +639,11 @@ article.woman {
     img {
       display:inline;
     }
+  }
+  
+  footer {
+    clear:both;
+    margin-top:$padsize;
   }
 }
 

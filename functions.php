@@ -28,22 +28,34 @@ function logmeline($message) {
 	
 }
 			
-function form_date($date) {
+function form_date($date,$long=false) {
 	//stupid formatting shiv. should be done somewhere else, not sure where tho. On db load?
 	
-	$date_array = explode("/", $date);
 	
-	//see if the format is "*/00/00" - if so, strip the last part, it's just a year.
-	//if not, turn this into a proper PHP date, then use PHP formatting to spit it out properly
-	
-	$year = $date_array[0];
-	if (isset($year[0]) && $year[0] == "-") {
-		return substr($year,1,strlen($year))."BCE";
+	$date_format = "Y/m/d";
+	$slashed = strpos($date,"/");
+	if ($slashed === false) {
+		//no date
+		return false;
 	} else {
-		return $year."CE";
+		$date_array = explode("/", $date);
+		if ($date_array[1]=='00') {
+			$year = $date_array[0];
+			if (isset($year[0]) && $year[0] == "-") {
+				return substr($year,1,strlen($year))."BCE";
+			} else {
+				return $year."CE";
+			}
+		} else {
+			$datetime = date_create_from_format($date_format, $date);
+			if ($long) {
+				$datestr = date_format($datetime, "jS F Y");
+			} else {
+				$datestr = date_format($datetime,"Y");
+			}			
+			return $datestr;
+		}
 	}
-	
-	//don't echo empty year - if the second date is empty, echo only the first one
 }
 
 

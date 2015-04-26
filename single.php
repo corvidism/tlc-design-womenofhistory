@@ -26,83 +26,75 @@ $page = array(
 );
 
 require_once 'header.php';
+
 ?>
 <article class="woman small-12 columns">
 	<div class="row">
 		
 	
-	<!--
-	<div class="portrait-img small-12 columns">
+	<div class="portrait-img small-12 large-4 columns">
 		<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
 	</div>
-	-->
 	
-		<div class="inner small-12 columns">
-			<div>
-				<h2><?php echo $woman['name']?></h2>
-				<!--
-				<p class="dates">
-					<span class="born"></span><span class="died"></span>
-				</p>
-				-->
-				<p class="tagline"><?php echo $woman['tagline']; ?></p>
+	<header class="small-12 large-5 columns">
+		<h2 class="name"><?php echo $woman['name']?></h2>
+		<p class="tagline"><?php echo $woman['tagline']; ?></p>
+	</header>
+	<div class="specs large-3 columns">
+		<?php
+			$non_priv_groups = "";
+			if ($woman['is_poc']) {
+				$non_priv_groups.= '<p class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></p>';
+			}
 			
-			</div>
+			if ($woman['is_queer']) {
+				$non_priv_groups.= "<p><strong>LGBTQ</strong></p>";
+				
+			}
+			if ($woman['has_disability']) {
+				$non_priv_groups.= "<p><strong>woman with disability</strong></p>";
+			}
+			
+			if ($woman['ethnicity']) {
+				$non_priv_groups.= '<p class="ethnicity"><strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a></p>';
+			}
+			
+			if (!$non_priv_groups == "") {
+				echo '
+				<div class="non_priv_groups">
+				'.$non_priv_groups.'
+				</div>
+				';
+			}
+		?>
+		<div class="category_and_tags">
+			<p class="category"><strong>category: </strong>
 			<?php
-				$non_priv_groups = "";
-				if ($woman['is_poc']) {
-					$non_priv_groups.= '<p class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></p>';
-				}
-				
-				if ($woman['is_queer']) {
-					$non_priv_groups.= "<p><strong>LGBTQ</strong></p>";
-					
-				}
-				if ($woman['has_disability']) {
-					$non_priv_groups.= "<p><strong>woman with disability</strong></p>";
-				}
-				
-				if ($woman['ethnicity']) {
-					$non_priv_groups.= '<p class="ethnicity"><strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a></p>';
-				}
-				
-				if (!$non_priv_groups == "") {
-					echo '
-					<div class="non_priv_groups">
-					'.$non_priv_groups.'
-					</div>
-					';
-				}
-			?>
-			
-			
-			<div class="category_and_tags">
-				
-				<p class="category"><strong>category: </strong>
+				if ($woman['category']) {
+					echo '<a href="search.php?category='.$woman['category']['id'].'">'.$woman['category']['title'].'</a>';
+				} else {
+					echo "(none)";
+				}				 
+			?></p>
+			<p class="tags"><strong>tags:</strong> 
 				<?php
-					if ($woman['category']) {
-						echo '<a href="search.php?category='.$woman['category']['id'].'">'.$woman['category']['title'].'</a>';
-					} else {
-						echo "(none)";
-					}				 
-				?></p>
-				<p class="tags"><strong>tags:</strong> 
-					<?php
-						$tags = explode(",",$woman['tags']);
-						$taglinks = array();
-						foreach($tags as $tag) {
-							$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
-						}
-						echo implode(", ",$taglinks); 
-					?>
-				</p>	
-			</div>		
-			
-			
-			<div class="story">
-				<!--<h3>The story of <?php echo $woman['name']; ?></h3>-->
-				<!--<h3>Her story</h3>-->
-				<!--<h3>About <?php echo $woman['name']; ?></h3>-->
+					$tags = explode(",",$woman['tags']);
+					$taglinks = array();
+					foreach($tags as $tag) {
+						$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+					}
+					echo implode(", ",$taglinks); 
+				?>
+			</p>	
+		</div>	
+	</div>
+	<div class="story large-8 columns push-large-4">
+		<p class="dates">
+			<!--
+				TODO: conditionals for missing places of birth/death!
+			-->
+			(Born on <span><?php echo form_date($woman['date_born'],true) ?></span> in <span><?php echo $woman['place_born']?></span>, died <span><?php echo form_date($woman['date_died'],true) ?> in <span><?php echo $woman['place_died']?></span></span>)
+		</p>
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';
@@ -112,6 +104,16 @@ require_once 'header.php';
 				};
 			?>
 			</div>
+	
+		<div class="inner small-12 columns">
+			
+			
+			
+			
+				
+			
+			
+			
 			
 			<div class="successes">
 				<ul class="awards">
@@ -159,13 +161,12 @@ require_once 'header.php';
 				
 				$lists = $data_source->getPublicListsByWoman($woman['id']);
 				foreach($lists as $list)  : ?>
-					<li>
-						<div class="thumb-wrap"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"></div>
-						<h4><a href="lists.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
-						<!--
-						<?php echo $list['description'] ?>
-						<span class="by"><a href="user.php?u=<?php echo $list['created_by'] ?>">created by <?php echo $list['created_by'] ?></a></span>
-						-->
+					<li class="row">
+						<div class="thumb-wrap small-2 column"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"></div>
+						<div class="list-desc small-10 columns">
+							<h4><a href="lists.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
+							<?php echo $list['description'] ?>
+						</div>
 					</li>						
 				<?php 
 				endforeach;
