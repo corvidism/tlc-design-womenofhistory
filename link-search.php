@@ -7,4 +7,14 @@
  * sortable by time, title
  */
 
+//header settings:
+$page = array(
+	'title'=> 'Links',
+);
+
+require_once 'header.php';
+?>
+
+<?php
+require_once 'footer.php';
 ?>

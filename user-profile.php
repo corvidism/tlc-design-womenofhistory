@@ -14,5 +14,14 @@
  * 
  * 
  */
+//header settings:
+$page = array(
+	'title'=> 'annathecrow - Profile',
+);
 
+require_once 'header.php';
+?>
+
+<?php
+require_once 'footer.php';
 ?>

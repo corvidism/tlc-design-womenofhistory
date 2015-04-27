@@ -128,11 +128,20 @@ class DataSource
 
 	public function getPublicListsByWoman($her_id) {
 		if (is_nan($her_id)) return false;
-		$this->setupCall('lists',"SELECT lists.id, lists.title,lists.created_by,lists.description FROM lists, list_woman WHERE (list_woman.her_id=? and lists.id=list_woman.list_id and lists.private=0)");
-		$this->db_calls['lists']->bindValue(1,$her_id);
-		$this->db_calls['lists']->execute();
-		$lists = $this->db_calls['lists']->FetchAll();
+		$this->setupCall('her_lists',"SELECT lists.id, lists.title,lists.created_by,lists.description FROM lists, list_woman WHERE (list_woman.her_id=? and lists.id=list_woman.list_id and lists.private=0)");
+		$this->db_calls['her_lists']->bindValue(1,$her_id);
+		$this->db_calls['her_lists']->execute();
+		$lists = $this->db_calls['her_lists']->FetchAll();
 		return $lists;
+	}
+	
+	public function getListById($id) {
+		if (is_nan($id)) return false;
+		$this->setupCall('list',"SELECT * FROM lists WHERE (id=?)");
+		$this->db_calls['list']->bindValue(1,$id);
+		$this->db_calls['list']->execute();
+		$list = $this->db_calls['list']->Fetch();
+		return $list;
 	}
 }
 

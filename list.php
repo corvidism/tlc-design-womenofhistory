@@ -13,4 +13,24 @@
  * -- comment (why is this woman in this list)
  */
 
+require_once 'DataSource.php';
+require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
+require_once 'functions.php';
+
+	
+
+$data_source = new DataSource(); 
+$id = $_GET['id'];
+$list = $data_source->getListById($id);
+ 
+//header settings:
+$page = array(
+	'title'=> $list['title'],
+);
+
+require_once 'header.php';
+?>
+
+<?php
+require_once 'footer.php';
 ?>

@@ -7,4 +7,14 @@
  * sort by time, title, creator 
  */
 
+//header settings:
+$page = array(
+	'title'=> 'User Lists',
+);
+
+require_once 'header.php';
+?>
+
+<?php
+require_once 'footer.php';
 ?>
