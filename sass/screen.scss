@@ -508,7 +508,8 @@ header#pagetitle {
 }
 
 #list-actions {
-  display:none;
+  //display:none;
+  visibility:hidden;
   
   ul {
     margin:0;

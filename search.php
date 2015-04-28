@@ -112,14 +112,7 @@ $women = $data_source->getAllWomen();
 				sort-actions first in small
 				sort-actions padding in medium and smaller 
 			-->
-			<div id="list-actions" class="small-12 medium-6 columns">
-				<ul>
-					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
-					<li><a href=""id="select-none">select none</a>&nbsp;–&nbsp;</li>
-					<li><a href="" id="add-to-list">add to list</a></li>
-				</ul>
-			</div>
-			<div id="sort-actions" class="small-12 medium-6 columns">
+			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
 				<label>order by:</label>
 				<div class="select">
 					<select name="order-by">
@@ -147,6 +140,13 @@ $women = $data_source->getAllWomen();
 					<option value="asc">oldest to youngest</option>	
 				</select>
 				</div>
+			</div>
+			<div id="list-actions" class="small-12 medium-6 medium-pull-6 columns">
+				<ul>
+					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
+					<li><a href=""id="select-none">select none</a>&nbsp;–&nbsp;</li>
+					<li><a href="" id="add-to-list">add to list</a></li>
+				</ul>
 			</div>
 		</div>
 		<ol>

@@ -56,9 +56,9 @@ $("li.woman").click(function(e){
 		list.selected++;
 	}
 	if (list.selected==0) {
-		$("#list-actions").hide();
+		$("#list-actions").css("visibility","hidden");
 	} else if (oldSelected==0 && list.selected > 0) {
-		$("#list-actions").show();
+		$("#list-actions").css("visibility","visible");
 	}
 	console.log(list.selected);
 });
