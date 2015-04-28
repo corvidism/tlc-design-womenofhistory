@@ -24,7 +24,9 @@ $.each(Foundation.media_queries, function(index,item){
 
 smallScreen = {
 	'max':'40em',
-	'in':function() {		
+	'in':function() {
+		console.log("moving lists");
+		$(".lists").insertAfter(".links");		
 	},
 	'out':function() {
 	},
@@ -37,7 +39,7 @@ smallScreen = {
 mediumScreen = {
 	'min':'40.063em',
 	'max':'64em',
-	'in':function() {		
+	'in':function() {			
 	},
 	'out':function() {
 		
@@ -90,7 +92,7 @@ xxlargeScreen = {
 enquire.register("screen and (max-width:"+ smallScreen.max+")", {
 	match: smallScreen['in'],
 	unmatch: smallScreen['out']
-}).register("screen and (min-width:"+ largeScreen.min+")", {
+}).register("screen and (min-width:"+ mediumScreen.min+")", {
 	match: largeScreen['in'],
 	//unmatch: largeScreen['out']
 });

@@ -43,11 +43,11 @@ require_once 'header.php';
 		</div>			
 	</div>
 	
-	<header class="small-12 large-5 columns">
+	<header class="small-12 medium-8 large-5 columns">
 		<h2 class="name"><?php echo $woman['name']?></h2>
 		<p class="tagline"><?php echo $woman['tagline']; ?></p>
 	</header>
-	<div class="specs large-3 columns">
+	<div class="specs medium-8 large-3 columns">
 		<?php
 			$non_priv_groups = "";
 			if ($woman['is_poc']) {
@@ -96,7 +96,7 @@ require_once 'header.php';
 		</div>	
 	</div>
 	
-	<div class="story large-8 columns">
+	<div class="story medium-8 columns">
 			<?php
 				 $db=form_date($woman['date_born'],true);
 				 $pb=$woman['place_born'];
