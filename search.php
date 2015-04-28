@@ -15,7 +15,6 @@ $page = array(
 require_once 'header.php';
 require_once 'functions.php';
 require_once 'DataSource.php';
-require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 	
 $data_source = new DataSource(); 
 

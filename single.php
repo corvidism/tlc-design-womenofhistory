@@ -8,7 +8,6 @@
  */
 
 require_once 'DataSource.php';
-require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 require_once 'functions.php';
 
 	
@@ -95,8 +94,8 @@ require_once 'header.php';
 			</p>	
 		</div>	
 	</div>
-	
-	<div class="story medium-8 columns">
+	<div class="inner small-12 medium-8 columns">
+	<div class="story">
 			<?php
 				 $db=form_date($woman['date_born'],true);
 				 $pb=$woman['place_born'];
@@ -139,7 +138,7 @@ require_once 'header.php';
 			?>
 		</div>
 		
-		<div class="inner small-12 medium-8 medium-push-4 columns">
+		
 			<div class="successes">
 				<ul class="awards">
 					<li></li>

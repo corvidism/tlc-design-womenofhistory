@@ -1,6 +1,6 @@
 <?php
 
-require 'sensitive.php';
+require_once '../../sensitive/db_data.php';
 
 class DataSource 
 {
