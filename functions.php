@@ -2,7 +2,6 @@
 
 function get_image($path,$id) {
 	$filestr=sprintf('%1$s%2$09d', $path,$id);
-	error_log($filestr);
 	if (file_exists($filestr.".jpg")) {
 		$link_thumb = $filestr.".jpg";
 	} else if (file_exists($filestr.".png")) {
@@ -30,13 +29,11 @@ function logmeline($message) {
 			
 function form_date($date,$long=false) {
 	//stupid formatting shiv. should be done somewhere else, not sure where tho. On db load?
-	
-	
 	$date_format = "Y/m/d";
 	$slashed = strpos($date,"/");
 	if ($slashed === false) {
-		//no date
-		return false;
+		//empty, or weird format
+		return $date;
 	} else {
 		$date_array = explode("/", $date);
 		if ($date_array[1]=='00') {

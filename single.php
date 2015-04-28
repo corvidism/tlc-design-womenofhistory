@@ -89,70 +89,12 @@ require_once 'header.php';
 		</div>	
 	</div>
 	<div class="story large-8 columns push-large-4">
-		<p class="dates">
-			<!--
-				TODO: conditionals for missing places of birth/death!
-			-->
-			(Born 
 			<?php
-				echo form_date($woman['date_born'],true);
-				 
-				 //possible? "12th century" ??
-				 
-				 //only one date, no place: "(245354 BCE)" "(12th January 1245)"
-				 //only one date, place: "(124 BCE, Akkadian Empire)"
-				 //two dates, place born: "(123 BCE - 100 BCE, Rome)"
-				 //two dates, place died: "(123 CE, ? - 156 CE, Athenes)"
-				 //two dates with days, place born: "(12th September 1645 - 23rd January 1680, Nova Scotia, USA)"
-				 //two dates with days, both places: "(3rd November 1853, Boston, USA - 15th March, Gallway, Ireland)"
-				 
-				 /* date born -- place born -- date died -- place died
-				  * 1 0 0 0 "1233344 BCE"
-				  * 0 1 0 0 --
-				  * 0 0 1 0 "? - 123 CE"
-				  * 0 0 0 1 --
-				  * 1 1 0 0 "123 CE, Rome"
-				  * 0 1 1 0 "?, Rome - 123 CE, ?" "? - 123 CE, Rome"
-				  * 0 0 1 1 --
-				  * 1 0 1 0 "123 CE - 124 BCE"
-				  * 0 1 0 1 --
-				  * 1 0 0 1 --
-				  * 1 1 1 0 "123 CE - 167 CE, Rome" "123 CE, Rome - 167 CE, ?"
-				  * 0 1 1 1 "?, Rome - 123 CE, Athenes"
-				  * 1 1 1 1 "123 CE, Rome - 167, Athenes"
-				  * 
-				  * --> block place until date is entered
-				  * --> block date_died until date_born is entered
-				  * --> checkbox ("same as place born"); or maybe just automatically?
-				 */
-				 
-				 // 1 0 0 0 "1233344 BCE"
-				 //echo "($db)";
-				  
-				 // 1 1 0 0 "123 CE, Rome"
-				 //echo "($db, $pb)";
-				 
-				 // 0 0 1 0 "? - 123 CE"
-				 // 1 0 1 0 "123 CE - 124 BCE"
-				 // --> 1 0 1 0
-				 //echo "($db - $dd)";
-				 
-				 // 0 1 1 0  "? - 123 CE, Rome"
-				 // 1 1 1 0 "123 CE - 167 CE, Rome"
-				 // --> 1 1 1 0
-				 //echo "($db - $dd, $pb)";
-				 
-				 // 1 1 1 0 "123 CE, Rome - 167 CE, ?"
-				 // 0 1 1 1 "?, Rome - 123 CE, Athenes"
-				 // 1 1 1 1 "123 CE, Rome - 167 CE, Athenes
-				 // 0 1 1 0 "?, Rome - 123 CE, ?"
-				 // --> 1 1 1 1
-				 //echo "($db, $pb - $dd, $pd)";				 
-				 
-				 $db=$woman['date_born'];
+				 $db=form_date($woman['date_born'],true);
 				 $pb=$woman['place_born'];
-				 $dd=$woman['date_died'];
+				 $dd=form_date($woman['date_died'],true);
 				 $pd=$woman['place_died'];
+				 
 				 if (is_null($db)) {
 				 	$date_place = "";
 					// 0 0 0 0
@@ -160,27 +102,25 @@ require_once 'header.php';
 				 	$date_place ="$db";
 					// 1 0 0 0
 					if (!is_null($dd)) {
-						$date_place =" - $dd";
+						$date_place .=" – $dd";
 						// 1 0 1 0
 					}
 				 } elseif (is_null($dd)) {
 				 	$date_place = "$db, $pb";
 					// 1 1 0 0
 				 } elseif (is_null($pd)) {
-				 	$date_place = "$db - $dd, $db";
+				 	$date_place = "$db – $dd, $db";
 					// 1 1 1 0
 				 } else {
-				 	$date_place = "$db, $pb - $dd, $pd";
+				 	$date_place = "$db, $pb – $dd, $pd";
 					// 1 1 1 1
 				 };
 				 
-				 
-				 
+				if ($date_place != "") {
+					echo "<p class=\"dates\">($date_place)</p>";
+				} 
 			?>
 			
-			 <span><?php
-				?></span> in <span><?php echo $woman['place_born']?></span>, died <span><?php echo form_date($woman['date_died'],true) ?> in <span><?php echo $woman['place_died']?></span></span>)
-		</p>
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';

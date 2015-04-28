@@ -159,10 +159,6 @@ $women = $data_source->getAllWomen();
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
 					</header>
 					<div class="woman-top medium-7 large-6 columns">
-						<!--<div class="portrait"><img src="women/images/000000005.jpg"></div>
-							
-						<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." – ".form_date($woman['date_died']); ?></span>
-							-->
 					
 					<p class="tagline"><?php echo $woman['tagline']; ?> <a href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
 					
