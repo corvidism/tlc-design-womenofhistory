@@ -42,9 +42,9 @@ function form_date($date,$long=false) {
 		if ($date_array[1]=='00') {
 			$year = $date_array[0];
 			if (isset($year[0]) && $year[0] == "-") {
-				return substr($year,1,strlen($year))."BCE";
+				return substr($year,1,strlen($year))."&nbsp;BCE";
 			} else {
-				return $year."CE";
+				return $year."&nbsp;CE";
 			}
 		} else {
 			$datetime = date_create_from_format($date_format, $date);
