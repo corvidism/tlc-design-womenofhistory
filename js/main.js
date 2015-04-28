@@ -8,6 +8,104 @@ search = {
 	'queryCount':1,
 };
 
+console.log(Foundation.media_queries);
+/*
+$.each(Foundation.media_queries, function(index,item){
+	enquire.register(item, {
+	match: MediaQueryEvent(index,"in"),
+	unmatch: MediaQueryEvent(index,"out"),
+	setup: MediaQueryEvent(index,"setup"),
+	deferSetup:true;
+	});
+});
+*/
+
+
+
+smallScreenActions = {
+	'in':function() {
+		//this matches always!
+	},
+	'out':function() {
+		alert("no longer small screen");
+		console.log('small screen out!');
+	},
+	'setup':function() {
+		//nope
+	}
+	
+};
+
+mediumScreenActions = {
+	'in':function() {
+		console.log('medium screen in');
+	},
+	'out':function() {
+		console.log('large screen out');
+	},
+	'setup':function() {
+		//nope
+	}
+};
+
+largeScreenActions = {
+	'in':function() {
+		console.log('large screen in');
+	},
+	'out':function() {
+		console.log('large screen out');
+	},
+	'setup':function() {
+		//nope
+	}
+};
+
+xlargeScreenActions = {
+	'in':function() {
+		//nope
+	},
+	'out':function() {
+		console.log('large screen out');
+	},
+	'setup':function() {
+		//nope
+	}
+};
+
+xxlargeScreenActions = {
+	'in':function() {
+		//nope
+	},
+	'out':function() {
+		//nothiiing
+	},
+	'setup':function() {
+		//nope
+	}
+};
+
+$.each(Foundation.media_queries,function(index, item){
+	enquire.register(item,{
+		match: MediaQueryEventHandler(index,"in"),
+		unmatch: MediaQueryEventHandler(index,"out"),
+		setup: MediaQueryEventHandler(index,"setup"),
+		deferSetup:true
+	});
+	
+});
+
+function MediaQueryEventHandler(query,action) {
+	switch (query) {
+		case 'small': return smallScreenActions[action];
+		case 'medium': return mediumScreenActions[action];
+		case 'large': return largeScreenActions[action];
+		case 'xlarge': return xlargeScreenActions[action];
+		case 'xxlarge': return xxlargeScreenActions[action];
+	}
+}
+
+
+
 $("#add-query").click(function() {
 	//copy search block
 	//clear contents

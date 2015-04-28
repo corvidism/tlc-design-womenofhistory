@@ -30,10 +30,17 @@ require_once 'header.php';
 ?>
 <article class="woman small-12 columns">
 	<div class="row">
-		
-	
+	<!--	
 	<div class="portrait-img small-12 large-4 columns">
 		<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
+	</div>
+	-->
+	<div id="side-col" class="small-12 medium-4 columns">
+		<div class="row colapse">
+		<div class="portrait-img small-12 columns">
+			<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
+		</div>
+		</div>			
 	</div>
 	
 	<header class="small-12 large-5 columns">
@@ -88,7 +95,8 @@ require_once 'header.php';
 			</p>	
 		</div>	
 	</div>
-	<div class="story large-8 columns push-large-4">
+	
+	<div class="story large-8 columns">
 			<?php
 				 $db=form_date($woman['date_born'],true);
 				 $pb=$woman['place_born'];
@@ -129,18 +137,9 @@ require_once 'header.php';
 					echo $woman['story']; 
 				};
 			?>
-			</div>
-	
-		<div class="inner small-12 columns">
-			
-			
-			
-			
-				
-			
-			
-			
-			
+		</div>
+		
+		<div class="inner small-12 medium-8 medium-push-4 columns">
 			<div class="successes">
 				<ul class="awards">
 					<li></li>
@@ -179,34 +178,34 @@ require_once 'header.php';
 					echo "</ul>";
 				endif;		
 				?>
-			</div>
+			</div>	
 			<div class="lists">
-				<h3>Featured in these lists</h3>
-				<ul>
-				<?php
-				
-				$lists = $data_source->getPublicListsByWoman($woman['id']);
-				foreach($lists as $list)  : ?>
-					<li class="row">
-						<div class="thumb-wrap small-2 column"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"></div>
-						<div class="list-desc small-10 columns">
-							<h4><a href="list.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
-							<?php echo $list['description'] ?>
-						</div>
-					</li>						
-				<?php 
-				endforeach;
-				?>
-				</ul>
-			</div>
+			<h3>Featured in these lists</h3>
+			<ul>
+			<?php
 			
-			<footer>
+			$lists = $data_source->getPublicListsByWoman($woman['id']);
+			foreach($lists as $list)  : ?>
+				<li class="row">
+					<div class="thumb-wrap small-2 column"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"></div>
+					<div class="list-desc small-10 columns">
+						<h4><a href="list.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
+						<?php echo $list['description'] ?>
+					</div>
+				</li>						
+			<?php 
+			endforeach;
+			?>
+			</ul>
+		</div>		
+		</div>
+		
+	<footer>
 				<p>
 				Last edited by <a href="">annathecrow</a> on 23th March 2015.	
 				</p>
 				
 			</footer>
-		</div>
 	</div>
 </article>
 

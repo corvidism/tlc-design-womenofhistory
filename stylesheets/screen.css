@@ -496,38 +496,38 @@ article.woman .inner footer p {
 }
 /* line 606, ../sass/screen.scss */
 article.woman .tagline {
-  border-bottom: 1px solid #bbbbbb;
   padding-bottom: 1em;
 }
-/* line 611, ../sass/screen.scss */
-article.woman .story {
-  margin-top: 2.2rem;
+/* line 613, ../sass/screen.scss */
+article.woman .story p:first-child {
+  border-top: 1px solid cyan;
+  padding-top: 2.2rem;
 }
-/* line 616, ../sass/screen.scss */
+/* line 620, ../sass/screen.scss */
 article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 624, ../sass/screen.scss */
+/* line 628, ../sass/screen.scss */
 article.woman .lists li {
   clear: both;
 }
-/* line 634, ../sass/screen.scss */
+/* line 638, ../sass/screen.scss */
 article.woman .lists img.thumb {
   width: 150px;
 }
-/* line 640, ../sass/screen.scss */
+/* line 645, ../sass/screen.scss */
 article.woman .links img {
   display: inline;
 }
-/* line 645, ../sass/screen.scss */
+/* line 650, ../sass/screen.scss */
 article.woman footer {
   clear: both;
   margin-top: 1.1rem;
 }
 
 /************** FOOTER **************/
-/* line 654, ../sass/screen.scss */
+/* line 659, ../sass/screen.scss */
 footer#pagefooter {
   height: 10em;
 }

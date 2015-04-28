@@ -604,12 +604,16 @@ article.woman {
     }
   }
   .tagline {
-    border-bottom:1px solid $grey;
+    //border-bottom:1px solid $grey;
     padding-bottom:1em;
   }
   
   .story {
-    margin-top:$padsize*2;
+    
+    p:first-child {
+      border-top:1px solid $secondary;
+      padding-top:$padsize*2;
+    }
   }
   
   .links, .lists, .successes {
@@ -634,6 +638,7 @@ article.woman {
     img.thumb {
       width:150px;
     }
+    
   }
     
   .links {
