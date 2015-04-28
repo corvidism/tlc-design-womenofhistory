@@ -22,13 +22,11 @@ $.each(Foundation.media_queries, function(index,item){
 
 
 
-smallScreenActions = {
-	'in':function() {
-		//this matches always!
+smallScreen = {
+	'max':'40em',
+	'in':function() {		
 	},
 	'out':function() {
-		alert("no longer small screen");
-		console.log('small screen out!');
 	},
 	'setup':function() {
 		//nope
@@ -36,43 +34,48 @@ smallScreenActions = {
 	
 };
 
-mediumScreenActions = {
-	'in':function() {
-		console.log('medium screen in');
+mediumScreen = {
+	'min':'40.063em',
+	'max':'64em',
+	'in':function() {		
 	},
 	'out':function() {
-		console.log('large screen out');
+		
 	},
 	'setup':function() {
 		//nope
 	}
 };
 
-largeScreenActions = {
+largeScreen = {
+	'min':'64.063em',
+	'max':'90em',
 	'in':function() {
-		console.log('large screen in');
+		console.log("moving lists");
+		$(".lists").insertAfter(".portrait-img");
 	},
 	'out':function() {
-		console.log('large screen out');
 	},
 	'setup':function() {
 		//nope
 	}
 };
 
-xlargeScreenActions = {
+xlargeScreen = {
+	'min':'90.063em',
+	'max':'120em',
 	'in':function() {
 		//nope
 	},
 	'out':function() {
-		console.log('large screen out');
 	},
 	'setup':function() {
 		//nope
 	}
 };
 
-xxlargeScreenActions = {
+xxlargeScreen = {
+	'min':'120.063em',
 	'in':function() {
 		//nope
 	},
@@ -84,27 +87,13 @@ xxlargeScreenActions = {
 	}
 };
 
-$.each(Foundation.media_queries,function(index, item){
-	enquire.register(item,{
-		match: MediaQueryEventHandler(index,"in"),
-		unmatch: MediaQueryEventHandler(index,"out"),
-		setup: MediaQueryEventHandler(index,"setup"),
-		deferSetup:true
-	});
-	
+enquire.register("screen and (max-width:"+ smallScreen.max+")", {
+	match: smallScreen['in'],
+	unmatch: smallScreen['out']
+}).register("screen and (min-width:"+ largeScreen.min+")", {
+	match: largeScreen['in'],
+	//unmatch: largeScreen['out']
 });
-
-function MediaQueryEventHandler(query,action) {
-	switch (query) {
-		case 'small': return smallScreenActions[action];
-		case 'medium': return mediumScreenActions[action];
-		case 'large': return largeScreenActions[action];
-		case 'xlarge': return xlargeScreenActions[action];
-		case 'xxlarge': return xxlargeScreenActions[action];
-	}
-}
-
-
 
 $("#add-query").click(function() {
 	//copy search block
