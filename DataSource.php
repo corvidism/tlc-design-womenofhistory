@@ -1,4 +1,9 @@
 <?php
+ini_set('log_errors',1);
+if ($_SERVER['SERVER_NAME']=='thelucycollective.com') {
+	ini_set('error_log','./php_errors.log');
+}
+
 
 require_once '../../sensitive/db_data.php';
 
@@ -56,7 +61,7 @@ class DataSource
 				'tags',
 			);
 			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women`";
-			$this->db_calls['women'] = $this->db->query($query_str);
+			$this->db_calls['women'] = $this->db->query($query_str);			
 		}
 		$women = $this->db_calls['women']->FetchAll();
 		
