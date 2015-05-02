@@ -22,6 +22,7 @@ $woman = $data_source->getWomanBy('id',$id);
 //header settings:
 $page = array(
 	'title'=> $woman['name'],
+	'id'=>'single'
 );
 
 require_once 'header.php';

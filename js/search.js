@@ -1,5 +1,3 @@
-$("body").removeClass("no-js");
-
 list = {
 	'selected':0,	
 };
@@ -8,96 +6,7 @@ search = {
 	'queryCount':1,
 };
 
-console.log(Foundation.media_queries);
-/*
-$.each(Foundation.media_queries, function(index,item){
-	enquire.register(item, {
-	match: MediaQueryEvent(index,"in"),
-	unmatch: MediaQueryEvent(index,"out"),
-	setup: MediaQueryEvent(index,"setup"),
-	deferSetup:true;
-	});
-});
-*/
-
-
-
-smallScreen = {
-	'max':'40em',
-	'in':function() {
-		console.log("moving lists");
-		$(".lists").insertAfter(".links");		
-	},
-	'out':function() {
-	},
-	'setup':function() {
-		//nope
-	}
-	
-};
-
-mediumScreen = {
-	'min':'40.063em',
-	'max':'64em',
-	'in':function() {			
-	},
-	'out':function() {
-		
-	},
-	'setup':function() {
-		//nope
-	}
-};
-
-largeScreen = {
-	'min':'64.063em',
-	'max':'90em',
-	'in':function() {
-		console.log("moving lists");
-		$(".lists").insertAfter(".portrait-img");
-	},
-	'out':function() {
-	},
-	'setup':function() {
-		//nope
-	}
-};
-
-xlargeScreen = {
-	'min':'90.063em',
-	'max':'120em',
-	'in':function() {
-		//nope
-	},
-	'out':function() {
-	},
-	'setup':function() {
-		//nope
-	}
-};
-
-xxlargeScreen = {
-	'min':'120.063em',
-	'in':function() {
-		//nope
-	},
-	'out':function() {
-		//nothiiing
-	},
-	'setup':function() {
-		//nope
-	}
-};
-
-enquire.register("screen and (max-width:"+ smallScreen.max+")", {
-	match: smallScreen['in'],
-	unmatch: smallScreen['out']
-}).register("screen and (min-width:"+ mediumScreen.min+")", {
-	match: largeScreen['in'],
-	//unmatch: largeScreen['out']
-});
-
-$("#add-query").click(function() {
+$("#add-query").click(function(e) {
 	//copy search block
 	//clear contents
 	//move button
@@ -106,7 +15,7 @@ $("#add-query").click(function() {
 	search.queryCount++;
 	newQuery = $("#search-query-1").clone();
 	newQuery.attr("id","search-query-"+search.queryCount);
-	newQuery.find("select.what").val("any");
+	newQuery.find("select.field").val("any");
 	newQuery.find("select.strict").val("no");
 	newQuery.find("input").val("");
 	newLogic = $('<label class="logic and" id="logic-for-'+search.queryCount+'"><em>and</em>/or</label>');
@@ -125,6 +34,17 @@ $("#add-query").click(function() {
 	newQuery.insertBefore(lastAnd);
 	e.preventDefault();
 });
+
+$("#searchform").on("click","select",function(e){
+	select= $(this);
+	field = select.val();
+	fieldInput = select.closest(".search-query").find(".field-input");
+	
+	
+});
+
+
+
 
 $("#search-submit").click(function(e){
 	

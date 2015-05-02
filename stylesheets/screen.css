@@ -290,57 +290,71 @@ header#pagetitle h1 span#subtitle {
   border-top: 1px solid cyan;
 }
 /* line 383, ../sass/screen.scss */
+#searchform #submit-button {
+  background: transparent;
+  font-size: inherit;
+  color: #7eb622;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid cyan;
+}
+/* line 392, ../sass/screen.scss */
+#searchform #submit-button:hover, #searchform #submit-button:focus {
+  color: cyan;
+}
+/* line 401, ../sass/screen.scss */
 #searchform .logic {
   color: #bbbbbb;
 }
-/* line 385, ../sass/screen.scss */
+/* line 403, ../sass/screen.scss */
 #searchform .logic em {
   font-style: normal;
   color: #333333;
 }
 
-/* line 393, ../sass/screen.scss */
+/* line 411, ../sass/screen.scss */
 #nonpriv-groups {
   margin-top: 2.2rem;
   margin-bottom: 1.1rem;
   font-size: 1rem;
   line-height: 1.5;
 }
-/* line 399, ../sass/screen.scss */
+/* line 417, ../sass/screen.scss */
 #nonpriv-groups ul {
   list-style: none;
   margin: 0;
   padding: 0;
   font: inherit;
 }
-/* line 405, ../sass/screen.scss */
+/* line 423, ../sass/screen.scss */
 #nonpriv-groups ul li {
   font: inherit;
   color: inherit;
   position: relative;
 }
-/* line 410, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 #nonpriv-groups ul li label {
   color: #7eb622;
 }
-/* line 416, ../sass/screen.scss */
+/* line 434, ../sass/screen.scss */
 #nonpriv-groups label {
   display: inline-block;
   width: 100%;
   margin: 0;
 }
-/* line 426, ../sass/screen.scss */
+/* line 444, ../sass/screen.scss */
 #nonpriv-groups input[type="checkbox"] {
   position: absolute;
   right: 0;
 }
 
-/* line 432, ../sass/screen.scss */
+/* line 450, ../sass/screen.scss */
 #list-box {
   padding-top: 2.25rem;
   border-left: 1px solid cyan;
 }
-/* line 436, ../sass/screen.scss */
+/* line 454, ../sass/screen.scss */
 #list-box div.portrait {
   float: left;
   height: 4rem;
@@ -348,111 +362,111 @@ header#pagetitle h1 span#subtitle {
   text-align: center;
   overflow: hidden;
 }
-/* line 443, ../sass/screen.scss */
+/* line 461, ../sass/screen.scss */
 #list-box div.portrait img {
   position: relative;
   left: 50%;
 }
-/* line 449, ../sass/screen.scss */
+/* line 467, ../sass/screen.scss */
 #list-box ol {
   margin-left: 0;
   margin-bottom: 2.2rem;
   list-style: none;
 }
-/* line 455, ../sass/screen.scss */
+/* line 473, ../sass/screen.scss */
 #list-box ol li.woman {
   margin-bottom: 2.2rem;
   border: 1px solid transparent;
   border-width: 1px 0;
 }
-/* line 461, ../sass/screen.scss */
+/* line 479, ../sass/screen.scss */
 #list-box ol li.woman.selected, #list-box ol li.woman:hover {
   background-color: rgba(0, 255, 255, 0.2);
   border-color: cyan;
 }
-/* line 466, ../sass/screen.scss */
+/* line 484, ../sass/screen.scss */
 #list-box ol li.woman .specs ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 472, ../sass/screen.scss */
+/* line 490, ../sass/screen.scss */
 #list-box ol li.woman .tags {
   display: none;
 }
 @media screen and (min-width: 64.063em) {
-  /* line 472, ../sass/screen.scss */
+  /* line 490, ../sass/screen.scss */
   #list-box ol li.woman .tags {
     display: block;
   }
 }
-/* line 482, ../sass/screen.scss */
+/* line 500, ../sass/screen.scss */
 #list-box ul.action-buttons {
   list-style: none;
   margin-left: 0;
 }
-/* line 488, ../sass/screen.scss */
+/* line 506, ../sass/screen.scss */
 #list-box ul.action-buttons li {
   border: 1px solid #ddd;
   text-align: center;
 }
-/* line 494, ../sass/screen.scss */
+/* line 512, ../sass/screen.scss */
 #list-box ul.action-buttons li:nth-child(2) {
   text-align: left;
   padding-left: 1em;
 }
-/* line 500, ../sass/screen.scss */
+/* line 518, ../sass/screen.scss */
 #list-box .pagination {
   text-align: center;
 }
 
-/* line 506, ../sass/screen.scss */
+/* line 524, ../sass/screen.scss */
 #list-sort-controls {
   margin-bottom: 1.1rem;
 }
 
-/* line 510, ../sass/screen.scss */
+/* line 528, ../sass/screen.scss */
 #list-actions {
   visibility: hidden;
 }
-/* line 514, ../sass/screen.scss */
+/* line 532, ../sass/screen.scss */
 #list-actions ul {
   margin: 0;
   padding: 0;
 }
-/* line 518, ../sass/screen.scss */
+/* line 536, ../sass/screen.scss */
 #list-actions ul li {
   display: inline;
 }
 
-/* line 524, ../sass/screen.scss */
+/* line 542, ../sass/screen.scss */
 #sort-actions {
   text-align: right;
   padding-right: 0;
 }
-/* line 528, ../sass/screen.scss */
+/* line 546, ../sass/screen.scss */
 #sort-actions label {
   display: inline;
   font-size: inherit;
 }
-/* line 533, ../sass/screen.scss */
+/* line 551, ../sass/screen.scss */
 #sort-actions select {
   display: inline-block;
   width: auto;
 }
-/* line 538, ../sass/screen.scss */
+/* line 556, ../sass/screen.scss */
 #sort-actions .select {
   display: inline-block;
 }
-/* line 540, ../sass/screen.scss */
+/* line 558, ../sass/screen.scss */
 #sort-actions .select.sort {
   display: none;
 }
-/* line 544, ../sass/screen.scss */
+/* line 562, ../sass/screen.scss */
 #sort-actions .select.active {
   display: inline;
 }
-/* line 548, ../sass/screen.scss */
+/* line 566, ../sass/screen.scss */
 #sort-actions .select:after {
   display: none;
   position: relative;
@@ -462,72 +476,72 @@ header#pagetitle h1 span#subtitle {
 }
 
 /************** SINGLE.PHP **************/
-/* line 568, ../sass/screen.scss */
+/* line 586, ../sass/screen.scss */
 article.woman div.portrait-img {
   height: 8em;
   overflow: hidden;
   padding: 0;
   margin: 0;
 }
-/* line 575, ../sass/screen.scss */
+/* line 593, ../sass/screen.scss */
 article.woman div.portrait-img img {
   position: relative;
   top: -50%;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 568, ../sass/screen.scss */
+  /* line 586, ../sass/screen.scss */
   article.woman div.portrait-img {
     height: auto;
   }
 }
-/* line 585, ../sass/screen.scss */
+/* line 603, ../sass/screen.scss */
 article.woman h2.name {
   color: #7eb622;
 }
-/* line 589, ../sass/screen.scss */
+/* line 607, ../sass/screen.scss */
 article.woman .tagline {
   font-size: 1.5rem;
   line-height: 1.2;
 }
-/* line 601, ../sass/screen.scss */
+/* line 619, ../sass/screen.scss */
 article.woman .inner footer p {
   border-top: 1px solid #bbbbbb;
   padding-top: 1em;
 }
-/* line 606, ../sass/screen.scss */
+/* line 624, ../sass/screen.scss */
 article.woman .tagline {
   padding-bottom: 1em;
 }
-/* line 613, ../sass/screen.scss */
+/* line 631, ../sass/screen.scss */
 article.woman .story p:first-child {
   border-top: 1px solid cyan;
   padding-top: 2.2rem;
 }
-/* line 620, ../sass/screen.scss */
+/* line 638, ../sass/screen.scss */
 article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 628, ../sass/screen.scss */
+/* line 646, ../sass/screen.scss */
 article.woman .lists li {
   clear: both;
 }
-/* line 638, ../sass/screen.scss */
+/* line 656, ../sass/screen.scss */
 article.woman .lists img.thumb {
   width: 150px;
 }
-/* line 645, ../sass/screen.scss */
+/* line 663, ../sass/screen.scss */
 article.woman .links img {
   display: inline;
 }
-/* line 650, ../sass/screen.scss */
+/* line 668, ../sass/screen.scss */
 article.woman footer {
   clear: both;
   margin-top: 1.1rem;
 }
 
 /************** FOOTER **************/
-/* line 659, ../sass/screen.scss */
+/* line 677, ../sass/screen.scss */
 footer#pagefooter {
   height: 10em;
 }

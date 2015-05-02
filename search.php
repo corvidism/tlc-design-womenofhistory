@@ -63,11 +63,11 @@ $women = $data_source->getAllWomen();
 ?>
 
 	<section role="search" id="search-box" class="medium-5 large-4 columns">
-		<form id="searchform">
+		<form id="searchform" method="GET">
 			<label>Search where</label>
 			<div class="search-query" id="search-query-1">
 				<div class="select">
-				<select name="what">
+				<select name="field">
 								<option value="any">her anything</option>
 								<option value="name">her name</option>
 								<option value="place_born">her place of birth</option>
@@ -87,10 +87,9 @@ $women = $data_source->getAllWomen();
 			<select name="strict">
 				<option value="no">contains</option>
 				<option value="yes">contains precisely</option>
-				<option value="yes">equals</option>
 			</select>
 			</div>
-			<input type="text" name="any" autocomplete="off" placeholder="short to medium input string">
+			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="short to medium input string">
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
 			<div id="nonpriv-groups">
@@ -101,7 +100,7 @@ $women = $data_source->getAllWomen();
 					<li><label for="is_queer">LGBTQ women</label><input name="nonpriv_groups[]" value="is_queer" id="is_queer" type="checkbox"/></li>
 				</ul>
 			</div>
-			<div class="right"><a id="search-submit" href="">search</a></div>
+			<div class="right"><button id="submit-button" type="submit">Search</button></div>
 			
 		</form>
 	</section>		

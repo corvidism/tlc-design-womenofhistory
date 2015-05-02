@@ -380,6 +380,24 @@ header#pagetitle {
     
   }
   
+  #submit-button {
+    background:transparent;
+    font-size:inherit;
+    color:$accent;
+    display:inline;
+    margin:0;
+    padding:0;
+    border-bottom:1px solid $secondary;
+    
+    &:hover,&:focus {
+      color:$secondary;
+    }
+  }
+  
+  button[type="submit"] {
+    
+  }
+  
   .logic {
     color:$grey;
     em {
