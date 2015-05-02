@@ -36,14 +36,14 @@ require_once 'site_settings.php';
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
-		    	<h1><a id="menutitle" href="">Women of History</a></h1>
+		    	<h1><a id="menutitle" href="index.php">Women of History</a></h1>
 		    </li>
 		    <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
 		  </ul>	
 		<section class="top-bar-section">
 		     <ul class="left">
 		    	<li><a href="search.php">The Women</a></li>
-				<li><a href="list-search.php">User Lists</a></li>
+				<li><a href="list-search.php">Lists</a></li>
 				<li><a href="link-search.php">Links</a></li>
 				<li><a href="stats.php">Infographics</a></li>
 				<li><a href="about.php">About</a></li>

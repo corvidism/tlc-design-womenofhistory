@@ -14,7 +14,6 @@
  */
 
 require_once 'DataSource.php';
-require_once 'sensitive.php'; //this goes from the folder this is run from, not from the one this file is in -_-
 require_once 'functions.php';
 
 	
@@ -30,7 +29,21 @@ $page = array(
 
 require_once 'header.php';
 ?>
-
+<article id="user-list">
+	<h2><?php echo $list['title']; ?></h2>
+	<img src="" class="list-cover">
+	<div class="list-desc">
+		<?php echo $list['description']; ?>
+	</div>
+	<ol class="list-women">
+		<li></li>
+	</ol>
+	<div>
+		<h3>Similar lists</h3>
+	</div>
+	
+	
+</article>
 <?php
 require_once 'footer.php';
 ?>
