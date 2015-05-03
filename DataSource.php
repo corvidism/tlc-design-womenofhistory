@@ -27,6 +27,10 @@ class DataSource
 		$this->db = $pdo;
 	}
 	
+	private function quoteField($field) {
+    return "`".str_replace("`","``",$field)."`";
+	}
+	
 	private function setupCall($title,$query) {
 		if (!isset($this->db_calls[$title]) || !$this->db_calls[$title] instanceof PDOStatement) {
 			$this->db_calls[$title] = $this->db->prepare($query);	
@@ -85,6 +89,154 @@ class DataSource
 		//related to above: how to deal with incomplete records?
 		//should Woman do its own db queries? (probably not.) but what then?
 		return $this->data['women'];
+	}
+	
+	
+	public function getWomen($params) {
+		logme($params);
+		$field = $params['field'];
+		$value = $params['value'];
+		$strict = ($params['strict']=='yes')?true:false;
+		$nonpriv_groups = $params['nonpriv_groups'];
+		
+		$columns_needed = array(
+				'id',
+				//'last_edited_at',
+				//'created_at',
+				//'last_edited_by',
+				//'created_by',
+				'name',
+				'category',
+				'date_born',
+				'date_died',
+				'place_born',
+				'place_died',
+				'inventions',
+				'firsts',
+				'tagline',
+				//'story',
+				'orientation',
+				'gender_identity',
+				'is_poc',
+				'is_queer',
+				'ethnicity',
+				'has_disability',
+				'disability',
+				'tags',
+		);
+		
+		$searchable_cols = array(
+				//'id',
+				//'last_edited_at',
+				//'created_at',
+				//'last_edited_by',
+				//'created_by',
+				'name',
+				'category',
+				'date_born',
+				'date_died',
+				'place_born',
+				'place_died',
+				'inventions',
+				'firsts',
+				'tagline',
+				'story',
+				'orientation',
+				'gender_identity',
+				'ethnicity',
+				'disability',
+				'tags',
+		);
+		//this is BAAAAAD. TODO: Some optimalization needed.
+		
+		//multidimensional array: 'colname' 'returned y/n' 'searched y/n'
+		
+		if ($field == 'any') {
+			$search_cols = $searchable_cols;
+		} else {
+			$key = array_search($field, $searchable_cols);
+			if ($key === false) {
+				throw new Exception('Wrong field name');
+			} else {
+				$search_cols = array($searchable_cols[$key]); //the only el in the array is the field
+			}
+		}	
+		logme($search_cols);
+		$results = array();
+		foreach ($search_cols as $search_col) {
+			$quoted_col = $this->quoteField($search_col);
+			if ($strict) {
+				$field_part = $quoted_col." LIKE :value";
+				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part;
+				$this->db_calls['search_women'] = $this->db->prepare($query_str);
+				$this->db_calls['search_women']->bindValue(":value","%".$value."%");
+				//WRONG BEHAVIOR. On strict, it should match whole words only, not parts. Solution: REGEXP, FULLTEXT indexing the table, ? 						
+			} else {
+				$value = addslashes($value);
+				$words = preg_split('/\W/', $value);
+				$v_array = array();
+				foreach ($words as $word) {
+					$v_array[]=$quoted_col." LIKE (:value)";
+				};
+				$field_part = implode(" AND ",$v_array);
+				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part;
+				$this->db_calls['search_women'] = $this->db->prepare($query_str);
+				$this->db_calls['search_women']->bindValue(":value","%".$value."%");
+				
+			};
+			
+			$this->db_calls['search_women']->execute();
+			if ($this->db_calls['search_women']->rowCount()>0) {
+				$results[$search_col] = $this->db_calls['search_women']->FetchAll();
+				
+			}; //else do nothing			
+		}
+		
+		//TODO: pagination??? limit max query results? how to do this with multiple cols?  
+		
+		//merge results:
+		$women = array_unique(call_user_func_array("array_merge", $results),SORT_REGULAR);
+		//future: possibly signalize in what column it was found?
+		
+		if (!is_null($nonpriv_groups)) {
+			foreach ($women as $index=>$woman) {
+				$matched = false;
+				if (in_array('is_poc', $nonpriv_groups)) {
+					$matched = ($woman['is_poc'] == '1'); 
+					logme("matching is_poc");
+				}
+				if (in_array('is_queer', $nonpriv_groups)) {
+					$matched = ($woman['is_queer'] == '1');
+					logme("matching is_queer"); 
+				}
+				if (in_array('has_disability', $nonpriv_groups)) {
+					$matched = ($woman['has_disability'] == '1');
+					logme("matching has_disability"); 
+				}
+				if (!$matched) {
+					unset($women[$index]);
+				}
+			}			
+		}
+		
+		if (empty($women)) {
+			return null;
+		} else {
+			$cat_ids = array_column($women,'category');
+			$query_str = "SELECT * FROM `categories` WHERE id IN (".implode(",",$cat_ids).")"; 
+			$this->db_calls['cats_tmp']= $this->db->query($query_str);
+			$cat_result = $this->db_calls['cats_tmp']->FetchAll();
+			$categories = array();
+			foreach ($cat_result as $cat) {
+				$categories[$cat['id']] = $cat;
+			};
+			foreach($women as $id=>$woman) {
+				$women[$id]['category']= $categories[$woman['category']];
+				
+			};
+			
+			return $women;
+		} 
 	}
 	
 	public function getWomanBy($what,$value) {

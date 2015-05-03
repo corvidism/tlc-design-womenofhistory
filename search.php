@@ -55,10 +55,44 @@ $data_source = new DataSource();
  * pass the query to DataSource
  * get only selected women  
  */
+/*
+$params = array(
+	'any'=>'',
+	'name' =>'',
+	'place_born'=>'',
+	'place_died'=>'',
+	'date_born'=>'',
+	'date_died'=>'',
+	'inventions'=>'',
+	'firsts'=>'',
+ 	'story'=>'',
+ 	'tags'=>'', // 'that,this,else'
+ 	'category'=>'',
+ 	'links'=>'',
+ 	'ethnicity'=>'',
+ 	'is_poc'=>'',
+ 	'has_disability'=>'',
+ 	'is_queer'=>'',
+ 	'logic'=>'', //	'1||2&&3'
+ 	'strict'=>'' // '1,0,0'
+);
 
+if (isset($_GET['field'])) {
+	$params[$_GET['field']]=$_GET['value'];
+	if (isset($_GET['strict'])&&$_GET['strict']=='yes') {
+		$params['strict']='1';
+	}	
+}
+*/
+//the above - future question: how to combine multiple queries?
+$query = array(
+	'field'=>$_GET['field'],
+	'value'=>$_GET['value'],
+	'strict'=>$_GET['strict'],
+);
 
-
-$women = $data_source->getAllWomen();
+$query['nonpriv_groups'] = (isset($_GET['nonpriv_groups']))?$_GET['nonpriv_groups']:null;
+$women = $data_source->getWomen($query);
 
 ?>
 
@@ -147,8 +181,15 @@ $women = $data_source->getAllWomen();
 				</ul>
 			</div>
 		</div>
-		<ol>
+		<?php
+		if ($women === null) : ?>
+				<p class="no-result">
+					Sorry, nothing matches this query.
+				</p>
+		<?php ; else :?>
+			<ol>
 			<?php
+			
 			foreach($women as $index=>$woman) {
 				//name
 			?>
@@ -198,17 +239,7 @@ $women = $data_source->getAllWomen();
 			} #end of foreach			
 			?>
 		</ol>
-		<div class="pagination-centered">
-			<ul class="pagination">
-				<li class="arrow unavailable"><a href="">&laquo;</a></li>
-				<li class="current"><a href="">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-				<li class="arrow"><a href="">&raquo;</a></li>
-			</ul>
-		</div>
-		
+		<?php endif; ?>
 	</div>
 	<footer id="pagefooter">
 			
