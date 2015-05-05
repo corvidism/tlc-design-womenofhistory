@@ -177,14 +177,6 @@ require_once 'header.php';
 					foreach ($links as $link):?>
 						<li>
 							<h4>
-							<?php
-							
-							$link_split = explode("/",$link['url']);
-							//temporary:
-							$link_root = substr($link['url'], 0,strpos($link['url'],"/",9));
-							echo '<img src="http://www.google.com/s2/favicons?domain='.$link_root.'">';
-							//TODO: grab and store the actual favicon from the site (when scraping it)
-							?>
 							<a href="<?php echo $link['url'] ?>"><?php echo $link['title'] ?></a></h4>
 							<p><?php echo $link['description'] ?></p>
 						</li>						
@@ -201,7 +193,6 @@ require_once 'header.php';
 			
 			$lists = $data_source->getPublicListsByWoman($woman['id']);
 			foreach($lists as $list)  : 
-				for ($i=1;$i<4;$i++) :
 				?>
 				<li class="row">
 					<div class="list-desc small-10 columns">
@@ -210,7 +201,7 @@ require_once 'header.php';
 					</div>
 				</li>						
 			<?php
-				endfor; 
+				 
 			endforeach;
 			?>
 			</ul>

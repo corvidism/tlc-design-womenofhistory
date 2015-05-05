@@ -12,6 +12,7 @@ class DataSource
 	private $data;
 	private $db;
 	private $db_calls;
+	private $display_cols;
 	
 	public function __construct() {
 		$this->data = Array();
@@ -25,21 +26,8 @@ class DataSource
 		    die('Could not connect to the database:<br/>' . $e);
 		}		
 		$this->db = $pdo;
-	}
-	
-	private function quoteField($field) {
-    return "`".str_replace("`","``",$field)."`";
-	}
-	
-	private function setupCall($title,$query) {
-		if (!isset($this->db_calls[$title]) || !$this->db_calls[$title] instanceof PDOStatement) {
-			$this->db_calls[$title] = $this->db->prepare($query);	
-		}
-	}
-	
-	public function getAllWomen() {
-		if (!isset($this->db_calls['women']) || !$this->db_calls['women'] instanceof PDOStatement) {
-			$columns_needed = array(
+		
+		$this->display_cols = array(
 				'id',
 				//'last_edited_at',
 				//'created_at',
@@ -64,6 +52,21 @@ class DataSource
 				'disability',
 				'tags',
 			);
+	}
+	
+	private function quoteField($field) {
+    return "`".str_replace("`","``",$field)."`";
+	}
+	
+	private function setupCall($title,$query) {
+		if (!isset($this->db_calls[$title]) || !$this->db_calls[$title] instanceof PDOStatement) {
+			$this->db_calls[$title] = $this->db->prepare($query);	
+		}
+	}
+	
+	public function getAllWomen() {
+		if (!isset($this->db_calls['women']) || !$this->db_calls['women'] instanceof PDOStatement) {
+			$columns_needed = $this->display_cols;
 			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women`";
 			$this->db_calls['women'] = $this->db->query($query_str);			
 		}
@@ -99,31 +102,7 @@ class DataSource
 		$strict = ($params['strict']=='yes')?true:false;
 		$nonpriv_groups = $params['nonpriv_groups'];
 		
-		$columns_needed = array(
-				'id',
-				//'last_edited_at',
-				//'created_at',
-				//'last_edited_by',
-				//'created_by',
-				'name',
-				'category',
-				'date_born',
-				'date_died',
-				'place_born',
-				'place_died',
-				'inventions',
-				'firsts',
-				'tagline',
-				//'story',
-				'orientation',
-				'gender_identity',
-				'is_poc',
-				'is_queer',
-				'ethnicity',
-				'has_disability',
-				'disability',
-				'tags',
-		);
+		$columns_needed = $this->display_cols;
 		
 		$searchable_cols = array(
 				//'id',
@@ -237,6 +216,40 @@ class DataSource
 			
 			return $women;
 		} 
+	}
+
+	public function getWomenByList($list_id) {
+		if (is_nan($list_id)) return false;
+		$query="select ".implode(",",$this->display_cols).",list_woman.description from women,list_woman where id=list_woman.her_id and list_woman.list_id=?";	
+		$this->setupCall('women_by_list', $query);
+		$this->db_calls['women_by_list']->bindValue(1,$list_id);
+		$this->db_calls['women_by_list']->execute();
+		
+		if ($this->db_calls['women_by_list']->rowCount()>0) {
+			$women = $this->db_calls['women_by_list']->FetchAll();
+			
+		}; //else do nothing
+		
+		if (empty($women)) {
+			return null;
+		} else {
+			$cat_ids = array_column($women,'category');
+			$query_str = "SELECT * FROM `categories` WHERE id IN (".implode(",",$cat_ids).")"; 
+			$this->db_calls['cats_tmp']= $this->db->query($query_str);
+			$cat_result = $this->db_calls['cats_tmp']->FetchAll();
+			$categories = array();
+			foreach ($cat_result as $cat) {
+				$categories[$cat['id']] = $cat;
+			};
+			foreach($women as $id=>$woman) {
+				$women[$id]['category']= $categories[$woman['category']];
+				
+			};
+			
+			return $women;
+		} 
+		
+		
 	}
 	
 	public function getWomanBy($what,$value) {

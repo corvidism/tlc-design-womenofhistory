@@ -432,11 +432,15 @@ header#pagetitle {
       
       &.selected {
         //list-style:bullet;
-        border-color:$grey;
+        
         
         h3:before {
           content:'– ';                    
         }
+      }
+      
+      &:hover {
+        border-color:$grey;
       }
       
       .specs ul {
@@ -475,6 +479,27 @@ header#pagetitle {
   
   .pagination {
     text-align:center;
+  }
+  
+  
+  .specs ul li {
+    display:inline;
+    
+    &:before {
+      content:"– ";
+    }
+    &:first-child:before {
+      content:"";
+    }
+    
+    @media screen and (min-width: $medium) {
+        display:block;
+        
+        &:before {
+          content:"";
+        }
+        //text-align:center;
+      }
   }
   
 }
@@ -528,6 +553,8 @@ header#pagetitle {
      line-height: 0.1em;
      bottom: 0.2em;
     }
+    
+    
   
   }
 }
@@ -560,19 +587,10 @@ article.woman {
     }  
   }
   
-  .tagline {
-    font-size:$ms1;
-    line-height:1.2;
-  }
-  
   .category_and_tags div {
     margin-bottom:$padsize;
   }
   
-  .tagline {
-    //border-bottom:1px solid $grey;
-    padding-bottom:1em;
-  }
   
   .story {
     
@@ -599,13 +617,7 @@ article.woman {
       text-decoration:none;
     }
     
-    .thumb-box {
-      text-align:center;
-    }
-    img.thumb {
-      width:125px;
-      display:block;
-    }
+    
     
   }
     
@@ -622,6 +634,21 @@ article.woman {
       padding-top:$padsize;
   }
   
+  
+}
+
+article.woman .tagline, article#user-list .tagline {
+    font-size:$ms1;
+    line-height:1.2;
+    padding-bottom:1em;
+}
+
+.thumb-box {
+  text-align:center;
+}
+img.thumb {
+  width:125px;
+  display:block;
 }
 
 .notice {
@@ -632,6 +659,30 @@ article.woman {
 #side-col header {
   //margin-right:2rem;
   padding:$padsize;
+}
+
+/************** LIST.PHP **************/
+
+#user-list {
+  ol {
+    list-style:none;
+  }
+  .list-desc p {
+    font-size:$ms1;
+    line-height:1.2;
+    padding-bottom:1em;
+  }
+  
+  .woman .description {
+    margin-top:$padsize;
+    margin-bottom:2*$padsize;
+    padding-left:4*$padsize;
+    
+    & p:before {
+      content:"– ";
+      display:inline;
+    }
+  }
 }
 
 
@@ -655,10 +706,10 @@ $fonchoice:'kelly_slabregular';
   color:$typecolor; //if the bg is dark, this gets inverted
   
   a:hover,a:focus,
-  .woman.selected h3,
+  .woman.selected h3 a,
   #searchform,#menutitle,
-  h2.name, h3 a,
-  .woman.selected h3:before{
+  h2.name, h2.title,
+  .description p:before {
     color:#FF6C00 !important;
   }
   
@@ -669,7 +720,8 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  article.woman .tagline  {
+  .tagline,
+  #user-list .list-desc  {
     font-family:'Arial';
     font-family:'josefin_slabsemibold';  
   }
@@ -684,7 +736,7 @@ $fonchoice:'kelly_slabregular';
   a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
-  h2.name {
+  h2.name, h2.title, {
     color:#FF6C00 !important;
   }
   
@@ -695,7 +747,8 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  article.woman .tagline {
+  article.woman .tagline,
+  #user-list .list-desc {
     font-family:'economicaregular'  
   }
   
@@ -706,7 +759,7 @@ $fonchoice:'kelly_slabregular';
  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
-  h2.name {
+  h2.name, h2.title, {
     //color:#FF6C00 !important;
   }
   
@@ -716,7 +769,9 @@ $fonchoice:'kelly_slabregular';
   
   h1,h2,h3,
   #searchform,
-  #pagetitle a {
+  #pagetitle a,
+  article.woman .tagline,
+  #user-list .list-desc {
     font-family:'andada_scregular'  
   }
   
@@ -730,7 +785,7 @@ $fonchoice:'kelly_slabregular';
   a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
-  h2.name, h3 a,
+  h2.name, h2.title,
   .woman.selected h3:before{
     color:#FF6C00 !important;
   }
@@ -742,7 +797,8 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  article.woman .tagline
+  article.woman .tagline,
+  #user-list .list-desc
   {
     font-family:'kelly_slabregular';  
   }
@@ -759,7 +815,7 @@ $fonchoice:'kelly_slabregular';
   a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
-  h2.name, h3 a,
+  h2.name, h2.title,
   .woman.selected h3:before{
     color:#FF6C00 !important;
   }
@@ -771,7 +827,8 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  article.woman .tagline
+  article.woman .tagline,
+  #user-list .list-desc
   {
     font-family:'Arial';
     font-family:'ostrich_sans_inlineregular';
@@ -790,7 +847,7 @@ $fonchoice:'kelly_slabregular';
   a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
-  h2.name, h3 a,
+  h2.name, h2.title,
   .woman.selected h3:before{
     color:#FF6C00 !important;
   }
@@ -802,7 +859,8 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  article.woman .tagline
+  article.woman .tagline,
+  #user-list .list-desc
   {
     font-family:'Arial';
     font-family:'six_capsregular'; 
