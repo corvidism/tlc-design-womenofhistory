@@ -26,6 +26,22 @@
 			xxlargeScreen = {
 				'min':'120.063em',
 			};
+			
+			pageStyle = {
+				'now':0,
+				'all': ['style0','style1','style2','style3','style4'],
+			};
+			
+			$("#style-switch").click(function(e){
+				oldStyle = pageStyle['now'];
+				pageStyle['now']+=1;
+				if (pageStyle['now']>=pageStyle['all'].length) {
+					pageStyle['now']=0;
+				}
+				console.log('style switch: '+pageStyle['all'][oldStyle]+' to '+pageStyle['all'][pageStyle['now']]);
+				$("body").removeClass(pageStyle['all'][oldStyle]).addClass(pageStyle['all'][pageStyle['now']]);
+				e.preventDefault();
+			});
 		</script>
 		<?php
 		if (isset($page['id'])) {

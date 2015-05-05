@@ -85,20 +85,24 @@ if (isset($_GET['field'])) {
 }
 */
 //the above - future question: how to combine multiple queries?
-$query = array(
-	'field'=>$_GET['field'],
-	'value'=>$_GET['value'],
-	'strict'=>$_GET['strict'],
-);
-
+$query = array();
+$query['field'] = (isset($_GET['field']))?$_GET['field']:null;
+$query['value'] = (isset($_GET['value']))?$_GET['value']:null;
+$query['strict'] = (isset($_GET['strict']))?$_GET['strict']:null;
 $query['nonpriv_groups'] = (isset($_GET['nonpriv_groups']))?$_GET['nonpriv_groups']:null;
-$women = $data_source->getWomen($query);
+if ($query['field'] === null) {
+	$women = $data_source->getAllWomen();
+} else {
+	$women = $data_source->getWomen($query);
+}
+
+
 
 ?>
 
 	<section role="search" id="search-box" class="medium-5 large-4 columns">
 		<form id="searchform" method="GET">
-			<label>Search where</label>
+			<span>Search where</span>
 			<div class="search-query" id="search-query-1">
 				<div class="select">
 				<select name="field">

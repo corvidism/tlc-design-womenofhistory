@@ -19,11 +19,20 @@ require_once 'site_settings.php';
 		
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/foundation.min.css" />
+		
+		<link rel="stylesheet" href="fonts/andadasc/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/archery/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/economica/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/josefinslab1/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/josefinslab2/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/kelly-matchbook-ostrich/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/sixcaps/stylesheet.css" />
+		
 		<link rel="stylesheet" href="stylesheets/screen.css" />	
 		
 	    <script src="js/vendor/modernizr.js"></script>
   </head>
-	<body class="no-js" id="" >
+	<body class="no-js style0" id="" >
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
@@ -43,7 +52,8 @@ require_once 'site_settings.php';
 		    	<li class="has-dropdown">
 			      <a href="user-profile.php">annathecrow</a>
 			      <ul class="dropdown">
-			        <li  class="active"><a href="user/lists.php">My lists</a></li>
+			      	<li><a href="#" id="style-switch">(cycle styles)</a></li>
+			        <li><a href="user/lists.php">My lists</a></li>
 					<li><a href="user/settings.php">Settings</a></li>
 					<li><a href="user/logout.php">(logout)</a></li>
 			      </ul>

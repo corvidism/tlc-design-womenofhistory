@@ -5,36 +5,22 @@
 
 //@import "compass/reset";
 
-$pink:rgba(200,0,50,0.1);
-$grey:#bbb;
 
-$type-color:#333;
-
-//$base:#fcfcfc;
-$base:#fff;
-$navbar-color:$base;
-
-//$accent:#008cba;
-//$accent:#E0144E;
-
-$accent:#7EB622;
-$accent-light:tint($accent,70%);
-$accent-dark:shade($accent, 30%);
-
-//$t_border: #29C68F;
-$t_border: cyan;
-$secondary:$t_border;
+$bgcolor:#fff; //white is default
+$typecolor:#333; //offset from black
+$grey:tint(#000,50%); //middle grey
 
 @mixin t_style() {
-  background-color:$base;
-  color:$type-color;
-  border-bottom:1px solid $t_border;
+  background-color:transparent;
+  color:inherit;
 }
 
 @mixin t_style_hover() {
-  background-color:$base;
-  color:$accent;
+  background-color:transparent;
+  color:inherit;
 }
+
+
 
 $padsize: 1.1rem;
 
@@ -65,13 +51,22 @@ $line_r:1.2;
 
 
 body {  
-  background:$base;
-  color:$type-color;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   -o-hyphens: auto;
   hyphens: auto;
+  
+  color:$typecolor;
+  background-color:$bgcolor;
+}
+
+a {
+  color:$grey;
+}
+
+h1,h2,h3,h4 {
+  color:$grey;
 }
 
 h1 {
@@ -91,71 +86,12 @@ h4 {
   font-weight:bold;
 }
 
-/************** TEMP (DEVSTYLES) **************/
-
-body#blank 
-{
-  * {
-    color:transparent !important;
-  } 
-
-  div, ol, ul, li, canvas {
-    background-color:$pink;
-  }
-  
-    canvas#header-graphics {
-    background-color:rgba(50,0,200,0.1);
-  }
-    header#pagetitle, footer#pagefooter {
-    background-color:rgba(0,50,200,0.1);
-  }
-  
-  #list-box {
-    li {
-      background-color:rgba(0,200,0,0.1);
-    }     
-  }
-  
-}
-
-body#outline {
-  div, ol, ul, li, canvas {
-    border:1px solid $pink;
-  }
-}
 
 /************** STYLES **************/
 
 
 div#wrapper {
-  padding-top:2rem;
-  
-  
-  a {
-    color:$accent;
-  }
-  
-  a:hover {
-    //color:$accent-dark;
-    color:$secondary;
-  }
-  
-  .button {
-    background-color:$accent;
-    color:white;
-  }
-  
-  .button:hover {
-    color:$accent-light;  
-  }
-  
-  
-  ul.pagination {
-    li.current a {
-      background-color:$accent;
-      color:white;
-    }
-  }
+  padding-top:2rem;  
 }
 
 .left {
@@ -170,7 +106,7 @@ div#wrapper {
 select {
   border:0;
   //border-bottom:1px dotted black;
-  color:$accent;
+  color:inherit;
   font-size: inherit;
   line-height: inherit;
   height: inherit;
@@ -184,12 +120,18 @@ select {
   z-index:1;
   
   option {
-    color:$type_color;
+    color:inherit;
   }  
   
   &:hover {
     background-color:transparent;
-  }  
+  } 
+  
+   
+}
+
+label {
+  color:inherit;
 }
 
 .select {
@@ -198,27 +140,32 @@ select {
     display:inline-block;
     width:1em;
     position: absolute;
+    text-align:right;
     right: 1rem;
     z-index:-1;
+  }
+  
+  &:hover {
+    //background-color:$lightgray;
   }
 }
 
 /************** TOPBAR **************/
 
 .top-bar {
-  background-color:$navbar-color;
-  color:$type-color;
+  background-color:transparent;
+  color:inherit;
   font-size:$ms0 !important;
   text-transform:none !important;
   
   //@include t_style();
   
   .toggle-topbar a {
-    color:$type-color;
+    color:inherit;
     text-transform: none;
     font-weight: normal;
     font-size: 1rem;
-    border-left: 1px solid $t_border;
+    //border-left: 1px solid $t_border;
     padding-left: 1rem;
     
   }
@@ -226,23 +173,25 @@ select {
 }
 
 .top-bar.expanded .title-area {
-  background-color:$navbar-color;
-  color:$type-color;
+  background-color:transparent;
+  color:inherit;
   
   
 }
 
 
 .top-bar-section {
-  $hover-navbar-color:shade($navbar-color,10%);  
   
-  ul li > a {
-    color:$type-color;
+  ul li{ 
+    background-color:transparent;
+    > a {
+      color:inherit;
+    }
   }
   
   li:not(.has-form) {
     a:not(.button)  {
-      background-color:$navbar-color;
+      background-color:transparent;
       @include t_style();
       line-height:44px; //minus 1px from default, else it fucks up the entire Foundation layout
     }
@@ -259,12 +208,12 @@ select {
   .dropdown {
     
     li a {
-      color:$type-color;
+      color:inherit;
     } 
     
     li:not(.has-form):not(.active) > a:not(.button) {
-      background-color:$navbar-color;
-      color:$type-color;
+      background-color:transparent;
+      color:inherit;
     }
     
     li:hover:not(.has-form):not(.active) > a:not(.button) {
@@ -284,10 +233,9 @@ select {
 }
 
 #menutitle {
-  color:$accent;
-  border-bottom:1px solid $t_border;
   height:45px;
   line-height:42px;
+  color:$grey;
   
   @media screen and (min-width: $medium) {
      // display:none; //do not show elsewhere but mobile
@@ -333,13 +281,12 @@ header#pagetitle {
 }
 
 #searchform {
-  //color:$accent;
-  font-size:$ms1;
+  font-size:$ms0*2;
   line-height:1.2;
   margin:0;
   padding:0;
   
-  label, input {
+  label, input, span {
     color:inherit;
     font-size:inherit;
     line-height:inherit;
@@ -351,7 +298,6 @@ header#pagetitle {
   input[type="text"] {
     border:none;
     //border-bottom:1px dotted black;
-    color:$accent;
     background:none;
     box-shadow:none;
     transition:none;
@@ -376,21 +322,20 @@ header#pagetitle {
     margin-top:1rem;
     display:block;
     padding:0.2em;
-    border-top:1px solid $t_border;
+    //border-top:1px solid $t_border;
     
   }
   
   #submit-button {
     background:transparent;
     font-size:inherit;
-    color:$accent;
+    font-family:inherit;
     display:inline;
     margin:0;
     padding:0;
-    border-bottom:1px solid $secondary;
+    //border-bottom:1px solid $secondary;
     
     &:hover,&:focus {
-      color:$secondary;
     }
   }
   
@@ -399,10 +344,10 @@ header#pagetitle {
   }
   
   .logic {
-    color:$grey;
+    color:tint($grey,60%);
     em {
       font-style:normal;
-      color:$type_color;
+      color:$grey;
     }
   }
   
@@ -426,7 +371,7 @@ header#pagetitle {
       position:relative;
       
       label {
-        color:$accent;
+        color:inherit;
       }
     }    
   }
@@ -449,7 +394,7 @@ header#pagetitle {
 
 #list-box {
   padding-top:$ms2;
-  border-left:1px solid $t_border;
+  //border-left:1px solid $t_border;
   
   div.portrait {
     float:left;
@@ -472,13 +417,20 @@ header#pagetitle {
     
   li.woman {
       margin-bottom:2*$padsize;
+      margin-left:0.001rem;
+      position:relative;
       //padding:0 $padsize;
-      border:1px solid transparent;
-      border-width:1px 0;
+      //border:1px solid transparent;
+      //border-width:1px 0;
+      border-left:1px solid transparent;
       
-      &.selected, &:hover {
-        background-color:rgba($secondary, 0.2);
-        border-color:$secondary;   
+      &.selected {
+        //list-style:bullet;
+        border-color:$grey;
+        
+        h3:before {
+          content:'– ';                    
+        }
       }
       
       .specs ul {
@@ -600,9 +552,6 @@ article.woman {
       height:auto;
     }  
   }
-  h2.name {
-    color:$accent;
-  }
   
   .tagline {
     font-size:$ms1;
@@ -629,7 +578,7 @@ article.woman {
   .story {
     
     p:first-child {
-      border-top:1px solid $secondary;
+      border-top:1px solid $grey;
       padding-top:$padsize*2;
     }
   }
@@ -678,3 +627,171 @@ footer#pagefooter {
   height:10em;
 }
 
+
+/************** STYLESETS **************/
+//$fontchoice:'andada_scregular';
+$fontchoice:'economicaregular';
+
+$fontchoice:'ostrich_sans_inlineregular';
+$fontchoice:'josefin_slabsemibold';
+$fonchoice:'kelly_slabregular';
+
+.style0 {
+  //background-color:shade($bgcolor,5%);
+  color:$typecolor; //if the bg is dark, this gets inverted
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name, h3 a,
+  .woman.selected h3:before{
+    color:#FF6C00 !important;
+  }
+  
+  .woman:hover, {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a,
+  {
+    font-family:'Arial';
+    font-family:'josefin_slabsemibold';  
+  }
+  
+  #search-submit {
+  }
+  
+}
+
+.style1 {
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name {
+    color:#FF6C00 !important;
+  }
+  
+  .woman.selected {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a {
+    font-family:'economicaregular'  
+  }
+  
+}
+
+.style-x {
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name {
+    //color:#FF6C00 !important;
+  }
+  
+  .woman.selected {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a {
+    font-family:'andada_scregular'  
+  }
+  
+}
+
+
+.style2 {
+  //background-color:shade($bgcolor,5%);
+  color:$typecolor; //if the bg is dark, this gets inverted
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name, h3 a,
+  .woman.selected h3:before{
+    color:#FF6C00 !important;
+  }
+  
+  .woman:hover, {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a,
+  {
+    font-family:'kelly_slabregular';  
+  }
+  
+  #search-submit {
+  }
+  
+}
+
+.style3 {
+  //background-color:shade($bgcolor,5%);
+  color:$typecolor; //if the bg is dark, this gets inverted
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name, h3 a,
+  .woman.selected h3:before{
+    color:#FF6C00 !important;
+  }
+  
+  .woman:hover, {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a,
+  {
+    font-family:'Arial';
+    font-family:'ostrich_sans_inlineregular';
+    font-size:2em; 
+  }
+  
+  #search-submit {
+  }
+  
+}
+
+.style4 {
+  //background-color:shade($bgcolor,5%);
+  color:$typecolor; //if the bg is dark, this gets inverted
+  
+  a:hover,
+  .woman.selected h3,
+  #searchform,#menutitle,
+  h2.name, h3 a,
+  .woman.selected h3:before{
+    color:#FF6C00 !important;
+  }
+  
+  .woman:hover, {
+    border-color:#FF6C00;
+  }
+  
+  h1,h2,h3,
+  #searchform,
+  #pagetitle a,
+  {
+    font-family:'Arial';
+    font-family:'six_capsregular'; 
+    font-size:3em; 
+  }
+  
+  #search-submit {
+  }
+  
+}

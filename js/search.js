@@ -6,6 +6,9 @@ search = {
 	'queryCount':1,
 };
 
+
+
+
 $("#add-query").click(function(e) {
 	//copy search block
 	//clear contents
@@ -42,8 +45,6 @@ $("#searchform").on("click","select",function(e){
 	
 	
 });
-
-
 
 
 $("#search-submit").click(function(e){
