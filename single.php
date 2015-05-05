@@ -30,22 +30,37 @@ require_once 'header.php';
 ?>
 <article class="woman small-12 columns">
 	<div class="row">
-	<!--	
-	<div class="portrait-img small-12 large-4 columns">
-		<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
-	</div>
-	-->
 	<div id="side-col" class="small-12 medium-4 columns">
 		<div class="row colapse">
-		<div class="portrait-img small-12 columns">
-			<img src="<?php echo get_image("women/images/",$woman['id']); ?>" class="portrait" />	
-		</div>
+			<?php
+			//if the portrait is missing, echo the tagline here
+			$image =  get_image("women/images/",$woman['id']);
+			if (!$image) {
+				echo '<header>';
+				echo '<h2 class="name">'.$woman['name'].'</h2>';
+				echo '<p class="tagline">'.$woman['tagline'].'</p>';
+				echo '</header>';
+				$tagline_done=true;
+			} else {
+				$tagline_done=false;
+				echo '<div class="portrait-img small-12 columns">
+			<img src="'.$image.'" class="portrait" />	
+		</div>';
+			}
+			?>		
 		</div>			
 	</div>
 	
 	<header class="small-12 medium-8 large-5 columns">
-		<h2 class="name"><?php echo $woman['name']?></h2>
-		<p class="tagline"><?php echo $woman['tagline']; ?></p>
+		<?php
+			
+			if (!$tagline_done) {
+				echo '<h2 class="name">'.$woman['name'].'</h2>';
+				echo '<p class="tagline">'.$woman['tagline'].'</p>';
+			} else {
+				echo '<p></p>';
+			}
+		?>
 	</header>
 	<div class="specs medium-8 large-3 columns">
 		<?php
@@ -75,15 +90,15 @@ require_once 'header.php';
 			}
 		?>
 		<div class="category_and_tags">
-			<p class="category"><strong>category: </strong>
+			<div class="category"><strong>category: </strong>
 			<?php
 				if ($woman['category']) {
 					echo '<a href="search.php?category='.$woman['category']['id'].'">'.$woman['category']['title'].'</a>';
 				} else {
 					echo "(none)";
 				}				 
-			?></p>
-			<p class="tags"><strong>tags:</strong> 
+			?></div>
+			<div class="tags"><strong>tags:</strong> 
 				<?php
 					$tags = explode(",",$woman['tags']);
 					$taglinks = array();
@@ -92,7 +107,7 @@ require_once 'header.php';
 					}
 					echo implode(", ",$taglinks); 
 				?>
-			</p>	
+			</div>	
 		</div>	
 	</div>
 	<div class="inner small-12 medium-8 columns">
@@ -132,7 +147,7 @@ require_once 'header.php';
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';
-					echo '(This record has no story. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to tell the story of '.$woman['name'].'!)';
+					echo '<p class="notice">(This record has no story. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to tell the story of '.$woman['name'].'!)</p>';
 				} else {
 					echo $woman['story']; 
 				};
@@ -156,7 +171,7 @@ require_once 'header.php';
 				<?php
 				$links = $data_source->getLinksByWoman($woman['id']);
 				if ($links == null): 
-					echo '(This record has no links. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)';
+					echo '<p class="notice">(This record has no links. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)</p>';
 				else:
 					echo "<ul>";
 					foreach ($links as $link):?>
@@ -181,19 +196,21 @@ require_once 'header.php';
 			</div>	
 			<div class="lists">
 			<h3>Featured in these lists</h3>
-			<ul>
+			<ul class="small-block-grid-3">
 			<?php
 			
 			$lists = $data_source->getPublicListsByWoman($woman['id']);
-			foreach($lists as $list)  : ?>
+			foreach($lists as $list)  : 
+				for ($i=1;$i<4;$i++) :
+				?>
 				<li class="row">
-					<div class="thumb-wrap small-2 column"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"></div>
 					<div class="list-desc small-10 columns">
-						<h4><a href="list.php?id=<?php echo $list['id'] ?>"><?php echo $list['title'] ?></a></h4>
-						<?php echo $list['description'] ?>
+						
+						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"><?php echo $list['title'] ?></a>					
 					</div>
 				</li>						
-			<?php 
+			<?php
+				endfor; 
 			endforeach;
 			?>
 			</ul>

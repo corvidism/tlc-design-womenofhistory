@@ -9,7 +9,7 @@ function get_image($path,$id) {
 	} else if (file_exists($filestr.".gif")) {
 		$link_thumb = $filestr.".gif";
 	} else {
-		$link_thumb = "default.jpg";
+		$link_thumb = false;
 	}
 	
 	return $link_thumb;

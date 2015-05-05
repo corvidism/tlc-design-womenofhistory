@@ -13,6 +13,7 @@ $grey:tint(#000,50%); //middle grey
 @mixin t_style() {
   background-color:transparent;
   color:inherit;
+  text-decoration:none !important;
 }
 
 @mixin t_style_hover() {
@@ -63,6 +64,10 @@ body {
 
 a {
   color:$grey;
+}
+
+p a {
+   text-decoration:underline;
 }
 
 h1,h2,h3,h4 {
@@ -236,6 +241,7 @@ label {
   height:45px;
   line-height:42px;
   color:$grey;
+  text-decoration:none;
   
   @media screen and (min-width: $medium) {
      // display:none; //do not show elsewhere but mobile
@@ -541,6 +547,7 @@ article.woman {
     overflow:hidden;
     padding:0;
     margin:0;
+    margin-bottom:2rem;
     
     img {
       //width:100%;
@@ -558,18 +565,10 @@ article.woman {
     line-height:1.2;
   }
   
-  .inner {
-    
-    & > div {
-      //padding-left:$padsize;
-      //padding-right:$padsize;
-    }
-    
-    footer p {
-      border-top:1px solid $grey;
-      padding-top:1em;
-    }
+  .category_and_tags div {
+    margin-bottom:$padsize;
   }
+  
   .tagline {
     //border-bottom:1px solid $grey;
     padding-bottom:1em;
@@ -578,7 +577,7 @@ article.woman {
   .story {
     
     p:first-child {
-      border-top:1px solid $grey;
+      //border-top:1px solid $grey;
       padding-top:$padsize*2;
     }
   }
@@ -592,18 +591,20 @@ article.woman {
   
   .lists {
     
-    li {
-      clear:both;
+    h3 {
+      margin-bottom:$padsize;
     }
     
-    .thumb-wrap {
-      //width:100px;
-      //float:left;
-      //margin-right:$padsize;
-      //margin-bottom:$padsize;
+    a {
+      text-decoration:none;
+    }
+    
+    .thumb-box {
+      text-align:center;
     }
     img.thumb {
-      width:150px;
+      width:125px;
+      display:block;
     }
     
   }
@@ -617,7 +618,20 @@ article.woman {
   footer {
     clear:both;
     margin-top:$padsize;
+    border-top:1px solid $grey;
+      padding-top:$padsize;
   }
+  
+}
+
+.notice {
+  font-size:0.8rem;
+  margin-left:2rem;
+}
+
+#side-col header {
+  //margin-right:2rem;
+  padding:$padsize;
 }
 
 
@@ -640,7 +654,7 @@ $fonchoice:'kelly_slabregular';
   //background-color:shade($bgcolor,5%);
   color:$typecolor; //if the bg is dark, this gets inverted
   
-  a:hover,
+  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name, h3 a,
@@ -655,7 +669,7 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
-  {
+  article.woman .tagline  {
     font-family:'Arial';
     font-family:'josefin_slabsemibold';  
   }
@@ -667,7 +681,7 @@ $fonchoice:'kelly_slabregular';
 
 .style1 {
   
-  a:hover,
+  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name {
@@ -680,7 +694,8 @@ $fonchoice:'kelly_slabregular';
   
   h1,h2,h3,
   #searchform,
-  #pagetitle a {
+  #pagetitle a,
+  article.woman .tagline {
     font-family:'economicaregular'  
   }
   
@@ -688,7 +703,7 @@ $fonchoice:'kelly_slabregular';
 
 .style-x {
   
-  a:hover,
+ a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name {
@@ -712,7 +727,7 @@ $fonchoice:'kelly_slabregular';
   //background-color:shade($bgcolor,5%);
   color:$typecolor; //if the bg is dark, this gets inverted
   
-  a:hover,
+  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name, h3 a,
@@ -727,6 +742,7 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
+  article.woman .tagline
   {
     font-family:'kelly_slabregular';  
   }
@@ -740,7 +756,7 @@ $fonchoice:'kelly_slabregular';
   //background-color:shade($bgcolor,5%);
   color:$typecolor; //if the bg is dark, this gets inverted
   
-  a:hover,
+  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name, h3 a,
@@ -755,6 +771,7 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
+  article.woman .tagline
   {
     font-family:'Arial';
     font-family:'ostrich_sans_inlineregular';
@@ -770,7 +787,7 @@ $fonchoice:'kelly_slabregular';
   //background-color:shade($bgcolor,5%);
   color:$typecolor; //if the bg is dark, this gets inverted
   
-  a:hover,
+  a:hover,a:focus,
   .woman.selected h3,
   #searchform,#menutitle,
   h2.name, h3 a,
@@ -785,6 +802,7 @@ $fonchoice:'kelly_slabregular';
   h1,h2,h3,
   #searchform,
   #pagetitle a,
+  article.woman .tagline
   {
     font-family:'Arial';
     font-family:'six_capsregular'; 
