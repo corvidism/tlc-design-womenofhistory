@@ -203,7 +203,7 @@ if ($query['field'] === null) {
 					</header>
 					<div class="woman-top medium-7 large-6 columns">
 					
-					<p class="tagline"><?php echo $woman['tagline']; ?> <a href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
+					<p class="search-tagline"><?php echo $woman['tagline']; ?> <a class="more" href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
 					
 					</div>
 					<div class="specs small-12 medium-5 large-3 columns">

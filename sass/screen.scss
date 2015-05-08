@@ -558,6 +558,10 @@ header#pagetitle {
   
   }
 }
+
+.search-tagline .more {
+  text-decoration:none;
+}
   
   
 
@@ -710,11 +714,11 @@ $fonchoice:'kelly_slabregular';
   #searchform,#menutitle,
   h2.name, h2.title,
   .description p:before {
-    color:#FF6C00 !important;
+    //color:#FF6C00 !important;
   }
   
   .woman:hover, {
-    border-color:#FF6C00;
+    //border-color:#FF6C00;
   }
   
   h1,h2,h3,
@@ -723,7 +727,7 @@ $fonchoice:'kelly_slabregular';
   .tagline,
   #user-list .list-desc  {
     font-family:'Arial';
-    font-family:'josefin_slabsemibold';  
+    //font-family:'josefin_slabsemibold';  
   }
   
   #search-submit {
