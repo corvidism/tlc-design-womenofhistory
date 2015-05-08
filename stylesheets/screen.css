@@ -606,34 +606,44 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 726, ../sass/screen.scss */
+/* line 727, ../sass/screen.scss */
 .style0 a,
 .style0 h1, .style0 h2, .style0 h3, .style0 h4,
 .style0 #searchform .logic {
   color: rgba(255, 0, 99, 0.7);
 }
-/* line 731, ../sass/screen.scss */
+/* line 732, ../sass/screen.scss */
 .style0 #searchform input:-moz-placeholder {
-  color: rgba(255, 0, 99, 0.7);
+  /* Firefox 18- */
+  color: #ff0063;
 }
 /* line 735, ../sass/screen.scss */
-.style0 #searchform input:-ms-input-placeholder {
-  color: rgba(255, 0, 99, 0.7);
-}
-/* line 739, ../sass/screen.scss */
-.style0 #searchform input::-webkit-input-placeholder {
-  color: rgba(255, 0, 99, 0.7);
-}
-/* line 743, ../sass/screen.scss */
 .style0 #searchform input::-moz-placeholder {
-  color: rgba(255, 0, 99, 0.7);
+  /* Firefox 19+ */
+  color: #ff0063;
 }
-/* line 750, ../sass/screen.scss */
+/* line 738, ../sass/screen.scss */
+.style0 #searchform input:-ms-input-placeholder {
+  color: #ff0063;
+}
+/* line 741, ../sass/screen.scss */
+.style0 #searchform input::-webkit-input-placeholder {
+  color: #ff0063;
+}
+/* line 746, ../sass/screen.scss */
+.style0 #searchform .logic {
+  color: rgba(255, 0, 99, 0.3);
+}
+/* line 749, ../sass/screen.scss */
+.style0 #searchform .logic em {
+  color: white;
+}
+/* line 755, ../sass/screen.scss */
 .style0 li.woman:hover,
 .style0 footer {
   border-color: white !important;
 }
-/* line 759, ../sass/screen.scss */
+/* line 764, ../sass/screen.scss */
 .style0 a:hover, .style0 a:focus,
 .style0 .woman.selected h3 a,
 .style0 #menutitle,
@@ -641,7 +651,7 @@ footer#pagefooter {
 .style0 #submit-button {
   color: #ff0063 !important;
 }
-/* line 763, ../sass/screen.scss */
+/* line 768, ../sass/screen.scss */
 .style0 li.woman.selected {
   border-color: #ff0063 !important;
 }

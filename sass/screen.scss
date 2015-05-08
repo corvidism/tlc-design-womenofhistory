@@ -702,9 +702,10 @@ $font:'OpenSans';
 
 .style0 {
   $accent: #FF0063;
-  $grey: rgba($accent,0.7);
+  $grey: fade-out($accent,0.3);
   $bg_color:#a02035;
   $bg_base: black;
+  $type_color:invert($bg_base);
   //$bg_base:white;
  
   background: $bg_color; /* Old browsers */
@@ -716,7 +717,7 @@ $font:'OpenSans';
   background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
   background-repeat:no-repeat;
-  color:invert($bg_base);
+  color:$type_color;
   
   
   //"grey":
@@ -727,28 +728,32 @@ $font:'OpenSans';
     color:$grey;
   }
 
-  
-  #searchform input:-moz-placeholder {
-    color:$grey;
+  #searchform input {
+    &:-moz-placeholder { /* Firefox 18- */
+      color:$accent;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color:$accent;
+    }
+    &:-ms-input-placeholder {
+      color:$accent;
+    }
+    &::-webkit-input-placeholder {
+      color:$accent;
+    }
   }
   
-  #searchform input:-ms-input-placeholder {
-    color:$grey;
+  #searchform .logic {
+    color:fade-out($accent,0.7);
+    
+    em {
+      color:$type_color;
+    }
   }
-  
-  #searchform input::-webkit-input-placeholder {
-    color:$grey;
-  }
-  
-  #searchform input::-moz-placeholder {
-    color:$grey;
-  }
-  
-  
   
   li.woman:hover,
   footer {
-    border-color:invert($bg_base) !important;
+    border-color:$type_color !important;
   }
   
   //accent
