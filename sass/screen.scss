@@ -599,7 +599,6 @@ article.woman {
   .story {
     
     p:first-child {
-      //border-top:1px solid $grey;
       padding-top:$padsize*2;
     }
   }
@@ -698,180 +697,78 @@ footer#pagefooter {
 
 
 /************** STYLESETS **************/
-//$fontchoice:'andada_scregular';
-$fontchoice:'economicaregular';
 
-$fontchoice:'ostrich_sans_inlineregular';
-$fontchoice:'josefin_slabsemibold';
-$fonchoice:'kelly_slabregular';
+$font:'OpenSans';
 
 .style0 {
-  //background-color:shade($bgcolor,5%);
-  color:$typecolor; //if the bg is dark, this gets inverted
+  $accent: #FF0063;
+  $grey: rgba($accent,0.7);
+  $bg_color:#a02035;
+  $bg_base: black;
+  //$bg_base:white;
+ 
+  background: $bg_color; /* Old browsers */
+  background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 100%); /* FF3.6+ */
+  background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(100%,$bg_base)); /* Chrome,Safari4+ */
+  background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Chrome10+,Safari5.1+ */
+  background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Opera 11.10+ */
+  background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* IE10+ */
+  background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
+  background-repeat:no-repeat;
+  color:invert($bg_base);
   
+  
+  //"grey":
+  a,
+  h1,h2,h3,h4,
+  #searchform .logic,
+  {
+    color:$grey;
+  }
+
+  
+  #searchform input:-moz-placeholder {
+    color:$grey;
+  }
+  
+  #searchform input:-ms-input-placeholder {
+    color:$grey;
+  }
+  
+  #searchform input::-webkit-input-placeholder {
+    color:$grey;
+  }
+  
+  #searchform input::-moz-placeholder {
+    color:$grey;
+  }
+  
+  
+  
+  li.woman:hover,
+  footer {
+    border-color:invert($bg_base) !important;
+  }
+  
+  //accent
   a:hover,a:focus,
   .woman.selected h3 a,
-  #searchform,#menutitle,
-  h2.name, h2.title,
-  .description p:before {
-    //color:#FF6C00 !important;
+  #menutitle,
+  .description p:before,
+  #submit-button {
+    color: $accent !important;
   }
   
-  .woman:hover, {
-    //border-color:#FF6C00;
+  li.woman.selected {
+    border-color:$accent !important;
   }
   
-  h1,h2,h3,
   #searchform,
-  #pagetitle a,
-  .tagline,
-  #user-list .list-desc  {
-    font-family:'Arial';
-    //font-family:'josefin_slabsemibold';  
+  h2.name, 
+  h2.title {
+    //?
   }
   
-  #search-submit {
-  }
-  
-}
-
-.style1 {
-  
-  a:hover,a:focus,
-  .woman.selected h3,
-  #searchform,#menutitle,
-  h2.name, h2.title, {
-    color:#FF6C00 !important;
-  }
-  
-  .woman.selected {
-    border-color:#FF6C00;
-  }
-  
-  h1,h2,h3,
-  #searchform,
-  #pagetitle a,
-  article.woman .tagline,
-  #user-list .list-desc {
-    font-family:'economicaregular'  
-  }
-  
-}
-
-.style-x {
-  
- a:hover,a:focus,
-  .woman.selected h3,
-  #searchform,#menutitle,
-  h2.name, h2.title, {
-    //color:#FF6C00 !important;
-  }
-  
-  .woman.selected {
-    border-color:#FF6C00;
-  }
-  
-  h1,h2,h3,
-  #searchform,
-  #pagetitle a,
-  article.woman .tagline,
-  #user-list .list-desc {
-    font-family:'andada_scregular'  
-  }
-  
-}
-
-
-.style2 {
-  //background-color:shade($bgcolor,5%);
-  color:$typecolor; //if the bg is dark, this gets inverted
-  
-  a:hover,a:focus,
-  .woman.selected h3,
-  #searchform,#menutitle,
-  h2.name, h2.title,
-  .woman.selected h3:before{
-    color:#FF6C00 !important;
-  }
-  
-  .woman:hover, {
-    border-color:#FF6C00;
-  }
-  
-  h1,h2,h3,
-  #searchform,
-  #pagetitle a,
-  article.woman .tagline,
-  #user-list .list-desc
-  {
-    font-family:'kelly_slabregular';  
-  }
-  
-  #search-submit {
-  }
-  
-}
-
-.style3 {
-  //background-color:shade($bgcolor,5%);
-  color:$typecolor; //if the bg is dark, this gets inverted
-  
-  a:hover,a:focus,
-  .woman.selected h3,
-  #searchform,#menutitle,
-  h2.name, h2.title,
-  .woman.selected h3:before{
-    color:#FF6C00 !important;
-  }
-  
-  .woman:hover, {
-    border-color:#FF6C00;
-  }
-  
-  h1,h2,h3,
-  #searchform,
-  #pagetitle a,
-  article.woman .tagline,
-  #user-list .list-desc
-  {
-    font-family:'Arial';
-    font-family:'ostrich_sans_inlineregular';
-    font-size:2em; 
-  }
-  
-  #search-submit {
-  }
-  
-}
-
-.style4 {
-  //background-color:shade($bgcolor,5%);
-  color:$typecolor; //if the bg is dark, this gets inverted
-  
-  a:hover,a:focus,
-  .woman.selected h3,
-  #searchform,#menutitle,
-  h2.name, h2.title,
-  .woman.selected h3:before{
-    color:#FF6C00 !important;
-  }
-  
-  .woman:hover, {
-    border-color:#FF6C00;
-  }
-  
-  h1,h2,h3,
-  #searchform,
-  #pagetitle a,
-  article.woman .tagline,
-  #user-list .list-desc
-  {
-    font-family:'Arial';
-    font-family:'six_capsregular'; 
-    font-size:3em; 
-  }
-  
-  #search-submit {
-  }
   
 }
