@@ -16,61 +16,62 @@ body {
   hyphens: auto;
   color: #333333;
   background-color: white;
+  font-family: 'DejaVu Sans';
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 a {
   color: #7f7f7f;
 }
 
-/* line 70, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 p a {
   text-decoration: underline;
 }
 
-/* line 74, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 h1, h2, h3, h4 {
   color: #7f7f7f;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 h1 {
   font-size: 3.375rem;
 }
 
-/* line 82, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 h2 {
   font-size: 2.25rem;
 }
 
-/* line 86, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 h3 {
   font-size: 1.5rem;
 }
 
-/* line 90, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 h4 {
   font-size: 1rem;
   font-weight: bold;
 }
 
 /************** STYLES **************/
-/* line 99, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 div#wrapper {
   padding-top: 2rem;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .left {
   text-align: left;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 .right {
   text-align: right;
 }
 
-/* line 112, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 select {
   border: 1px solid transparent;
   color: inherit;
@@ -87,21 +88,26 @@ select {
   width: 100%;
   z-index: 1;
 }
-/* line 129, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 select option {
   color: inherit;
 }
-/* line 133, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 select:hover {
+  border-color: transparent !important;
   background-color: transparent;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 label {
   color: inherit;
 }
 
-/* line 145, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
+.select {
+  border: 1px solid transparent;
+}
+/* line 148, ../sass/screen.scss */
 .select:after {
   content: "⌄";
   display: inline-block;
@@ -113,14 +119,14 @@ label {
 }
 
 /************** TOPBAR **************/
-/* line 162, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 .top-bar {
   background-color: transparent;
   color: inherit;
   font-size: 1rem !important;
   text-transform: none !important;
 }
-/* line 170, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .top-bar .toggle-topbar a {
   color: inherit;
   text-transform: none;
@@ -129,21 +135,21 @@ label {
   padding-left: 1rem;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 .top-bar.expanded .title-area {
   background-color: transparent;
   color: inherit;
 }
 
-/* line 192, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .top-bar-section ul li {
   background-color: transparent;
 }
-/* line 194, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .top-bar-section ul li > a {
   color: inherit;
 }
-/* line 200, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 .top-bar-section li:not(.has-form) a:not(.button) {
   background-color: transparent;
   background-color: transparent;
@@ -151,42 +157,42 @@ label {
   text-decoration: none !important;
   line-height: 44px;
 }
-/* line 206, ../sass/screen.scss */
+/* line 209, ../sass/screen.scss */
 .top-bar-section li:not(.has-form) a:hover:not(.button) {
   background-color: transparent;
   color: inherit;
 }
-/* line 211, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .top-bar-section ul li:hover:not(.has-form) > a {
   background-color: transparent;
   color: inherit;
 }
-/* line 217, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .top-bar-section .dropdown li a {
   color: inherit;
 }
-/* line 221, ../sass/screen.scss */
+/* line 224, ../sass/screen.scss */
 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: transparent;
   color: inherit;
 }
-/* line 226, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: transparent;
   color: inherit;
 }
-/* line 232, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 .top-bar-section li.active:not(.has-form) a:not(.button) {
   background-color: transparent;
   color: inherit;
 }
-/* line 236, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 .top-bar-section li.active:not(.has-form) a:hover:not(.button) {
   background-color: transparent;
   color: inherit;
 }
 
-/* line 242, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 #menutitle {
   height: 45px;
   line-height: 42px;
@@ -195,43 +201,43 @@ label {
 }
 
 /************** HEADING **************/
-/* line 256, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 header#pagetitle {
   display: none;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 256, ../sass/screen.scss */
+  /* line 259, ../sass/screen.scss */
   header#pagetitle {
     height: 11.25rem;
   }
 }
-/* line 267, ../sass/screen.scss */
+/* line 270, ../sass/screen.scss */
 header#pagetitle h1 {
   font-size: 2.25rem;
   height: 7.59375rem;
   margin-top: 3.375rem;
 }
-/* line 272, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 header#pagetitle h1 span#subtitle {
   display: none;
   font-size: 1rem;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 272, ../sass/screen.scss */
+  /* line 275, ../sass/screen.scss */
   header#pagetitle h1 span#subtitle {
     display: block;
   }
 }
 
 /************** SEARCH.PHP **************/
-/* line 291, ../sass/screen.scss */
+/* line 294, ../sass/screen.scss */
 #searchform {
   font-size: 2rem;
   line-height: 1.2;
   margin: 0;
   padding: 0;
 }
-/* line 297, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 #searchform label, #searchform input, #searchform span {
   color: inherit;
   font-size: inherit;
@@ -240,7 +246,7 @@ header#pagetitle h1 span#subtitle {
   padding: inherit;
   padding-left: 3px;
 }
-/* line 306, ../sass/screen.scss */
+/* line 309, ../sass/screen.scss */
 #searchform input[type="text"] {
   border: 1px solid transparent;
   background: none;
@@ -248,23 +254,23 @@ header#pagetitle h1 span#subtitle {
   transition: none;
   height: auto;
 }
-/* line 315, ../sass/screen.scss */
+/* line 318, ../sass/screen.scss */
 #searchform input[type="text"]:focus {
   box-shadow: none;
 }
-/* line 319, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 #searchform #add-query {
   font-size: 1rem;
   line-height: 1.5em;
   vertical-align: top;
 }
-/* line 325, ../sass/screen.scss */
+/* line 328, ../sass/screen.scss */
 #searchform #search-submit {
   margin-top: 1rem;
   display: block;
   padding: 0.2em;
 }
-/* line 333, ../sass/screen.scss */
+/* line 336, ../sass/screen.scss */
 #searchform #submit-button {
   background: transparent;
   font-size: inherit;
@@ -272,58 +278,74 @@ header#pagetitle h1 span#subtitle {
   display: inline;
   margin: 0;
   padding: 0;
+  margin-right: 0.6rem;
 }
-/* line 350, ../sass/screen.scss */
+/* line 354, ../sass/screen.scss */
 #searchform .logic {
   color: #cbcbcb;
 }
-/* line 352, ../sass/screen.scss */
+/* line 356, ../sass/screen.scss */
 #searchform .logic em {
   font-style: normal;
   color: #7f7f7f;
 }
+/* line 362, ../sass/screen.scss */
+#searchform .dropdown {
+  list-style: none;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+/* line 368, ../sass/screen.scss */
+#searchform .dropdown li {
+  background: black;
+  border-bottom: 1px solid #570909;
+  line-height: 3rem;
+  padding: 0 0.5rem;
+}
 
-/* line 360, ../sass/screen.scss */
+/* line 377, ../sass/screen.scss */
 #nonpriv-groups {
   margin-top: 2.2rem;
   margin-bottom: 1.1rem;
   font-size: 1rem;
-  line-height: 1.5;
 }
-/* line 366, ../sass/screen.scss */
+/* line 382, ../sass/screen.scss */
+#nonpriv-groups .show-only {
+  font-size: 1.5rem;
+}
+/* line 386, ../sass/screen.scss */
+#nonpriv-groups .switch-box, #nonpriv-groups .switch-label {
+  display: inline-block;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  vertical-align: middle;
+}
+/* line 394, ../sass/screen.scss */
+#nonpriv-groups .switch-label {
+  padding-left: 0.55rem;
+}
+/* line 399, ../sass/screen.scss */
+#nonpriv-groups .switch-box .switch label {
+  background-color: transparent;
+  border: 1px solid;
+}
+/* line 405, ../sass/screen.scss */
 #nonpriv-groups ul {
   list-style: none;
   margin: 0;
+  margin-top: 0.55rem;
   padding: 0;
-  font: inherit;
 }
-/* line 372, ../sass/screen.scss */
+/* line 411, ../sass/screen.scss */
 #nonpriv-groups ul li {
-  font: inherit;
-  color: inherit;
-  position: relative;
-}
-/* line 377, ../sass/screen.scss */
-#nonpriv-groups ul li label {
-  color: inherit;
-}
-/* line 383, ../sass/screen.scss */
-#nonpriv-groups label {
-  display: inline-block;
-  width: 100%;
-  margin: 0;
-}
-/* line 393, ../sass/screen.scss */
-#nonpriv-groups input[type="checkbox"] {
-  position: absolute;
-  right: 0;
+  margin-bottom: 1rem;
 }
 
-/* line 399, ../sass/screen.scss */
+/* line 417, ../sass/screen.scss */
 #list-box {
   padding-top: 2.25rem;
 }
-/* line 403, ../sass/screen.scss */
+/* line 421, ../sass/screen.scss */
 #list-box div.portrait {
   float: left;
   height: 4rem;
@@ -331,100 +353,100 @@ header#pagetitle h1 span#subtitle {
   text-align: center;
   overflow: hidden;
 }
-/* line 410, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 #list-box div.portrait img {
   position: relative;
   left: 50%;
 }
-/* line 416, ../sass/screen.scss */
+/* line 434, ../sass/screen.scss */
 #list-box ol {
   margin-left: 0;
   margin-bottom: 2.2rem;
   list-style: none;
 }
-/* line 422, ../sass/screen.scss */
+/* line 440, ../sass/screen.scss */
 #list-box ol li.woman {
   margin-bottom: 2.2rem;
   margin-left: 0.001rem;
   position: relative;
   border-left: 1px solid transparent;
 }
-/* line 435, ../sass/screen.scss */
+/* line 453, ../sass/screen.scss */
 #list-box ol li.woman.selected h3:before {
   content: '– ';
 }
-/* line 440, ../sass/screen.scss */
+/* line 458, ../sass/screen.scss */
 #list-box ol li.woman:hover {
   border-color: #7f7f7f;
 }
-/* line 444, ../sass/screen.scss */
+/* line 462, ../sass/screen.scss */
 #list-box ol li.woman .specs ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 450, ../sass/screen.scss */
+/* line 468, ../sass/screen.scss */
 #list-box ol li.woman .tags {
   display: none;
 }
 @media screen and (min-width: 64.063em) {
-  /* line 450, ../sass/screen.scss */
+  /* line 468, ../sass/screen.scss */
   #list-box ol li.woman .tags {
     display: block;
   }
 }
-/* line 460, ../sass/screen.scss */
+/* line 478, ../sass/screen.scss */
 #list-box ul.action-buttons {
   list-style: none;
   margin-left: 0;
 }
-/* line 466, ../sass/screen.scss */
+/* line 484, ../sass/screen.scss */
 #list-box ul.action-buttons li {
   border: 1px solid #ddd;
   text-align: center;
 }
-/* line 472, ../sass/screen.scss */
+/* line 490, ../sass/screen.scss */
 #list-box ul.action-buttons li:nth-child(2) {
   text-align: left;
   padding-left: 1em;
 }
-/* line 478, ../sass/screen.scss */
+/* line 496, ../sass/screen.scss */
 #list-box .pagination {
   text-align: center;
 }
-/* line 483, ../sass/screen.scss */
+/* line 501, ../sass/screen.scss */
 #list-box .specs ul li {
   display: inline;
 }
-/* line 486, ../sass/screen.scss */
+/* line 504, ../sass/screen.scss */
 #list-box .specs ul li:before {
   content: "– ";
 }
-/* line 489, ../sass/screen.scss */
+/* line 507, ../sass/screen.scss */
 #list-box .specs ul li:first-child:before {
   content: "";
 }
 @media screen and (min-width: 40.063em) {
-  /* line 483, ../sass/screen.scss */
+  /* line 501, ../sass/screen.scss */
   #list-box .specs ul li {
     display: block;
   }
-  /* line 496, ../sass/screen.scss */
+  /* line 514, ../sass/screen.scss */
   #list-box .specs ul li:before {
     content: "";
   }
 }
 
-/* line 505, ../sass/screen.scss */
+/* line 523, ../sass/screen.scss */
 #list-sort-controls {
   margin-bottom: 1.1rem;
 }
 
-/* line 509, ../sass/screen.scss */
+/* line 527, ../sass/screen.scss */
 #list-actions {
   visibility: hidden;
 }
-/* line 513, ../sass/screen.scss */
+/* line 531, ../sass/screen.scss */
 #list-actions ul {
   margin: 0;
   padding: 0;
@@ -432,34 +454,34 @@ header#pagetitle h1 span#subtitle {
   padding-left: 1.1rem;
 }
 
-/* line 525, ../sass/screen.scss */
+/* line 543, ../sass/screen.scss */
 #sort-actions {
   text-align: right;
   padding-right: 0;
 }
-/* line 529, ../sass/screen.scss */
+/* line 547, ../sass/screen.scss */
 #sort-actions label {
   display: inline;
   font-size: inherit;
 }
-/* line 534, ../sass/screen.scss */
+/* line 552, ../sass/screen.scss */
 #sort-actions select {
   display: inline-block;
   width: auto;
 }
-/* line 539, ../sass/screen.scss */
+/* line 557, ../sass/screen.scss */
 #sort-actions .select {
   display: inline-block;
 }
-/* line 541, ../sass/screen.scss */
+/* line 559, ../sass/screen.scss */
 #sort-actions .select.sort {
   display: none;
 }
-/* line 545, ../sass/screen.scss */
+/* line 563, ../sass/screen.scss */
 #sort-actions .select.active {
   display: inline;
 }
-/* line 549, ../sass/screen.scss */
+/* line 567, ../sass/screen.scss */
 #sort-actions .select:after {
   display: none;
   position: relative;
@@ -468,13 +490,13 @@ header#pagetitle h1 span#subtitle {
   bottom: 0.2em;
 }
 
-/* line 562, ../sass/screen.scss */
+/* line 580, ../sass/screen.scss */
 .search-tagline .more {
   text-decoration: none;
 }
 
 /************** SINGLE.PHP **************/
-/* line 575, ../sass/screen.scss */
+/* line 593, ../sass/screen.scss */
 article.woman div.portrait-img {
   height: 8em;
   overflow: hidden;
@@ -482,43 +504,43 @@ article.woman div.portrait-img {
   margin: 0;
   margin-bottom: 2rem;
 }
-/* line 583, ../sass/screen.scss */
+/* line 601, ../sass/screen.scss */
 article.woman div.portrait-img img {
   position: relative;
   top: -50%;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 575, ../sass/screen.scss */
+  /* line 593, ../sass/screen.scss */
   article.woman div.portrait-img {
     height: auto;
   }
 }
-/* line 594, ../sass/screen.scss */
+/* line 612, ../sass/screen.scss */
 article.woman .category_and_tags div {
   margin-bottom: 1.1rem;
 }
-/* line 601, ../sass/screen.scss */
+/* line 619, ../sass/screen.scss */
 article.woman .story p:first-child {
   padding-top: 2.2rem;
 }
-/* line 607, ../sass/screen.scss */
+/* line 625, ../sass/screen.scss */
 article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 615, ../sass/screen.scss */
+/* line 633, ../sass/screen.scss */
 article.woman .lists h3 {
   margin-bottom: 1.1rem;
 }
-/* line 619, ../sass/screen.scss */
+/* line 637, ../sass/screen.scss */
 article.woman .lists a {
   text-decoration: none;
 }
-/* line 628, ../sass/screen.scss */
+/* line 646, ../sass/screen.scss */
 article.woman .links img {
   display: inline;
 }
-/* line 633, ../sass/screen.scss */
+/* line 651, ../sass/screen.scss */
 article.woman footer {
   clear: both;
   margin-top: 1.1rem;
@@ -526,66 +548,66 @@ article.woman footer {
   padding-top: 1.1rem;
 }
 
-/* line 643, ../sass/screen.scss */
+/* line 661, ../sass/screen.scss */
 article.woman .tagline, article#user-list .tagline {
   font-size: 1.5rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
 
-/* line 649, ../sass/screen.scss */
+/* line 667, ../sass/screen.scss */
 .thumb-box {
   text-align: center;
 }
 
-/* line 652, ../sass/screen.scss */
+/* line 670, ../sass/screen.scss */
 img.thumb {
   width: 125px;
   display: block;
 }
 
-/* line 657, ../sass/screen.scss */
+/* line 675, ../sass/screen.scss */
 .notice {
   font-size: 0.8rem;
   margin-left: 2rem;
 }
 
-/* line 662, ../sass/screen.scss */
+/* line 680, ../sass/screen.scss */
 #side-col header {
   padding: 1.1rem;
 }
 
 /************** LIST.PHP **************/
-/* line 670, ../sass/screen.scss */
+/* line 688, ../sass/screen.scss */
 #user-list ol {
   list-style: none;
 }
-/* line 673, ../sass/screen.scss */
+/* line 691, ../sass/screen.scss */
 #user-list .list-desc p {
   font-size: 1.5rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
-/* line 679, ../sass/screen.scss */
+/* line 697, ../sass/screen.scss */
 #user-list .woman .description {
   margin-top: 1.1rem;
   margin-bottom: 2.2rem;
   padding-left: 4.4rem;
 }
-/* line 684, ../sass/screen.scss */
+/* line 702, ../sass/screen.scss */
 #user-list .woman .description p:before {
   content: "– ";
   display: inline;
 }
 
 /************** FOOTER **************/
-/* line 694, ../sass/screen.scss */
+/* line 712, ../sass/screen.scss */
 footer#pagefooter {
   height: 10em;
 }
 
 /************** STYLESETS **************/
-/* line 704, ../sass/screen.scss */
+/* line 722, ../sass/screen.scss */
 .style1 {
   background: #72002c;
   /* Old browsers */
@@ -606,11 +628,11 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 724, ../sass/screen.scss */
+/* line 742, ../sass/screen.scss */
 .style1 #searchform {
   font-size: 2.15rem;
 }
-/* line 736, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style1 a,
 .style1 h1, .style1 h2, .style1 h3, .style1 h4,
 .style1 #searchform .logic,
@@ -619,44 +641,53 @@ footer#pagefooter {
 .style1 #list-sort-controls {
   color: rgba(255, 0, 99, 0.7);
 }
-/* line 740, ../sass/screen.scss */
+/* line 759, ../sass/screen.scss */
 .style1 select:hover option {
   color: white;
 }
-/* line 746, ../sass/screen.scss */
+/* line 765, ../sass/screen.scss */
 .style1 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #ff0063;
 }
-/* line 749, ../sass/screen.scss */
+/* line 768, ../sass/screen.scss */
 .style1 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #ff0063;
 }
-/* line 752, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style1 #searchform input:-ms-input-placeholder {
   color: #ff0063;
 }
-/* line 755, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 .style1 #searchform input::-webkit-input-placeholder {
   color: #ff0063;
 }
-/* line 760, ../sass/screen.scss */
+/* line 779, ../sass/screen.scss */
 .style1 #searchform .logic {
   color: rgba(255, 0, 99, 0.3);
 }
-/* line 763, ../sass/screen.scss */
+/* line 782, ../sass/screen.scss */
 .style1 #searchform .logic em {
   color: white;
 }
-/* line 771, ../sass/screen.scss */
-.style1 select:hover,
+/* line 792, ../sass/screen.scss */
 .style1 input[type='text']:hover,
 .style1 li.woman:hover,
+.style1 .select:hover,
+.style1 .switch-box .switch label,
 .style1 footer {
   border-color: rgba(255, 0, 99, 0.7) !important;
 }
-/* line 781, ../sass/screen.scss */
+/* line 796, ../sass/screen.scss */
+.style1 .switch-box .switch input:checked + label {
+  background-color: rgba(255, 0, 99, 0.3) !important;
+}
+/* line 800, ../sass/screen.scss */
+.style1 .switch-box .switch label::after {
+  background-color: #ff0063;
+}
+/* line 810, ../sass/screen.scss */
 .style1 a:hover, .style1 a:focus,
 .style1 .woman.selected h3 a,
 .style1 #menutitle,
@@ -664,12 +695,12 @@ footer#pagefooter {
 .style1 #submit-button {
   color: #ff0063 !important;
 }
-/* line 785, ../sass/screen.scss */
+/* line 814, ../sass/screen.scss */
 .style1 li.woman.selected {
   border-color: #ff0063 !important;
 }
 
-/* line 704, ../sass/screen.scss */
+/* line 722, ../sass/screen.scss */
 .style2 {
   background: #003900;
   /* Old browsers */
@@ -690,11 +721,11 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 724, ../sass/screen.scss */
+/* line 742, ../sass/screen.scss */
 .style2 #searchform {
   font-size: 2.15rem;
 }
-/* line 736, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style2 a,
 .style2 h1, .style2 h2, .style2 h3, .style2 h4,
 .style2 #searchform .logic,
@@ -703,44 +734,53 @@ footer#pagefooter {
 .style2 #list-sort-controls {
   color: rgba(0, 128, 0, 0.7);
 }
-/* line 740, ../sass/screen.scss */
+/* line 759, ../sass/screen.scss */
 .style2 select:hover option {
   color: white;
 }
-/* line 746, ../sass/screen.scss */
+/* line 765, ../sass/screen.scss */
 .style2 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: green;
 }
-/* line 749, ../sass/screen.scss */
+/* line 768, ../sass/screen.scss */
 .style2 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: green;
 }
-/* line 752, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style2 #searchform input:-ms-input-placeholder {
   color: green;
 }
-/* line 755, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 .style2 #searchform input::-webkit-input-placeholder {
   color: green;
 }
-/* line 760, ../sass/screen.scss */
+/* line 779, ../sass/screen.scss */
 .style2 #searchform .logic {
   color: rgba(0, 128, 0, 0.3);
 }
-/* line 763, ../sass/screen.scss */
+/* line 782, ../sass/screen.scss */
 .style2 #searchform .logic em {
   color: white;
 }
-/* line 771, ../sass/screen.scss */
-.style2 select:hover,
+/* line 792, ../sass/screen.scss */
 .style2 input[type='text']:hover,
 .style2 li.woman:hover,
+.style2 .select:hover,
+.style2 .switch-box .switch label,
 .style2 footer {
   border-color: rgba(0, 128, 0, 0.7) !important;
 }
-/* line 781, ../sass/screen.scss */
+/* line 796, ../sass/screen.scss */
+.style2 .switch-box .switch input:checked + label {
+  background-color: rgba(0, 128, 0, 0.3) !important;
+}
+/* line 800, ../sass/screen.scss */
+.style2 .switch-box .switch label::after {
+  background-color: green;
+}
+/* line 810, ../sass/screen.scss */
 .style2 a:hover, .style2 a:focus,
 .style2 .woman.selected h3 a,
 .style2 #menutitle,
@@ -748,12 +788,12 @@ footer#pagefooter {
 .style2 #submit-button {
   color: green !important;
 }
-/* line 785, ../sass/screen.scss */
+/* line 814, ../sass/screen.scss */
 .style2 li.woman.selected {
   border-color: green !important;
 }
 
-/* line 704, ../sass/screen.scss */
+/* line 722, ../sass/screen.scss */
 .style3 {
   background: #000072;
   /* Old browsers */
@@ -774,11 +814,11 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 724, ../sass/screen.scss */
+/* line 742, ../sass/screen.scss */
 .style3 #searchform {
   font-size: 2.15rem;
 }
-/* line 736, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style3 a,
 .style3 h1, .style3 h2, .style3 h3, .style3 h4,
 .style3 #searchform .logic,
@@ -787,44 +827,53 @@ footer#pagefooter {
 .style3 #list-sort-controls {
   color: rgba(0, 0, 255, 0.7);
 }
-/* line 740, ../sass/screen.scss */
+/* line 759, ../sass/screen.scss */
 .style3 select:hover option {
   color: white;
 }
-/* line 746, ../sass/screen.scss */
+/* line 765, ../sass/screen.scss */
 .style3 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: blue;
 }
-/* line 749, ../sass/screen.scss */
+/* line 768, ../sass/screen.scss */
 .style3 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: blue;
 }
-/* line 752, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style3 #searchform input:-ms-input-placeholder {
   color: blue;
 }
-/* line 755, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 .style3 #searchform input::-webkit-input-placeholder {
   color: blue;
 }
-/* line 760, ../sass/screen.scss */
+/* line 779, ../sass/screen.scss */
 .style3 #searchform .logic {
   color: rgba(0, 0, 255, 0.3);
 }
-/* line 763, ../sass/screen.scss */
+/* line 782, ../sass/screen.scss */
 .style3 #searchform .logic em {
   color: white;
 }
-/* line 771, ../sass/screen.scss */
-.style3 select:hover,
+/* line 792, ../sass/screen.scss */
 .style3 input[type='text']:hover,
 .style3 li.woman:hover,
+.style3 .select:hover,
+.style3 .switch-box .switch label,
 .style3 footer {
   border-color: rgba(0, 0, 255, 0.7) !important;
 }
-/* line 781, ../sass/screen.scss */
+/* line 796, ../sass/screen.scss */
+.style3 .switch-box .switch input:checked + label {
+  background-color: rgba(0, 0, 255, 0.3) !important;
+}
+/* line 800, ../sass/screen.scss */
+.style3 .switch-box .switch label::after {
+  background-color: blue;
+}
+/* line 810, ../sass/screen.scss */
 .style3 a:hover, .style3 a:focus,
 .style3 .woman.selected h3 a,
 .style3 #menutitle,
@@ -832,7 +881,7 @@ footer#pagefooter {
 .style3 #submit-button {
   color: blue !important;
 }
-/* line 785, ../sass/screen.scss */
+/* line 814, ../sass/screen.scss */
 .style3 li.woman.selected {
   border-color: blue !important;
 }

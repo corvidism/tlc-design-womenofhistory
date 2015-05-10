@@ -17,7 +17,9 @@ $("#add-query").click(function(e) {
 	newQuery.attr("id","search-query-"+search.queryCount);
 	newQuery.find("select.field").val("any");
 	newQuery.find("select.strict").val("no");
-	newQuery.find("input").val("");
+	newQuery.find("select").attr("name","");
+	newQuery.find("input").val("").attr("name","");
+	
 	newLogic = $('<label class="logic and" id="logic-for-'+search.queryCount+'"><em>and</em>/or</label>');
 	newLogic.click(function(){
 		console.log("logic switch");
@@ -32,24 +34,10 @@ $("#add-query").click(function(e) {
 	});
 	newLogic.insertBefore(lastAnd);
 	newQuery.insertBefore(lastAnd);
+	
 	e.preventDefault();
 });
 
-$("#searchform").on("click","select",function(e){
-	select= $(this);
-	field = select.val();
-	fieldInput = select.closest(".search-query").find(".field-input");
-	
-	
-});
-
-
-$("#search-submit").click(function(e){
-	
-	//form query string
-	//submit
-	e.preventDefault();
-});
 
 $("li.woman").click(function(e){
 	console.log(e);
@@ -87,25 +75,69 @@ $("#sel-none").click(function(e){
 	e.preventDefault();
 });
 
+$("#add-to-list").click(function(e){
+	e.preventDefault();
+	//open a pop-up window:
+	//select list
+	//AJAX
+	//update
+	//some animation
+});
+
+
+function makeDropdown(select) {
+	var name = select.attr("name");
+	var dropdown = $('<ul class="dropdown" id="'+name+'-dropdown"></ul>').hide();
+		select.find("option").each(function(e){
+			var opt = $(this);
+			var item = $('<li data-val="'+opt.val()+'">'+opt.text()+'</li>');
+			item.click(function(e){
+				var li=$(this);
+				console.log(li.attr("data-val"));
+				$("#hidden-"+name).val(li.attr("data-val"));
+				$("#"+name).text(li.text());
+				dropdown.hide();								
+			});//maybe using .on on the list would be faster!
+			dropdown.append(item);
+		});
+		return dropdown;
+}
 
 selects = $("#searchform .select select");
 selects.each(function(){
-	select = $(this);
-	selectText = select.find("option:selected").text();
-	selectVal = select.val();
-	newSelect = $('<span data-selected="'+selectVal+'">'+selectText+'</span>');
+	var select = $(this);
+	var selectText = select.find("option:selected").text();
+	var selectName = select.attr("name");
+	var selectVal = select.val();
+	var newSelect = $('<span id="'+selectName+'" data-value="'+selectVal+'">'+selectText+'</span>');
+	console.log(newSelect);
+	newSelect.hidden = $('<input type="hidden" id="hidden-'+selectName+'" name="'+selectName+'" value="'+selectVal+'" />');
 	newSelect.click(function(e){
+		console.log("open dropdown "+selectName);
+		if (newSelect.dropdown == null) {
+			newSelect.dropdown = makeDropdown(select);
+			newSelect.dropdown.show();
+			newSelect.after(newSelect.dropdown);
+		} else {
+			newSelect.dropdown.toggle();
+			newSelect.closest(".select").toggleClass("opened");
+		};
+		
+		//add list - fixed height, scrollbar
 		//open a drawer
 		//select shit
 		//close drawer
 		//update hidden field
 	});
 	select.replaceWith(newSelect);
-	newSelect.after('<input type="hidden" name="field" value="" />');
+	newSelect.after(newSelect.hidden);	
 });
 
 
-$("#search-button").click(function(e){
+$("#submit-button").click(function(e){
+	console.log($("#searchform").serializeArray());
+	//$(this).field($("search-"));
+	
 	e.preventDefault();
 	//I need to intercept this and add the values from the fake selects
 });

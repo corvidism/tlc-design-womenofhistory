@@ -131,11 +131,42 @@ if ($query['field'] === null) {
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
 			<div id="nonpriv-groups">
-				<label>Show only</label>
+				<span class="show-only">Show only</span>
+				<!--
 				<ul>
 					<li><label for="is_poc">women of color</label><input name="nonpriv_groups[]" value="is_poc" id="is_poc" type="checkbox"/></li>
 					<li><label for="has_disability">women with disability</label><input name="nonpriv_groups[]" value="has_disability" id="has_disability" type="checkbox"/></li>
 					<li><label for="is_queer">LGBTQ women</label><input name="nonpriv_groups[]" value="is_queer" id="is_queer" type="checkbox"/></li>
+				</ul>
+				-->
+				<ul>
+					<li>
+						<div class="switch-box">
+							<div class="switch small round">
+								<input id="is_poc" name="is_poc" type="checkbox">
+								<label for="is_poc"></label>
+							</div>
+						</div>
+						<div class="switch-label">women of color</div>						
+					</li>					
+					<li>
+						<div class="switch-box">
+							<div class="switch small round">
+								<input id="has_disability" name="has_disability" type="checkbox">
+								<label for="has_disability"></label>
+							</div>
+						</div>
+						<div class="switch-label">women with disability</div>						
+					</li>
+					<li>
+						<div class="switch-box">
+							<div class="switch small round">
+								<input id="is_queer" name="is_queer" type="checkbox">
+								<label for="is_queer"></label>
+							</div>
+						</div>
+						<div class="switch-label">LGBTQ women</div>						
+					</li>
 				</ul>
 			</div>
 			<div class="right"><button id="submit-button" type="submit">Search</button></div>
