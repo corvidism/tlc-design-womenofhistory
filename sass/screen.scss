@@ -513,9 +513,11 @@ header#pagetitle {
   ul {
     margin:0;
     padding:0;
+    list-style:none;
+    padding-left:$padsize;
     
     li {        
-      display:inline;
+      //display:inline;
     }
   }
 }
@@ -728,7 +730,9 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
       a,
       h1,h2,h3,h4,
       #searchform .logic,
-      .select:hover
+      #select-women,
+      .select:hover,
+      #list-sort-controls
       {
         color:$grey;
       }
@@ -773,7 +777,8 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
       .woman.selected h3 a,
       #menutitle,
       .description p:before,
-      #submit-button {
+      #submit-button,
+       {
         color: $accent !important;
       }
       

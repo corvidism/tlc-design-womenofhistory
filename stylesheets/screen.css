@@ -428,40 +428,38 @@ header#pagetitle h1 span#subtitle {
 #list-actions ul {
   margin: 0;
   padding: 0;
-}
-/* line 517, ../sass/screen.scss */
-#list-actions ul li {
-  display: inline;
+  list-style: none;
+  padding-left: 1.1rem;
 }
 
-/* line 523, ../sass/screen.scss */
+/* line 525, ../sass/screen.scss */
 #sort-actions {
   text-align: right;
   padding-right: 0;
 }
-/* line 527, ../sass/screen.scss */
+/* line 529, ../sass/screen.scss */
 #sort-actions label {
   display: inline;
   font-size: inherit;
 }
-/* line 532, ../sass/screen.scss */
+/* line 534, ../sass/screen.scss */
 #sort-actions select {
   display: inline-block;
   width: auto;
 }
-/* line 537, ../sass/screen.scss */
+/* line 539, ../sass/screen.scss */
 #sort-actions .select {
   display: inline-block;
 }
-/* line 539, ../sass/screen.scss */
+/* line 541, ../sass/screen.scss */
 #sort-actions .select.sort {
   display: none;
 }
-/* line 543, ../sass/screen.scss */
+/* line 545, ../sass/screen.scss */
 #sort-actions .select.active {
   display: inline;
 }
-/* line 547, ../sass/screen.scss */
+/* line 549, ../sass/screen.scss */
 #sort-actions .select:after {
   display: none;
   position: relative;
@@ -470,13 +468,13 @@ header#pagetitle h1 span#subtitle {
   bottom: 0.2em;
 }
 
-/* line 560, ../sass/screen.scss */
+/* line 562, ../sass/screen.scss */
 .search-tagline .more {
   text-decoration: none;
 }
 
 /************** SINGLE.PHP **************/
-/* line 573, ../sass/screen.scss */
+/* line 575, ../sass/screen.scss */
 article.woman div.portrait-img {
   height: 8em;
   overflow: hidden;
@@ -484,43 +482,43 @@ article.woman div.portrait-img {
   margin: 0;
   margin-bottom: 2rem;
 }
-/* line 581, ../sass/screen.scss */
+/* line 583, ../sass/screen.scss */
 article.woman div.portrait-img img {
   position: relative;
   top: -50%;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 573, ../sass/screen.scss */
+  /* line 575, ../sass/screen.scss */
   article.woman div.portrait-img {
     height: auto;
   }
 }
-/* line 592, ../sass/screen.scss */
+/* line 594, ../sass/screen.scss */
 article.woman .category_and_tags div {
   margin-bottom: 1.1rem;
 }
-/* line 599, ../sass/screen.scss */
+/* line 601, ../sass/screen.scss */
 article.woman .story p:first-child {
   padding-top: 2.2rem;
 }
-/* line 605, ../sass/screen.scss */
+/* line 607, ../sass/screen.scss */
 article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 613, ../sass/screen.scss */
+/* line 615, ../sass/screen.scss */
 article.woman .lists h3 {
   margin-bottom: 1.1rem;
 }
-/* line 617, ../sass/screen.scss */
+/* line 619, ../sass/screen.scss */
 article.woman .lists a {
   text-decoration: none;
 }
-/* line 626, ../sass/screen.scss */
+/* line 628, ../sass/screen.scss */
 article.woman .links img {
   display: inline;
 }
-/* line 631, ../sass/screen.scss */
+/* line 633, ../sass/screen.scss */
 article.woman footer {
   clear: both;
   margin-top: 1.1rem;
@@ -528,66 +526,66 @@ article.woman footer {
   padding-top: 1.1rem;
 }
 
-/* line 641, ../sass/screen.scss */
+/* line 643, ../sass/screen.scss */
 article.woman .tagline, article#user-list .tagline {
   font-size: 1.5rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
 
-/* line 647, ../sass/screen.scss */
+/* line 649, ../sass/screen.scss */
 .thumb-box {
   text-align: center;
 }
 
-/* line 650, ../sass/screen.scss */
+/* line 652, ../sass/screen.scss */
 img.thumb {
   width: 125px;
   display: block;
 }
 
-/* line 655, ../sass/screen.scss */
+/* line 657, ../sass/screen.scss */
 .notice {
   font-size: 0.8rem;
   margin-left: 2rem;
 }
 
-/* line 660, ../sass/screen.scss */
+/* line 662, ../sass/screen.scss */
 #side-col header {
   padding: 1.1rem;
 }
 
 /************** LIST.PHP **************/
-/* line 668, ../sass/screen.scss */
+/* line 670, ../sass/screen.scss */
 #user-list ol {
   list-style: none;
 }
-/* line 671, ../sass/screen.scss */
+/* line 673, ../sass/screen.scss */
 #user-list .list-desc p {
   font-size: 1.5rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
-/* line 677, ../sass/screen.scss */
+/* line 679, ../sass/screen.scss */
 #user-list .woman .description {
   margin-top: 1.1rem;
   margin-bottom: 2.2rem;
   padding-left: 4.4rem;
 }
-/* line 682, ../sass/screen.scss */
+/* line 684, ../sass/screen.scss */
 #user-list .woman .description p:before {
   content: "– ";
   display: inline;
 }
 
 /************** FOOTER **************/
-/* line 692, ../sass/screen.scss */
+/* line 694, ../sass/screen.scss */
 footer#pagefooter {
   height: 10em;
 }
 
 /************** STYLESETS **************/
-/* line 702, ../sass/screen.scss */
+/* line 704, ../sass/screen.scss */
 .style1 {
   background: #72002c;
   /* Old browsers */
@@ -608,55 +606,57 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 722, ../sass/screen.scss */
+/* line 724, ../sass/screen.scss */
 .style1 #searchform {
   font-size: 2.15rem;
 }
-/* line 732, ../sass/screen.scss */
+/* line 736, ../sass/screen.scss */
 .style1 a,
 .style1 h1, .style1 h2, .style1 h3, .style1 h4,
 .style1 #searchform .logic,
-.style1 .select:hover {
+.style1 #select-women,
+.style1 .select:hover,
+.style1 #list-sort-controls {
   color: rgba(255, 0, 99, 0.7);
 }
-/* line 736, ../sass/screen.scss */
+/* line 740, ../sass/screen.scss */
 .style1 select:hover option {
   color: white;
 }
-/* line 742, ../sass/screen.scss */
+/* line 746, ../sass/screen.scss */
 .style1 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #ff0063;
 }
-/* line 745, ../sass/screen.scss */
+/* line 749, ../sass/screen.scss */
 .style1 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #ff0063;
 }
-/* line 748, ../sass/screen.scss */
+/* line 752, ../sass/screen.scss */
 .style1 #searchform input:-ms-input-placeholder {
   color: #ff0063;
 }
-/* line 751, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style1 #searchform input::-webkit-input-placeholder {
   color: #ff0063;
 }
-/* line 756, ../sass/screen.scss */
+/* line 760, ../sass/screen.scss */
 .style1 #searchform .logic {
   color: rgba(255, 0, 99, 0.3);
 }
-/* line 759, ../sass/screen.scss */
+/* line 763, ../sass/screen.scss */
 .style1 #searchform .logic em {
   color: white;
 }
-/* line 767, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style1 select:hover,
 .style1 input[type='text']:hover,
 .style1 li.woman:hover,
 .style1 footer {
   border-color: rgba(255, 0, 99, 0.7) !important;
 }
-/* line 776, ../sass/screen.scss */
+/* line 781, ../sass/screen.scss */
 .style1 a:hover, .style1 a:focus,
 .style1 .woman.selected h3 a,
 .style1 #menutitle,
@@ -664,12 +664,12 @@ footer#pagefooter {
 .style1 #submit-button {
   color: #ff0063 !important;
 }
-/* line 780, ../sass/screen.scss */
+/* line 785, ../sass/screen.scss */
 .style1 li.woman.selected {
   border-color: #ff0063 !important;
 }
 
-/* line 702, ../sass/screen.scss */
+/* line 704, ../sass/screen.scss */
 .style2 {
   background: #003900;
   /* Old browsers */
@@ -690,55 +690,57 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 722, ../sass/screen.scss */
+/* line 724, ../sass/screen.scss */
 .style2 #searchform {
   font-size: 2.15rem;
 }
-/* line 732, ../sass/screen.scss */
+/* line 736, ../sass/screen.scss */
 .style2 a,
 .style2 h1, .style2 h2, .style2 h3, .style2 h4,
 .style2 #searchform .logic,
-.style2 .select:hover {
+.style2 #select-women,
+.style2 .select:hover,
+.style2 #list-sort-controls {
   color: rgba(0, 128, 0, 0.7);
 }
-/* line 736, ../sass/screen.scss */
+/* line 740, ../sass/screen.scss */
 .style2 select:hover option {
   color: white;
 }
-/* line 742, ../sass/screen.scss */
+/* line 746, ../sass/screen.scss */
 .style2 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: green;
 }
-/* line 745, ../sass/screen.scss */
+/* line 749, ../sass/screen.scss */
 .style2 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: green;
 }
-/* line 748, ../sass/screen.scss */
+/* line 752, ../sass/screen.scss */
 .style2 #searchform input:-ms-input-placeholder {
   color: green;
 }
-/* line 751, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style2 #searchform input::-webkit-input-placeholder {
   color: green;
 }
-/* line 756, ../sass/screen.scss */
+/* line 760, ../sass/screen.scss */
 .style2 #searchform .logic {
   color: rgba(0, 128, 0, 0.3);
 }
-/* line 759, ../sass/screen.scss */
+/* line 763, ../sass/screen.scss */
 .style2 #searchform .logic em {
   color: white;
 }
-/* line 767, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style2 select:hover,
 .style2 input[type='text']:hover,
 .style2 li.woman:hover,
 .style2 footer {
   border-color: rgba(0, 128, 0, 0.7) !important;
 }
-/* line 776, ../sass/screen.scss */
+/* line 781, ../sass/screen.scss */
 .style2 a:hover, .style2 a:focus,
 .style2 .woman.selected h3 a,
 .style2 #menutitle,
@@ -746,12 +748,12 @@ footer#pagefooter {
 .style2 #submit-button {
   color: green !important;
 }
-/* line 780, ../sass/screen.scss */
+/* line 785, ../sass/screen.scss */
 .style2 li.woman.selected {
   border-color: green !important;
 }
 
-/* line 702, ../sass/screen.scss */
+/* line 704, ../sass/screen.scss */
 .style3 {
   background: #000072;
   /* Old browsers */
@@ -772,55 +774,57 @@ footer#pagefooter {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 722, ../sass/screen.scss */
+/* line 724, ../sass/screen.scss */
 .style3 #searchform {
   font-size: 2.15rem;
 }
-/* line 732, ../sass/screen.scss */
+/* line 736, ../sass/screen.scss */
 .style3 a,
 .style3 h1, .style3 h2, .style3 h3, .style3 h4,
 .style3 #searchform .logic,
-.style3 .select:hover {
+.style3 #select-women,
+.style3 .select:hover,
+.style3 #list-sort-controls {
   color: rgba(0, 0, 255, 0.7);
 }
-/* line 736, ../sass/screen.scss */
+/* line 740, ../sass/screen.scss */
 .style3 select:hover option {
   color: white;
 }
-/* line 742, ../sass/screen.scss */
+/* line 746, ../sass/screen.scss */
 .style3 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: blue;
 }
-/* line 745, ../sass/screen.scss */
+/* line 749, ../sass/screen.scss */
 .style3 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: blue;
 }
-/* line 748, ../sass/screen.scss */
+/* line 752, ../sass/screen.scss */
 .style3 #searchform input:-ms-input-placeholder {
   color: blue;
 }
-/* line 751, ../sass/screen.scss */
+/* line 755, ../sass/screen.scss */
 .style3 #searchform input::-webkit-input-placeholder {
   color: blue;
 }
-/* line 756, ../sass/screen.scss */
+/* line 760, ../sass/screen.scss */
 .style3 #searchform .logic {
   color: rgba(0, 0, 255, 0.3);
 }
-/* line 759, ../sass/screen.scss */
+/* line 763, ../sass/screen.scss */
 .style3 #searchform .logic em {
   color: white;
 }
-/* line 767, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .style3 select:hover,
 .style3 input[type='text']:hover,
 .style3 li.woman:hover,
 .style3 footer {
   border-color: rgba(0, 0, 255, 0.7) !important;
 }
-/* line 776, ../sass/screen.scss */
+/* line 781, ../sass/screen.scss */
 .style3 a:hover, .style3 a:focus,
 .style3 .woman.selected h3 a,
 .style3 #menutitle,
@@ -828,7 +832,7 @@ footer#pagefooter {
 .style3 #submit-button {
   color: blue !important;
 }
-/* line 780, ../sass/screen.scss */
+/* line 785, ../sass/screen.scss */
 .style3 li.woman.selected {
   border-color: blue !important;
 }

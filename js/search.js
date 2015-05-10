@@ -74,16 +74,16 @@ $("li.woman a").click(function(e){
 	e.stopPropagation();	
 });
 
-$("#select-all").click(function(){
+$("#sel-all").click(function(e){
 	number = $("li.woman").addClass("selected").size();
 	list.selected = number; 
 	console.log(number);
 	e.preventDefault();
 });
-$("#select-none").click(function(){
+$("#sel-none").click(function(e){
 	$("li.woman").removeClass("selected");
 	list.selected = 0;
-	$("#list-actions").hide();
+	$("#list-actions").css("visibility","hidden");
 	e.preventDefault();
 });
 

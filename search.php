@@ -149,7 +149,7 @@ if ($query['field'] === null) {
 				sort-actions first in small
 				sort-actions padding in medium and smaller 
 			-->
-			<div id="sort-actions" class="small-12 medium-7 medium-push-5 columns">
+			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
 				<label>order by:</label>
 				<div class="select">
 					<select name="order-by">
@@ -178,11 +178,10 @@ if ($query['field'] === null) {
 				</select>
 				</div>
 			</div>
-			<div id="list-actions" class="small-12 medium-5 medium-pull-5 columns">
+			<div id="list-actions" class="small-12 medium-6 medium-pull-6 columns">
 				<ul>
-					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
-					<li><a href=""id="select-none">select none</a>&nbsp;–&nbsp;</li>
-					<li><a href="" id="add-to-list">add to list</a></li>
+					<li><a href="" id="sel-all">select all</a> | <a id="sel-none" href="">select none</a></li>
+					<li><a href="" id="add-to-list">add selected to list</a></li>
 				</ul>
 			</div>
 		</div>
