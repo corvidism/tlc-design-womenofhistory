@@ -127,7 +127,7 @@ if ($query['field'] === null) {
 				<option value="yes">contains precisely</option>
 			</select>
 			</div>
-			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="short to medium input string">
+			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something">
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
 			<div id="nonpriv-groups">
@@ -141,14 +141,15 @@ if ($query['field'] === null) {
 			<div class="right"><button id="submit-button" type="submit">Search</button></div>
 			
 		</form>
+		
 	</section>		
-	<div id="list-box" class="medium-7 large-8 columns">
+	<div id="list-box" class="medium-7 large-7 columns">
 		<div id="list-sort-controls" class="row">
 			<!--
 				sort-actions first in small
 				sort-actions padding in medium and smaller 
 			-->
-			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
+			<div id="sort-actions" class="small-12 medium-7 medium-push-5 columns">
 				<label>order by:</label>
 				<div class="select">
 					<select name="order-by">
@@ -177,7 +178,7 @@ if ($query['field'] === null) {
 				</select>
 				</div>
 			</div>
-			<div id="list-actions" class="small-12 medium-6 medium-pull-6 columns">
+			<div id="list-actions" class="small-12 medium-5 medium-pull-5 columns">
 				<ul>
 					<li><a href="" id="select-all">select all</a>&nbsp;–&nbsp;</li>
 					<li><a href=""id="select-none">select none</a>&nbsp;–&nbsp;</li>

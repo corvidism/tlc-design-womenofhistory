@@ -6,6 +6,7 @@
 //@import "compass/reset";
 
 
+
 $bgcolor:#fff; //white is default
 $typecolor:#333; //offset from black
 $grey:tint(#000,50%); //middle grey
@@ -109,7 +110,7 @@ div#wrapper {
 
 
 select {
-  border:0;
+  border:1px solid transparent;
   //border-bottom:1px dotted black;
   color:inherit;
   font-size: inherit;
@@ -119,6 +120,7 @@ select {
   background-image:none;
   box-shadow:none;    
   padding:0;
+  padding-right:1em;
   -moz-appearance:none;
   margin-bottom:0;
   width:100%;
@@ -302,16 +304,12 @@ header#pagetitle {
   }
   
   input[type="text"] {
-    border:none;
+    border:1px solid transparent;
     //border-bottom:1px dotted black;
     background:none;
     box-shadow:none;
     transition:none;
-    
-    &:focus {
-      
-    }
-    
+    height:auto;
   }
   
   input[type="text"]:focus {
@@ -698,82 +696,97 @@ footer#pagefooter {
 
 /************** STYLESETS **************/
 
-$font:'OpenSans';
-
-.style0 {
-  $accent: #FF0063;
-  $grey: fade-out($accent,0.3);
-  $bg_color:#a02035;
-  $bg_base: black;
-  $type_color:invert($bg_base);
-  //$bg_base:white;
- 
-  background: $bg_color; /* Old browsers */
-  background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 100%); /* FF3.6+ */
-  background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(100%,$bg_base)); /* Chrome,Safari4+ */
-  background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Chrome10+,Safari5.1+ */
-  background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Opera 11.10+ */
-  background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* IE10+ */
-  background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
-  background-repeat:no-repeat;
-  color:$type_color;
+$colors-list: #FF0063 green blue; //indexes from 1? wat?
+@for $i from 1 through length($colors-list) {
   
-  
-  //"grey":
-  a,
-  h1,h2,h3,h4,
-  #searchform .logic,
-  {
-    color:$grey;
-  }
-
-  #searchform input {
-    &:-moz-placeholder { /* Firefox 18- */
-      color:$accent;
-    }
-    &::-moz-placeholder { /* Firefox 19+ */
-      color:$accent;
-    }
-    &:-ms-input-placeholder {
-      color:$accent;
-    }
-    &::-webkit-input-placeholder {
-      color:$accent;
-    }
-  }
-  
-  #searchform .logic {
-    color:fade-out($accent,0.7);
-    
-    em {
+    .style#{$i} {
+      $accent: nth($colors-list, $i);
+      $grey: fade-out($accent,0.3);
+      //$bg_color:#a02035;
+      $bg_base: black;
+      $bg_color:mix($accent,$bg_base,45%);
+      $type_color:invert($bg_base);
+      //$bg_base:white;
+     
+      background: $bg_color; /* Old browsers */
+      background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 100%); /* FF3.6+ */
+      background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(100%,$bg_base)); /* Chrome,Safari4+ */
+      background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Chrome10+,Safari5.1+ */
+      background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Opera 11.10+ */
+      background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* IE10+ */
+      background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
+      background-repeat:no-repeat;
       color:$type_color;
+      
+      #searchform {
+        font-size:2.15rem;
+      }
+      
+      
+      //"grey":
+      a,
+      h1,h2,h3,h4,
+      #searchform .logic,
+      .select:hover
+      {
+        color:$grey;
+      }
+      
+      select:hover option {
+        color:$type_color;
+      }
+    
+    
+      #searchform input {
+        &:-moz-placeholder { /* Firefox 18- */
+          color:$accent;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          color:$accent;
+        }
+        &:-ms-input-placeholder {
+          color:$accent;
+        }
+        &::-webkit-input-placeholder {
+          color:$accent;
+        }
+      }
+      
+      #searchform .logic {
+        color:fade-out($accent,0.7);
+        
+        em {
+          color:$type_color;
+        }
+      }
+      
+      select:hover,
+      input[type='text']:hover,
+      li.woman:hover,
+      footer {
+        border-color:$grey !important;
+      }
+      
+      //accent
+      a:hover,a:focus,
+      .woman.selected h3 a,
+      #menutitle,
+      .description p:before,
+      #submit-button {
+        color: $accent !important;
+      }
+      
+      li.woman.selected {
+        border-color:$accent !important;
+      }
+      
+      #searchform,
+      h2.name, 
+      h2.title {
+        //?
+      } 
+        
     }
-  }
-  
-  li.woman:hover,
-  footer {
-    border-color:$type_color !important;
-  }
-  
-  //accent
-  a:hover,a:focus,
-  .woman.selected h3 a,
-  #menutitle,
-  .description p:before,
-  #submit-button {
-    color: $accent !important;
-  }
-  
-  li.woman.selected {
-    border-color:$accent !important;
-  }
-  
-  #searchform,
-  h2.name, 
-  h2.title {
-    //?
-  }
-  
-  
 }
+

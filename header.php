@@ -32,7 +32,7 @@ require_once 'site_settings.php';
 		
 	    <script src="js/vendor/modernizr.js"></script>
   </head>
-	<body class="no-js style0" id="" >
+	<body class="no-js style1" id="" >
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
