@@ -717,13 +717,18 @@ footer#pagefooter {
 /************** STYLESETS **************/
 
 $colors-list: #FF0063 green blue; //indexes from 1? wat?
+
+$color-pairs: (#ff0063,black) (green,black) () (green,white) (blue,#abc);
+
 @for $i from 1 through length($colors-list) {
   
     .style#{$i} {
-      $accent: nth($colors-list, $i);
+      $colors: nth($color-pairs, $i);
+      $accent:nth($colors,1);
+      $bg_base:nth($colors,2);
       $grey: fade-out($accent,0.3);
       //$bg_color:#a02035;
-      $bg_base: black;
+      //$bg_base: black;
       $bg_color:mix($accent,$bg_base,45%);
       $type_color:invert($bg_base);
       //$bg_base:white;
