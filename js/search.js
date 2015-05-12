@@ -40,7 +40,9 @@ $("#add-query").click(function(e) {
 
 
 $("li.woman").click(function(e){
-	console.log(e);
+	console.log("clickety:");
+	console.log(e.originalEvent.originalTarget.tagName);
+	if (e.originalEvent.originalTarget.tagName == "A") return true;
 	woman=$(this);
 	oldSelected = list.selected;
 	if (woman.hasClass("selected")) {
@@ -58,11 +60,6 @@ $("li.woman").click(function(e){
 	console.log(list.selected);
 });
 
-$("li.woman a").click(function(e){
-	e.stopPropagation();	
-});
-
-
 $("#sel-all").click(function(e){
 	number = $("li.woman").addClass("selected").size();
 	list.selected = number; 
@@ -76,13 +73,21 @@ $("#sel-none").click(function(e){
 	e.preventDefault();
 });
 
-$("#add-to-list").click(function(e){
+$("#add-to-list ul a").click(function(e){
 	e.preventDefault();
 	//open a pop-up window:
 	//select list
 	//AJAX
 	//update
 	//some animation
+});
+
+$("#sort-actions .f-dropdown a").click(function(e){
+	var clicked = $(this);
+	var drop = clicked.closest(".f-dropdown");
+	Foundation.libs.dropdown.close(drop);
+	$('#sort-actions a[data-dropdown="'+drop.attr('id')+'"]').text(clicked.text());
+	e.preventDefault();
 });
 
 

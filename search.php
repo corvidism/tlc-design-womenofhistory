@@ -176,7 +176,7 @@ if ($query['field'] === null) {
 		</form>
 		
 	</section>		
-	<div id="list-box" class="medium-7 large-7 columns">
+	<div id="list-box" class="medium-7 large-7 columns interactive">
 		<?php
 		if ($women === null) : ?>
 				<p class="no-result">
@@ -224,21 +224,26 @@ if ($query['field'] === null) {
 			</div>
 			-->
 			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
-				<div>order by: <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">date added</a>
-<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-  <li><a href="search.php">date added</a></li>
-  <li><a href="search.php">name</a></li>
-  <li><a href="search.php">time period</a></li>
-</ul> | <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">last to first</a>
-<ul id="drop2" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-  <li><a href="search.php">last to first</a></li>
-  <li><a href="search.php">first to last</a></li>
+				<div>order by: <a data-dropdown="order_by" aria-controls="order_by" aria-expanded="false">date added</a>
+<ul id="order_by" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a data-val="created_on" href="">date added</a></li>
+  <li><a data-val="name" href="">name</a></li>
+  <li><a data-val="period" href="">time period</a></li>
+</ul> | <a data-dropdown="sort-direction" aria-controls="sort-direction" aria-expanded="false">last to first</a>
+<ul id="sort-direction" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a data-val="asc" href="">last to first</a></li>
+  <li><a data-val="desc" href="">first to last</a></li>
 </ul> </div>
 			</div>
 			<div id="list-actions" class="small-12 medium-6 medium-pull-6 columns">
 				<ul>
 					<li><a href="" id="sel-all">select all</a> | <a id="sel-none" href="">select none</a></li>
-					<li><a href="" id="add-to-list">add selected to list</a></li>
+					<li><a data-dropdown="add-to-list" aria-controls="add-to-list" aria-expanded="false">+ add selected to list</a>
+<ul id="add-to-list" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a href="">Favorites</a></li>
+  <li><a href="">My List</a></li>
+  <li><a href="">My Other List</a></li>
+</ul></li>
 				</ul>
 			</div>
 		</div>
@@ -289,7 +294,13 @@ if ($query['field'] === null) {
 							echo implode(", ",$taglinks);
 						?>
 					</div>
-					<footer class="large-6 columns">						
+					<footer class="small-12 columns actions">
+						<div><a data-dropdown="add-to-list-<?php echo $woman['id']; ?>" aria-controls="add-to-list-<?php echo $woman['id']; ?>" aria-expanded="false">+ add to list</a>
+<ul id="add-to-list-<?php echo $woman['id']; ?>" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a href="">Favorites</a></li>
+  <li><a href="">My List</a></li>
+  <li><a href="">My Other List</a></li>
+</ul></div>						
 					</footer>
 				</li>
 			<?php	

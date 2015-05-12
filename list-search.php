@@ -9,7 +9,7 @@
 
 //header settings:
 $page = array(
-	'title'=> 'User Lists',
+	'title'=> 'Search Lists',
 );
 require_once 'header.php';
 
@@ -18,7 +18,7 @@ require_once 'DataSource.php';
 	
 $data_source = new DataSource(); 
 
-$lists = $data_source->getAllLists();
+$lists = $data_source->getAllPublicLists();
 ?>
 
 <section role="search" id="search-box" class="medium-5 large-4 columns">
@@ -48,6 +48,23 @@ $lists = $data_source->getAllLists();
 		
 	</section>		
 	<div id="list-box" class="medium-7 large-7 columns">
+		<?php
+			if ($lists === null) : ?>
+				<p class="no-result">
+					Sorry, nothing matches this query.
+				</p>
+		<?php ; else :?>
+			<ol>
+			<?php foreach($lists as $list) : ?>
+				<li>
+					<h3><a href="list.php?id=<?php echo $list['id']; ?>"><?php echo $list['title']; ?></a></h3>
+					<p class="search-tagline">
+						<?php echo $list['tagline'];?>
+					</p>
+				</li>
+		<?php endforeach; ?>
+			</ol>
+		<?php endif; ?>
 	</div>
 
 

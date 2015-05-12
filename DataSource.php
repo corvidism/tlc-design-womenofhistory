@@ -313,6 +313,14 @@ class DataSource
 		$list = $this->db_calls['list']->Fetch();
 		return $list;
 	}
+	
+	
+	public function getAllPublicLists() {
+		$this->setupCall('all_lists',"SELECT * FROM lists");
+		$this->db_calls['all_lists']->execute();
+		$lists = $this->db_calls['all_lists']->FetchAll();
+		return $lists;
+	}
 }
 
 ?>

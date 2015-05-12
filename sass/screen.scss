@@ -446,19 +446,6 @@ header#pagetitle {
       //border-width:1px 0;
       border-left:1px solid transparent;
       
-      &.selected {
-        //list-style:bullet;
-        
-        
-        h3:before {
-          content:'– ';                    
-        }
-      }
-      
-      &:hover {
-        border-color:$grey;
-      }
-      
       .specs ul {
         list-style:none;
         margin:0;
@@ -472,7 +459,33 @@ header#pagetitle {
           display:block;
         } 
       }
+      .actions {
+        visibility:hidden;
+      }
+      
+      &.selected .actions {
+        visibility:visible;
+      }
+            
+      &:hover .actions {
+        visibility:visible;        
+      }
     } 
+  }
+  
+  &.interactive li.woman {
+    &.selected {
+        //list-style:bullet;
+        
+        
+        h3:before {
+          content:'– ';                    
+        }
+      }
+      
+      &:hover {
+        border-color:$grey;
+      }
   }
   
   ul.action-buttons {
@@ -580,7 +593,14 @@ header#pagetitle {
     }
   }
   
-  .f-dropdown {
+  
+}
+
+.search-tagline .more {
+  text-decoration:none;
+}
+ 
+.f-dropdown {
      &::before,&::after {
        border-color:transparent;
      }
@@ -593,13 +613,7 @@ header#pagetitle {
        }
      }
      border:0;
-   }
-}
-
-.search-tagline .more {
-  text-decoration:none;
-}
-  
+   } 
   
 
 
@@ -781,19 +795,28 @@ $color-pairs: (#ff0063,black) (green,black) (green,white) (blue,#abc);
         font-size:2.15rem;
       }
       
-      #sort-actions .f-dropdown, #searchform .dropdown li {
+      .f-dropdown, #searchform .dropdown li {
         background-color:$bg_base;
       }
-      #sort-actions .f-dropdown {
-        &::before,&::after {
+      .f-dropdown {
+        border:1px solid fade-out($grey,0.2);
+        &::before {
           border-bottom-color:$bg_base;
+        }
+        
+        &::after {
+          border-bottom-color:$grey;
         }
       }
       
-      #sort-actions .f-dropdown li, #searchform .dropdown li {
+      .f-dropdown li, #searchform .dropdown li {
         border-bottom-color:$bg_color;
         a {
           color:$grey;
+        }
+        
+        &:hover a {
+          color:$accent;
         }
       }
       
@@ -838,7 +861,7 @@ $color-pairs: (#ff0063,black) (green,black) (green,white) (blue,#abc);
       
       //grey border
       input[type='text']:hover,
-      li.woman:hover,
+      #list-box.interactive li.woman:hover,
       .select:hover,
       .switch-box .switch label,
       footer {
