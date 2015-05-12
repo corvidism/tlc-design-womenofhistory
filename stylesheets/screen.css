@@ -1,92 +1,980 @@
-/*
-Syntax error: List index is 1 but list has no items for `nth'
-        on line 727 of /var/server/thelucycollective/womenofhistory/sass/screen.scss
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* min-width 641px, medium screens */
+/* min-width 1025px, large screens */
+/* min-width 1441px, xlarge screens */
+/* min-width 1921px, xxlarge screens */
+/* line 55, ../sass/screen.scss */
+body {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  color: #333333;
+  background-color: white;
+}
 
-Backtrace:
-/var/server/thelucycollective/womenofhistory/sass/screen.scss:727
-/usr/lib/ruby/vendor_ruby/sass/script/funcall.rb:161:in `rescue in _perform'
-/usr/lib/ruby/vendor_ruby/sass/script/funcall.rb:99:in `_perform'
-/usr/lib/ruby/vendor_ruby/sass/script/node.rb:40:in `perform'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:327:in `visit_variable'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:121:in `with_environment'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:108:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:320:in `visit_rule'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:188:in `block (3 levels) in visit_for'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:188:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:188:in `block (2 levels) in visit_for'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:185:in `each'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:185:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:185:in `block in visit_for'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:121:in `with_environment'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:184:in `visit_for'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:121:in `with_environment'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:108:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:128:in `visit_root'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:7:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:20:in `render'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:315:in `_render'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:262:in `render'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:140:in `block (2 levels) in compile'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:126:in `timed'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:139:in `block in compile'
-/usr/lib/ruby/vendor_ruby/compass/logger.rb:45:in `red'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:138:in `compile'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:118:in `compile_if_required'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:103:in `block (2 levels) in run'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:101:in `each'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:101:in `block in run'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:126:in `timed'
-/usr/lib/ruby/vendor_ruby/compass/compiler.rb:100:in `run'
-/usr/lib/ruby/vendor_ruby/compass/commands/watch_project.rb:147:in `recompile'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:73:in `call'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:73:in `run_callback'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:55:in `callback_action'
-/usr/lib/ruby/vendor_ruby/fssm/path.rb:35:in `update'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:39:in `block in modified'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:37:in `each'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:37:in `modified'
-/usr/lib/ruby/vendor_ruby/fssm/state/directory.rb:18:in `refresh'
-/usr/lib/ruby/vendor_ruby/fssm/backends/inotify.rb:12:in `block in add_handler'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:205:in `call'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:205:in `block in watch'
-/usr/lib/ruby/vendor_ruby/rb-inotify/watcher.rb:41:in `[]'
-/usr/lib/ruby/vendor_ruby/rb-inotify/watcher.rb:41:in `callback!'
-/usr/lib/ruby/vendor_ruby/rb-inotify/event.rb:128:in `callback!'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `block in process'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `each'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:238:in `process'
-/usr/lib/ruby/vendor_ruby/rb-inotify/notifier.rb:221:in `run'
-/usr/lib/ruby/vendor_ruby/fssm/backends/inotify.rb:20:in `run'
-/usr/lib/ruby/vendor_ruby/fssm/monitor.rb:26:in `run'
-/usr/lib/ruby/vendor_ruby/fssm.rb:67:in `monitor'
-/usr/lib/ruby/vendor_ruby/compass/commands/watch_project.rb:87:in `perform'
-/usr/lib/ruby/vendor_ruby/compass/commands/base.rb:18:in `execute'
-/usr/lib/ruby/vendor_ruby/compass/commands/project_base.rb:19:in `execute'
-/usr/lib/ruby/vendor_ruby/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/lib/ruby/vendor_ruby/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/bin/compass:30:in `block in <main>'
-/usr/bin/compass:44:in `call'
-/usr/bin/compass:44:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: List index is 1 but list has no items for `nth'\A         on line 727 of /var/server/thelucycollective/womenofhistory/sass/screen.scss"; }
+/* line 67, ../sass/screen.scss */
+a {
+  color: #7f7f7f;
+}
+
+/* line 71, ../sass/screen.scss */
+p a {
+  text-decoration: underline;
+}
+
+/* line 75, ../sass/screen.scss */
+h1, h2, h3, h4 {
+  color: #7f7f7f;
+}
+
+/* line 79, ../sass/screen.scss */
+h1 {
+  font-size: 3.375rem;
+}
+
+/* line 83, ../sass/screen.scss */
+h2 {
+  font-size: 2.25rem;
+}
+
+/* line 87, ../sass/screen.scss */
+h3 {
+  font-size: 1.5rem;
+}
+
+/* line 91, ../sass/screen.scss */
+h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/************** STYLES **************/
+/* line 100, ../sass/screen.scss */
+div#wrapper {
+  padding-top: 2rem;
+}
+
+/* line 104, ../sass/screen.scss */
+.left {
+  text-align: left;
+}
+
+/* line 108, ../sass/screen.scss */
+.right {
+  text-align: right;
+}
+
+/* line 113, ../sass/screen.scss */
+select {
+  border: 1px solid transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  height: inherit;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  padding: 0;
+  padding-right: 1em;
+  -moz-appearance: none;
+  margin-bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+/* line 130, ../sass/screen.scss */
+select option {
+  color: inherit;
+}
+/* line 134, ../sass/screen.scss */
+select:hover {
+  border-color: transparent !important;
+  background-color: transparent;
+}
+
+/* line 142, ../sass/screen.scss */
+label {
+  color: inherit;
+}
+
+/* line 146, ../sass/screen.scss */
+.select {
+  border: 1px solid transparent;
+}
+/* line 148, ../sass/screen.scss */
+.select:after {
+  content: "⌄";
+  display: inline-block;
+  width: 1em;
+  position: absolute;
+  text-align: right;
+  right: 1rem;
+  z-index: -1;
+}
+
+/************** TOPBAR **************/
+/* line 165, ../sass/screen.scss */
+.top-bar {
+  background-color: transparent;
+  color: inherit;
+  font-size: 1rem !important;
+  text-transform: none !important;
+}
+/* line 173, ../sass/screen.scss */
+.top-bar .toggle-topbar a {
+  color: inherit;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+/* line 185, ../sass/screen.scss */
+.top-bar.expanded .title-area {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* line 195, ../sass/screen.scss */
+.top-bar-section ul li {
+  background-color: transparent;
+}
+/* line 197, ../sass/screen.scss */
+.top-bar-section ul li > a {
+  color: inherit;
+}
+/* line 203, ../sass/screen.scss */
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: transparent;
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none !important;
+  line-height: 44px;
+}
+/* line 209, ../sass/screen.scss */
+.top-bar-section li:not(.has-form) a:hover:not(.button) {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 214, ../sass/screen.scss */
+.top-bar-section ul li:hover:not(.has-form) > a {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 220, ../sass/screen.scss */
+.top-bar-section .dropdown li a {
+  color: inherit;
+}
+/* line 224, ../sass/screen.scss */
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 229, ../sass/screen.scss */
+.top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 235, ../sass/screen.scss */
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 239, ../sass/screen.scss */
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* line 245, ../sass/screen.scss */
+#menutitle {
+  height: 45px;
+  line-height: 42px;
+  color: #7f7f7f;
+  text-decoration: none;
+}
+
+/************** HEADING **************/
+/* line 259, ../sass/screen.scss */
+header#pagetitle {
+  display: none;
+}
+@media screen and (min-width: 40.063em) {
+  /* line 259, ../sass/screen.scss */
+  header#pagetitle {
+    height: 11.25rem;
+  }
+}
+/* line 270, ../sass/screen.scss */
+header#pagetitle h1 {
+  font-size: 2.25rem;
+  height: 7.59375rem;
+  margin-top: 3.375rem;
+}
+/* line 275, ../sass/screen.scss */
+header#pagetitle h1 span#subtitle {
+  display: none;
+  font-size: 1rem;
+}
+@media screen and (min-width: 40.063em) {
+  /* line 275, ../sass/screen.scss */
+  header#pagetitle h1 span#subtitle {
+    display: block;
+  }
+}
+
+/************** SEARCH.PHP **************/
+/* line 294, ../sass/screen.scss */
+#searchform {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+/* line 300, ../sass/screen.scss */
+#searchform label, #searchform input, #searchform span {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: inherit;
+  padding: inherit;
+  padding-left: 3px;
+}
+/* line 309, ../sass/screen.scss */
+#searchform input[type="text"] {
+  border: 1px solid transparent;
+  background: none;
+  box-shadow: none;
+  transition: none;
+  height: auto;
+}
+/* line 318, ../sass/screen.scss */
+#searchform input[type="text"]:focus {
+  box-shadow: none;
+}
+/* line 322, ../sass/screen.scss */
+#searchform #add-query {
+  font-size: 1rem;
+  line-height: 1.5em;
+  vertical-align: top;
+}
+/* line 328, ../sass/screen.scss */
+#searchform #search-submit {
+  margin-top: 1rem;
+  display: block;
+  padding: 0.2em;
+}
+/* line 336, ../sass/screen.scss */
+#searchform #submit-button {
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-right: 0.6rem;
+  margin-top: 1.1rem;
+}
+/* line 355, ../sass/screen.scss */
+#searchform .logic {
+  color: #cbcbcb;
+}
+/* line 357, ../sass/screen.scss */
+#searchform .logic em {
+  font-style: normal;
+  color: #7f7f7f;
+}
+/* line 363, ../sass/screen.scss */
+#searchform .dropdown {
+  list-style: none;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+/* line 369, ../sass/screen.scss */
+#searchform .dropdown li {
+  border-bottom: 1px solid transparent;
+  line-height: 3rem;
+  padding: 0 0.5rem;
+}
+
+/* line 377, ../sass/screen.scss */
+#nonpriv-groups {
+  margin-top: 2.2rem;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+}
+/* line 382, ../sass/screen.scss */
+#nonpriv-groups .show-only {
+  font-size: 1.5rem;
+}
+/* line 386, ../sass/screen.scss */
+#nonpriv-groups .switch-box, #nonpriv-groups .switch-label {
+  display: inline-block;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  vertical-align: middle;
+}
+/* line 394, ../sass/screen.scss */
+#nonpriv-groups .switch-label {
+  padding-left: 0.55rem;
+}
+/* line 399, ../sass/screen.scss */
+#nonpriv-groups .switch-box .switch label {
+  background-color: transparent;
+  border: 1px solid;
+}
+/* line 405, ../sass/screen.scss */
+#nonpriv-groups ul {
+  list-style: none;
+  margin: 0;
+  margin-top: 0.55rem;
+  padding: 0;
+}
+/* line 411, ../sass/screen.scss */
+#nonpriv-groups ul li {
+  margin-bottom: 1rem;
+}
+
+/* line 421, ../sass/screen.scss */
+#list-box div.portrait {
+  float: left;
+  height: 4rem;
+  width: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 428, ../sass/screen.scss */
+#list-box div.portrait img {
+  position: relative;
+  left: 50%;
+}
+/* line 434, ../sass/screen.scss */
+#list-box ol {
+  margin-left: 0;
+  margin-bottom: 2.2rem;
+  list-style: none;
+}
+/* line 440, ../sass/screen.scss */
+#list-box ol li.woman {
+  margin-bottom: 2.2rem;
+  margin-left: 0.001rem;
+  position: relative;
+  border-left: 1px solid transparent;
+}
+/* line 453, ../sass/screen.scss */
+#list-box ol li.woman.selected h3:before {
+  content: '– ';
+}
+/* line 458, ../sass/screen.scss */
+#list-box ol li.woman:hover {
+  border-color: #7f7f7f;
+}
+/* line 462, ../sass/screen.scss */
+#list-box ol li.woman .specs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 468, ../sass/screen.scss */
+#list-box ol li.woman .tags {
+  display: none;
+}
+@media screen and (min-width: 64.063em) {
+  /* line 468, ../sass/screen.scss */
+  #list-box ol li.woman .tags {
+    display: block;
+  }
+}
+/* line 478, ../sass/screen.scss */
+#list-box ul.action-buttons {
+  list-style: none;
+  margin-left: 0;
+}
+/* line 484, ../sass/screen.scss */
+#list-box ul.action-buttons li {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+/* line 490, ../sass/screen.scss */
+#list-box ul.action-buttons li:nth-child(2) {
+  text-align: left;
+  padding-left: 1em;
+}
+/* line 496, ../sass/screen.scss */
+#list-box .pagination {
+  text-align: center;
+}
+/* line 501, ../sass/screen.scss */
+#list-box .specs ul li {
+  display: inline;
+}
+/* line 504, ../sass/screen.scss */
+#list-box .specs ul li:before {
+  content: "– ";
+}
+/* line 507, ../sass/screen.scss */
+#list-box .specs ul li:first-child:before {
+  content: "";
+}
+@media screen and (min-width: 40.063em) {
+  /* line 501, ../sass/screen.scss */
+  #list-box .specs ul li {
+    display: block;
+  }
+  /* line 514, ../sass/screen.scss */
+  #list-box .specs ul li:before {
+    content: "";
+  }
+}
+
+/* line 523, ../sass/screen.scss */
+#query-count {
+  font-size: 0.8rem;
+  margin-left: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+/* line 529, ../sass/screen.scss */
+#list-sort-controls {
+  margin-bottom: 1.1rem;
+}
+
+/* line 533, ../sass/screen.scss */
+#list-actions {
+  visibility: hidden;
+}
+/* line 537, ../sass/screen.scss */
+#list-actions ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-left: 1.1rem;
+}
+
+/* line 549, ../sass/screen.scss */
+#sort-actions {
+  text-align: right;
+  padding-right: 0;
+}
+/* line 553, ../sass/screen.scss */
+#sort-actions label {
+  display: inline;
+  font-size: inherit;
+}
+/* line 558, ../sass/screen.scss */
+#sort-actions select {
+  width: auto;
+}
+/* line 563, ../sass/screen.scss */
+#sort-actions .select {
+  width: auto;
+  display: inline-block;
+}
+/* line 566, ../sass/screen.scss */
+#sort-actions .select.sort {
+  display: none;
+}
+/* line 570, ../sass/screen.scss */
+#sort-actions .select.active {
+  display: block;
+}
+/* line 583, ../sass/screen.scss */
+#sort-actions .f-dropdown {
+  border: 0;
+}
+/* line 584, ../sass/screen.scss */
+#sort-actions .f-dropdown::before, #sort-actions .f-dropdown::after {
+  border-color: transparent;
+}
+/* line 588, ../sass/screen.scss */
+#sort-actions .f-dropdown li {
+  border-bottom: 1px solid transparent;
+}
+/* line 591, ../sass/screen.scss */
+#sort-actions .f-dropdown li:hover {
+  background-color: transparent;
+}
+
+/* line 599, ../sass/screen.scss */
+.search-tagline .more {
+  text-decoration: none;
+}
+
+/************** SINGLE.PHP **************/
+/* line 612, ../sass/screen.scss */
+article.woman div.portrait-img {
+  height: 8em;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+/* line 620, ../sass/screen.scss */
+article.woman div.portrait-img img {
+  position: relative;
+  top: -50%;
+  opacity: 0.5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+/* line 630, ../sass/screen.scss */
+article.woman div.portrait-img img:hover {
+  opacity: 1;
+}
+@media screen and (min-width: 40.063em) {
+  /* line 612, ../sass/screen.scss */
+  article.woman div.portrait-img {
+    height: auto;
+  }
+}
+/* line 640, ../sass/screen.scss */
+article.woman .category_and_tags div, article.woman .non_priv_groups div {
+  margin-bottom: 0.55rem;
+}
+/* line 647, ../sass/screen.scss */
+article.woman .story p:first-child {
+  padding-top: 2.2rem;
+}
+/* line 653, ../sass/screen.scss */
+article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
+  list-style: none;
+  margin-left: 0;
+}
+/* line 659, ../sass/screen.scss */
+article.woman .dates {
+  font-style: italic;
+}
+/* line 663, ../sass/screen.scss */
+article.woman .lists {
+  margin-bottom: 1.1rem;
+}
+/* line 666, ../sass/screen.scss */
+article.woman .lists h3 {
+  margin-bottom: 1.1rem;
+}
+/* line 670, ../sass/screen.scss */
+article.woman .lists a {
+  text-decoration: none;
+}
+/* line 679, ../sass/screen.scss */
+article.woman .links img {
+  display: inline;
+}
+/* line 684, ../sass/screen.scss */
+article.woman footer {
+  clear: both;
+  margin-top: 1.1rem;
+  border-top: 1px solid #7f7f7f;
+  padding-top: 1.1rem;
+}
+
+/* line 694, ../sass/screen.scss */
+article.woman .tagline, article#user-list .tagline {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding-bottom: 1em;
+}
+
+/* line 700, ../sass/screen.scss */
+.thumb-box {
+  text-align: center;
+}
+
+/* line 703, ../sass/screen.scss */
+img.thumb {
+  width: 125px;
+  display: block;
+}
+
+/* line 708, ../sass/screen.scss */
+.notice {
+  font-size: 0.8rem;
+  margin-left: 2rem;
+}
+
+/* line 713, ../sass/screen.scss */
+#side-col header {
+  padding: 1.1rem;
+}
+
+/************** LIST.PHP **************/
+/* line 721, ../sass/screen.scss */
+#user-list ol {
+  list-style: none;
+}
+/* line 724, ../sass/screen.scss */
+#user-list .list-desc p {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding-bottom: 1em;
+}
+/* line 730, ../sass/screen.scss */
+#user-list .woman .description {
+  margin-top: 1.1rem;
+  margin-bottom: 2.2rem;
+  padding-left: 4.4rem;
+}
+/* line 735, ../sass/screen.scss */
+#user-list .woman .description p:before {
+  content: "– ";
+  display: inline;
+}
+
+/************** FOOTER **************/
+/* line 745, ../sass/screen.scss */
+footer#pagefooter {
+  height: 10em;
+}
+
+/************** STYLESETS **************/
+/* line 758, ../sass/screen.scss */
+.style1 {
+  background: #72002c;
+  /* Old browsers */
+  background: black -moz-linear-gradient(top, #72002c 0%, black 100%);
+  /* FF3.6+ */
+  background: black -webkit-gradient(linear, left top, left bottom, color-stop(0%, #72002c), color-stop(100%, black));
+  /* Chrome,Safari4+ */
+  background: black -webkit-linear-gradient(top, #72002c 0%, black 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: black -o-linear-gradient(top, #72002c 0%, black 100%);
+  /* Opera 11.10+ */
+  background: black -ms-linear-gradient(top, #72002c 0%, black 100%);
+  /* IE10+ */
+  background: black linear-gradient(to bottom, #72002c 0%, #000000 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 );
+  /* IE6-9 */
+  background-repeat: no-repeat;
+  color: white;
+}
+/* line 780, ../sass/screen.scss */
+.style1 #searchform {
+  font-size: 2.15rem;
+}
+/* line 784, ../sass/screen.scss */
+.style1 #sort-actions .f-dropdown, .style1 #searchform .dropdown li {
+  background-color: black;
+}
+/* line 788, ../sass/screen.scss */
+.style1 #sort-actions .f-dropdown::before, .style1 #sort-actions .f-dropdown::after {
+  border-bottom-color: black;
+}
+/* line 793, ../sass/screen.scss */
+.style1 #sort-actions .f-dropdown li, .style1 #searchform .dropdown li {
+  border-bottom-color: #72002c;
+}
+/* line 795, ../sass/screen.scss */
+.style1 #sort-actions .f-dropdown li a, .style1 #searchform .dropdown li a {
+  color: rgba(255, 0, 99, 0.7);
+}
+/* line 808, ../sass/screen.scss */
+.style1 a,
+.style1 h1, .style1 h2, .style1 h3, .style1 h4,
+.style1 #searchform .logic,
+.style1 #select-women,
+.style1 .select:hover,
+.style1 #list-sort-controls {
+  color: rgba(255, 0, 99, 0.7);
+}
+/* line 812, ../sass/screen.scss */
+.style1 select:hover option {
+  color: white;
+}
+/* line 817, ../sass/screen.scss */
+.style1 #searchform input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #ff0063;
+}
+/* line 820, ../sass/screen.scss */
+.style1 #searchform input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ff0063;
+}
+/* line 823, ../sass/screen.scss */
+.style1 #searchform input:-ms-input-placeholder {
+  color: #ff0063;
+}
+/* line 826, ../sass/screen.scss */
+.style1 #searchform input::-webkit-input-placeholder {
+  color: #ff0063;
+}
+/* line 831, ../sass/screen.scss */
+.style1 #searchform .logic {
+  color: rgba(255, 0, 99, 0.3);
+}
+/* line 834, ../sass/screen.scss */
+.style1 #searchform .logic em {
+  color: white;
+}
+/* line 844, ../sass/screen.scss */
+.style1 input[type='text']:hover,
+.style1 li.woman:hover,
+.style1 .select:hover,
+.style1 .switch-box .switch label,
+.style1 footer {
+  border-color: rgba(255, 0, 99, 0.7) !important;
+}
+/* line 848, ../sass/screen.scss */
+.style1 .switch-box .switch input:checked + label {
+  background-color: rgba(255, 0, 99, 0.3) !important;
+}
+/* line 852, ../sass/screen.scss */
+.style1 .switch-box .switch label::after {
+  background-color: #ff0063;
+}
+/* line 859, ../sass/screen.scss */
+.style1 .category_and_tags,
+.style1 .non_priv_groups,
+.style1 .tags {
+  color: rgba(255, 0, 99, 0.5);
+}
+/* line 870, ../sass/screen.scss */
+.style1 a:hover, .style1 a:focus,
+.style1 .woman.selected h3 a,
+.style1 #menutitle,
+.style1 .description p:before,
+.style1 #submit-button {
+  color: #ff0063 !important;
+}
+/* line 874, ../sass/screen.scss */
+.style1 li.woman.selected {
+  border-color: #ff0063 !important;
+}
+
+/* line 758, ../sass/screen.scss */
+.style2 {
+  background: #003900;
+  /* Old browsers */
+  background: black -moz-linear-gradient(top, #003900 0%, black 100%);
+  /* FF3.6+ */
+  background: black -webkit-gradient(linear, left top, left bottom, color-stop(0%, #003900), color-stop(100%, black));
+  /* Chrome,Safari4+ */
+  background: black -webkit-linear-gradient(top, #003900 0%, black 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: black -o-linear-gradient(top, #003900 0%, black 100%);
+  /* Opera 11.10+ */
+  background: black -ms-linear-gradient(top, #003900 0%, black 100%);
+  /* IE10+ */
+  background: black linear-gradient(to bottom, #003900 0%, #000000 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 );
+  /* IE6-9 */
+  background-repeat: no-repeat;
+  color: white;
+}
+/* line 780, ../sass/screen.scss */
+.style2 #searchform {
+  font-size: 2.15rem;
+}
+/* line 784, ../sass/screen.scss */
+.style2 #sort-actions .f-dropdown, .style2 #searchform .dropdown li {
+  background-color: black;
+}
+/* line 788, ../sass/screen.scss */
+.style2 #sort-actions .f-dropdown::before, .style2 #sort-actions .f-dropdown::after {
+  border-bottom-color: black;
+}
+/* line 793, ../sass/screen.scss */
+.style2 #sort-actions .f-dropdown li, .style2 #searchform .dropdown li {
+  border-bottom-color: #003900;
+}
+/* line 795, ../sass/screen.scss */
+.style2 #sort-actions .f-dropdown li a, .style2 #searchform .dropdown li a {
+  color: rgba(0, 128, 0, 0.7);
+}
+/* line 808, ../sass/screen.scss */
+.style2 a,
+.style2 h1, .style2 h2, .style2 h3, .style2 h4,
+.style2 #searchform .logic,
+.style2 #select-women,
+.style2 .select:hover,
+.style2 #list-sort-controls {
+  color: rgba(0, 128, 0, 0.7);
+}
+/* line 812, ../sass/screen.scss */
+.style2 select:hover option {
+  color: white;
+}
+/* line 817, ../sass/screen.scss */
+.style2 #searchform input:-moz-placeholder {
+  /* Firefox 18- */
+  color: green;
+}
+/* line 820, ../sass/screen.scss */
+.style2 #searchform input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: green;
+}
+/* line 823, ../sass/screen.scss */
+.style2 #searchform input:-ms-input-placeholder {
+  color: green;
+}
+/* line 826, ../sass/screen.scss */
+.style2 #searchform input::-webkit-input-placeholder {
+  color: green;
+}
+/* line 831, ../sass/screen.scss */
+.style2 #searchform .logic {
+  color: rgba(0, 128, 0, 0.3);
+}
+/* line 834, ../sass/screen.scss */
+.style2 #searchform .logic em {
+  color: white;
+}
+/* line 844, ../sass/screen.scss */
+.style2 input[type='text']:hover,
+.style2 li.woman:hover,
+.style2 .select:hover,
+.style2 .switch-box .switch label,
+.style2 footer {
+  border-color: rgba(0, 128, 0, 0.7) !important;
+}
+/* line 848, ../sass/screen.scss */
+.style2 .switch-box .switch input:checked + label {
+  background-color: rgba(0, 128, 0, 0.3) !important;
+}
+/* line 852, ../sass/screen.scss */
+.style2 .switch-box .switch label::after {
+  background-color: green;
+}
+/* line 859, ../sass/screen.scss */
+.style2 .category_and_tags,
+.style2 .non_priv_groups,
+.style2 .tags {
+  color: rgba(0, 128, 0, 0.5);
+}
+/* line 870, ../sass/screen.scss */
+.style2 a:hover, .style2 a:focus,
+.style2 .woman.selected h3 a,
+.style2 #menutitle,
+.style2 .description p:before,
+.style2 #submit-button {
+  color: green !important;
+}
+/* line 874, ../sass/screen.scss */
+.style2 li.woman.selected {
+  border-color: green !important;
+}
+
+/* line 758, ../sass/screen.scss */
+.style3 {
+  background: #8cc58c;
+  /* Old browsers */
+  background: white -moz-linear-gradient(top, #8cc58c 0%, white 100%);
+  /* FF3.6+ */
+  background: white -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8cc58c), color-stop(100%, white));
+  /* Chrome,Safari4+ */
+  background: white -webkit-linear-gradient(top, #8cc58c 0%, white 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: white -o-linear-gradient(top, #8cc58c 0%, white 100%);
+  /* Opera 11.10+ */
+  background: white -ms-linear-gradient(top, #8cc58c 0%, white 100%);
+  /* IE10+ */
+  background: white linear-gradient(to bottom, #8cc58c 0%, #ffffff 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 );
+  /* IE6-9 */
+  background-repeat: no-repeat;
+  color: black;
+}
+/* line 780, ../sass/screen.scss */
+.style3 #searchform {
+  font-size: 2.15rem;
+}
+/* line 784, ../sass/screen.scss */
+.style3 #sort-actions .f-dropdown, .style3 #searchform .dropdown li {
+  background-color: white;
+}
+/* line 788, ../sass/screen.scss */
+.style3 #sort-actions .f-dropdown::before, .style3 #sort-actions .f-dropdown::after {
+  border-bottom-color: white;
+}
+/* line 793, ../sass/screen.scss */
+.style3 #sort-actions .f-dropdown li, .style3 #searchform .dropdown li {
+  border-bottom-color: #8cc58c;
+}
+/* line 795, ../sass/screen.scss */
+.style3 #sort-actions .f-dropdown li a, .style3 #searchform .dropdown li a {
+  color: rgba(0, 128, 0, 0.7);
+}
+/* line 808, ../sass/screen.scss */
+.style3 a,
+.style3 h1, .style3 h2, .style3 h3, .style3 h4,
+.style3 #searchform .logic,
+.style3 #select-women,
+.style3 .select:hover,
+.style3 #list-sort-controls {
+  color: rgba(0, 128, 0, 0.7);
+}
+/* line 812, ../sass/screen.scss */
+.style3 select:hover option {
+  color: black;
+}
+/* line 817, ../sass/screen.scss */
+.style3 #searchform input:-moz-placeholder {
+  /* Firefox 18- */
+  color: green;
+}
+/* line 820, ../sass/screen.scss */
+.style3 #searchform input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: green;
+}
+/* line 823, ../sass/screen.scss */
+.style3 #searchform input:-ms-input-placeholder {
+  color: green;
+}
+/* line 826, ../sass/screen.scss */
+.style3 #searchform input::-webkit-input-placeholder {
+  color: green;
+}
+/* line 831, ../sass/screen.scss */
+.style3 #searchform .logic {
+  color: rgba(0, 128, 0, 0.3);
+}
+/* line 834, ../sass/screen.scss */
+.style3 #searchform .logic em {
+  color: black;
+}
+/* line 844, ../sass/screen.scss */
+.style3 input[type='text']:hover,
+.style3 li.woman:hover,
+.style3 .select:hover,
+.style3 .switch-box .switch label,
+.style3 footer {
+  border-color: rgba(0, 128, 0, 0.7) !important;
+}
+/* line 848, ../sass/screen.scss */
+.style3 .switch-box .switch input:checked + label {
+  background-color: rgba(0, 128, 0, 0.3) !important;
+}
+/* line 852, ../sass/screen.scss */
+.style3 .switch-box .switch label::after {
+  background-color: green;
+}
+/* line 859, ../sass/screen.scss */
+.style3 .category_and_tags,
+.style3 .non_priv_groups,
+.style3 .tags {
+  color: rgba(0, 128, 0, 0.5);
+}
+/* line 870, ../sass/screen.scss */
+.style3 a:hover, .style3 a:focus,
+.style3 .woman.selected h3 a,
+.style3 #menutitle,
+.style3 .description p:before,
+.style3 #submit-button {
+  color: green !important;
+}
+/* line 874, ../sass/screen.scss */
+.style3 li.woman.selected {
+  border-color: green !important;
+}

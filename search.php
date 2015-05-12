@@ -119,6 +119,8 @@ if ($query['field'] === null) {
 								<option value="category">her category</option>
 								<option value="links">her links</option>
 								<option value="ethnicity">her ethnicity</option>
+								<option value="orientation">her orientation</option>
+								<option value="gender_identity">her gender identity</option>
 			</select>
 			</div>
 			<div class="select">
@@ -165,7 +167,7 @@ if ($query['field'] === null) {
 								<label for="is_queer"></label>
 							</div>
 						</div>
-						<div class="switch-label">LGBTQ women</div>						
+						<div class="switch-label">LBTQA women</div>						
 					</li>
 				</ul>
 			</div>
@@ -175,21 +177,32 @@ if ($query['field'] === null) {
 		
 	</section>		
 	<div id="list-box" class="medium-7 large-7 columns">
-		<div id="list-sort-controls" class="row">
+		<?php
+		if ($women === null) : ?>
+				<p class="no-result">
+					Sorry, nothing matches this query.
+				</p>
+		<?php ; else :?>
+			<?php if ($query['field']!=NULL) : ?>
+				<div id="query-count">Shown <?php echo sizeof($women); ?> results. <a href="search.php">Clear query.</a></div>
+				
+			<?php endif; ?>
+		
+			<div id="list-sort-controls" class="row">
 			<!--
 				sort-actions first in small
 				sort-actions padding in medium and smaller 
 			-->
+			<!--
 			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
 				<label>order by:</label>
 				<div class="select">
 					<select name="order-by">
 					<option value="added">date added</option>
 					<option value="alphabet">name</option>
-					<!--<option value="alphabet">last name</option>-->
 					<option value="period">time period</option>
 					</select> 
-				</div>&nbsp;–&nbsp;
+				</div>
 				<div class="select sort active">
 				<select name="sort-added">
 					<option value="desc">last to first</option>
@@ -209,6 +222,19 @@ if ($query['field'] === null) {
 				</select>
 				</div>
 			</div>
+			-->
+			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
+				<div>order by: <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">date added</a>
+<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a href="search.php">date added</a></li>
+  <li><a href="search.php">name</a></li>
+  <li><a href="search.php">time period</a></li>
+</ul> | <a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">last to first</a>
+<ul id="drop2" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a href="search.php">last to first</a></li>
+  <li><a href="search.php">first to last</a></li>
+</ul> </div>
+			</div>
 			<div id="list-actions" class="small-12 medium-6 medium-pull-6 columns">
 				<ul>
 					<li><a href="" id="sel-all">select all</a> | <a id="sel-none" href="">select none</a></li>
@@ -216,12 +242,8 @@ if ($query['field'] === null) {
 				</ul>
 			</div>
 		</div>
-		<?php
-		if ($women === null) : ?>
-				<p class="no-result">
-					Sorry, nothing matches this query.
-				</p>
-		<?php ; else :?>
+			
+			
 			<ol>
 			<?php
 			
@@ -247,7 +269,7 @@ if ($query['field'] === null) {
 							}
 							
 							if ($woman['is_queer']) {
-								echo '<li><strong><a href="search.php?is_queer=1">LGBTQ</a></strong></li>';
+								echo '<li><strong><a href="search.php?is_queer=1">LBTQA</a></strong></li>';
 								//echo gender and sex.id
 							}
 							if ($woman['has_disability']) {

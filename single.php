@@ -65,21 +65,35 @@ require_once 'header.php';
 	<div class="specs medium-8 large-3 columns">
 		<?php
 			$non_priv_groups = "";
-			if ($woman['is_poc']) {
-				$non_priv_groups.= '<p class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></p>';
+			
+			if($woman['is_poc']) {
+				if ($woman['ethnicity']) {
+					$non_priv_groups.='<div><strong><a href="search.php?field=ethnicity&value='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a><a href="search.php?is_poc=1" title="woman of color"><sup>woc</sup></a></strong></div>';
+				} else {
+					$non_priv_groups.='<div><strong><a href="search.php?is_poc=1">woman of color</a></strong></div>';
+				}
+			} else {
+				if ($woman['ethnicity']) {
+					$non_priv_groups.='<div>(<a href="search.php?field=ethnicity&value='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a>)</div>';
+				}
 			}
 			
 			if ($woman['is_queer']) {
-				$non_priv_groups.= "<p><strong>LGBTQ</strong></p>";
-				
-			}
-			if ($woman['has_disability']) {
-				$non_priv_groups.= "<p><strong>woman with disability</strong></p>";
+				$non_priv_groups.='<div><strong><a href="search.php?field=gender_identity?value='.$woman['gender_identity'].'">'.$woman['gender_identity'].'</a>, <a href="search.php?field=orientation&value='.$woman['orientation'].'">'.$woman['orientation'].'</a><a href="search.php?is_queer=1" title="lesbian, bisexual, transexual or queer woman"><sup>LBTQA</sup></a></strong></div>';				
+			} else {
+				$non_priv_groups.='<div>(<a href="search.php?field=gender_identity&value='.$woman['gender_identity'].'">'.$woman['gender_identity'].'</a>, <a href="search.php?field=orientation&value='.$woman['orientation'].'">'.$woman['orientation'].')</a></div>';
 			}
 			
-			if ($woman['ethnicity']) {
-				$non_priv_groups.= '<p class="ethnicity"><strong>ethnicity: </strong><a href="search.php?ethnicity='.$woman['ethnicity'].'">'.$woman['ethnicity'].'</a></p>';
+			if ($woman['has_disability']) {
+				if ($woman['disability']) {
+					$non_priv_groups.='<div><strong><a href="search.php?field=disability&value='.$woman['disability'].'">'.$woman['disability'].'</a><a href="search.php?has_disability=1" title="woman with disability"><sup>dis</sup></a></strong></div>';
+				} else {
+					$non_priv_groups.='<div><strong><a href="search.php?has_disability=1">woman with disability</a></strong></div>';
+				}
+			} else {
+				$non_priv_groups.='<div><a href="search.php?has_disability=0">(able-bodied)</a></div>';
 			}
+			
 			
 			if (!$non_priv_groups == "") {
 				echo '
@@ -186,6 +200,7 @@ require_once 'header.php';
 				endif;		
 				?>
 			</div>	
+			
 			<div class="lists">
 			<h3>Featured in these lists</h3>
 			<ul class="small-block-grid-3">
@@ -199,14 +214,24 @@ require_once 'header.php';
 						
 						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"><?php echo $list['title'] ?></a>					
 					</div>
-				</li>						
+				</li>										
 			<?php
 				 
 			endforeach;
 			?>
 			</ul>
+			<div class="notice"><a href="">Add</a> <?php echo $woman['name']?> to a list...</div>
+		</div>
+		<div class="comments">
+			<h3>Comments (4)</h3>
+			<div class="notice"><a href="">show</a> comments...</div>
+			<div class="comments-inner">
+				
+			</div>
 		</div>		
 		</div>
+		
+		
 		
 	<footer>
 				<p>

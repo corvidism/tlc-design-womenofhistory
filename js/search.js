@@ -62,6 +62,7 @@ $("li.woman a").click(function(e){
 	e.stopPropagation();	
 });
 
+
 $("#sel-all").click(function(e){
 	number = $("li.woman").addClass("selected").size();
 	list.selected = number; 
@@ -90,8 +91,9 @@ function makeDropdown(select) {
 	var dropdown = $('<ul class="dropdown" id="'+name+'-dropdown"></ul>').hide();
 		select.find("option").each(function(e){
 			var opt = $(this);
-			var item = $('<li data-val="'+opt.val()+'">'+opt.text()+'</li>');
+			var item = $('<li data-val="'+opt.val()+'"><a href="" >'+opt.text()+'</a></li>');
 			item.click(function(e){
+				e.preventDefault();
 				var li=$(this);
 				console.log(li.attr("data-val"));
 				$("#hidden-"+name).val(li.attr("data-val"));
@@ -135,10 +137,9 @@ selects.each(function(){
 
 
 $("#submit-button").click(function(e){
-	console.log($("#searchform").serializeArray());
+	//console.log($("#searchform").serializeArray());
 	//$(this).field($("search-"));
-	
-	e.preventDefault();
+	//e.preventDefault();
 	//I need to intercept this and add the values from the fake selects
 });
 
