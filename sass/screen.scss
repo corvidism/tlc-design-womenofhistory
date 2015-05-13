@@ -161,6 +161,31 @@ label {
   }
 }
 
+.js .select {
+  &:after {
+    content:"";
+  }
+  
+  span {
+    display:inline-block;
+    width:100%;
+    padding-right:1rem !important;
+    
+    &:after {
+      content:"⌄";
+    display:inline-block;
+    font-family:'dejavu_sansbold';
+    width:1em;
+    position: absolute;
+    line-height:1em;
+    text-align:middle;
+    text-align:right;
+    right: 1rem;
+    z-index:-1;
+    }
+  }
+}
+
 /************** TOPBAR **************/
 
 .top-bar {

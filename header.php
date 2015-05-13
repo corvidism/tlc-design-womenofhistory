@@ -31,7 +31,7 @@ require_once 'site_settings.php';
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
-		    	<h1><a id="menutitle" href="index.php">Women of History</a></h1>
+		    	<h1><a id="menutitle" href="./">Women of History</a></h1>
 		    </li>
 		    <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
 		  </ul>	

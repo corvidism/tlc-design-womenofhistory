@@ -125,6 +125,7 @@ selects.each(function(){
 			newSelect.dropdown = makeDropdown(select);
 			newSelect.dropdown.show();
 			newSelect.after(newSelect.dropdown);
+			newSelect.closest(".select").addClass("opened");
 		} else {
 			newSelect.dropdown.toggle();
 			newSelect.closest(".select").toggleClass("opened");

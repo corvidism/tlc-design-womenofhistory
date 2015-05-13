@@ -317,7 +317,7 @@ if ($query['field'] === null) {
 	<li data-text="Next" data-options="prev_button:false">
 		<p>Wellcome to Women of History!</p>
 	</li>
-	<li data-id="searchform" data-text="More" data-prev-text="Prev">
+	<li data-id="searchform" data-text="More" data-prev-text="Prev" data-options="tip-location:right">
 		<p>The main function of this site is to collect information about interesting women in history, and make this information as easily found as possible.</p>
 	</li>
 </ol>
