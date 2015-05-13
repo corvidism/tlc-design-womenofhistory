@@ -141,6 +141,11 @@ selects.each(function(){
 });
 
 
+$("#joyride-start").click(function(e){
+	$(document).foundation('joyride', 'start');
+	e.preventDefault();
+});
+
 $("#submit-button").click(function(e){
 	//console.log($("#searchform").serializeArray());
 	//$(this).field($("search-"));

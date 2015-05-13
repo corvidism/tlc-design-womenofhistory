@@ -20,13 +20,8 @@ require_once 'site_settings.php';
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/foundation.min.css" />
 		
-		<link rel="stylesheet" href="fonts/andadasc/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/archery/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/economica/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/josefinslab1/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/josefinslab2/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/kelly-matchbook-ostrich/stylesheet.css" />
-		<link rel="stylesheet" href="fonts/sixcaps/stylesheet.css" />
+		<link rel="stylesheet" href="fonts/dejavusans-bold/stylesheet.css" />
+		
 		
 		<link rel="stylesheet" href="stylesheets/screen.css" />	
 		
@@ -50,12 +45,14 @@ require_once 'site_settings.php';
 		      </ul>
 		       <ul class="right">
 		    	<li class="has-dropdown">
-			      <a href="user-profile.php">annathecrow</a>
+			      <a href="#">User Name</a>
 			      <ul class="dropdown">
-			      	<li><a href="#" id="style-switch">(cycle styles)</a></li>
-			        <li><a href="user/lists.php">My lists</a></li>
-					<li><a href="user/settings.php">Settings</a></li>
-					<li><a href="user/logout.php">(logout)</a></li>
+			      	<li><a href="#">About this demo</a></li>
+			      	<li><a id="joyride-start" href="#">Explain this page</a></li>
+			      	<li><a href="#" id="style-switch">Cycle through "sister site" style variants.</a></li>
+			        <li><a href="#"><strike>My lists</strike></a></li>
+					<li><a href="#"><strike>Settings</strike></a></li>
+					<li><a href="#"><strike>(logout)</strike></a></li>
 			      </ul>
 			    </li>
 		    </ul>

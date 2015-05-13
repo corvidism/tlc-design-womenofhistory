@@ -313,6 +313,14 @@ if ($query['field'] === null) {
 			
 		</footer>
 </div>
+<ol class="joyride-list" data-joyride>
+	<li data-text="Next" data-options="prev_button:false">
+		<p>Wellcome to Women of History!</p>
+	</li>
+	<li data-id="searchform" data-text="More" data-prev-text="Prev">
+		<p>The main function of this site is to collect information about interesting women in history, and make this information as easily found as possible.</p>
+	</li>
+</ol>
 <?php
 
 require_once 'footer.php';
