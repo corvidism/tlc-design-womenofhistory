@@ -1,3 +1,4 @@
+
 function makeDropdown(select) {
 	var name = select.attr("name");
 	var dropdown = $('<ul class="dropdown" id="'+name+'-dropdown"></ul>').hide();
@@ -32,6 +33,7 @@ selects.each(function(){
 			newSelect.dropdown = makeDropdown(select);
 			newSelect.dropdown.show();
 			newSelect.after(newSelect.dropdown);
+			newSelect.closest(".select").addClass("opened");
 		} else {
 			newSelect.dropdown.toggle();
 			newSelect.closest(".select").toggleClass("opened");
@@ -47,3 +49,18 @@ selects.each(function(){
 	newSelect.after(newSelect.hidden);	
 });
 
+
+smallScreen['in'] = function() {
+		$(".lists").insertAfter(".links");		
+};
+
+largeScreen['in']=function() {
+		console.log("moving lists");
+		$(".lists").insertAfter(".portrait-img");
+};
+
+enquire.register("screen and (max-width:"+ smallScreen.max+")", {
+	match: smallScreen['in'],
+}).register("screen and (min-width:"+ mediumScreen.min+")", {
+	match: largeScreen['in'],
+});

@@ -44,8 +44,16 @@ require_once 'header.php';
 			} else {
 				$tagline_done=false;
 				echo '<div class="portrait-img small-12 columns">
-			<img src="'.$image.'" class="portrait" />	
-		</div>';
+					<img src="'.$image.'" class="portrait" />	
+				</div>';
+				echo '<div class="other-portraits">';
+				for ($i =0; $i <= rand(0, 5);$i++) {
+					$rnd_img = get_image("women/images/_thumbs",$woman['id']);
+					if ($rnd_img) {
+						echo '<div class="img-box"><img src="'.$rnd_img.'"></div>';
+					}					 
+				}
+				echo '</div>';
 			}
 			?>		
 		</div>			
@@ -211,8 +219,15 @@ require_once 'header.php';
 				?>
 				<li class="row">
 					<div class="list-desc small-10 columns">
-						
-						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><img class="thumb" src="<?php echo get_image("lists/images/",$list['id']); ?>"><?php echo $list['title'] ?></a>					
+						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><?php 
+								$img = get_image("lists/images/_thumbs/",$list['id']);
+								if ($img==false) {
+									//echo placeholder
+									echo '<div class="thumb-placeholder">...</div>';
+								} else {
+									echo '<img class="thumb" src="'.$img.'">';
+								}
+							?><?php echo $list['title'] ?></a>					
 					</div>
 				</li>										
 			<?php

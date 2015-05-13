@@ -26,12 +26,14 @@ $women = $data_source->getWomenByList($id);
 //header settings:
 $page = array(
 	'title'=> $list['title']." – Lists",
+	'id'=>'list'
 );
 
 require_once 'header.php';
 ?>
 <article id="user-list" class="small-12 columns">
 	<div class="row">
+		<!--
 		<div class="small-12 medium-5 large-4 columns">
 			<img src="<?php echo get_image("lists/images/",$list['id']); ?>" class="list-cover" />
 			<h2 class="title"><?php echo $list['title']; ?></h2>
@@ -42,6 +44,29 @@ require_once 'header.php';
 				<div class="description"><?php echo $list['description'] ?></div>
 			<?php endif;?>
 		</div>
+		-->
+		
+		<div id="side-col" class="small-12 medium-4 columns">
+		<div class="row colapse">
+			<?php
+			$image =  get_image("lists/images/",$list['id']);
+			if ($image) : ?>
+				<div class="portrait-img small-12 columns">
+					<img src="<?php echo $image; ?>" class="portrait" />
+				</div>
+				
+			<?php endif;?>	
+			<header>
+			<h2 class="title"><?php echo $list['title']; ?></h2>
+			<p class="tagline">
+				<?php echo $list['tagline']; ?>
+			</p>
+			<?php if (!$list['description']==null) :?>
+				<p class="description"><?php echo $list['description'] ?></p>
+			<?php endif;?>
+			</header>					
+		</div>			
+	</div>
 		
 		<div id="list-box" class="small-12 medium-7 large-8 columns">
 			<ol>
@@ -112,15 +137,23 @@ require_once 'header.php';
 			<ul class="small-block-grid-3">
 			<?php
 			
-			$similar = $data_source->getListById(1);
-			for ($i=0; $i < 3 ; $i++) :?> 
+			$similar = $data_source->getAllPublicLists();
+			foreach ($similar as $list) :?> 
 				<li class="row">
 					<div class="list-desc small-10 columns">
-						<a class="thumb-box" href="list.php?id=<?php echo $similar['id'] ?>"><img class="thumb" src="<?php echo get_image("lists/images/",$similar['id']); ?>"><?php echo $similar['title'] ?></a>					
+						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><?php 
+								$img = get_image("lists/images/_thumbs/",$list['id']);
+								if ($img==false) {
+									//echo placeholder
+									echo '<div class="thumb-placeholder">...</div>';
+								} else {
+									echo '<img class="thumb" src="'.$img.'">';
+								}
+							?><?php echo $list['title'] ?></a>					
 					</div>
 				</li>
 			<?php 
-				endfor;
+			endforeach;
 			?>			
 			</ul>
 		</div>

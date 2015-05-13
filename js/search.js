@@ -143,7 +143,7 @@ selects.each(function(){
 
 
 $("#joyride-start").click(function(e){
-	$(document).foundation('joyride', 'start');
+	//$(document).foundation('joyride', 'start');
 	e.preventDefault();
 });
 
