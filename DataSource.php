@@ -96,7 +96,7 @@ class DataSource
 	
 	
 	public function getWomen($params) {
-		logme($params);
+		//logme($params);
 		$field = $params['field'];
 		$value = $params['value'];
 		$strict = ($params['strict']=='yes')?true:false;
@@ -140,7 +140,6 @@ class DataSource
 				$search_cols = array($searchable_cols[$key]); //the only el in the array is the field
 			}
 		}	
-		logme($search_cols);
 		$results = array();
 		foreach ($search_cols as $search_col) {
 			$quoted_col = $this->quoteField($search_col);
@@ -181,16 +180,16 @@ class DataSource
 			foreach ($women as $index=>$woman) {
 				$matched = false;
 				if (in_array('is_poc', $nonpriv_groups)) {
-					$matched = ($woman['is_poc'] == '1'); 
-					logme("matching is_poc");
+					$matched = ($woman['is_poc'] == '1' || $woman['is_poc'] == 'on'); 
+					//logme("matching is_poc");
 				}
 				if (in_array('is_queer', $nonpriv_groups)) {
-					$matched = ($woman['is_queer'] == '1');
-					logme("matching is_queer"); 
+					$matched = ($woman['is_queer'] == '1' || $woman['is_queer'] == 'on');
+					//logme("matching is_queer"); 
 				}
 				if (in_array('has_disability', $nonpriv_groups)) {
-					$matched = ($woman['has_disability'] == '1');
-					logme("matching has_disability"); 
+					$matched = ($woman['has_disability'] == '1' || $woman['has_disability'] == 'on');
+					//logme("matching has_disability"); 
 				}
 				if (!$matched) {
 					unset($women[$index]);

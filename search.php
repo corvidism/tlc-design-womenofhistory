@@ -95,7 +95,7 @@ if ($query['field'] === null) {
 } else {
 	$women = $data_source->getWomen($query);
 }
-
+logme($query);
 
 
 ?>
@@ -132,59 +132,51 @@ if ($query['field'] === null) {
 			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something">
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
+			
+			<div><button id="submit-button" type="submit">Submit</button></div>
 			<div id="nonpriv-groups">
-				<span class="show-only">Show only</span>
-				<!--
-				<ul>
-					<li><label for="is_poc">women of color</label><input name="nonpriv_groups[]" value="is_poc" id="is_poc" type="checkbox"/></li>
-					<li><label for="has_disability">women with disability</label><input name="nonpriv_groups[]" value="has_disability" id="has_disability" type="checkbox"/></li>
-					<li><label for="is_queer">LGBTQ women</label><input name="nonpriv_groups[]" value="is_queer" id="is_queer" type="checkbox"/></li>
-				</ul>
-				-->
 				<ul>
 					<li>
 						<div class="switch-box">
 							<div class="switch small round">
-								<input id="is_poc" name="is_poc" type="checkbox">
+								<input id="is_poc" name="nonpriv_groups[]" value="is_poc" type="checkbox" <?php if (in_array('is_poc', $query['nonpriv_groups'])) { echo 'checked';} ?>>
 								<label for="is_poc"></label>
 							</div>
 						</div>
-						<div class="switch-label">women of color</div>						
+						<div class="switch-label">only women of color</div>						
 					</li>					
 					<li>
 						<div class="switch-box">
 							<div class="switch small round">
-								<input id="has_disability" name="has_disability" type="checkbox">
+								<input id="has_disability" name="nonpriv_groups[]" value="has_disability" type="checkbox" <?php if (in_array('has_disability', $query['nonpriv_groups'])) { echo 'checked';} ?>>
 								<label for="has_disability"></label>
 							</div>
 						</div>
-						<div class="switch-label">women with disability</div>						
+						<div class="switch-label">only women with disability</div>						
 					</li>
 					<li>
 						<div class="switch-box">
 							<div class="switch small round">
-								<input id="is_queer" name="is_queer" type="checkbox">
+								<input id="is_queer" name="nonpriv_groups[]" value="is_queer" type="checkbox" <?php if (in_array('is_queer', $query['nonpriv_groups'])) { echo 'checked';} ?>>
 								<label for="is_queer"></label>
 							</div>
 						</div>
-						<div class="switch-label">LBTQA women</div>						
+						<div class="switch-label">only LBTQA women</div>						
 					</li>
 				</ul>
 			</div>
-			<div><button id="submit-button" type="submit">Search</button></div>
-			
 		</form>
 		
 	</section>		
 	<div id="list-box" class="medium-7 large-7 columns interactive">
 		<?php
 		if ($women === null) : ?>
-				<p class="no-result">
-					Sorry, nothing matches this query.
+				<p id="no-result">
+					Sorry, nothing found. <a href="search.php">Clear search?</a>
 				</p>
 		<?php ; else :?>
 			<?php if ($query['field']!=NULL) : ?>
-				<div id="query-count">Shown <?php echo sizeof($women); ?> results. <a href="search.php">Clear query.</a></div>
+				<div id="query-count">Shown <?php echo sizeof($women); ?> results. <a href="search.php">Clear search.</a></div>
 				
 			<?php endif; ?>
 		

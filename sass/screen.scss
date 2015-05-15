@@ -376,7 +376,7 @@ header#pagetitle {
     padding:0;
     margin-right: 0.6rem;
     margin-top:$padsize;
-    margin-bottom:$padsize;
+    //margin-bottom:$padsize;
     //border-bottom:1px solid $secondary;
     
     &:hover,&:focus {
@@ -407,10 +407,28 @@ header#pagetitle {
     padding: 0 0.5rem;
   }
   
+  div.switch.small label::after {
+    top:0.1rem;
+    
+  }
+  
+  div.switch.small label::after {
+    height:0.75rem;
+    width:0.75rem;
+  }
+  
+  div.switch.small input:checked + label::after {
+    left: 1.5rem;
+  }
+
+  div.switch.small label {
+      height: 1rem;
+      width: 2.5rem;
+  }
 }
 
 #nonpriv-groups {
-  margin-top:$padsize*2;
+  margin-top:$padsize;
   margin-bottom:$padsize;
   font-size:$ms0;
   
@@ -422,7 +440,7 @@ header#pagetitle {
     display:inline-block;
     //text-align:center;
     height:1.75rem;
-    line-height:1.75rem;
+    line-height:1rem;
     vertical-align:middle;
   }
   
@@ -444,7 +462,7 @@ header#pagetitle {
     padding:0;
     
      li {
-       margin-bottom:1rem;
+       //margin-bottom:1rem;
     }    
   }
 }

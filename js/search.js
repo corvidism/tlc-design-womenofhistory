@@ -154,6 +154,9 @@ $("#submit-button").click(function(e){
 	//I need to intercept this and add the values from the fake selects
 });
 
+$("#nonpriv-groups input").change(function(e){
+	$("#searchform").submit();
+});
 //replace selects with divs and lists (mostly to make sure that shit will look the same in all browsers)
 
 //when I scroll lower than the position of the search-button, the search-box is appended a fixed-position div that says the search string in small type
