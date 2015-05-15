@@ -41,7 +41,7 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 //font-sizes
 
 $ms0: 1rem;
-$r: 1.5;
+$r: 1.8;
 
 $ms1: $r*$ms0;
 $ms2: $r*$ms1;
@@ -376,6 +376,7 @@ header#pagetitle {
     padding:0;
     margin-right: 0.6rem;
     margin-top:$padsize;
+    margin-bottom:$padsize;
     //border-bottom:1px solid $secondary;
     
     &:hover,&:focus {
@@ -472,26 +473,36 @@ header#pagetitle {
     
     
   li.woman {
-      margin-bottom:2*$padsize;
+      margin-bottom:$padsize;
       margin-left:0.001rem;
       position:relative;
+      padding-left:$padsize;
       //padding:0 $padsize;
       //border:1px solid transparent;
       //border-width:1px 0;
       border-left:1px solid transparent;
       
+      
+      .search-tagline {
+        margin:$padsize/2 0;
+        
+        .more {
+          text-decoration:none;
+        }
+      }
+      
+      .tags {
+        margin-bottom:$padsize/2;
+      }
+      
+      h3 {
+        margin-bottom:0;
+      }
+      
       .specs ul {
         list-style:none;
         margin:0;
         padding:0;
-      }
-      
-      .tags {
-        display:none;
-        
-        @media screen and (min-width: $large) {
-          display:block;
-        } 
       }
       .actions {
         visibility:hidden;
@@ -539,12 +550,7 @@ header#pagetitle {
         padding-left:1em;
       }
     }
-  
-  .pagination {
-    text-align:center;
-  }
-  
-  
+    
   .specs ul li {
     display:inline;
     
@@ -595,7 +601,7 @@ header#pagetitle {
 
 #sort-actions {
   text-align:right;
-  padding-right:0;
+  padding-right:$padsize;
   
   label {
     display:inline;
@@ -630,9 +636,6 @@ header#pagetitle {
   
 }
 
-.search-tagline .more {
-  text-decoration:none;
-}
  
 .f-dropdown {
      &::before,&::after {

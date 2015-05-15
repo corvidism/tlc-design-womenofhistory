@@ -171,7 +171,7 @@ if ($query['field'] === null) {
 					</li>
 				</ul>
 			</div>
-			<div class="right"><button id="submit-button" type="submit">Search</button></div>
+			<div><button id="submit-button" type="submit">Search</button></div>
 			
 		</form>
 		
@@ -189,40 +189,6 @@ if ($query['field'] === null) {
 			<?php endif; ?>
 		
 			<div id="list-sort-controls" class="row">
-			<!--
-				sort-actions first in small
-				sort-actions padding in medium and smaller 
-			-->
-			<!--
-			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
-				<label>order by:</label>
-				<div class="select">
-					<select name="order-by">
-					<option value="added">date added</option>
-					<option value="alphabet">name</option>
-					<option value="period">time period</option>
-					</select> 
-				</div>
-				<div class="select sort active">
-				<select name="sort-added">
-					<option value="desc">last to first</option>
-					<option value="asc">first to last</option>
-				</select>
-				</div>
-				<div class="select sort">
-				<select name="sort-alphabet">
-					<option value="asc">A to Z</option>
-					<option value="desc">Z to A</option>
-				</select>
-				</div>
-				<div class="select sort">
-				<select name="sort-period">
-					<option value="desc">youngest to oldest</option>
-					<option value="asc">oldest to youngest</option>	
-				</select>
-				</div>
-			</div>
-			-->
 			<div id="sort-actions" class="small-12 medium-6 medium-push-6 columns">
 				<div>order by: <a data-dropdown="order_by" aria-controls="order_by" aria-expanded="false">date added</a>
 <ul id="order_by" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
@@ -255,36 +221,35 @@ if ($query['field'] === null) {
 			foreach($women as $index=>$woman) {
 				//name
 			?>
-				<li class="woman row" id="woman-<?php echo $woman['id']; ?>">
-					<header class="small-12 columns">
+				<li class="woman" id="woman-<?php echo $woman['id']; ?>">
+					<header>
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
-					</header>
-					<div class="woman-top medium-7 large-6 columns">
-					
-					<p class="search-tagline"><?php echo $woman['tagline']; ?> <a class="more" href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
-					
-					</div>
-					<div class="specs small-12 medium-5 large-3 columns">
-						<ul>
-						<li><span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." –&nbsp;".form_date($woman['date_died']); ?></span></li>
-						<li class="category"><a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a></li>
-						<?php
-							if ($woman['is_poc']) {
-								echo '<li class="is_poc"><strong><a href="search.php?is_poc=1">woman of color</a></strong></li>';
-							}
+						<div class="dataline">
+							<?php
 							
+							$nonprivs = array();
+							
+							if ($woman['is_poc']) {
+								$nonprivs[] = '<strong class="is_poc"><a href="search.php?is_poc=1">woman of color</a></strong>';
+							}
 							if ($woman['is_queer']) {
-								echo '<li><strong><a href="search.php?is_queer=1">LBTQA</a></strong></li>';
+								$nonprivs[] = '<strong class="is_queer"><a href="search.php?is_queer=1">LBTQA</a></strong>';
 								//echo gender and sex.id
 							}
 							if ($woman['has_disability']) {
-								echo '<li><strong><a href="search.php?has_disability=1">woman with disability</a></strong></li>';
-								//echo dis
+								$nonprivs[] = '<strong class="has_disability"><a href="search.php?has_disability=1">woman with disability</a></strong>';
 							}
-						?>						
-					</ul>
-					</div>
-					<div class="tags small-12 medium-6 large-3 columns">
+							
+							if (sizeof($nonprivs)!=0) {
+								echo implode(", ",$nonprivs)." | ";
+							}							
+						?>
+							<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." –&nbsp;".form_date($woman['date_died']); ?></span> | 
+							<a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a>
+						</div>
+					</header>
+					<div class="search-tagline"><?php echo $woman['tagline']; ?> <a class="more" href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></div>
+					<div class="tags">
 						<?php
 							$tags = explode(",",$woman['tags']);
 							$taglinks = array();
@@ -294,7 +259,7 @@ if ($query['field'] === null) {
 							echo implode(", ",$taglinks);
 						?>
 					</div>
-					<footer class="small-12 columns actions">
+					<footer class="actions">
 						<div><a data-dropdown="add-to-list-<?php echo $woman['id']; ?>" aria-controls="add-to-list-<?php echo $woman['id']; ?>" aria-expanded="false">+ add to list</a>
 <ul id="add-to-list-<?php echo $woman['id']; ?>" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
   <li><a href="">Favorites</a></li>
