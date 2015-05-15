@@ -5,6 +5,7 @@
 
 //@import "compass/reset";
 
+@import "compass/utilities/color/contrast";
 
 
 $bgcolor:#fff; //white is default
@@ -408,7 +409,7 @@ header#pagetitle {
   }
   
   div.switch.small label::after {
-    top:0.1rem;
+    top:0.05rem
     
   }
   
@@ -831,32 +832,43 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
 
 $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#abc);
 
-@for $i from 1 through length($colors-list) {
+$colorsets: (rgb(110, 16, 159),yellow,white) (#ff0063,shade(#ff0063,60%),black);
+
+// (accent,background top, background bottom)
+
+$num:length($colorsets);
+
+@for $i from 1 through $num {
   
     .style#{$i} {
-      $colors: nth($color-pairs, $i);
+      $colors: nth($colorsets, $i);
       $accent:nth($colors,1);
-      $bg_base:nth($colors,2);
-      $grey: fade-out($accent,0.3);
+      $bg_color:nth($colors,2);
+      $bg_base:nth($colors,3);
+      //$grey: fade-out($accent,0.3);
+      $grey:tint($accent,0.3);
       //$bg_color:#a02035;
       //$bg_base: black;
-      $bg_color:mix($accent,$bg_base,45%);
-      $type_color:invert($bg_base);
+      //$bg_color:mix($accent,$bg_base,45%);
+      //$type_color:invert($bg_base);
+      $type_color: contrast-color($bg_base, shade($bg_base, 90%), tint($bg_base, 90%),50%);
       //$bg_base:white;
+      //$type_color: contrast-color($bg_base);
      
       background: $bg_color; /* Old browsers */
-      background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 100%); /* FF3.6+ */
-      background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(100%,$bg_base)); /* Chrome,Safari4+ */
-      background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Chrome10+,Safari5.1+ */
-      background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* Opera 11.10+ */
-      background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 100%); /* IE10+ */
-      background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 100%); /* W3C */
+      background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 50%); /* FF3.6+ */
+      background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(50%,$bg_base)); /* Chrome,Safari4+ */
+      background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* Chrome10+,Safari5.1+ */
+      background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* Opera 11.10+ */
+      background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* IE10+ */
+      background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 50%); /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
       background-repeat:no-repeat;
-      color:$type_color;
+      color:$type_color !important;
+      
       
       #searchform {
-        font-size:2.15rem;
+        //font-size:2.15rem;
       }
       
       .f-dropdown, #searchform .dropdown li {

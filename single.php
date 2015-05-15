@@ -34,7 +34,7 @@ require_once 'header.php';
 		<div class="row colapse">
 			<?php
 			//if the portrait is missing, echo the tagline here
-			$image =  get_image("women/images/",$woman['id']);
+			$image =  get_image("women/images/",$woman['id'],'1000h');
 			if (!$image) {
 				echo '<header>';
 				echo '<h2 class="name">'.$woman['name'].'</h2>';

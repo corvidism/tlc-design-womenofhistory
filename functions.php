@@ -1,7 +1,18 @@
 <?php
 
-function get_image($path,$id) {
-	$filestr=sprintf('%1$s%2$09d', $path,$id);
+function get_image($path,$id,$size='orig') {
+	if ($size=='1000h') {//portraits
+		$filestr=sprintf('%1$s%2$09d_1000', $path,$id);
+	} else if ($size=='600h') {//thumbnails - width 600px
+		$filestr=sprintf('%1$s%2$09d_600', $path,$id);
+	} else if ($size='300h') {//used as decoration - height 300px
+		$filestr=sprintf('%1$s%2$09d_300h', $path,$id);
+	} else if ($size='orig') {//original size
+		$filestr=sprintf('%1$s%2$09d', $path,$id);		
+	} else {//this size doesn't exist
+		return false; 
+	}
+		
 	if (file_exists($filestr.".jpg")) {
 		$link_thumb = $filestr.".jpg";
 	} else if (file_exists($filestr.".png")) {
