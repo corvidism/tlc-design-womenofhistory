@@ -100,10 +100,11 @@ if ($query['field'] === null) {
 
 ?>
 
-	<section role="search" id="search-box" class="medium-5 large-4 columns">
+	<section role="search" id="search-box" class="open medium-8 large-8 columns">
 		<form id="searchform" method="GET">
-			<span>Search where</span>
-			<div class="search-query" id="search-query-1">
+			<span id="search-linein">Search where</span>
+			<div id="search-extend">
+				<div class="search-query" id="search-query-1">
 				<div class="select">
 				<select name="field">
 								<option value="any">her anything</option>
@@ -171,12 +172,14 @@ if ($query['field'] === null) {
 					</li>
 				</ul>
 			</div>
-			<div class="right"><button id="submit-button" type="submit">Search</button></div>
+			<div class=""><button id="submit-button" type="submit">Search</button></div>
+			
+			</div>
 			
 		</form>
 		
 	</section>		
-	<div id="list-box" class="medium-7 large-7 columns interactive">
+	<div id="list-box" class="medium-9 medium-offset-3 large-9 large-offset-3 columns interactive">
 		<?php
 		if ($women === null) : ?>
 				<p class="no-result">
@@ -259,12 +262,12 @@ if ($query['field'] === null) {
 					<header class="small-12 columns">
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
 					</header>
-					<div class="woman-top medium-7 large-6 columns">
+					<div class="woman-top medium-7 large-7 columns">
 					
 					<p class="search-tagline"><?php echo $woman['tagline']; ?> <a class="more" href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></p>
 					
 					</div>
-					<div class="specs small-12 medium-5 large-3 columns">
+					<div class="specs small-12 medium-5 large-5 columns">
 						<ul>
 						<li><span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." –&nbsp;".form_date($woman['date_died']); ?></span></li>
 						<li class="category"><a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a></li>
@@ -281,18 +284,18 @@ if ($query['field'] === null) {
 								echo '<li><strong><a href="search.php?has_disability=1">woman with disability</a></strong></li>';
 								//echo dis
 							}
-						?>						
-					</ul>
-					</div>
-					<div class="tags small-12 medium-6 large-3 columns">
-						<?php
-							$tags = explode(",",$woman['tags']);
-							$taglinks = array();
-							foreach($tags as $tag) {
-								$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
-							}
-							echo implode(", ",$taglinks);
 						?>
+						<li>tags:  
+							<?php
+								$tags = explode(",",$woman['tags']);
+								$taglinks = array();
+								foreach($tags as $tag) {
+									$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+								}
+								echo implode(", ",$taglinks);
+							?>
+						</li>						
+					</ul>
 					</div>
 					<footer class="small-12 columns actions">
 						<div><a data-dropdown="add-to-list-<?php echo $woman['id']; ?>" aria-controls="add-to-list-<?php echo $woman['id']; ?>" aria-expanded="false">+ add to list</a>
@@ -308,9 +311,9 @@ if ($query['field'] === null) {
 			?>
 		</ol>
 		<?php endif; ?>
+		<div id="endcap">(end of results)</div>
 	</div>
 	<footer id="pagefooter">
-			
 		</footer>
 </div>
 <ol class="joyride-list" data-joyride>

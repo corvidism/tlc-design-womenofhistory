@@ -41,7 +41,7 @@ $xxlarge:120.063em; /* min-width 1921px, xxlarge screens */
 //font-sizes
 
 $ms0: 1rem;
-$r: 1.5;
+$r: 2;
 
 $ms1: $r*$ms0;
 $ms2: $r*$ms1;
@@ -322,11 +322,47 @@ header#pagetitle {
 /************** SEARCH.PHP **************/
 
 #search-box {
+  position:absolute;
+  margin-top:2rem;
+  font-size:5rem !important;
+  line-height:1; 
+  font-weight:bold !important;
   
+  label,button {
+    font-weight:bold !important;
+  }
+  
+  &.open {
+    opacity:0.05;
+    
+    #search-linein {
+      opacity:1;
+    }
+    
+    &:hover {
+      opacity:1;
+      z-index:100;
+    background-color:rgba(255,255,255,0.8);
+  }   
+  }
 }
 
+#search-extend {
+    //display: none;
+    
+  }
+
+#search-linein {
+  opacity:0.1;
+  cursor:pointer;
+  
+  &:hover {
+    opacity:1;
+  }
+} 
+
 #searchform {
-  font-size:$ms0*2;
+  //font-size:$ms0*2;
   line-height:1.2;
   margin:0;
   padding:0;
@@ -354,7 +390,7 @@ header#pagetitle {
   }
  
   #add-query {
-    font-size:1rem;
+    //font-size:1rem;
     line-height:1.5em;
     vertical-align:top;
   }
@@ -650,6 +686,10 @@ header#pagetitle {
    } 
   
 
+#endcap {
+  text-align:center;
+  font-size:0.8rem;
+}
 
 /************** SINGLE.PHP **************/
 
@@ -835,7 +875,7 @@ $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#ab
       color:$type_color;
       
       #searchform {
-        font-size:2.15rem;
+        //font-size:2.15rem;
       }
       
       .f-dropdown, #searchform .dropdown li {

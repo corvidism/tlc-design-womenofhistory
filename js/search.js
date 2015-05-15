@@ -5,6 +5,13 @@ list = {
 search = {
 	'queryCount':1,
 };
+/*
+$("#search-linein").click(function(e){
+	$(this).text("Search where");
+	$("#search-extend").toggle();
+	$("#search-box").addClass("open");
+});
+*/
 
 $("#add-query").click(function(e) {
 	//copy search block
