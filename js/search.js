@@ -1,5 +1,8 @@
 list = {
 	'selected':0,	
+	'page':1,
+	'loading':false,
+	'complete':false,	
 };
 
 search = {
@@ -157,6 +160,38 @@ $("#submit-button").click(function(e){
 $("#nonpriv-groups input").change(function(e){
 	$("#searchform").submit();
 });
-//replace selects with divs and lists (mostly to make sure that shit will look the same in all browsers)
+
+function getDocHeight() {
+    var D = document;
+    return Math.max(
+        D.body.scrollHeight, D.documentElement.scrollHeight,
+        D.body.offsetHeight, D.documentElement.offsetHeight,
+        D.body.clientHeight, D.documentElement.clientHeight
+    );
+}
+
+function loadMore() {
+	$(".page-"+list.page).show();
+	$("#loader").remove();
+	list.loading=false;
+}
+
+
+$(window).scroll(function() {
+	if(!list.loading && !list.complete && ($(window).scrollTop() + $(window).height() >= (getDocHeight()-100))) {
+		list.loading=true;
+		list.page++;
+		var women = $("li.woman");
+		if ($("li.woman:visible").length==women.length) {
+			$("li.woman").last().after('<div id="end-of-results" class="notice">No more results.</div>');
+			list.complete = true;
+			list.loading = false;
+		} else {
+			$("li.woman:visible").last().after('<div id="loader" class="notice">loading...</div>');
+			setTimeout(loadMore,2000);
+		}		
+	}
+   });
+
 
 //when I scroll lower than the position of the search-button, the search-box is appended a fixed-position div that says the search string in small type

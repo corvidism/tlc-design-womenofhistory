@@ -492,15 +492,23 @@ header#pagetitle {
     
     
   li.woman {
-      margin-bottom:$padsize;
+      //margin-bottom:$padsize;
+      padding-bottom:$padsize;
+      margin:0;
       margin-left:0.001rem;
+      margin-bottom:-4px;
       position:relative;
-      padding-left:$padsize;
+      border-left:3px solid transparent;
+      display:none;
+      //padding-left:$padsize;
       //padding:0 $padsize;
       //border:1px solid transparent;
       //border-width:1px 0;
-      border-left:1px solid transparent;
+      //border-left:1px solid transparent;
       
+      &.page-1 {
+        display:block;
+      }
       
       .search-tagline {
         margin:$padsize/2 0;
@@ -534,6 +542,33 @@ header#pagetitle {
       &:hover .actions {
         visibility:visible;        
       }
+      
+      .img-side {
+        width:1rem;
+        position:absolute;
+        height:100%;
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        background-repeat:no-repeat;
+        background-position:center center;
+        -o-background-size: left 100%, auto;
+        -moz-background-size: left 100%, auto;
+        -webkit-background-size: left 100%, auto;
+        background-size: left 100%, auto;
+        
+        &:before {
+          content:"";
+          display:block;
+          position:absolute;
+          height:100%;
+          width:100%;          
+        }        
+      }
+      
+      .woman-cont {
+        margin-left:2rem;
+      }
     } 
   }
   
@@ -548,7 +583,7 @@ header#pagetitle {
       }
       
       &:hover {
-        border-color:$grey;
+        //color in style
       }
   }
   
@@ -671,6 +706,9 @@ header#pagetitle {
      border:0;
    } 
   
+#end-of-results, #loader {
+  margin-top:$padsize*2;
+}
 
 
 /************** SINGLE.PHP **************/
@@ -765,6 +803,13 @@ img.thumb {
   padding:$padsize;
 }
 
+#side-col {
+  @media screen and (min-width: $medium) {
+    padding-right:$padsize*2;
+  }
+}
+
+
 div.portrait-img {
     //width:100%;
     max-height:8em;
@@ -776,12 +821,21 @@ div.portrait-img {
     img {
       width:100%;
       position:relative;
-      top:-50%;      
+      top:100%;
+      margin-top:-200%;
+      
+      @media screen and (min-width: $medium) {
+        top:0;
+        margin-top:0;
+      }
     }
     
      @media screen and (min-width: $medium) {
       max-height:50em;
+      margin-right:$padsize;      
     }
+    
+    
       
   }
   
@@ -937,7 +991,6 @@ $num:length($colorsets);
       
       //grey border
       input[type='text']:hover,
-      #list-box.interactive li.woman:hover,
       .select:hover,
       .switch-box .switch label,
       .thumb-placeholder,
@@ -948,7 +1001,7 @@ $num:length($colorsets);
       .switch-box .switch input:checked + label,
       .thumb-placeholder
        {
-        background-color:fade-out($accent,0.7) !important;
+        background-color:fade-out($bg_color,0.7) !important;
       }
       
       .switch-box .switch label::after {
@@ -969,14 +1022,53 @@ $num:length($colorsets);
       #menutitle,
       .description p:before,
       #submit-button,
+      #list-box.interactive li.woman:hover 
        {
         color: $accent !important;
       }
       
-      li.woman.selected {
-        border-color:$accent !important;
+      
+      #list-box.interactive li.woman .img-side {
+          background-color:fade-out($bg_color,0.8);
       }
       
+      #list-box.interactive li.woman:hover, #list-box.interactive li.woman.selected{
+        
+        .img-side{
+          background-color:transparent;
+          
+          &:before {
+            background-color:fade-out($accent,0.5);
+          }
+        }          
+      }
+      
+      /*
+      
+      #list-box.interactive li.woman .img-side {
+        background-color:fade-out($bg_color,0.8);
+      }
+            
+      #list-box.interactive li.woman:hover .img-side {
+        &::before {
+          background-color:fade-out($bg_color,0.5);
+        }
+      }
+      
+      li.woman.selected .img-side {
+        background-color:transparent;
+      }
+      
+      li.woman.selected .img-side::before {
+        background-color:fade-out($accent,0.5);
+      }
+      
+      li.woman.selected:hover .img-side::before {
+        background-color:transparent;
+      }
+      
+      */
+
       #searchform,
       h2.name, 
       h2.title {

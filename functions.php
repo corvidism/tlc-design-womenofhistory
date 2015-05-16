@@ -2,9 +2,9 @@
 
 function get_image($path,$id,$size='orig') {
 	if ($size=='1000h') {//portraits
-		$filestr=sprintf('%1$s%2$09d_1000', $path,$id);
+		$filestr=sprintf('%1$s%2$09d_1000h', $path,$id);
 	} else if ($size=='600h') {//thumbnails - width 600px
-		$filestr=sprintf('%1$s%2$09d_600', $path,$id);
+		$filestr=sprintf('%1$s%2$09d_600h', $path,$id);
 	} else if ($size='300h') {//used as decoration - height 300px
 		$filestr=sprintf('%1$s%2$09d_300h', $path,$id);
 	} else if ($size='orig') {//original size

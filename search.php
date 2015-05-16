@@ -211,10 +211,24 @@ logme($query);
 			<?php
 			
 			foreach($women as $index=>$woman) {
+				
 				//name
 			?>
-				<li class="woman" id="woman-<?php echo $woman['id']; ?>">
-					<header>
+				<li class="woman <?php
+					echo 'page-'.(floor($index/10)+1); //page number
+				 ?>" id="woman-<?php echo $woman['id']; ?>">
+					<div class="img-side" style="background-image:url(
+						<?php
+							$image =  get_image("women/images/",$woman['id'],'300h');
+							if ($image) {
+								//echo '<img src="'.$image.'">';
+								echo $image;	
+							}
+						?>
+						)">
+					</div>
+					<div class="woman-cont">
+						<header>
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
 						<div class="dataline">
 							<?php
@@ -246,7 +260,7 @@ logme($query);
 							$tags = explode(",",$woman['tags']);
 							$taglinks = array();
 							foreach($tags as $tag) {
-								$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+								$taglinks[] = '<a href="search.php?field=tags&value='.$tag.'">'.$tag.'</a>';
 							}
 							echo implode(", ",$taglinks);
 						?>
@@ -259,6 +273,7 @@ logme($query);
   <li><a href="">My Other List</a></li>
 </ul></div>						
 					</footer>
+					</div>					
 				</li>
 			<?php	
 			} #end of foreach			
@@ -266,9 +281,6 @@ logme($query);
 		</ol>
 		<?php endif; ?>
 	</div>
-	<footer id="pagefooter">
-			
-		</footer>
 </div>
 <ol class="joyride-list" data-joyride>
 	<li data-text="Next" data-options="prev_button:false">
