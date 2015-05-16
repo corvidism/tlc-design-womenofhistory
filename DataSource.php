@@ -167,10 +167,11 @@ class DataSource
 			if ($this->db_calls['search_women']->rowCount()>0) {
 				$results[$search_col] = $this->db_calls['search_women']->FetchAll();
 				
-			}; //else do nothing			
+			} else {
+				return null;
+			}; 			
 		}
 		
-		//TODO: pagination??? limit max query results? how to do this with multiple cols?  
 		
 		//merge results:
 		$women = array_unique(call_user_func_array("array_merge", $results),SORT_REGULAR);

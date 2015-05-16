@@ -29,7 +29,7 @@
 			
 			pageStyle = {
 				'now':0,
-				'all': ['style1','style2'],
+				'all': ['style1','style2','style3','style4','style5'],
 			};
 			
 			$("#style-switch").click(function(e){
