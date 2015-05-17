@@ -886,7 +886,7 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
 
 $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#abc);
 
-$colorsets: (rgb(110, 16, 159),yellow,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
+$colorsets: (rgb(110, 16, 159),#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
 //good: #226666
 //bad: (#ff0063,shade(#ff0063,60%),black)
 // (accent,background top, background bottom)
@@ -1042,6 +1042,12 @@ $num:length($colorsets);
             background-color:fade-out($accent,0.5);
           }
         }          
+      }
+      
+      #list-box.interactive li.woman:hover .img-side.wide {
+        &:before {
+          background-color:transparent;
+        }
       }
       
       /*

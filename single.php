@@ -135,31 +135,8 @@ require_once 'header.php';
 	<div class="inner small-12 medium-8 columns">
 	<div class="story">
 			<?php
-				 $db=form_date($woman['date_born'],true);
-				 $pb=$woman['place_born'];
-				 $dd=form_date($woman['date_died'],true);
-				 $pd=$woman['place_died'];
-				 
-				 if (is_null($db)) {
-				 	$date_place = "";
-					// 0 0 0 0
-				 } elseif (is_null($pb)) {
-				 	$date_place ="$db";
-					// 1 0 0 0
-					if (!is_null($dd)) {
-						$date_place .=" – $dd";
-						// 1 0 1 0
-					}
-				 } elseif (is_null($dd)) {
-				 	$date_place = "$db, $pb";
-					// 1 1 0 0
-				 } elseif (is_null($pd)) {
-				 	$date_place = "$db – $dd, $db";
-					// 1 1 1 0
-				 } else {
-				 	$date_place = "$db, $pb – $dd, $pd";
-					// 1 1 1 1
-				 };
+				  
+				$date_place = format_date_place($woman,$form='long');
 				 
 				if ($date_place != "") {
 					echo "<p class=\"dates\">($date_place)</p>";

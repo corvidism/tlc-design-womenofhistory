@@ -66,5 +66,54 @@ function form_date($date,$long=false) {
 	}
 }
 
+function format_date_place($woman,$form='short') {
+	
+	
+	if ($form=='short') {
+		$db=form_date($woman['date_born']);
+	 $pb=$woman['place_born'];
+	 $dd=form_date($woman['date_died']);
+	 $pd=$woman['place_died'];
+	
+		if (is_null($db)) {
+		 	$date_place = "";
+			// 0 0
+		} elseif (is_null($dd)) {
+			$date_place = "$db";
+			//1 0
+		} else {
+			$date_place = "$db – $dd";
+		}
+	} elseif ($form=='long') {
+		$db=form_date($woman['date_born'],true);
+	 $pb=$woman['place_born'];
+	 $dd=form_date($woman['date_died'],true);
+	 $pd=$woman['place_died'];
+	
+		if (is_null($db)) {
+		 	$date_place = "";
+			// 0 0 0 0
+		 } elseif (is_null($pb)) {
+		 	$date_place ="$db";
+			// 1 0 0 0
+			if (!is_null($dd)) {
+				$date_place .=" – $dd";
+				// 1 0 1 0
+			}
+		 } elseif (is_null($dd)) {
+		 	$date_place = "$db, $pb";
+			// 1 1 0 0
+		 } elseif (is_null($pd)) {
+		 	$date_place = "$db – $dd, $db";
+			// 1 1 1 0
+		 } else {
+		 	$date_place = "$db, $pb – $dd, $pd";
+			// 1 1 1 1
+		 };
+	} 
+	
+	return $date_place;
+	 
+}
 
 ?>

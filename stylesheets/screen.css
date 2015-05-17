@@ -744,19 +744,19 @@ div.portrait-img img {
 /************** STYLESETS **************/
 /* line 898, ../sass/screen.scss */
 .style1 {
-  background: yellow;
+  background: #d3e5e9;
   /* Old browsers */
-  background: white -moz-linear-gradient(top, yellow 0%, white 50%);
+  background: white -moz-linear-gradient(top, #d3e5e9 0%, white 50%);
   /* FF3.6+ */
-  background: white -webkit-gradient(linear, left top, left bottom, color-stop(0%, yellow), color-stop(50%, white));
+  background: white -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d3e5e9), color-stop(50%, white));
   /* Chrome,Safari4+ */
-  background: white -webkit-linear-gradient(top, yellow 0%, white 50%);
+  background: white -webkit-linear-gradient(top, #d3e5e9 0%, white 50%);
   /* Chrome10+,Safari5.1+ */
-  background: white -o-linear-gradient(top, yellow 0%, white 50%);
+  background: white -o-linear-gradient(top, #d3e5e9 0%, white 50%);
   /* Opera 11.10+ */
-  background: white -ms-linear-gradient(top, yellow 0%, white 50%);
+  background: white -ms-linear-gradient(top, #d3e5e9 0%, white 50%);
   /* IE10+ */
-  background: white linear-gradient(to bottom, #ffff00 0%, #ffffff 50%);
+  background: white linear-gradient(to bottom, #d3e5e9 0%, #ffffff 50%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 );
   /* IE6-9 */
@@ -806,7 +806,7 @@ div.portrait-img img {
 }
 /* line 943, ../sass/screen.scss */
 .style1 .f-dropdown li, .style1 #searchform .dropdown li {
-  border-bottom-color: yellow;
+  border-bottom-color: #d3e5e9;
 }
 /* line 945, ../sass/screen.scss */
 .style1 .f-dropdown li a, .style1 #searchform .dropdown li a {
@@ -866,7 +866,7 @@ div.portrait-img img {
 /* line 1004, ../sass/screen.scss */
 .style1 .switch-box .switch input:checked + label,
 .style1 .thumb-placeholder {
-  background-color: rgba(255, 255, 0, 0.3) !important;
+  background-color: rgba(211, 229, 233, 0.3) !important;
 }
 /* line 1008, ../sass/screen.scss */
 .style1 .switch-box .switch label::after {
@@ -889,7 +889,7 @@ div.portrait-img img {
 }
 /* line 1032, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman .img-side {
-  background-color: rgba(255, 255, 0, 0.2);
+  background-color: rgba(211, 229, 233, 0.2);
 }
 /* line 1038, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman:hover .img-side, .style1 #list-box.interactive li.woman.selected .img-side {
@@ -898,6 +898,10 @@ div.portrait-img img {
 /* line 1041, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman:hover .img-side:before, .style1 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(110, 16, 159, 0.5);
+}
+/* line 1048, ../sass/screen.scss */
+.style1 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
 }
 
 /* line 898, ../sass/screen.scss */
@@ -1057,6 +1061,10 @@ div.portrait-img img {
 .style2 #list-box.interactive li.woman:hover .img-side:before, .style2 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(0, 149, 75, 0.5);
 }
+/* line 1048, ../sass/screen.scss */
+.style2 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
+}
 
 /* line 898, ../sass/screen.scss */
 .style3 {
@@ -1214,6 +1222,10 @@ div.portrait-img img {
 /* line 1041, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman:hover .img-side:before, .style3 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(255, 65, 0, 0.5);
+}
+/* line 1048, ../sass/screen.scss */
+.style3 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
 }
 
 /* line 898, ../sass/screen.scss */
@@ -1373,6 +1385,10 @@ div.portrait-img img {
 .style4 #list-box.interactive li.woman:hover .img-side:before, .style4 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(34, 102, 102, 0.5);
 }
+/* line 1048, ../sass/screen.scss */
+.style4 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
+}
 
 /* line 898, ../sass/screen.scss */
 .style5 {
@@ -1531,6 +1547,10 @@ div.portrait-img img {
 .style5 #list-box.interactive li.woman:hover .img-side:before, .style5 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(5, 30, 148, 0.5);
 }
+/* line 1048, ../sass/screen.scss */
+.style5 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
+}
 
 /* line 898, ../sass/screen.scss */
 .style6 {
@@ -1688,4 +1708,8 @@ div.portrait-img img {
 /* line 1041, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman:hover .img-side:before, .style6 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(143, 168, 16, 0.5);
+}
+/* line 1048, ../sass/screen.scss */
+.style6 #list-box.interactive li.woman:hover .img-side.wide:before {
+  background-color: transparent;
 }

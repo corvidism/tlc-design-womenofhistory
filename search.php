@@ -226,6 +226,15 @@ logme($query);
 						?>
 						)">
 					</div>
+					<?php
+						$image =  get_image("women/images/",$woman['id'],'300h');
+						if ($image) {
+							//echo '<img src="'.$image.'">';
+							echo '<div class="img-side img-set" style="background-image:url('.$image.')"></div>';
+						} else {
+							echo '<div class="img-side"></div>';
+						}
+					?>
 					<div class="woman-cont">
 						<header>
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
@@ -249,7 +258,7 @@ logme($query);
 								echo implode(", ",$nonprivs)." | ";
 							}							
 						?>
-							<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo form_date($woman['date_born'])." –&nbsp;".form_date($woman['date_died']); ?></span> | 
+							<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo format_date_place($woman); ?></span> | 
 							<a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a>
 						</div>
 					</header>
@@ -259,7 +268,7 @@ logme($query);
 							$tags = explode(",",$woman['tags']);
 							$taglinks = array();
 							foreach($tags as $tag) {
-								$taglinks[] = '<a href="search.php?tags='.$tag.'">'.$tag.'</a>';
+								$taglinks[] = '<a href="search.php?field=tags&value='.$tag.'">'.$tag.'</a>';
 							}
 							echo implode(", ",$taglinks);
 						?>

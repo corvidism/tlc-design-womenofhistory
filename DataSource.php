@@ -19,7 +19,7 @@ class DataSource
 		$this->db_calls = Array();
 		
 		
-		$dsn = "mysql:dbname=".DB_Name.";host=".DB_Host;
+		$dsn = "mysql:dbname=".DB_Name.";host=".DB_Host.";charset=utf8";
 		try {
 		   	$pdo = new PDO($dsn,DB_User,DB_Pass);
 		} catch(PDOException $e) {

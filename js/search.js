@@ -2,7 +2,8 @@ list = {
 	'selected':0,	
 	'page':1,
 	'loading':false,
-	'complete':false,	
+	'complete':false,
+	'imgSideWidth':0,	
 };
 
 search = {
@@ -192,6 +193,59 @@ $(window).scroll(function() {
 		}		
 	}
    });
+   
+/*
 
+$(".img-side").hover(function(e){
+	var imgDiv=$(this);
+	if (list.imgSideWidth==0) {
+		list.imgSideWidth = imgDiv.width();
+		console.log("saving width: "+list.imgSideWidth);
+	}
+	if (imgDiv.hasClass("wide")) {
+		console.log("closing");
+		imgDiv.width(list.imgSideWidth);
+		imgDiv.removeClass("wide");
+	} else {
+		console.log("opening");
+		var newWidth = list.imgSideWidth*8;
+		imgDiv.width(newWidth).addClass("wide");
+	};	
+	e.stopPropagation();
+});
+
+*/
+
+$(".img-side.img-set").hover(function(e){
+	  $( "#book" ).animate({
+    opacity: 0.25,
+    left: "+=50",
+    height: "toggle"
+  }, 5000, function() {
+    // Animation complete.
+  });
+	var imgDiv=$(this);
+	if (list.imgSideWidth==0) {
+		list.imgSideWidth = imgDiv.width();
+		list.imgWideWidth = list.imgSideWidth*8;
+		console.log("saving width: "+list.imgSideWidth);
+	}
+	if (imgDiv.hasClass("wide")) {
+		console.log("closing");
+		//imgDiv.width(list.imgSideWidth);
+		imgDiv.removeClass("wide");
+		imgDiv.animate({
+			width:list.imgSideWidth
+		},500);		
+	} else {
+		console.log("opening");
+		imgDiv.addClass("wide");
+		imgDiv.animate({
+			width:list.imgWideWidth
+		},500);
+		//imgDiv.width(list.imgWideWidth).addClass("wide");
+	};	
+	e.stopPropagation();
+});
 
 //when I scroll lower than the position of the search-button, the search-box is appended a fixed-position div that says the search string in small type
