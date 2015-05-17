@@ -146,7 +146,7 @@ require_once 'header.php';
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';
-					echo '<p class="notice">(This record has no story. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to tell the story of '.$woman['name'].'!)</p>';
+					echo '<p class="notice">(There is no story for '.$woman['name'].'. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to tell the story of '.$woman['name'].'!)</p>';
 				} else {
 					echo $woman['story']; 
 				};
@@ -227,7 +227,7 @@ require_once 'header.php';
 		
 	<footer>
 				<p>
-				Last edited by <a href="">annathecrow</a> on 23th March 2015.	
+				Last edited by <a href=""><?php echo $woman['last_edited_by']; ?></a> on <?php echo form_date($woman['last_edited_at'],true); ?>. <a id="full-page-edit-link" class="edit-link" href="single.php?woman=<?php echo $woman['id']; ?>&edit=true">(Edit page)</a>	
 				</p>
 				
 			</footer>
