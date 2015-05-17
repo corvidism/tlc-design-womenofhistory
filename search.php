@@ -216,16 +216,6 @@ logme($query);
 				<li class="woman <?php
 					echo 'page-'.(floor($index/10)+1); //page number
 				 ?>" id="woman-<?php echo $woman['id']; ?>">
-					<div class="img-side" style="background-image:url(
-						<?php
-							$image =  get_image("women/images/",$woman['id'],'300h');
-							if ($image) {
-								//echo '<img src="'.$image.'">';
-								echo $image;	
-							}
-						?>
-						)">
-					</div>
 					<?php
 						$image =  get_image("women/images/",$woman['id'],'300h');
 						if ($image) {

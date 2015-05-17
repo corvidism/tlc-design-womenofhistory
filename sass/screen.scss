@@ -189,14 +189,6 @@ label {
   }
 }
 
-/************ INTRO PAGE ****************/
-
-#intro {
- // display: flex;
-  //justify-content: center;
-  //align-items: center;
-}
-
 /************** TOPBAR **************/
 
 .top-bar {
@@ -288,38 +280,6 @@ label {
   @media screen and (min-width: $medium) {
      // display:none; //do not show elsewhere but mobile
     }
-}
-
-
-/************** HEADING **************/
-
-header#pagetitle {
-  display:none;
-  
-  @media screen and (min-width: $medium) {
-      height:5*$ms2;
-    } 
-  
-  
-  
-  //text-align:center;
-  
-  h1 {
-    font-size:$ms2;
-    height:$ms5;
-    margin-top:$ms3;
-    
-    span#subtitle {
-      display:none; //not on mobile
-      font-size:$ms0;
-      
-      @media screen and (min-width: $medium) {
-        display:block;
-        //text-align:center;
-      }
-    }
-  }
-  
 }
 
 /************** SEARCH.PHP **************/
@@ -552,6 +512,7 @@ header#pagetitle {
         margin:0;
         padding:0;
         overflow:hidden;
+        border-left:1px solid transparent;
         background-repeat:no-repeat;
         background-position:center center;
         -o-background-size: left 100%, auto;
@@ -730,6 +691,10 @@ article.woman {
     p:first-child {
       padding-top:$padsize*2;
     }
+    
+    p {
+      margin-bottom:0.8rem;
+    }
   }
   
   .links, .lists, .successes {
@@ -757,10 +722,22 @@ article.woman {
     
     
   }
+  
+  .inner {
+    margin-bottom:$padsize*2;
+    
+    h3,h4 {
+      margin-top:0.2em;
+    }
+  }
     
   .links {
-    img {
-      display:inline;
+    ul {
+      margin-top:$padsize;
+      margin-left:$padsize;
+    }
+    ul li p {
+      margin-left:$padsize;
     }
   }
   
@@ -769,12 +746,12 @@ article.woman {
     margin-top:$padsize;
     border-top:1px solid $grey;
       padding-top:$padsize;
-  }
+  } 
   
   
 }
 
-article.woman .tagline, article#user-list .tagline {
+p.tagline {
     font-size:$ms1;
     line-height:1.2;
     padding-bottom:1em;
@@ -888,7 +865,7 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
 
 $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#abc);
 
-$colorsets: (rgb(110, 16, 159),#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
+$colorsets: (#B72EFF,#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
 //good: #226666
 //bad: (#ff0063,shade(#ff0063,60%),black)
 // (accent,background top, background bottom)
@@ -903,8 +880,8 @@ $num:length($colorsets);
       $bg_color:nth($colors,2);
       $bg_base:nth($colors,3);
       //$grey: fade-out($accent,0.3);
-      $grey:tint($accent,0.3);
-      $grey:contrast-color($bg_base, shade($accent, 30%), tint($accent, 30%),50%);
+      //$grey:tint($accent,0.3);
+      $grey:contrast-color($bg_base, shade($accent, 50%), tint($accent, 50%),50%);
       //$bg_color:#a02035;
       //$bg_base: black;
       //$bg_color:mix($accent,$bg_base,45%);
@@ -954,6 +931,10 @@ $num:length($colorsets);
         }
       }
       
+      #searchform .dropdown li:hover,
+      .f-dropdown li:hover {
+        background-color:mix($bg_color,$bg_base,30%);
+      }
       
       //"grey":
       a,
@@ -1032,12 +1013,14 @@ $num:length($colorsets);
         color: $accent !important;
       }
       
-      
+      /*
       #list-box.interactive li.woman .img-side {
           background-color:fade-out($bg_color,0.8);
       }
+      */
+     /*
       
-      #list-box.interactive li.woman:hover, #list-box.interactive li.woman.selected{
+      #list-box.interactive li.woman:hover, #list-box.interactive li.woman.selected {
         
         .img-side{
           background-color:transparent;
@@ -1047,44 +1030,145 @@ $num:length($colorsets);
           }
         }          
       }
+      */
       
+      #list-box.interactive {
+        li.woman {
+          .img-side {
+            //faded out bg_color
+            background-color:fade-out($bg_color,0.8);
+          }
+          
+          .img-side.img-set {
+            //nothing more
+          }
+          
+          &:hover {
+            .img-side {
+              //+accent border
+              border-left-color:$accent;
+            }
+            
+            .img-side.img-set {
+              //+:before overlay
+              //no border
+              border-left-color:transparent;
+              
+              &:before {
+              background-color:fade-out($accent,0.5);
+            }
+              
+            }            
+          }
+        }
+        
+        li.woman.selected {
+          .img-side {
+            //overlay
+            background-color:transparent; //needed so the colors don't mix
+            
+            &:before {
+                background-color:fade-out($accent,0.5);
+              }
+              
+              
+              
+              .img-side.img-set {
+                //overlay
+              }
+              
+          }
+          
+          &:hover {
+            .img-side {
+                //border + overlay
+                //this should inherit previous
+              }
+            .img-side.img-set {
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
+             }
+            
+          }
+      }
+    }
+      
+      /*
       #list-box.interactive li.woman:hover .img-side.wide {
         &:before {
           background-color:transparent;
         }
       }
-      
-      /*
-      
-      #list-box.interactive li.woman .img-side {
-        background-color:fade-out($bg_color,0.8);
-      }
-            
-      #list-box.interactive li.woman:hover .img-side {
-        &::before {
-          background-color:fade-out($bg_color,0.5);
-        }
-      }
-      
-      li.woman.selected .img-side {
-        background-color:transparent;
-      }
-      
-      li.woman.selected .img-side::before {
-        background-color:fade-out($accent,0.5);
-      }
-      
-      li.woman.selected:hover .img-side::before {
-        background-color:transparent;
-      }
-      
       */
+      //not used anymore, keeping it in case I change my mind
+      
+      /************** TOPBAR **************/
+     
 
-      #searchform,
-      h2.name, 
-      h2.title {
-        //?
-      } 
+        .top-bar {
+          
+          .toggle-topbar a {
+            color:$accent;
+          }
+          
+        }
+        
+        .top-bar.expanded .title-area {
+          //background-color:$bg_base;
+        }
+        
+        
+        .top-bar-section {
+          
+          ul li{
+            background-color:$bg_base;
+            border-bottom:1px solid $bg_color;
+             @media screen and (min-width: $medium) {
+                background-color:transparent; 
+                border:none;     
+              }
+            
+          }
+          
+          ul li:hover {
+            background-color:mix($bg_color,$bg_base,30%);
+            @media screen and (min-width: $medium) {
+                background-color:transparent; 
+                     
+              }
+          }
+          
+          li:not(.has-form) {
+            a:not(.button)  {
+              //background-color:$bg_base;
+            }
+            
+            a:hover:not(.button) {
+              //background-color:$bg_base;
+            }    
+          }
+          
+          ul li:hover:not(.has-form) > a {
+              //background-color:$bg_base;
+          }
+          
+          .dropdown {
+            
+            li:not(.has-form):not(.active) > a:not(.button) {
+              background-color:$bg_base;
+              border-bottom:1px solid $bg_color;
+            }
+            
+            li:hover:not(.has-form):not(.active) > a:not(.button) {
+              background-color:mix($bg_color,$bg_base,30%);
+              border-bottom:1px solid $bg_color;
+            }
+            
+          }  
+          
+        }
+
         
     }
 }

@@ -10,6 +10,7 @@
 //header settings:
 $page = array(
 	'title'=> 'Search Lists',
+	'id'=>'list-search'
 );
 require_once 'header.php';
 
