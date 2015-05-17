@@ -106,6 +106,7 @@ logme($query);
 			<div class="search-query" id="search-query-1">
 				<div class="select">
 				<select name="field">
+					<!--
 								<option value="any">her anything</option>
 								<option value="name">her name</option>
 								<option value="place_born">her place of birth</option>
@@ -121,15 +122,55 @@ logme($query);
 								<option value="ethnicity">her ethnicity</option>
 								<option value="orientation">her orientation</option>
 								<option value="gender_identity">her gender identity</option>
+					-->
+					<?php
+				$fields=array(
+					'any'=>'her anything',
+					'name' =>'her name',
+					'place_born'=>'her place of birth',
+					'place_died'=>'her place of death',
+					'date_born'=>'her date of birth',
+					'date_died'=>'her date of death',
+					'inventions'=>'her inventions',
+					'firsts'=>'her firsts',
+				 	'story'=>'her story',
+				 	'tags'=>'her tags', // 'that,this,else'
+				 	'category'=>'her category',
+				 	'links'=>'her links',
+				 	'ethnicity'=>'her ethnicity',
+				 	'orientation'=>'her orientation',
+				 	'gender_identity'=>'her gender identity'					
+				);
+				
+				foreach ($fields as $field_id=>$field) {
+					$selected = (isset($query['field']) && $query['field'] == $field_id)?'selected':'';
+					echo '<option '.$selected.' value="'.$field_id.'">'.$field.'</option>';					
+				}
+			?>
 			</select>
 			</div>
 			<div class="select">
 			<select name="strict">
+				<!--
 				<option value="no">contains</option>
 				<option value="yes">contains precisely</option>
+				-->
+				<?php
+				$fields=array(
+					'no' =>'contains',
+					'yes'=>'contains precisely',					
+				);
+				
+				foreach ($fields as $field_id=>$field) {
+					$selected = (isset($query['strict']) && $query['strict'] == $field_id)?'selected':'';
+					echo '<option '.$selected.' value="'.$field_id.'">'.$field.'</option>';					
+				}
+			?>
 			</select>
 			</div>
-			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something">
+			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something" value="<?php
+				if (isset($query['value'])) echo $query['value'];
+			?>">
 			</div>
 			<label id="last-and">and... <a id="add-query" href="">(+)</a></label>
 			
