@@ -215,8 +215,8 @@ $(".img-side").hover(function(e){
 });
 
 */
-
-$(".img-side.img-set").hover(function(e){
+/*
+$(".img-side.img-set").click(function(e){
 	  $( "#book" ).animate({
     opacity: 0.25,
     left: "+=50",
@@ -247,5 +247,6 @@ $(".img-side.img-set").hover(function(e){
 	};	
 	e.stopPropagation();
 });
+*/
 
 //when I scroll lower than the position of the search-button, the search-box is appended a fixed-position div that says the search string in small type

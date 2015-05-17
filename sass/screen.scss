@@ -556,6 +556,7 @@ header#pagetitle {
         -moz-background-size: left 100%, auto;
         -webkit-background-size: left 100%, auto;
         background-size: left 100%, auto;
+        cursor:pointer;
         
         &:before {
           content:"";
