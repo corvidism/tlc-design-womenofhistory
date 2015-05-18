@@ -48,7 +48,7 @@ require_once 'site_settings.php';
 		    	<li><a href="search.php">The Women</a></li>
 				<li><a href="list-search.php">Lists</a></li>
 				<li><a href="link-search.php">Links</a></li>
-				<li><a href="stats.php">Infographics</a></li>
+				<li><a href="stats.php">Stats</a></li>
 				<li><a href="about.php">About</a></li>
 		      </ul>
 		       <ul class="right">
