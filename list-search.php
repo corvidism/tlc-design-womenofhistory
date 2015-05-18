@@ -58,6 +58,15 @@ $lists = $data_source->getAllPublicLists();
 			<ol>
 			<?php foreach($lists as $list) : ?>
 				<li>
+					<?php
+						$image =  get_image("lists/images/",$list['id'],'300h');
+						if ($image) {
+							//echo '<img src="'.$image.'">';
+							echo '<div class="img-side img-set" style="background-image:url('.$image.')"></div>';
+						} else {
+							echo '<div class="img-side"></div>';
+						}
+					?>
 					<h3><a href="list.php?id=<?php echo $list['id']; ?>"><?php echo $list['title']; ?></a></h3>
 					<p class="search-tagline">
 						<?php echo $list['tagline'];?>

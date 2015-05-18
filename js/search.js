@@ -8,6 +8,7 @@ list = {
 
 search = {
 	'queryCount':1,
+	'dropdowns': {},
 };
 
 $("#add-query").click(function(e) {
@@ -17,13 +18,27 @@ $("#add-query").click(function(e) {
 	console.log("clicked");
 	lastAnd = $("#last-and");
 	search.queryCount++;
+	
 	newQuery = $("#search-query-1").clone();
 	newQuery.attr("id","search-query-"+search.queryCount);
-	newQuery.find("select.field").val("any");
-	newQuery.find("select.strict").val("no");
+	
+	newQuery.find("#field").attr("data-val","any").text("her anything");
+	newQuery.find("#strict").attr("data-val","no").text("contains");
+	
+	//fix for demo, so they don't get submitted 
 	newQuery.find("select").attr("name","");
 	newQuery.find("input").val("").attr("name","");
 	
+	
+	var selects = newQuery.find(".select span");
+	selects.each(function(){
+		select = $(this);
+		var oldId = select.attr("id");
+		var newId = oldId+"-"+search.queryCount;
+		select.attr("id",newId);
+		select.closest(".select").find(".dropdown").attr("id",newId+"-dropdown");
+	});
+		
 	newLogic = $('<label class="logic and" id="logic-for-'+search.queryCount+'"><em>and</em>/or</label>');
 	newLogic.click(function(){
 		console.log("logic switch");
@@ -44,9 +59,7 @@ $("#add-query").click(function(e) {
 
 
 $("li.woman").click(function(e){
-	console.log("clickety:");
-	console.log(e.originalEvent.originalTarget.tagName);
-	if (e.originalEvent.originalTarget.tagName == "A") return true;
+	if (e.target.nodeName == "A") return true;
 	woman=$(this);
 	oldSelected = list.selected;
 	if (woman.hasClass("selected")) {
@@ -96,23 +109,48 @@ $("#sort-actions .f-dropdown a").click(function(e){
 
 
 function makeDropdown(select) {
-	var name = select.attr("name");
-	var dropdown = $('<ul class="dropdown" id="'+name+'-dropdown"></ul>').hide();
+	var selectName = select.attr("name");	
+	console.log("making dropdown of "+selectName);
+	var dropdown = $('<ul class="dropdown" id="'+selectName+'-dropdown" data-dropdown-for="'+selectName+'"></ul>').hide();
 		select.find("option").each(function(e){
 			var opt = $(this);
 			var item = $('<li data-val="'+opt.val()+'"><a href="" >'+opt.text()+'</a></li>');
+			/*
 			item.click(function(e){
 				e.preventDefault();
 				var li=$(this);
 				console.log(li.attr("data-val"));
-				$("#hidden-"+name).val(li.attr("data-val"));
-				$("#"+name).text(li.text());
+				$("#hidden-"+selectName).val(li.attr("data-val"));
+				$("#"+selectName).text(li.text());
 				dropdown.hide();								
 			});//maybe using .on on the list would be faster!
+			*/
 			dropdown.append(item);
 		});
 		return dropdown;
 }
+
+//.select span
+//dropdown
+$("#searchform").on("click",".select span",function(e){
+	var selSpan = $(this);
+	var selName = selSpan.attr("id");
+	console.log("opening "+selName);
+	selSpan.closest(".select").find(".dropdown").toggle();
+	selSpan.closest(".select").toggleClass("opened");
+	e.stopPropagation();
+});
+
+$("#searchform").on("click",".select .dropdown li",function(e){
+	e.preventDefault();
+	var li=$(this);
+	var dropdown = li.closest(".dropdown");
+	var selectName = dropdown.attr("id").replace("-dropdown","");
+	$("#hidden-"+selectName).val(li.attr("data-val"));
+	$("#"+selectName).text(li.text());
+	dropdown.hide();
+						
+});
 
 selects = $("#searchform .select select");
 selects.each(function(){
@@ -123,25 +161,8 @@ selects.each(function(){
 	var newSelect = $('<span id="'+selectName+'" data-value="'+selectVal+'">'+selectText+'</span>');
 	console.log(newSelect);
 	newSelect.hidden = $('<input type="hidden" id="hidden-'+selectName+'" name="'+selectName+'" value="'+selectVal+'" />');
-	newSelect.click(function(e){
-		console.log("open dropdown "+selectName);
-		if (newSelect.dropdown == null) {
-			newSelect.dropdown = makeDropdown(select);
-			newSelect.dropdown.show();
-			newSelect.after(newSelect.dropdown);
-			newSelect.closest(".select").addClass("opened");
-		} else {
-			newSelect.dropdown.toggle();
-			newSelect.closest(".select").toggleClass("opened");
-		};
-		
-		//add list - fixed height, scrollbar
-		//open a drawer
-		//select shit
-		//close drawer
-		//update hidden field
-	});
 	select.replaceWith(newSelect);
+	newSelect.after(makeDropdown(select));
 	newSelect.after(newSelect.hidden);	
 });
 
@@ -193,6 +214,10 @@ $(window).scroll(function() {
 		}		
 	}
    });
+   
+$("body").click(function(e){
+	$("#searchform .dropdown").hide();
+});
    
 /*
 

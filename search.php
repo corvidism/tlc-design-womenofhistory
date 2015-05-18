@@ -89,7 +89,7 @@ $query = array();
 $query['field'] = (isset($_GET['field']))?$_GET['field']:null;
 $query['value'] = (isset($_GET['value']))?$_GET['value']:null;
 $query['strict'] = (isset($_GET['strict']))?$_GET['strict']:null;
-$query['nonpriv_groups'] = (isset($_GET['nonpriv_groups']))?$_GET['nonpriv_groups']:null;
+$query['nonpriv_groups'] = (isset($_GET['nonpriv_groups']))?$_GET['nonpriv_groups']:array();
 if ($query['field'] === null) {
 	$women = $data_source->getAllWomen();
 } else {

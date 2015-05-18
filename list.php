@@ -76,6 +76,74 @@ require_once 'header.php';
 				$order_number=$index+1;
 				//name
 			?>
+			
+			<li class="woman">
+					<?php
+						$image =  get_image("women/images/",$woman['id'],'300h');
+						if ($image) {
+							//echo '<img src="'.$image.'">';
+							echo '<div class="img-side img-set" style="background-image:url('.$image.')"></div>';
+						} else {
+							echo '<div class="img-side"></div>';
+						}
+					?>
+					<div class="woman-cont">
+						<header>
+						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $woman['name']; ?></a></h3>
+						<div class="dataline">
+							<?php
+							
+							$nonprivs = array();
+							
+							if ($woman['is_poc']) {
+								$nonprivs[] = '<strong class="is_poc"><a href="search.php?is_poc=1">woman of color</a></strong>';
+							}
+							if ($woman['is_queer']) {
+								$nonprivs[] = '<strong class="is_queer"><a href="search.php?is_queer=1">LBTQA</a></strong>';
+								//echo gender and sex.id
+							}
+							if ($woman['has_disability']) {
+								$nonprivs[] = '<strong class="has_disability"><a href="search.php?has_disability=1">woman with disability</a></strong>';
+							}
+							
+							if (sizeof($nonprivs)!=0) {
+								echo implode(", ",$nonprivs)." | ";
+							}							
+						?>
+							<span class="period" data-birth="<?php echo $woman['date_born']; ?>" data-death="<?php echo $woman['date_died']; ?>"><?php echo format_date_place($woman); ?></span> | 
+							<a href="search.php?category=<?php echo $woman['category']['id']; ?>"><?php echo $woman['category']['title']; ?></a>
+						</div>
+					</header>
+					<div class="search-tagline"><?php echo $woman['tagline']; ?> <a class="more" href="single.php?woman=<?php echo $woman['id']; ?>">(...)</a></div>
+					<div class="tags">
+						<?php
+							$tags = explode(",",$woman['tags']);
+							$taglinks = array();
+							foreach($tags as $tag) {
+								$taglinks[] = '<a href="search.php?field=tags&value='.$tag.'">'.$tag.'</a>';
+							}
+							echo implode(", ",$taglinks);
+						?>
+					</div>
+					<footer class="actions">
+						<div><a data-dropdown="add-to-list-<?php echo $woman['id']; ?>" aria-controls="add-to-list-<?php echo $woman['id']; ?>" aria-expanded="false">+ add to list</a>
+							<ul id="add-to-list-<?php echo $woman['id']; ?>" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+							  <li><a href="">Favorites</a></li>
+							  <li><a href="">My List</a></li>
+							  <li><a href="">My Other List</a></li>
+							</ul></div>						
+					</footer>
+					<?php if (!$woman['description']==null) :?>
+						<div class="description">
+							<p><?php echo $woman['description'] ?></p>
+						</div>
+					<?php endif;?>	
+					</div>				
+				</li>
+			
+			
+			
+			<!--
 				<li class="woman row" id="woman-<?php echo $woman['id']; ?>">
 					<header class="small-12 columns">
 						<h3 class=""><a href="single.php?woman=<?php echo $woman['id']; ?>"><?php echo $order_number.". ".$woman['name']; ?></a></h3>
@@ -121,6 +189,7 @@ require_once 'header.php';
 						</div>
 					<?php endif;?>
 				</li>
+			-->
 			<?php	
 			} #end of foreach			
 			?>

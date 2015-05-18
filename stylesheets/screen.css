@@ -376,50 +376,50 @@ label {
   padding-bottom: 1.1rem;
   margin: 0;
   margin-left: 0.001rem;
-  margin-bottom: -4px;
   position: relative;
   border-left: 3px solid transparent;
   display: none;
+  padding-top: 0.1em;
 }
-/* line 471, ../sass/screen.scss */
+/* line 472, ../sass/screen.scss */
 #list-box ol li.woman.page-1 {
   display: block;
 }
-/* line 475, ../sass/screen.scss */
+/* line 476, ../sass/screen.scss */
 #list-box ol li.woman .search-tagline {
   margin: 0.55rem 0;
 }
-/* line 478, ../sass/screen.scss */
+/* line 479, ../sass/screen.scss */
 #list-box ol li.woman .search-tagline .more {
   text-decoration: none;
 }
-/* line 483, ../sass/screen.scss */
+/* line 484, ../sass/screen.scss */
 #list-box ol li.woman .tags {
   margin-bottom: 0.55rem;
 }
-/* line 487, ../sass/screen.scss */
+/* line 488, ../sass/screen.scss */
 #list-box ol li.woman h3 {
   margin-bottom: 0;
 }
-/* line 491, ../sass/screen.scss */
+/* line 492, ../sass/screen.scss */
 #list-box ol li.woman .specs ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 496, ../sass/screen.scss */
+/* line 497, ../sass/screen.scss */
 #list-box ol li.woman .actions {
   visibility: hidden;
 }
-/* line 500, ../sass/screen.scss */
+/* line 501, ../sass/screen.scss */
 #list-box ol li.woman.selected .actions {
   visibility: visible;
 }
-/* line 504, ../sass/screen.scss */
+/* line 505, ../sass/screen.scss */
 #list-box ol li.woman:hover .actions {
   visibility: visible;
 }
-/* line 508, ../sass/screen.scss */
+/* line 509, ../sass/screen.scss */
 #list-box ol li.woman .img-side {
   width: 1rem;
   position: absolute;
@@ -436,7 +436,7 @@ label {
   background-size: left 100%, auto;
   cursor: pointer;
 }
-/* line 524, ../sass/screen.scss */
+/* line 525, ../sass/screen.scss */
 #list-box ol li.woman .img-side:before {
   content: "";
   display: block;
@@ -444,69 +444,70 @@ label {
   height: 100%;
   width: 100%;
 }
-/* line 533, ../sass/screen.scss */
+/* line 534, ../sass/screen.scss */
 #list-box ol li.woman .woman-cont {
   margin-left: 2rem;
+  padding-top: 1.1rem;
 }
-/* line 544, ../sass/screen.scss */
+/* line 546, ../sass/screen.scss */
 #list-box.interactive li.woman.selected h3:before {
   content: '– ';
 }
-/* line 554, ../sass/screen.scss */
+/* line 556, ../sass/screen.scss */
 #list-box ul.action-buttons {
   list-style: none;
   margin-left: 0;
 }
-/* line 560, ../sass/screen.scss */
+/* line 562, ../sass/screen.scss */
 #list-box ul.action-buttons li {
   border: 1px solid #ddd;
   text-align: center;
 }
-/* line 566, ../sass/screen.scss */
+/* line 568, ../sass/screen.scss */
 #list-box ul.action-buttons li:nth-child(2) {
   text-align: left;
   padding-left: 1em;
 }
-/* line 572, ../sass/screen.scss */
+/* line 574, ../sass/screen.scss */
 #list-box .specs ul li {
   display: inline;
 }
-/* line 575, ../sass/screen.scss */
+/* line 577, ../sass/screen.scss */
 #list-box .specs ul li:before {
   content: "– ";
 }
-/* line 578, ../sass/screen.scss */
+/* line 580, ../sass/screen.scss */
 #list-box .specs ul li:first-child:before {
   content: "";
 }
 @media screen and (min-width: 40.063em) {
-  /* line 572, ../sass/screen.scss */
+  /* line 574, ../sass/screen.scss */
   #list-box .specs ul li {
     display: block;
   }
-  /* line 585, ../sass/screen.scss */
+  /* line 587, ../sass/screen.scss */
   #list-box .specs ul li:before {
     content: "";
   }
 }
 
-/* line 594, ../sass/screen.scss */
+/* line 596, ../sass/screen.scss */
 #query-count {
   font-size: 0.8rem;
   margin-left: 1.1rem;
   margin-bottom: 1.1rem;
 }
 
-/* line 600, ../sass/screen.scss */
+/* line 602, ../sass/screen.scss */
 #list-sort-controls {
   margin-bottom: 1.1rem;
 }
 
-/* line 604, ../sass/screen.scss */
+/* line 606, ../sass/screen.scss */
 #list-actions {
   visibility: hidden;
 }
-/* line 608, ../sass/screen.scss */
+/* line 610, ../sass/screen.scss */
 #list-actions ul {
   margin: 0;
   padding: 0;
@@ -514,108 +515,112 @@ label {
   padding-left: 1.1rem;
 }
 
-/* line 620, ../sass/screen.scss */
+/* line 622, ../sass/screen.scss */
 #sort-actions {
   text-align: right;
   padding-right: 1.1rem;
 }
-/* line 624, ../sass/screen.scss */
+/* line 626, ../sass/screen.scss */
+#sort-actions .f-dropdown {
+  text-align: left;
+}
+/* line 630, ../sass/screen.scss */
 #sort-actions label {
   display: inline;
   font-size: inherit;
 }
-/* line 629, ../sass/screen.scss */
+/* line 635, ../sass/screen.scss */
 #sort-actions select {
   width: auto;
 }
-/* line 634, ../sass/screen.scss */
+/* line 640, ../sass/screen.scss */
 #sort-actions .select {
   width: auto;
   display: inline-block;
 }
-/* line 637, ../sass/screen.scss */
+/* line 643, ../sass/screen.scss */
 #sort-actions .select.sort {
   display: none;
 }
-/* line 641, ../sass/screen.scss */
+/* line 647, ../sass/screen.scss */
 #sort-actions .select.active {
   display: block;
 }
 
-/* line 658, ../sass/screen.scss */
+/* line 664, ../sass/screen.scss */
 .f-dropdown {
   border: 0;
 }
-/* line 659, ../sass/screen.scss */
+/* line 665, ../sass/screen.scss */
 .f-dropdown::before, .f-dropdown::after {
   border-color: transparent;
 }
-/* line 663, ../sass/screen.scss */
+/* line 669, ../sass/screen.scss */
 .f-dropdown li {
   border-bottom: 1px solid transparent;
 }
-/* line 666, ../sass/screen.scss */
+/* line 672, ../sass/screen.scss */
 .f-dropdown li:hover {
   background-color: transparent;
 }
 
-/* line 673, ../sass/screen.scss */
+/* line 679, ../sass/screen.scss */
 #end-of-results, #loader {
   margin-top: 2.2rem;
 }
 
 /************** SINGLE.PHP **************/
-/* line 684, ../sass/screen.scss */
+/* line 690, ../sass/screen.scss */
 article.woman .category_and_tags div, article.woman .non_priv_groups div {
   margin-bottom: 0.55rem;
 }
-/* line 691, ../sass/screen.scss */
+/* line 697, ../sass/screen.scss */
 article.woman .story p:first-child {
   padding-top: 2.2rem;
 }
-/* line 695, ../sass/screen.scss */
+/* line 701, ../sass/screen.scss */
 article.woman .story p {
   margin-bottom: 0.8rem;
 }
-/* line 701, ../sass/screen.scss */
+/* line 707, ../sass/screen.scss */
 article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
   list-style: none;
   margin-left: 0;
 }
-/* line 707, ../sass/screen.scss */
+/* line 713, ../sass/screen.scss */
 article.woman .dates {
   font-style: italic;
 }
-/* line 711, ../sass/screen.scss */
+/* line 717, ../sass/screen.scss */
 article.woman .lists {
   margin-bottom: 1.1rem;
 }
-/* line 714, ../sass/screen.scss */
+/* line 720, ../sass/screen.scss */
 article.woman .lists h3 {
   margin-bottom: 1.1rem;
 }
-/* line 718, ../sass/screen.scss */
+/* line 724, ../sass/screen.scss */
 article.woman .lists a {
   text-decoration: none;
 }
-/* line 726, ../sass/screen.scss */
+/* line 732, ../sass/screen.scss */
 article.woman .inner {
   margin-bottom: 2.2rem;
 }
-/* line 729, ../sass/screen.scss */
+/* line 735, ../sass/screen.scss */
 article.woman .inner h3, article.woman .inner h4 {
   margin-top: 0.2em;
 }
-/* line 735, ../sass/screen.scss */
+/* line 741, ../sass/screen.scss */
 article.woman .links ul {
   margin-top: 1.1rem;
   margin-left: 1.1rem;
 }
-/* line 739, ../sass/screen.scss */
+/* line 745, ../sass/screen.scss */
 article.woman .links ul li p {
   margin-left: 1.1rem;
 }
-/* line 744, ../sass/screen.scss */
+/* line 750, ../sass/screen.scss */
 article.woman footer {
   clear: both;
   margin-top: 1.1rem;
@@ -623,25 +628,25 @@ article.woman footer {
   padding-top: 1.1rem;
 }
 
-/* line 754, ../sass/screen.scss */
+/* line 760, ../sass/screen.scss */
 p.tagline {
   font-size: 1.8rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
 
-/* line 760, ../sass/screen.scss */
+/* line 766, ../sass/screen.scss */
 .thumb-box {
   text-align: center;
 }
 
-/* line 763, ../sass/screen.scss */
+/* line 769, ../sass/screen.scss */
 img.thumb {
   width: 125px;
   display: block;
 }
 
-/* line 768, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 .thumb-placeholder {
   width: 100px;
   height: 100px;
@@ -649,25 +654,25 @@ img.thumb {
   font-size: 4rem;
 }
 
-/* line 776, ../sass/screen.scss */
+/* line 782, ../sass/screen.scss */
 .notice {
   font-size: 0.8rem;
   margin-left: 2rem;
 }
 
-/* line 781, ../sass/screen.scss */
+/* line 787, ../sass/screen.scss */
 #side-col header {
   padding: 1.1rem;
 }
 
 @media screen and (min-width: 40.063em) {
-  /* line 786, ../sass/screen.scss */
+  /* line 792, ../sass/screen.scss */
   #side-col {
     padding-right: 2.2rem;
   }
 }
 
-/* line 793, ../sass/screen.scss */
+/* line 799, ../sass/screen.scss */
 div.portrait-img {
   max-height: 8em;
   overflow: hidden;
@@ -675,56 +680,60 @@ div.portrait-img {
   margin: 0;
   margin-bottom: 2rem;
 }
-/* line 801, ../sass/screen.scss */
+/* line 807, ../sass/screen.scss */
 div.portrait-img img {
   width: 100%;
   position: relative;
   margin-top: -30%;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 801, ../sass/screen.scss */
+  /* line 807, ../sass/screen.scss */
   div.portrait-img img {
     top: 0;
     margin-top: 0;
   }
 }
 @media screen and (min-width: 40.063em) {
-  /* line 793, ../sass/screen.scss */
+  /* line 799, ../sass/screen.scss */
   div.portrait-img {
     max-height: 50em;
     margin-right: 1.1rem;
   }
 }
 
-/* line 821, ../sass/screen.scss */
+/* line 827, ../sass/screen.scss */
 .other-portraits .img-box {
   display: inline-block;
   width: 3rem;
   height: 3rem;
 }
-/* line 825, ../sass/screen.scss */
+/* line 831, ../sass/screen.scss */
 .other-portraits .img-box img {
   width: 3rem;
 }
 
 /************** LIST.PHP **************/
-/* line 833, ../sass/screen.scss */
+/* line 839, ../sass/screen.scss */
 #user-list ol {
   list-style: none;
 }
-/* line 836, ../sass/screen.scss */
+/* line 842, ../sass/screen.scss */
 #user-list .list-desc p {
   font-size: 1.8rem;
   line-height: 1.2;
   padding-bottom: 1em;
 }
-/* line 842, ../sass/screen.scss */
+/* line 848, ../sass/screen.scss */
+#user-list #list-box li.woman {
+  display: block;
+}
+/* line 852, ../sass/screen.scss */
 #user-list .woman .description {
   margin-top: 1.1rem;
   margin-bottom: 2.2rem;
   padding-left: 4.4rem;
 }
-/* line 847, ../sass/screen.scss */
+/* line 857, ../sass/screen.scss */
 #user-list .woman .description p:before {
   content: "– ";
   display: inline;
@@ -732,7 +741,7 @@ div.portrait-img img {
 
 /************** FOOTER **************/
 /************** STYLESETS **************/
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style1 {
   background: #d3e5e9;
   /* Old browsers */
@@ -779,40 +788,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style1 .f-dropdown, .style1 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style1 .f-dropdown {
   border: 1px solid rgba(91, 23, 127, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style1 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style1 .f-dropdown::after {
   border-bottom-color: #5b177f;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style1 .f-dropdown li, .style1 #searchform .dropdown li {
   border-bottom-color: #d3e5e9;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style1 .f-dropdown li a, .style1 #searchform .dropdown li a {
   color: #5b177f;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style1 .f-dropdown li:hover a, .style1 #searchform .dropdown li:hover a {
   color: #b72eff;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style1 #searchform .dropdown li:hover,
 .style1 .f-dropdown li:hover {
   background-color: #f1f7f8;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style1 a,
 .style1 h1, .style1 h2, .style1 h3, .style1 h4,
 .style1 #searchform .logic,
@@ -821,37 +830,37 @@ div.portrait-img img {
 .style1 #list-sort-controls {
   color: #5b177f;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style1 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style1 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #b72eff;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style1 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #b72eff;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style1 #searchform input:-ms-input-placeholder {
   color: #b72eff;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style1 #searchform input::-webkit-input-placeholder {
   color: #b72eff;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style1 #searchform .logic {
   color: rgba(183, 46, 255, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style1 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style1 input[type='text']:hover,
 .style1 .select:hover,
 .style1 .switch-box .switch label,
@@ -859,22 +868,22 @@ div.portrait-img img {
 .style1 footer {
   border-color: #5b177f !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style1 .switch-box .switch input:checked + label,
 .style1 .thumb-placeholder {
   background-color: rgba(211, 229, 233, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style1 .switch-box .switch label::after {
   background-color: #b72eff;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style1 .category_and_tags,
 .style1 .non_priv_groups,
 .style1 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style1 a:hover, .style1 a:focus,
 .style1 .woman.selected h3 a,
 .style1 #menutitle,
@@ -883,72 +892,76 @@ div.portrait-img img {
 .style1 #list-box.interactive li.woman:hover {
   color: #b72eff !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style1 ol li.woman .img-side {
+  background-color: rgba(211, 229, 233, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman .img-side {
   background-color: rgba(211, 229, 233, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #b72eff;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(183, 46, 255, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(183, 46, 255, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style1 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(183, 46, 255, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style1 .top-bar .toggle-topbar a {
   color: #b72eff;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style1 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid #d3e5e9;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style1 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style1 .top-bar-section ul li:hover {
   background-color: #f1f7f8;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style1 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style1 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid #d3e5e9;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style1 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #f1f7f8;
   border-bottom: 1px solid #d3e5e9;
 }
 
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style2 {
   background: #ffff7c;
   /* Old browsers */
@@ -995,40 +1008,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style2 .f-dropdown, .style2 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style2 .f-dropdown {
   border: 1px solid rgba(0, 74, 37, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style2 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style2 .f-dropdown::after {
   border-bottom-color: #004a25;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style2 .f-dropdown li, .style2 #searchform .dropdown li {
   border-bottom-color: #ffff7c;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style2 .f-dropdown li a, .style2 #searchform .dropdown li a {
   color: #004a25;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style2 .f-dropdown li:hover a, .style2 #searchform .dropdown li:hover a {
   color: #00954b;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style2 #searchform .dropdown li:hover,
 .style2 .f-dropdown li:hover {
   background-color: #ffffd7;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style2 a,
 .style2 h1, .style2 h2, .style2 h3, .style2 h4,
 .style2 #searchform .logic,
@@ -1037,37 +1050,37 @@ div.portrait-img img {
 .style2 #list-sort-controls {
   color: #004a25;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style2 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style2 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #00954b;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style2 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #00954b;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style2 #searchform input:-ms-input-placeholder {
   color: #00954b;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style2 #searchform input::-webkit-input-placeholder {
   color: #00954b;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style2 #searchform .logic {
   color: rgba(0, 149, 75, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style2 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style2 input[type='text']:hover,
 .style2 .select:hover,
 .style2 .switch-box .switch label,
@@ -1075,22 +1088,22 @@ div.portrait-img img {
 .style2 footer {
   border-color: #004a25 !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style2 .switch-box .switch input:checked + label,
 .style2 .thumb-placeholder {
   background-color: rgba(255, 255, 124, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style2 .switch-box .switch label::after {
   background-color: #00954b;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style2 .category_and_tags,
 .style2 .non_priv_groups,
 .style2 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style2 a:hover, .style2 a:focus,
 .style2 .woman.selected h3 a,
 .style2 #menutitle,
@@ -1099,72 +1112,76 @@ div.portrait-img img {
 .style2 #list-box.interactive li.woman:hover {
   color: #00954b !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style2 ol li.woman .img-side {
+  background-color: rgba(255, 255, 124, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman .img-side {
   background-color: rgba(255, 255, 124, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #00954b;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(0, 149, 75, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(0, 149, 75, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style2 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(0, 149, 75, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style2 .top-bar .toggle-topbar a {
   color: #00954b;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style2 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid #ffff7c;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style2 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style2 .top-bar-section ul li:hover {
   background-color: #ffffd7;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style2 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style2 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid #ffff7c;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style2 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #ffffd7;
   border-bottom: 1px solid #ffff7c;
 }
 
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style3 {
   background: yellow;
   /* Old browsers */
@@ -1211,40 +1228,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style3 .f-dropdown, .style3 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style3 .f-dropdown {
   border: 1px solid rgba(127, 32, 0, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style3 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style3 .f-dropdown::after {
   border-bottom-color: #7f2000;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style3 .f-dropdown li, .style3 #searchform .dropdown li {
   border-bottom-color: yellow;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style3 .f-dropdown li a, .style3 #searchform .dropdown li a {
   color: #7f2000;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style3 .f-dropdown li:hover a, .style3 #searchform .dropdown li:hover a {
   color: #ff4100;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style3 #searchform .dropdown li:hover,
 .style3 .f-dropdown li:hover {
   background-color: #ffffb2;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style3 a,
 .style3 h1, .style3 h2, .style3 h3, .style3 h4,
 .style3 #searchform .logic,
@@ -1253,37 +1270,37 @@ div.portrait-img img {
 .style3 #list-sort-controls {
   color: #7f2000;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style3 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style3 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #ff4100;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style3 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #ff4100;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style3 #searchform input:-ms-input-placeholder {
   color: #ff4100;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style3 #searchform input::-webkit-input-placeholder {
   color: #ff4100;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style3 #searchform .logic {
   color: rgba(255, 65, 0, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style3 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style3 input[type='text']:hover,
 .style3 .select:hover,
 .style3 .switch-box .switch label,
@@ -1291,22 +1308,22 @@ div.portrait-img img {
 .style3 footer {
   border-color: #7f2000 !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style3 .switch-box .switch input:checked + label,
 .style3 .thumb-placeholder {
   background-color: rgba(255, 255, 0, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style3 .switch-box .switch label::after {
   background-color: #ff4100;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style3 .category_and_tags,
 .style3 .non_priv_groups,
 .style3 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style3 a:hover, .style3 a:focus,
 .style3 .woman.selected h3 a,
 .style3 #menutitle,
@@ -1315,72 +1332,76 @@ div.portrait-img img {
 .style3 #list-box.interactive li.woman:hover {
   color: #ff4100 !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style3 ol li.woman .img-side {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman .img-side {
   background-color: rgba(255, 255, 0, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #ff4100;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(255, 65, 0, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(255, 65, 0, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style3 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(255, 65, 0, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style3 .top-bar .toggle-topbar a {
   color: #ff4100;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style3 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style3 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style3 .top-bar-section ul li:hover {
   background-color: #ffffb2;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style3 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style3 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style3 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #ffffb2;
   border-bottom: 1px solid yellow;
 }
 
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style4 {
   background: yellow;
   /* Old browsers */
@@ -1427,40 +1448,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style4 .f-dropdown, .style4 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style4 .f-dropdown {
   border: 1px solid rgba(17, 51, 51, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style4 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style4 .f-dropdown::after {
   border-bottom-color: #113333;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style4 .f-dropdown li, .style4 #searchform .dropdown li {
   border-bottom-color: yellow;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style4 .f-dropdown li a, .style4 #searchform .dropdown li a {
   color: #113333;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style4 .f-dropdown li:hover a, .style4 #searchform .dropdown li:hover a {
   color: #226666;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style4 #searchform .dropdown li:hover,
 .style4 .f-dropdown li:hover {
   background-color: #ffffb2;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style4 a,
 .style4 h1, .style4 h2, .style4 h3, .style4 h4,
 .style4 #searchform .logic,
@@ -1469,37 +1490,37 @@ div.portrait-img img {
 .style4 #list-sort-controls {
   color: #113333;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style4 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style4 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #226666;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style4 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #226666;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style4 #searchform input:-ms-input-placeholder {
   color: #226666;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style4 #searchform input::-webkit-input-placeholder {
   color: #226666;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style4 #searchform .logic {
   color: rgba(34, 102, 102, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style4 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style4 input[type='text']:hover,
 .style4 .select:hover,
 .style4 .switch-box .switch label,
@@ -1507,22 +1528,22 @@ div.portrait-img img {
 .style4 footer {
   border-color: #113333 !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style4 .switch-box .switch input:checked + label,
 .style4 .thumb-placeholder {
   background-color: rgba(255, 255, 0, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style4 .switch-box .switch label::after {
   background-color: #226666;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style4 .category_and_tags,
 .style4 .non_priv_groups,
 .style4 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style4 a:hover, .style4 a:focus,
 .style4 .woman.selected h3 a,
 .style4 #menutitle,
@@ -1531,72 +1552,76 @@ div.portrait-img img {
 .style4 #list-box.interactive li.woman:hover {
   color: #226666 !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style4 ol li.woman .img-side {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman .img-side {
   background-color: rgba(255, 255, 0, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #226666;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(34, 102, 102, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(34, 102, 102, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style4 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(34, 102, 102, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style4 .top-bar .toggle-topbar a {
   color: #226666;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style4 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style4 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style4 .top-bar-section ul li:hover {
   background-color: #ffffb2;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style4 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style4 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style4 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #ffffb2;
   border-bottom: 1px solid yellow;
 }
 
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style5 {
   background: yellow;
   /* Old browsers */
@@ -1643,40 +1668,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style5 .f-dropdown, .style5 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style5 .f-dropdown {
   border: 1px solid rgba(2, 15, 74, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style5 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style5 .f-dropdown::after {
   border-bottom-color: #020f4a;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style5 .f-dropdown li, .style5 #searchform .dropdown li {
   border-bottom-color: yellow;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style5 .f-dropdown li a, .style5 #searchform .dropdown li a {
   color: #020f4a;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style5 .f-dropdown li:hover a, .style5 #searchform .dropdown li:hover a {
   color: #051e94;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style5 #searchform .dropdown li:hover,
 .style5 .f-dropdown li:hover {
   background-color: #ffffb2;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style5 a,
 .style5 h1, .style5 h2, .style5 h3, .style5 h4,
 .style5 #searchform .logic,
@@ -1685,37 +1710,37 @@ div.portrait-img img {
 .style5 #list-sort-controls {
   color: #020f4a;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style5 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style5 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #051e94;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style5 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #051e94;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style5 #searchform input:-ms-input-placeholder {
   color: #051e94;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style5 #searchform input::-webkit-input-placeholder {
   color: #051e94;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style5 #searchform .logic {
   color: rgba(5, 30, 148, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style5 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style5 input[type='text']:hover,
 .style5 .select:hover,
 .style5 .switch-box .switch label,
@@ -1723,22 +1748,22 @@ div.portrait-img img {
 .style5 footer {
   border-color: #020f4a !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style5 .switch-box .switch input:checked + label,
 .style5 .thumb-placeholder {
   background-color: rgba(255, 255, 0, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style5 .switch-box .switch label::after {
   background-color: #051e94;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style5 .category_and_tags,
 .style5 .non_priv_groups,
 .style5 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style5 a:hover, .style5 a:focus,
 .style5 .woman.selected h3 a,
 .style5 #menutitle,
@@ -1747,72 +1772,76 @@ div.portrait-img img {
 .style5 #list-box.interactive li.woman:hover {
   color: #051e94 !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style5 ol li.woman .img-side {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman .img-side {
   background-color: rgba(255, 255, 0, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #051e94;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(5, 30, 148, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(5, 30, 148, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style5 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(5, 30, 148, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style5 .top-bar .toggle-topbar a {
   color: #051e94;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style5 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style5 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style5 .top-bar-section ul li:hover {
   background-color: #ffffb2;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style5 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style5 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style5 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #ffffb2;
   border-bottom: 1px solid yellow;
 }
 
-/* line 877, ../sass/screen.scss */
+/* line 887, ../sass/screen.scss */
 .style6 {
   background: yellow;
   /* Old browsers */
@@ -1859,40 +1888,40 @@ div.portrait-img img {
   */
   /************** TOPBAR **************/
 }
-/* line 909, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .style6 .f-dropdown, .style6 #searchform .dropdown li {
   background-color: white;
 }
-/* line 912, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .style6 .f-dropdown {
   border: 1px solid rgba(71, 84, 8, 0.8);
 }
-/* line 914, ../sass/screen.scss */
+/* line 924, ../sass/screen.scss */
 .style6 .f-dropdown::before {
   border-bottom-color: white;
 }
-/* line 918, ../sass/screen.scss */
+/* line 928, ../sass/screen.scss */
 .style6 .f-dropdown::after {
   border-bottom-color: #475408;
 }
-/* line 923, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .style6 .f-dropdown li, .style6 #searchform .dropdown li {
   border-bottom-color: yellow;
 }
-/* line 925, ../sass/screen.scss */
+/* line 935, ../sass/screen.scss */
 .style6 .f-dropdown li a, .style6 #searchform .dropdown li a {
   color: #475408;
 }
-/* line 929, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .style6 .f-dropdown li:hover a, .style6 #searchform .dropdown li:hover a {
   color: #8fa810;
 }
-/* line 935, ../sass/screen.scss */
+/* line 945, ../sass/screen.scss */
 .style6 #searchform .dropdown li:hover,
 .style6 .f-dropdown li:hover {
   background-color: #ffffb2;
 }
-/* line 946, ../sass/screen.scss */
+/* line 956, ../sass/screen.scss */
 .style6 a,
 .style6 h1, .style6 h2, .style6 h3, .style6 h4,
 .style6 #searchform .logic,
@@ -1901,37 +1930,37 @@ div.portrait-img img {
 .style6 #list-sort-controls {
   color: #475408;
 }
-/* line 950, ../sass/screen.scss */
+/* line 960, ../sass/screen.scss */
 .style6 select:hover option {
   color: #191919;
 }
-/* line 955, ../sass/screen.scss */
+/* line 965, ../sass/screen.scss */
 .style6 #searchform input:-moz-placeholder {
   /* Firefox 18- */
   color: #8fa810;
 }
-/* line 958, ../sass/screen.scss */
+/* line 968, ../sass/screen.scss */
 .style6 #searchform input::-moz-placeholder {
   /* Firefox 19+ */
   color: #8fa810;
 }
-/* line 961, ../sass/screen.scss */
+/* line 971, ../sass/screen.scss */
 .style6 #searchform input:-ms-input-placeholder {
   color: #8fa810;
 }
-/* line 964, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .style6 #searchform input::-webkit-input-placeholder {
   color: #8fa810;
 }
-/* line 969, ../sass/screen.scss */
+/* line 979, ../sass/screen.scss */
 .style6 #searchform .logic {
   color: rgba(143, 168, 16, 0.3);
 }
-/* line 972, ../sass/screen.scss */
+/* line 982, ../sass/screen.scss */
 .style6 #searchform .logic em {
   color: #191919;
 }
-/* line 982, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .style6 input[type='text']:hover,
 .style6 .select:hover,
 .style6 .switch-box .switch label,
@@ -1939,22 +1968,22 @@ div.portrait-img img {
 .style6 footer {
   border-color: #475408 !important;
 }
-/* line 988, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .style6 .switch-box .switch input:checked + label,
 .style6 .thumb-placeholder {
   background-color: rgba(255, 255, 0, 0.3) !important;
 }
-/* line 992, ../sass/screen.scss */
+/* line 1002, ../sass/screen.scss */
 .style6 .switch-box .switch label::after {
   background-color: #8fa810;
 }
-/* line 999, ../sass/screen.scss */
+/* line 1009, ../sass/screen.scss */
 .style6 .category_and_tags,
 .style6 .non_priv_groups,
 .style6 .tags {
   color: #111111;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 1022, ../sass/screen.scss */
 .style6 a:hover, .style6 a:focus,
 .style6 .woman.selected h3 a,
 .style6 #menutitle,
@@ -1963,66 +1992,70 @@ div.portrait-img img {
 .style6 #list-box.interactive li.woman:hover {
   color: #8fa810 !important;
 }
-/* line 1037, ../sass/screen.scss */
+/* line 1046, ../sass/screen.scss */
+.style6 ol li.woman .img-side {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+/* line 1054, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman .img-side {
   background-color: rgba(255, 255, 0, 0.2);
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman:hover .img-side {
   border-left-color: #8fa810;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1069, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman:hover .img-side.img-set {
   border-left-color: transparent;
 }
-/* line 1057, ../sass/screen.scss */
+/* line 1074, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman:hover .img-side.img-set:before {
   background-color: rgba(143, 168, 16, 0.5);
 }
-/* line 1066, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman.selected .img-side {
   background-color: transparent;
 }
-/* line 1070, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman.selected .img-side:before {
   background-color: rgba(143, 168, 16, 0.5);
 }
-/* line 1088, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .style6 #list-box.interactive li.woman.selected:hover .img-side.img-set:before {
   background-color: rgba(143, 168, 16, 0.5);
 }
-/* line 1111, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .style6 .top-bar .toggle-topbar a {
   color: #8fa810;
 }
-/* line 1124, ../sass/screen.scss */
+/* line 1141, ../sass/screen.scss */
 .style6 .top-bar-section ul li {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1124, ../sass/screen.scss */
+  /* line 1141, ../sass/screen.scss */
   .style6 .top-bar-section ul li {
     background-color: transparent;
     border: none;
   }
 }
-/* line 1134, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .style6 .top-bar-section ul li:hover {
   background-color: #ffffb2;
 }
 @media screen and (min-width: 40.063em) {
-  /* line 1134, ../sass/screen.scss */
+  /* line 1151, ../sass/screen.scss */
   .style6 .top-bar-section ul li:hover {
     background-color: transparent;
   }
 }
-/* line 1158, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .style6 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
   background-color: white;
   border-bottom: 1px solid yellow;
 }
-/* line 1163, ../sass/screen.scss */
+/* line 1180, ../sass/screen.scss */
 .style6 .top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {
   background-color: #ffffb2;
   border-bottom: 1px solid yellow;

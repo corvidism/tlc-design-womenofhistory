@@ -458,10 +458,11 @@ label {
       padding-bottom:$padsize;
       margin:0;
       margin-left:0.001rem;
-      margin-bottom:-4px;
+      //margin-bottom:-2px;
       position:relative;
       border-left:3px solid transparent;
       display:none;
+      padding-top:0.1em;
       //padding-left:$padsize;
       //padding:0 $padsize;
       //border:1px solid transparent;
@@ -532,6 +533,7 @@ label {
       
       .woman-cont {
         margin-left:2rem;
+        padding-top:$padsize;
       }
     } 
   }
@@ -620,6 +622,10 @@ label {
 #sort-actions {
   text-align:right;
   padding-right:$padsize;
+  
+  .f-dropdown {
+    text-align:left;
+  }
   
   label {
     display:inline;
@@ -839,6 +845,10 @@ div.portrait-img {
     padding-bottom:1em;
   }
   
+  #list-box li.woman {
+    display:block;
+  }
+  
   .woman .description {
     margin-top:$padsize;
     margin-bottom:2*$padsize;
@@ -1031,6 +1041,13 @@ $num:length($colorsets);
         }          
       }
       */
+     
+     ol li.woman {
+          .img-side {
+            //faded out bg_color
+            background-color:fade-out($bg_color,0.8);
+          }
+      }
       
       #list-box.interactive {
         li.woman {
