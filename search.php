@@ -248,7 +248,7 @@ logme($query);
 		</div>
 			
 			
-			<ol>
+			<ol class="row">
 			<?php
 			
 			foreach($women as $index=>$woman) {
@@ -256,7 +256,7 @@ logme($query);
 			?>
 				<li class="woman <?php
 					echo 'page-'.(floor($index/10)+1); //page number
-				 ?>" id="woman-<?php echo $woman['id']; ?>">
+				 ?> small-12 columns" id="woman-<?php echo $woman['id']; ?>">
 					<?php
 						$image =  get_image("women/images/",$woman['id'],'300h');
 						if ($image) {

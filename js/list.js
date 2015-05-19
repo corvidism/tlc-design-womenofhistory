@@ -1,3 +1,34 @@
+xxlargeScreen['in']=function() {
+	console.log("x-large in");
+	$("#wrapper").css("max-width","110rem");
+	var women = $("li.woman");
+	women.addClass("large-6");
+	women.css("margin-top","-5rem");
+	women.first().css("margin-top","0");
+	$("li.woman:odd").addClass("large-offset-6");
+	var img	=$(".portrait-img img");
+	var oldImage = img.attr("src");
+	img.attr("src",oldImage.replace("_1000h",""));
+	//add class large-12
+	//change wrapper width
+};
+
+xxlargeScreen['out']=function(){
+	console.log("x-large out");
+	$("#wrapper").css("max-width","62.5rem");
+	$("li.woman").removeClass("large-6").css("margin-top","0");
+	$("li.woman:odd").removeClass("large-offset-6");
+	var img	=$(".portrait-img img");
+	var oldImage = img.attr("src");
+	img.attr("src",oldImage.replace(".","_1000h."));
+	//same as above, only backwards
+};
+
+enquire.register("screen and (max-width:"+ xxlargeScreen.min +")", {
+	match: xxlargeScreen['out'],
+}).register("screen and (min-width:"+ xxlargeScreen.min+")", {
+	match: xxlargeScreen['in'],
+});
 
 function makeDropdown(select) {
 	var name = select.attr("name");

@@ -1,3 +1,26 @@
+xxlargeScreen['in']=function() {
+	console.log("x-large in");
+	$("#wrapper").css("max-width","110rem");
+	var lists = $("li.list");
+	//lists.addClass("large-6");
+	//lists.css("margin-top","-3rem");
+	//lists.first().css("margin-top","0");
+	//$("li.list:odd").addClass("large-offset-3");	
+};
+
+xxlargeScreen['out']=function(){
+	console.log("x-large out");
+	$("#wrapper").css("max-width","62.5rem");
+	//$("li.list").removeClass("large-6").css("margin-top","0");
+	//$("li.list:odd").removeClass("large-offset-3");
+};
+
+enquire.register("screen and (max-width:"+ xxlargeScreen.min +")", {
+	match: xxlargeScreen['out'],
+}).register("screen and (min-width:"+ xxlargeScreen.min+")", {
+	match: xxlargeScreen['in'],
+});
+
 $("#sort-actions .f-dropdown a").click(function(e){
 	var clicked = $(this);
 	var drop = clicked.closest(".f-dropdown");

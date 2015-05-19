@@ -1,5 +1,5 @@
 smallScreen['in'] = function() {
-		$(".lists").insertAfter(".links");
+		$(".lists").insertAfter(".links").removeClass("moved");
 		//var img = $(".portrait-img img");
 		//var height = img.height();	
 		//img.css("top",-height/3);
@@ -8,9 +8,35 @@ smallScreen['in'] = function() {
 
 largeScreen['in']=function() {
 		console.log("moving lists");
-		$(".lists").insertAfter(".portrait-img");
+		$(".lists").insertAfter(".portrait-img").addClass("moved");
 		//$(".portrait-img img").css("top","0");
 };
+
+xxlargeScreen['in']=function() {
+	console.log("x-large in");
+	$("#wrapper").css("max-width","110rem");
+	$("article.woman > .row > header").removeClass("large-5").addClass("large-4");
+	$(".specs").css("margin-top","5rem");
+	$(".inner > .row").children(".columns").addClass("large-6");
+	$(".lists.moved").removeClass("large-6");
+	//add class large-12
+	//change wrapper width
+};
+
+xxlargeScreen['out']=function(){
+	console.log("x-large out");
+	$("#wrapper").css("max-width","62.5rem");	
+	$("article.woman > .row > header").removeClass("large-4").addClass("large-5");
+	$(".specs").css("margin-top","0");
+	$(".inner > .row").children(".columns").removeClass("large-6");
+	//same as above, only backwards
+};
+
+enquire.register("screen and (max-width:"+ xxlargeScreen.min +")", {
+	match: xxlargeScreen['out'],
+}).register("screen and (min-width:"+ xxlargeScreen.min+")", {
+	match: xxlargeScreen['in'],
+});
 
 enquire.register("screen and (max-width:"+ smallScreen.max+")", {
 	match: smallScreen['in'],

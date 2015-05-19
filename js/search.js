@@ -11,6 +11,33 @@ search = {
 	'dropdowns': {},
 };
 
+xxlargeScreen['in']=function() {
+	console.log("x-large in");
+	$("#wrapper").css("max-width","110rem");
+	var women = $("li.woman");
+	women.addClass("large-6");
+	women.css("margin-top","-5rem");
+	women.first().css("margin-top","0");
+	$("li.woman:odd").addClass("large-offset-6");	
+	
+	//add class large-12
+	//change wrapper width
+};
+
+xxlargeScreen['out']=function(){
+	console.log("x-large out");
+	$("#wrapper").css("max-width","62.5rem");
+	$("li.woman").removeClass("large-6").css("margin-top","0");
+	$("li.woman:odd").removeClass("large-offset-6");
+	//same as above, only backwards
+};
+
+enquire.register("screen and (max-width:"+ xxlargeScreen.min +")", {
+	match: xxlargeScreen['out'],
+}).register("screen and (min-width:"+ xxlargeScreen.min+")", {
+	match: xxlargeScreen['in'],
+});
+
 $("#add-query").click(function(e) {
 	//copy search block
 	//clear contents
@@ -205,11 +232,11 @@ $(window).scroll(function() {
 		list.page++;
 		var women = $("li.woman");
 		if ($("li.woman:visible").length==women.length) {
-			$("li.woman").last().after('<div id="end-of-results" class="notice">No more results.</div>');
+			$("li.woman").last().after('<div id="end-of-results" class="notice small-12 columns">No more results.</div>');
 			list.complete = true;
 			list.loading = false;
 		} else {
-			$("li.woman:visible").last().after('<div id="loader" class="notice">loading...</div>');
+			$("li.woman:visible").last().after('<div id="loader" class="notice small-12 columns">loading...</div>');
 			setTimeout(loadMore,2000);
 		}		
 	}

@@ -49,7 +49,7 @@ require_once 'header.php';
 		<div id="side-col" class="small-12 medium-4 columns">
 		<div class="row colapse">
 			<?php
-			$image =  get_image("lists/images/",$list['id']);
+			$image =  get_image("lists/images/",$list['id'],'1000h');
 			if ($image) : ?>
 				<div class="portrait-img small-12 columns">
 					<img src="<?php echo $image; ?>" class="portrait" />
@@ -69,7 +69,7 @@ require_once 'header.php';
 	</div>
 		
 		<div id="list-box" class="small-12 medium-7 large-8 columns">
-			<ol>
+			<ol class="row">
 			<?php
 			
 			foreach($women as $index=>$woman) {
@@ -77,7 +77,7 @@ require_once 'header.php';
 				//name
 			?>
 			
-			<li class="woman">
+			<li class="woman small-12 columns">
 					<?php
 						$image =  get_image("women/images/",$woman['id'],'300h');
 						if ($image) {

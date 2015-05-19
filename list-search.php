@@ -32,15 +32,15 @@ $lists = $data_source->getAllPublicLists();
 								<option value="name">list tagline</option>
 								<option value="place_born">list description</option>
 								<option value="place_died">list comments</option>								
-			</select>
+				</select>
 			</div>
 			<div class="select">
-			<select name="strict">
-				<option value="no">contains</option>
-				<option value="yes">contains precisely</option>
-			</select>
+				<select name="strict">
+					<option value="no">contains</option>
+					<option value="yes">contains precisely</option>
+				</select>
 			</div>
-			<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something">
+				<input type="text" class="field-input" name="value" autocomplete="off" placeholder="something">
 			</div>
 			
 			<div class="right"><button id="submit-button" type="submit">Search</button></div>
@@ -48,16 +48,16 @@ $lists = $data_source->getAllPublicLists();
 		</form>
 		
 	</section>		
-	<div id="list-box" class="medium-7 large-7 columns">
+	<div id="list-box" class="medium-7 large-8 columns">
 		<?php
 			if ($lists === null) : ?>
 				<p class="no-result">
 					Sorry, nothing matches this query.
 				</p>
 		<?php ; else :?>
-			<ol>
+			<ol class='row'>
 			<?php foreach($lists as $list) : ?>
-				<li>
+				<li class="list small-12 columns">
 					<?php
 						$image =  get_image("lists/images/",$list['id'],'300h');
 						if ($image) {
@@ -67,10 +67,12 @@ $lists = $data_source->getAllPublicLists();
 							echo '<div class="img-side"></div>';
 						}
 					?>
+					<div class="list-cont">
 					<h3><a href="list.php?id=<?php echo $list['id']; ?>"><?php echo $list['title']; ?></a></h3>
 					<p class="search-tagline">
 						<?php echo $list['tagline'];?>
 					</p>
+					</div>
 				</li>
 		<?php endforeach; ?>
 			</ol>

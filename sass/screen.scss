@@ -67,6 +67,7 @@ body {
 
 a {
   color:$grey;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 p a {
@@ -184,6 +185,10 @@ label {
     z-index:-1;
     }
   }
+}
+
+button {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 /************** TOPBAR **************/
@@ -389,7 +394,7 @@ label {
 
 #nonpriv-groups {
   margin-top:$padsize;
-  margin-bottom:$padsize;
+  margin-bottom:$padsize*3;
   font-size:$ms0;
   
   .show-only {
@@ -518,6 +523,7 @@ label {
         -webkit-background-size: left 100%, auto;
         background-size: left 100%, auto;
         cursor:pointer;
+        background-clip:padding-box;
         
         &:before {
           content:"";
@@ -683,6 +689,7 @@ article.woman {
   //padding:$padsize;
   //width:auto;
     
+   
   .category_and_tags div, .non_priv_groups div {
     margin-bottom:$padsize/2;
   }
@@ -717,8 +724,9 @@ article.woman {
       margin-bottom:$padsize;
     }
     
-    a {
+    ul li a {
       text-decoration:none;
+      -moz-hyphens: none;
     }
     
     
@@ -728,8 +736,12 @@ article.woman {
   .inner {
     margin-bottom:$padsize*2;
     
-    h3,h4 {
+    h4 {
       margin-top:0.2em;
+    }
+    
+    h3 {
+      margin-top:$padsize*2;
     }
   }
     
@@ -745,10 +757,16 @@ article.woman {
   
   footer {
     clear:both;
+    max-width:110rem;
     margin-top:$padsize;
+    padding-left:$padsize;
     border-top:1px solid $grey;
       padding-top:$padsize;
-  } 
+  }
+  
+  .comments {
+    clear:both;
+  }
   
   
 }
@@ -829,6 +847,7 @@ div.portrait-img {
   }
 }
 
+
 /************** LIST.PHP **************/
 
 #user-list {
@@ -857,6 +876,48 @@ div.portrait-img {
   }
 }
 
+#side-col {
+  max-width:25rem;
+}
+/*************** LIST-SEARCH.PHP *******************/
+#list-box li.list {
+  position:relative;
+  padding-top:0.001em;
+  padding-bottom:0.001em;
+  
+  .img-side {
+        width:1rem;
+        position:absolute;
+        height:100%;
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        border-left:1px solid transparent;
+        background-repeat:no-repeat;
+        background-position:center center;
+        -o-background-size: left 100%, auto;
+        -moz-background-size: left 100%, auto;
+        -webkit-background-size: left 100%, auto;
+        background-size: left 100%, auto;
+        cursor:pointer;
+        
+        &:before {
+          content:"";
+          display:block;
+          position:absolute;
+          height:100%;
+          width:100%;          
+        }        
+      }
+      
+      .list-cont {
+        margin-left:2rem;
+        padding-top:$padsize;
+        max-width:30rem;
+      }
+  
+}
+
 
 /************** FOOTER **************/
 
@@ -871,14 +932,334 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
 
 $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#abc);
 
-$colorsets: (#B72EFF,#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
+$colorsets: (#FFA508,#FFFF7C,white) (#B72EFF,#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
 //good: #226666
 //bad: (#ff0063,shade(#ff0063,60%),black)
 // (accent,background top, background bottom)
 
 $num:length($colorsets);
 
-@for $i from 1 through $num {
+.style1 {
+      //$colors:(orange,white,#ddd);E0DED2
+      //$colors:(orange,white,#E0DED2,#EF5913);
+      //$colors:(orange,white,white,#EF5913);
+      $colors:(orange,#F8EA9F,white,#EF5913);
+      //$colors: nth($colorsets, 1);
+      $accent:nth($colors,1);
+      $bg_color:nth($colors,2);
+      $bg_base:nth($colors,3);
+      $grey:nth($colors,4);
+      //$grey: fade-out($accent,0.3);
+      //$grey:tint($accent,0.3);
+      //$grey:contrast-color($bg_base, saturate(shade($accent, 20%),50%), tint($accent, 20%),50%);
+      //$grey:mix($accent,$bg_color,70%);
+      //$grey:$accent;
+      //$accent:mix($grey,$bg_color,70%);
+      
+      //$bg_color:#a02035;
+      //$bg_base: black;
+      //$bg_color:mix($accent,$bg_base,45%);
+      //$type_color:invert($bg_base);
+      $type_color: contrast-color($bg_base, shade($bg_base, 90%), tint($bg_base, 90%),50%);
+      //$bg_base:white;
+      //$type_color: contrast-color($bg_base);
+     
+      background: $bg_color; /* Old browsers */
+      background: $bg_base -moz-linear-gradient(top, $bg_color 0%, $bg_base 50%); /* FF3.6+ */
+      background: $bg_base -webkit-gradient(linear, left top, left bottom, color-stop(0%,$bg_color), color-stop(50%,$bg_base)); /* Chrome,Safari4+ */
+      background: $bg_base -webkit-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* Chrome10+,Safari5.1+ */
+      background: $bg_base -o-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* Opera 11.10+ */
+      background: $bg_base -ms-linear-gradient(top, $bg_color 0%,$bg_base 50%); /* IE10+ */
+      background: $bg_base linear-gradient(to bottom, $bg_color 0%,$bg_base 50%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg_color', endColorstr='$bg_base',GradientType=0 ); /* IE6-9 */
+      background-repeat:no-repeat;
+      color:$type_color !important;
+      
+      
+      #searchform {
+        //font-size:2.15rem;
+      }
+      
+      .f-dropdown, #searchform .dropdown li {
+        background-color:$bg_base;
+      }
+      .f-dropdown {
+        border:1px solid fade-out($grey,0.2);
+        &::before {
+          border-bottom-color:$bg_base;
+        }
+        
+        &::after {
+          border-bottom-color:$grey;
+        }
+      }
+      
+      .f-dropdown li, #searchform .dropdown li {
+        border-bottom-color:$bg_color;
+        a {
+          color:$grey;
+        }
+        
+        &:hover a {
+          color:$accent;
+        }
+      }
+      
+      #searchform .dropdown li:hover,
+      .f-dropdown li:hover {
+        background-color:mix($bg_color,$bg_base,30%);
+      }
+      
+      //"grey":
+      a,
+      h1,h2,h3,h4,
+      #searchform .logic,
+      #select-women,
+      .select:hover,
+      #list-sort-controls,
+      #submit-button
+      {
+        color:$grey;
+      }
+      
+      select:hover option {
+        color:$type_color;
+      }
+    
+      #searchform input {
+        &:-moz-placeholder { /* Firefox 18- */
+          color:$accent;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          color:$accent;
+        }
+        &:-ms-input-placeholder {
+          color:$accent;
+        }
+        &::-webkit-input-placeholder {
+          color:$accent;
+        }
+      }
+      
+      #searchform .logic {
+        color:fade-out($accent,0.7);
+        
+        em {
+          color:$type_color;
+        }
+      }
+      
+      //grey border
+      input[type='text']:hover,
+      .select:hover,
+      .switch-box .switch label,
+      .thumb-placeholder,
+      footer {
+        border-color:$grey !important;
+      }
+      
+      .switch-box .switch input:checked + label,
+      .thumb-placeholder,
+      a:focus,
+      a:active,
+      #submit-button:active,
+      #submit-button:focus
+       {
+        background-color:fade-out($bg_color,0.7) !important;
+      }
+      
+      .switch-box .switch label::after {
+        background-color:$accent;
+      }
+      
+      //faded out grey 
+      .category_and_tags,
+      .non_priv_groups,
+      .tags {
+        color:contrast-color($bg_base, shade($type_color,30%), tint($type_color, 30%),50%);
+        //color:fade-out($accent,0.5);
+      }
+      
+      
+      //accent
+      a:hover,a:focus,
+      #submit-button:hover,
+      .woman.selected h3 a,
+      #menutitle,
+      .description p:before,
+      #list-box.interactive li.woman:hover 
+       {
+        color: $accent !important;
+      }
+      
+      /*
+      #list-box.interactive li.woman .img-side {
+          background-color:fade-out($bg_color,0.8);
+      }
+      */
+     /*
+      
+      #list-box.interactive li.woman:hover, #list-box.interactive li.woman.selected {
+        
+        .img-side{
+          background-color:transparent;
+          
+          &:before {
+            background-color:fade-out($accent,0.5);
+          }
+        }          
+      }
+      */
+     
+     ol li.woman, ol li.list {
+          .img-side {
+            //faded out bg_color
+            background-color:fade-out($bg_color,0.8);
+          }
+      }
+      
+      #list-box.interactive {
+        li.woman {
+          .img-side {
+            //faded out bg_color
+            background-color:fade-out($bg_color,0.8);
+          }
+          
+          .img-side.img-set {
+            //nothing more
+          }
+          
+          &:hover {
+            .img-side {
+              //+accent border
+              border-left-color:$accent;
+            }
+            
+            .img-side.img-set {
+              //+:before overlay
+              //no border
+              //border-left-color:transparent;
+              
+              &:before {
+              background-color:fade-out($accent,0.5);
+            }
+              
+            }            
+          }
+        }
+        
+        li.woman.selected {
+          .img-side {
+            //overlay
+            background-color:transparent; //needed so the colors don't mix
+            
+            &:before {
+                background-color:fade-out($accent,0.5);
+              }
+              
+              
+              
+              .img-side.img-set {
+                //overlay
+              }
+              
+          }
+          
+          &:hover {
+            .img-side {
+                //border + overlay
+                //this should inherit previous
+              }
+            .img-side.img-set {
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
+             }
+            
+          }
+      }
+    }
+      
+      /*
+      #list-box.interactive li.woman:hover .img-side.wide {
+        &:before {
+          background-color:transparent;
+        }
+      }
+      */
+      //not used anymore, keeping it in case I change my mind
+      
+      /************** TOPBAR **************/
+     
+
+        .top-bar {
+          
+          .toggle-topbar a {
+            color:$accent;
+          }
+          
+        }
+        
+        .top-bar.expanded .title-area {
+          //background-color:$bg_base;
+        }
+        
+        
+        .top-bar-section {
+          
+          ul li{
+            background-color:$bg_base;
+            border-bottom:1px solid $bg_color;
+             @media screen and (min-width: $medium) {
+                background-color:transparent; 
+                border:none;     
+              }
+            
+          }
+          
+          ul li:hover {
+            background-color:mix($bg_color,$bg_base,30%);
+            @media screen and (min-width: $medium) {
+                background-color:transparent; 
+                     
+              }
+          }
+          
+          li:not(.has-form) {
+            a:not(.button)  {
+              //background-color:$bg_base;
+            }
+            
+            a:hover:not(.button) {
+              //background-color:$bg_base;
+            }    
+          }
+          
+          ul li:hover:not(.has-form) > a {
+              //background-color:$bg_base;
+          }
+          
+          .dropdown {
+            
+            li:not(.has-form):not(.active) > a:not(.button) {
+              background-color:$bg_base;
+              border-bottom:1px solid $bg_color;
+            }
+            
+            li:hover:not(.has-form):not(.active) > a:not(.button) {
+              background-color:mix($bg_color,$bg_base,30%);
+              border-bottom:1px solid $bg_color;
+            }
+            
+          }  
+          
+        }
+
+        
+    }
+
+
+@for $i from 2 through $num {
   
     .style#{$i} {
       $colors: nth($colorsets, $i);
@@ -887,7 +1268,7 @@ $num:length($colorsets);
       $bg_base:nth($colors,3);
       //$grey: fade-out($accent,0.3);
       //$grey:tint($accent,0.3);
-      $grey:contrast-color($bg_base, shade($accent, 50%), tint($accent, 50%),50%);
+      $grey:contrast-color($bg_base, shade($accent, 20%), tint($accent, 20%),50%);
       //$bg_color:#a02035;
       //$bg_base: black;
       //$bg_color:mix($accent,$bg_base,45%);
@@ -990,7 +1371,10 @@ $num:length($colorsets);
       }
       
       .switch-box .switch input:checked + label,
-      .thumb-placeholder
+      .thumb-placeholder,
+      a:active
+      button:active,
+      button:focus
        {
         background-color:fade-out($bg_color,0.7) !important;
       }
@@ -1038,7 +1422,7 @@ $num:length($colorsets);
       }
       */
      
-     ol li.woman {
+     ol li.woman, ol li.list {
           .img-side {
             //faded out bg_color
             background-color:fade-out($bg_color,0.8);
@@ -1065,7 +1449,7 @@ $num:length($colorsets);
             .img-side.img-set {
               //+:before overlay
               //no border
-              border-left-color:transparent;
+              //border-left-color:transparent;
               
               &:before {
               background-color:fade-out($accent,0.5);
