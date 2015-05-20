@@ -40,13 +40,15 @@ require_once 'header.php';
 				<header class="small-12 columns">
 				<h2 class="name"><?php echo $woman['name'] ?></h2>
 				<p class="tagline"><?php echo $woman['tagline'] ?></p>	
+				<p id="edit-header" class="notice edit-link"><a href="">Edit</a> name and tagline.</p>
 				</header>			
 			<?php 
 			$tagline_done=true;
 			else :
 				$tagline_done=false;
 				echo '<div class="portrait-img small-12 columns">
-					<img src="'.$image.'" class="portrait" />	
+					<img src="'.$image.'" class="portrait" />
+					<p id="edit-portrait" class="notice edit-link"><a href="">Edit</a> portrait.</p>	
 				</div>';
 				echo '<div class="other-portraits">';
 				for ($i =0; $i <= rand(0, 5);$i++) {
@@ -55,7 +57,8 @@ require_once 'header.php';
 						echo '<div class="img-box"><img src="'.$rnd_img.'"></div>';
 					}					 
 				}
-				echo '</div>'; 
+				echo '
+				</div>'; 
 			endif; ?>			
 		</div>			
 	</div>
@@ -65,12 +68,13 @@ require_once 'header.php';
 			if (!$tagline_done) {
 				echo '<h2 class="name">'.$woman['name'].'</h2>';
 				echo '<p class="tagline">'.$woman['tagline'].'</p>';
+				echo '<p id="edit-header" class="notice edit-link"><a href="">Edit</a> name and tagline.</p>';
 			} else {
 				echo '<p></p>';
 			}
 		?>
 	</header>
-	<div class="specs medium-8 large-8 columns">
+	<div id="specs" class="specs medium-8 large-8 columns">
 			<div class="category">
 				<?php
 					if ($woman['category']) {
@@ -130,6 +134,7 @@ require_once 'header.php';
 						echo implode(", ",$taglinks); 
 					?>
 				</div>	
+			<p id="edit-specs" class="notice edit-link"><a href="">Edit</a> category, tags and identity info.</p>
 		</div>
 	<div class="inner small-12 medium-8 end columns">
 		<div class="row">
@@ -149,8 +154,10 @@ require_once 'header.php';
 					echo '<p class="notice">There is no story for '.$woman['name'].'. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit the page</a> to tell it.</p>';
 				} else {
 					echo $woman['story']; 
+					echo '<p id="edit-story" class="notice edit-link"><a href="">Edit</a> story.</p>';
 				};
 			?>
+			
 		</div>
 		
 		
@@ -164,8 +171,9 @@ require_once 'header.php';
 				<ul class="inventions">
 					<li></li>
 				</ul>
+				<p id="edit-portrait" class="notice edit-link"><a href="">Edit</a> successes.</p>
 			</div>
-			<div class="links small-12 columns">
+			<div id="links" class="links small-12 columns">
 				<h3>Links</h3>
 				<?php
 				$links = $data_source->getLinksByWoman($woman['id']);
@@ -182,8 +190,9 @@ require_once 'header.php';
 					<?php 
 					endforeach;
 					echo "</ul>";
+					echo '<p id="edit-links" class="notice edit-link"><a href="">Edit or add</a> links.</p>';
 				endif;		
-				?>
+				?>				
 			</div>	
 			
 			<div class="lists small-12 columns">
@@ -212,7 +221,7 @@ require_once 'header.php';
 			endforeach;
 			?>
 			</ul>
-			<p class="notice"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
+			<p id="edit-lists" class="notice edit-link"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
 		</div>
 		<div class="comments small-12 columns">
 			<h3>Comments (4)</h3>
@@ -234,7 +243,20 @@ require_once 'header.php';
 			</footer>
 	</div>
 </article>
-
+<div id="modals">
+  <div id="modalLinks" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: About links</h3>
+  <p>This is something about links. How would they work? Also image, probably.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="next">Next</a>
+</div>
+<div id="modalLists" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: About lists</h3>
+  <p>Woop woop.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="next">Next</a>
+</div>
+</div>
 			
 <?php
 require_once 'footer.php';

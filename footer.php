@@ -44,6 +44,50 @@
 				$("body").removeClass(pageStyle['all'][oldStyle]).addClass(pageStyle['all'][pageStyle['now']]);
 				e.preventDefault();
 			});
+			
+			
+			tour= {
+				'start':function(){
+					$("#"+tour.stops[0]).foundation('reveal','open');
+				},
+				'next':function(el){
+					var id = $(el).closest(".reveal-modal").attr("id");
+					console.log("this id:" +id);
+					var nextId = tour.stops[tour.stops.indexOf(id)+1];
+					console.log("next id:"+nextId);
+					if (nextId>=tour.stops.length || $("#"+nextId).length == 0) {
+						console.log("no next");
+						$("#"+id).foundation('reveal','close');
+					} else {
+						$("#"+nextId).foundation('reveal','open');
+					}
+				},
+				'init':function(){
+					modals = $("#modals .reveal-modal");
+					if (modals.length == 0) {return false};
+					modals.each(function(){
+						var id = $(this).attr("id");
+						if (id!= null || id!='') {
+							tour.stops.push($(this).attr("id"));
+						}						
+					});
+					
+				},
+				'stops':[],
+			}
+			tour.init();
+			
+			$("#modals .next").click(function(){
+				console.log("next please");
+				tour.next(this);
+			});
+			
+			$("#explain").click(function(e){
+				if (tour.stops.length!=0) {
+					tour.start();
+				}
+				e.preventDefault();
+			});
 		</script>
 		<?php
 		if (isset($page['id'])) {

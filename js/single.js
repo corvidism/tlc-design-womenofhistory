@@ -45,3 +45,48 @@ enquire.register("screen and (max-width:"+ smallScreen.max+")", {
 });
 
 
+//when hover over
+//header
+//story
+//links
+//lists
+//stats
+
+//clickables = [];
+clickables = ['header','.specs','.story','.links','.lists'];
+
+
+for (var i=0;i<clickables.length;i++) {
+	$(clickables[i]).hover(function(e){
+		$(this).find(".edit-link").show();
+	},function(e){
+		$(this).find(".edit-link").hide();
+	});
+}
+
+editing = {
+	'edit-header':function(){
+		console.log("editing header");
+	},
+	'edit-story':function(){
+		
+	},
+	'edit-links':function(){
+		$('#modalLinks').foundation('reveal','open');
+	},
+	'edit-':function(){
+		
+	},	
+};
+
+
+$(".edit-link").click(function(e){
+	e.preventDefault();
+	var what = $(this).attr("id");
+	
+	console.log(what);
+	if(typeof editing[what] == 'function') {
+		editing[what]();
+	}
+		
+});

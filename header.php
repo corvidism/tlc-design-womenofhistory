@@ -35,7 +35,7 @@ require_once 'site_settings.php';
 		
 	    <script src="js/vendor/modernizr.js"></script>
   </head>
-	<body class="no-js style1" id="" >
+	<body class="no-js style1" id="<?php if(isset($page['id'])) {echo $page['id'];}?>" >
 	<nav class="top-bar" data-topbar role="navigation">	
 		<ul class="title-area">
 		    <li class="name">
@@ -56,7 +56,7 @@ require_once 'site_settings.php';
 			      <a href="#">User Name</a>
 			      <ul class="dropdown">
 			      	<li><a href="#">About this demo</a></li>
-			      	<li><a id="joyride-start" href="#">Explain this page</a></li>
+			      	<li><a id="explain" href="#">Explain this page</a></li>
 			      	<li><a href="#" id="style-switch">Cycle through "sister site" style variants.</a></li>
 			        <li><a href="#"><strike>My lists</strike></a></li>
 					<li><a href="#"><strike>Settings</strike></a></li>

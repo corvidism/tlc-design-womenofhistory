@@ -774,7 +774,7 @@ article.woman {
 p.tagline {
     font-size:$ms1;
     line-height:1.2;
-    padding-bottom:1em;
+    //padding-bottom:1em;
 }
 
 .thumb-box {
@@ -847,6 +847,21 @@ div.portrait-img {
   }
 }
 
+.edit-link {
+  display:none;
+}
+
+#edit-header {
+  margin-top:-$padsize;
+}
+
+#edit-story {
+  margin-top:-1rem;
+}
+
+#edit-portrait, #edit-specs {
+  margin-top:0.5rem;
+}
 
 /************** LIST.PHP **************/
 
