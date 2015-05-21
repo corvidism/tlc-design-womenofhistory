@@ -67,7 +67,7 @@ class DataSource
 	public function getAllWomen() {
 		if (!isset($this->db_calls['women']) || !$this->db_calls['women'] instanceof PDOStatement) {
 			$columns_needed = $this->display_cols;
-			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women`";
+			$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` ORDER BY id desc";
 			$this->db_calls['women'] = $this->db->query($query_str);			
 		}
 		$women = $this->db_calls['women']->FetchAll();
@@ -101,6 +101,8 @@ class DataSource
 		$value = $params['value'];
 		$strict = ($params['strict']=='yes')?true:false;
 		$nonpriv_groups = $params['nonpriv_groups'];
+		$order_by = isset($params['order_by'])?$params['order_by']:'id';
+		$sort = isset($params['sort'])?$params['sort']:'desc';
 		
 		$columns_needed = $this->display_cols;
 		
@@ -145,7 +147,7 @@ class DataSource
 			$quoted_col = $this->quoteField($search_col);
 			if ($strict) {
 				$field_part = $quoted_col." LIKE :value";
-				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part;
+				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part." ORDER BY ".$order_by." ".$sort;
 				$this->db_calls['search_women'] = $this->db->prepare($query_str);
 				$this->db_calls['search_women']->bindValue(":value","%".$value."%");
 				//WRONG BEHAVIOR. On strict, it should match whole words only, not parts. Solution: REGEXP, FULLTEXT indexing the table, ? 						
@@ -157,7 +159,7 @@ class DataSource
 					$v_array[]=$quoted_col." LIKE (:value)";
 				};
 				$field_part = implode(" AND ",$v_array);
-				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part;
+				$query_str = "SELECT ".implode(",",$columns_needed)." FROM `women` WHERE ".$field_part." ORDER BY ".$order_by." ".$sort;
 				$this->db_calls['search_women'] = $this->db->prepare($query_str);
 				$this->db_calls['search_women']->bindValue(":value","%".$value."%");
 				
@@ -168,16 +170,14 @@ class DataSource
 				$results[$search_col] = $this->db_calls['search_women']->FetchAll();
 				
 			} else {
-				return null;
+				$results[$search_col] = array();
 			}; 			
-		}
-		
-		
+		}		
 		//merge results:
 		$women = array_unique(call_user_func_array("array_merge", $results),SORT_REGULAR);
 		//future: possibly signalize in what column it was found?
 		
-		if (!is_null($nonpriv_groups)) {
+		if (!sizeof($nonpriv_groups)==0) {
 			foreach ($women as $index=>$woman) {
 				$matched = false;
 				if (in_array('is_poc', $nonpriv_groups)) {
