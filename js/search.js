@@ -87,9 +87,10 @@ $("#add-query").click(function(e) {
 });
 
 
-$("li.woman").click(function(e){
+$("li.woman .img-side").click(function(e){
 	if (e.target.nodeName == "A") return true;
-	woman=$(this);
+	//woman=$(this);
+	var woman = $(this).closest("li.woman");
 	oldSelected = list.selected;
 	if (woman.hasClass("selected")) {
 		woman.removeClass("selected");

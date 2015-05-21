@@ -1111,7 +1111,7 @@ $num:length($colorsets);
       .woman.selected h3 a,
       #menutitle,
       .description p:before,
-      #list-box.interactive li.woman:hover 
+      //#list-box.interactive li.woman:hover 
        {
         color: $accent !important;
       }
@@ -1156,7 +1156,12 @@ $num:length($colorsets);
           &:hover {
             .img-side {
               //+accent border
-              border-left-color:$accent;
+              //border-left-color:$accent;
+              
+              &:before {
+              background-color:fade-out($accent,0.5);
+              }
+              
             }
             
             .img-side.img-set {
@@ -1175,28 +1180,29 @@ $num:length($colorsets);
         li.woman.selected {
           .img-side {
             //overlay
-            background-color:transparent; //needed so the colors don't mix
+            //background-color:transparent; //needed so the colors don't mix
+            background-color:fade-out($accent,0.5);
             
-            &:before {
-                background-color:fade-out($accent,0.5);
-              }
-              
-              
-              
-              .img-side.img-set {
-                //overlay
-              }
               
           }
+          .img-side.img-set {
+                //overlay
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
+            }
           
           &:hover {
             .img-side {
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
                 //border + overlay
                 //this should inherit previous
               }
             .img-side.img-set {
                 &:before {
-                  background-color:fade-out($accent,0.5);
+                  background-color:fade-out($accent,0.2);
                 }
              }
             
