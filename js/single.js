@@ -53,7 +53,7 @@ enquire.register("screen and (max-width:"+ smallScreen.max+")", {
 //stats
 
 //clickables = [];
-clickables = ['header','.specs','.story','.links','.lists'];
+clickables = ['header','.specs','.story','.links','.lists','.portrait-img'];
 
 
 for (var i=0;i<clickables.length;i++) {
@@ -67,6 +67,11 @@ for (var i=0;i<clickables.length;i++) {
 editing = {
 	'edit-header':function(){
 		console.log("editing header");
+		//oldContent = $("header").detach();
+		//newContent = $("<header></header>")
+		//replace the things with input fields/textareas
+		//and a "done" link
+		//when clicked, update the original
 	},
 	'edit-story':function(){
 		
@@ -74,9 +79,10 @@ editing = {
 	'edit-links':function(){
 		$('#modalLinks').foundation('reveal','open');
 	},
-	'edit-':function(){
+	'edit-portrait':function(){
+		$('#modalPortrait').foundation('reveal','open');
+	},
 		
-	},	
 };
 
 

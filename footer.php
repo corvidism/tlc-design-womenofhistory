@@ -52,11 +52,11 @@
 				},
 				'next':function(el){
 					var id = $(el).closest(".reveal-modal").attr("id");
-					console.log("this id:" +id);
+					//console.log("this id:" +id);
 					var nextId = tour.stops[tour.stops.indexOf(id)+1];
-					console.log("next id:"+nextId);
+					//console.log("next id:"+nextId);
 					if (nextId>=tour.stops.length || $("#"+nextId).length == 0) {
-						console.log("no next");
+						//console.log("no next");
 						$("#"+id).foundation('reveal','close');
 					} else {
 						$("#"+nextId).foundation('reveal','open');
@@ -78,7 +78,7 @@
 			tour.init();
 			
 			$("#modals .next").click(function(){
-				console.log("next please");
+				//console.log("next please");
 				tour.next(this);
 			});
 			

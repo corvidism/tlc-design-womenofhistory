@@ -11,6 +11,8 @@ search = {
 	'dropdowns': {},
 };
 
+origTopMargin = $("li.women").css("margin-top");
+
 xxlargeScreen['in']=function() {
 	console.log("x-large in");
 	$("#wrapper").css("max-width","110rem");
@@ -27,7 +29,7 @@ xxlargeScreen['in']=function() {
 xxlargeScreen['out']=function(){
 	console.log("x-large out");
 	$("#wrapper").css("max-width","62.5rem");
-	$("li.woman").removeClass("large-6").css("margin-top","0");
+	$("li.woman").removeClass("large-6").css("margin-top",origTopMargin);
 	$("li.woman:odd").removeClass("large-offset-6");
 	//same as above, only backwards
 };

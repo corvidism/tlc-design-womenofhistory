@@ -460,7 +460,8 @@ button {
       padding-bottom:$padsize;
       margin:0;
       margin-left:0.001rem;
-      //margin-bottom:-2px;
+      margin-bottom:$padsize;
+      margin-top:0.001em;
       position:relative;
       border-left:3px solid transparent;
       display:none;
@@ -805,6 +806,7 @@ img.thumb {
 
 #side-col {
   @media screen and (min-width: $medium) {
+    max-width:25rem; 
     padding-right:$padsize*2;
   }
 }
@@ -856,11 +858,21 @@ div.portrait-img {
 }
 
 #edit-story {
-  margin-top:-1rem;
+  margin-top:-0.5rem;
 }
 
 #edit-portrait, #edit-specs {
   margin-top:0.5rem;
+}
+
+.reveal-modal {
+  img {
+    width:40%;
+  }
+  .img-left {
+    float:left;
+    margin-right:$padsize;
+  }
 }
 
 /************** LIST.PHP **************/
@@ -891,9 +903,6 @@ div.portrait-img {
   }
 }
 
-#side-col {
-  max-width:25rem;
-}
 /*************** LIST-SEARCH.PHP *******************/
 #list-box li.list {
   position:relative;
@@ -947,7 +956,7 @@ $colors-list: #FF0063 green blue; //indexes from 1? wat?
 
 $color-pairs: (#333,white) (#ff0063,black) (green,black) (green,white) (blue,#abc);
 
-$colorsets: (#FFA508,#FFFF7C,white) (#B72EFF,#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
+$colorsets: (#FFA508,#FFFF7C,white) (#1CBA88,#D3E5E9,white) (#16D491,white,#ddd) (magenta,#333,black) (#B72EFF,#D3E5E9,white) (#00954B,#FFFF7C,white) (#FF4100,yellow,white) (#226666,yellow,white) (#051E94,yellow,white) (#8FA810,yellow,white);
 //good: #226666
 //bad: (#ff0063,shade(#ff0063,60%),black)
 // (accent,background top, background bottom)

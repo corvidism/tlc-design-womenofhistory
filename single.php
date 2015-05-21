@@ -244,6 +244,12 @@ require_once 'header.php';
 	</div>
 </article>
 <div id="modals">
+	<div id="modalPortrait" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: Profile pictures</h3>
+  <img class="img-left" src="misc/images/bits-ideas01-cr-res.jpg" /><p>In the future, the page would enable uploading multiple profile images (just a smaller part of a more complicated version control scheme that would be needed for a site with free editing such as this). I'm considering also an option to add images to links (for example, links to fanart), which could also show up here.</p><p>Having description for images would help with giving proper credit to the authors, necessary for working with creative commons images.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="next">Next</a>
+</div>
   <div id="modalLinks" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h3 id="modalTitle">WIP: About links</h3>
   <p>This is something about links. How would they work? Also image, probably.</p>
