@@ -151,7 +151,7 @@ require_once 'header.php';
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';
-					echo '<p class="notice">There is no story for '.$woman['name'].'. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit the page</a> to tell it.</p>';
+					echo '<p id="edit-story" class="notice">There is no story for '.$woman['name'].'. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit the page</a> to tell it.</p>';
 				} else {
 					echo $woman['story']; 
 					echo '<p id="edit-story" class="notice edit-link"><a href="">Edit</a> story.</p>';
@@ -178,7 +178,7 @@ require_once 'header.php';
 				<?php
 				$links = $data_source->getLinksByWoman($woman['id']);
 				if ($links == null): 
-					echo '<p class="notice">(This record has no links. <a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)</p>';
+					echo '<p id="edit-links" class="notice">(This record has no links. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)</p>';
 				else:
 					echo "<ul>";
 					foreach ($links as $link):?>

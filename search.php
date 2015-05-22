@@ -258,7 +258,7 @@ logme($query);
 					echo 'page-'.(floor($index/10)+1); //page number
 				 ?> small-12 columns" id="woman-<?php echo $woman['id']; ?>">
 					<?php
-						$image =  get_image("women/images/",$woman['id'],'300h');
+						$image =  get_image("women/images/",$woman['id'],'600h');
 						if ($image) {
 							//echo '<img src="'.$image.'">';
 							echo '<div class="img-side img-set" style="background-image:url('.$image.')"></div>';

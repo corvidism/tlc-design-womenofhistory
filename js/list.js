@@ -20,7 +20,10 @@ xxlargeScreen['out']=function(){
 	$("li.woman:odd").removeClass("large-offset-6");
 	var img	=$(".portrait-img img");
 	var oldImage = img.attr("src");
-	img.attr("src",oldImage.replace(".","_1000h."));
+	if (oldImage.indexOf("_") == -1) {
+		img.attr("src",oldImage.replace(".","_1000h."));
+	} 
+	
 	//same as above, only backwards
 };
 

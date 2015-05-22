@@ -373,7 +373,8 @@ button {
   }
   
   div.switch.small label::after {
-    top:0.05rem
+    top:0;
+    margin-top:2%;
     
   }
   
@@ -463,14 +464,9 @@ button {
       margin-bottom:$padsize;
       margin-top:0.001em;
       position:relative;
-      border-left:3px solid transparent;
       display:none;
       padding-top:0.1em;
-      //padding-left:$padsize;
-      //padding:0 $padsize;
-      //border:1px solid transparent;
-      //border-width:1px 0;
-      //border-left:1px solid transparent;
+      padding-left:0;
       
       &.page-1 {
         display:block;
@@ -519,10 +515,14 @@ button {
         border-left:1px solid transparent;
         background-repeat:no-repeat;
         background-position:center center;
-        -o-background-size: left 100%, auto;
-        -moz-background-size: left 100%, auto;
-        -webkit-background-size: left 100%, auto;
-        background-size: left 100%, auto;
+        //-o-background-size: left 100%, auto;
+        //-moz-background-size: left 100%, auto;
+        //-webkit-background-size: left 100%, auto;
+        //background-size: left 100%, auto;
+        -o-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
         cursor:pointer;
         background-clip:padding-box;
         
@@ -698,10 +698,6 @@ article.woman {
   
   .story {
     
-    p:first-child {
-      padding-top:$padsize*2;
-    }
-    
     p {
       margin-bottom:0.8rem;
     }
@@ -754,6 +750,15 @@ article.woman {
     ul li p {
       margin-left:$padsize;
     }
+  }
+  
+  .lists {
+    
+    @media screen and (min-width: $medium) {
+      padding-left:0;
+      padding-right:0;      
+    }
+    
   }
   
   footer {
@@ -849,20 +854,33 @@ div.portrait-img {
   }
 }
 
+#edit-lists, #edit-links {
+  visibility:visible;
+  
+  @media screen and (min-width: $medium) {
+      visibility:hidden;      
+    }
+}
+
+
 .edit-link {
-  display:none;
+  visibility:hidden;
 }
 
 #edit-header {
   margin-top:-$padsize;
 }
 
-#edit-story {
-  margin-top:-0.5rem;
-}
-
 #edit-portrait, #edit-specs {
   margin-top:0.5rem;
+}
+
+#edit-portrait {
+  
+  @media screen and (min-width: $medium) {
+      margin-left:0;      
+    }
+  
 }
 
 .reveal-modal {
@@ -1146,7 +1164,7 @@ $num:length($colorsets);
         li.woman {
           .img-side {
             //faded out bg_color
-            background-color:fade-out($bg_color,0.8);
+            background-color:fade-out($bg_color,0.6);
           }
           
           .img-side.img-set {

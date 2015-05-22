@@ -58,9 +58,9 @@ clickables = ['header','.specs','.story','.links','.lists','.portrait-img'];
 
 for (var i=0;i<clickables.length;i++) {
 	$(clickables[i]).hover(function(e){
-		$(this).find(".edit-link").show();
+		$(this).find(".edit-link").css("visibility","visible");
 	},function(e){
-		$(this).find(".edit-link").hide();
+		$(this).find(".edit-link").css("visibility","hidden");
 	});
 }
 
