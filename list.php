@@ -33,19 +33,6 @@ require_once 'header.php';
 ?>
 <article id="user-list" class="small-12 columns">
 	<div class="row">
-		<!--
-		<div class="small-12 medium-5 large-4 columns">
-			<img src="<?php echo get_image("lists/images/",$list['id']); ?>" class="list-cover" />
-			<h2 class="title"><?php echo $list['title']; ?></h2>
-			<p class="tagline">
-				<?php echo $list['tagline']; ?>
-			</p>
-			<?php if (!$list['description']==null) :?>
-				<div class="description"><?php echo $list['description'] ?></div>
-			<?php endif;?>
-		</div>
-		-->
-		
 		<div id="side-col" class="small-12 medium-4 columns">
 		<div class="row colapse">
 			<?php
@@ -61,6 +48,8 @@ require_once 'header.php';
 			<h2 class="title"><?php echo $list['title']; ?></h2>
 			<p class="tagline">
 				<?php echo $list['tagline']; ?>
+			</p>
+			<p>By <a href=""><?php echo $list['created_by']; ?></a>.				
 			</p>
 			<?php if (!$list['description']==null) :?>
 				<p class="description"><?php echo $list['description'] ?></p>
@@ -164,7 +153,7 @@ require_once 'header.php';
 				<li class="row">
 					<div class="list-desc small-10 columns">
 						<a class="thumb-box" href="list.php?id=<?php echo $list['id'] ?>"><?php 
-								$img = get_image("lists/images/_thumbs/",$list['id']);
+								$img = get_image("lists/images/",$list['id'],'300h');
 								if ($img==false) {
 									//echo placeholder
 									echo '<div class="thumb-placeholder">...</div>';
@@ -180,13 +169,18 @@ require_once 'header.php';
 			</ul>
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
 </article>
+
+<div id="modals">
+	<div id="modalList" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: List</h3>
+  <img class="img-left" src="misc/images/bits-ideas033_cr_res.jpg" />
+  <p>
+  	Every registered user will be able to create lists - either public or private. The user will be able to sort the women freely (by drag and drop), and add comments to them to explain why they're here.
+  </p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>  
+</div> 
+</div>
 <?php
 require_once 'footer.php';
 ?>

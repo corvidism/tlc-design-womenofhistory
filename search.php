@@ -17,74 +17,6 @@ require_once 'functions.php';
 require_once 'DataSource.php';
 	
 $data_source = new DataSource(); 
-
-
-/*
- * query:
- * any=%S
- * name=%S
- * place_born=%S
- * place_died=%S
- * date_born
- * date_died
- * inventions=%S
- * firsts=%S
- * story=%S
- * tags=%S,%S
- * category=%S
- * links=%S
- * ethnicity=%S
- * is_poc=%B
- * has_disability=%B
- * is_queer=%B
- * 
- * glue char=","
- * equals: "this is string" --> any=this%20is%20string
- * contains: "this is string" --> any=this,is,string
- * 
- * and: --> "this is "
- * 
- * 
- * orderby=%S
- * sort=%S
-*/
-
-/* what to do:
- * get query
- * (format query?)
- * pass the query to DataSource
- * get only selected women  
- */
-/*
-$params = array(
-	'any'=>'',
-	'name' =>'',
-	'place_born'=>'',
-	'place_died'=>'',
-	'date_born'=>'',
-	'date_died'=>'',
-	'inventions'=>'',
-	'firsts'=>'',
- 	'story'=>'',
- 	'tags'=>'', // 'that,this,else'
- 	'category'=>'',
- 	'links'=>'',
- 	'ethnicity'=>'',
- 	'is_poc'=>'',
- 	'has_disability'=>'',
- 	'is_queer'=>'',
- 	'logic'=>'', //	'1||2&&3'
- 	'strict'=>'' // '1,0,0'
-);
-
-if (isset($_GET['field'])) {
-	$params[$_GET['field']]=$_GET['value'];
-	if (isset($_GET['strict'])&&$_GET['strict']=='yes') {
-		$params['strict']='1';
-	}	
-}
-*/
-//the above - future question: how to combine multiple queries?
 $query = array();
 $query['field'] = (isset($_GET['field']))?$_GET['field']:null;
 $query['value'] = (isset($_GET['value']))?$_GET['value']:null;
@@ -106,23 +38,6 @@ logme($query);
 			<div class="search-query" id="search-query-1">
 				<div class="select">
 				<select name="field">
-					<!--
-								<option value="any">her anything</option>
-								<option value="name">her name</option>
-								<option value="place_born">her place of birth</option>
-								<option value="place_died">her place of death</option>
-								<option value="date_born">her date of birth</option>
-								<option value="date_died">her date of death</option>
-								<option value="inventions">her inventions</option>
-								<option value="firsts">her firsts</option>
-								<option value="story">her story</option>
-								<option value="tags">her tags</option>
-								<option value="category">her category</option>
-								<option value="links">her links</option>
-								<option value="ethnicity">her ethnicity</option>
-								<option value="orientation">her orientation</option>
-								<option value="gender_identity">her gender identity</option>
-					-->
 					<?php
 				$fields=array(
 					'any'=>'her anything',
@@ -150,10 +65,6 @@ logme($query);
 			</div>
 			<div class="select">
 			<select name="strict">
-				<!--
-				<option value="no">contains</option>
-				<option value="yes">contains precisely</option>
-				-->
 				<?php
 				$fields=array(
 					'no' =>'contains',
@@ -320,14 +231,16 @@ logme($query);
 		<?php endif; ?>
 	</div>
 
-<ol class="joyride-list" data-joyride>
-	<li data-text="Next" data-options="prev_button:false">
-		<p>Wellcome to Women of History!</p>
-	</li>
-	<li data-id="searchform" data-text="More" data-prev-text="Prev" data-options="tip-location:right">
-		<p>The main function of this site is to collect information about interesting women in history, and make this information as easily found as possible.</p>
-	</li>
-</ol>
+<div id="modals">
+	<div id="modalSearch" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+	  <h3 id="modalTitle">WIP: Complex search</h3>
+	  <img class="img-left" src="misc/images/bits-ideas02_cr_res.jpg" />
+	  <p>
+	  	The idea for the final version of search is to let the user combine multiple search queries as freely as possible. The matching rules options will change depending on what will be searched in (e.x. "before", "after" for dates, hierarchically organized categories etc.), and it will be possible to change how will the queries be combined. 
+	  </p>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  	</div>
+</div>
 <?php
 
 require_once 'footer.php';

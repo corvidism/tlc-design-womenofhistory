@@ -53,14 +53,14 @@ require_once 'site_settings.php';
 		      </ul>
 		       <ul class="right">
 		    	<li class="has-dropdown">
-			      <a href="#">User Name</a>
+			      <a href="#">username</a>
 			      <ul class="dropdown">
-			      	<li><a href="#">About this demo</a></li>
-			      	<li><a id="explain" href="#">Explain this page</a></li>
-			      	<li><a href="#" id="style-switch">Cycle through "sister site" style variants.</a></li>
-			        <li><a href="#"><strike>My lists</strike></a></li>
-					<li><a href="#"><strike>Settings</strike></a></li>
-					<li><a href="#"><strike>(logout)</strike></a></li>
+			      	<li><a href="">About this demo</a></li>
+			      	<li><a id="explain" href="">Explain this page</a></li>
+			      	<li><a href="" id="style-switch">Cycle through "sister site" style variants.</a></li>
+			        <li><a href=""><strike>My lists</strike></a></li>
+					<li><a href=""><strike>Settings</strike></a></li>
+					<li><a href=""><strike>(logout)</strike></a></li>
 			      </ul>
 			    </li>
 		    </ul>

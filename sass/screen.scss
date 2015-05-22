@@ -1102,7 +1102,7 @@ $num:length($colorsets);
       
       .switch-box .switch input:checked + label,
       .thumb-placeholder,
-      a:focus,
+      //a:focus,
       a:active,
       #submit-button:active,
       #submit-button:focus
@@ -1301,6 +1301,15 @@ $num:length($colorsets);
             
           }  
           
+        }
+        
+        #explain.inactive {
+          color:fade-out($type-color,0.6);
+          
+          &:hover {
+            color:fade-out($type-color,0.6) !important;
+            background-color:$bg_base;
+          }
         }
 
         

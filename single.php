@@ -151,7 +151,7 @@ require_once 'header.php';
 			<?php
 				if ($woman['story']==null || $woman['story'] == "") {
 					//echo '<a class="edit-link" href="single.php?woman='.$woman['id'].'&edit=true">(add story)</a>';
-					echo '<p id="edit-story" class="notice">There is no story for '.$woman['name'].'. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit the page</a> to tell it.</p>';
+					echo '<p id="edit-story" class="notice add-link">There is no story for '.$woman['name'].'. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit the page</a> to tell it.</p>';
 				} else {
 					echo $woman['story']; 
 					echo '<p id="edit-story" class="notice edit-link"><a href="">Edit</a> story.</p>';
@@ -181,7 +181,7 @@ require_once 'header.php';
 				<?php
 				$links = $data_source->getLinksByWoman($woman['id']);
 				if ($links == null): 
-					echo '<p id="edit-links" class="notice">(This record has no links. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)</p>';
+					echo '<p id="edit-links" class="notice add-link">(This record has no links. <a href="single.php?woman='.$woman['id'].'&edit=true">Edit it</a> to add links that relate to '.$woman['name'].' somehow - articles, books, illustrations...)</p>';
 				else:
 					echo "<ul>";
 					foreach ($links as $link):?>
@@ -206,7 +206,8 @@ require_once 'header.php';
 			$lists = $data_source->getPublicListsByWoman($woman['id']);
 			
 			if (sizeof($lists)==0) : ?>
-				<p id="edit-lists" class="notice"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
+				<p id="edit-lists" class="notice add-link"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
+				</ul>
 			<?php else : foreach($lists as $list)  : 
 				?>
 				<li class="row">
@@ -221,12 +222,15 @@ require_once 'header.php';
 								}
 							?><?php echo $list['title'] ?></a>					
 					</div>
-				</li>										
+				</li>
+														
 			<?php
-			endforeach;?>
+			endforeach;?>			
+			</ul>
 			<p id="edit-lists" class="notice edit-link"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
 			<?php endif; ?>
-			</ul>			
+				
+					
 		</div>
 		</div>
 		
@@ -235,30 +239,44 @@ require_once 'header.php';
 				</div>
 				<footer>
 				<p>
-				Created by <a href=""><?php echo $woman['created_by']; ?></a>; last edited by <a href=""><?php echo $woman['last_edited_by']; ?></a> on <?php echo form_date($woman['last_edited_at'],true); ?>. <a id="full-page-edit-link" class="edit-link" href="single.php?woman=<?php echo $woman['id']; ?>&edit=true">(Edit page)</a>	
+				Created by <a href=""><?php echo $woman['created_by']; ?></a>; last edited by <a href=""><?php echo $woman['last_edited_by']; ?></a> on <?php echo form_date($woman['last_edited_at'],true); ?>. <a id="full-page-edit-link" href="single.php?woman=<?php echo $woman['id']; ?>&edit=true">(Edit page)</a>	
 				</p>
 				
 			</footer>
 	</div>
 </article>
 <div id="modals">
-	<div id="modalPortrait" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h3 id="modalTitle">WIP: Profile pictures</h3>
-  <img class="img-left" src="misc/images/bits-ideas01-cr-res.jpg" /><p>In the future, the page would enable uploading multiple profile images (just a smaller part of a more complicated version control scheme that would be needed for a site with free editing such as this). I'm considering also an option to add images to links (for example, links to fanart), which could also show up here.</p><p>Having description for images would help with giving proper credit to the authors, necessary for working with creative commons images.</p>
+	<div id="modalEditing" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: Editing</h3>
+  <p>
+  	Every page will be editable by both logged in and anonymous users (which will be recorded by IP addresses), although I'm planning on a back-end setting that will disable anonymous editing for selected pages (in situations of extreme vandalism). Logged in users will have easier access to editation using AJAX function right on the page. Anonymous users will have to edit the entire page, partially to slow down possible vandalism, partially because they will have to agree that their IP address will be displayed.
+  </p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <a class="next">Next</a>
+</div>
+	<div id="modalPortrait" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: Portrait pictures</h3>
+  <img class="img-left" src="misc/images/bits-ideas01-cr-res.jpg" />
+  <p>In the future, the page would enable uploading multiple profile images (just a smaller part of a more complicated version control scheme that would be needed for a site with free editing such as this). I'm considering also an option to add images to links (for example, links to fanart), which could also show up here.</p><p>Having description for images would help with giving proper credit to the authors, necessary for working with creative commons images.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="prev">Prev</a> | <a class="next">Next</a>
 </div>
   <div id="modalLinks" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h3 id="modalTitle">WIP: About links</h3>
-  <p>This is something about links. How would they work? Also image, probably.</p>
+  <h3 id="modalTitle">WIP: Links</h3>
+  <img class="img-left" src="misc/images/bits-ideas032_cr_res.jpg" />
+  <p>
+  	When adding links, the title and description will be automatically fetched from the target (reading Open Graph protocol metadata and using html scraping to fill missing data). The user will be able to change both, and possibly set type of content (image, book, article), which could then be used for better searching.
+  </p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <a class="next">Next</a>
+  <a class="prev">Prev</a> | <a class="next">Next</a>
 </div>
-<div id="modalLists" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h3 id="modalTitle">WIP: About lists</h3>
-  <p>Woop woop.</p>
+<div id="modalStory" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">WIP: Story</h3>
+  <p>
+  	Editing the story will require a Richtext editor. Images will not be allowed in the text, but other text formatting will be possible, as well as connecting hyperlinks in the text with Links.
+  </p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <a class="next">Next</a>
+  <a class="prev">Prev</a>
 </div>
 </div>
 			

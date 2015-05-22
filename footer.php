@@ -62,6 +62,16 @@
 						$("#"+nextId).foundation('reveal','open');
 					}
 				},
+				'prev':function(el){
+					var id = $(el).closest(".reveal-modal").attr("id");
+					var prevId = tour.stops[tour.stops.indexOf(id)-1];
+					if (prevId>=tour.stops.length || $("#"+prevId).length == 0) {
+						//console.log("no next");
+						$("#"+id).foundation('reveal','close');
+					} else {
+						$("#"+prevId).foundation('reveal','open');
+					}
+				},
 				'init':function(){
 					modals = $("#modals .reveal-modal");
 					if (modals.length == 0) {return false};
@@ -76,10 +86,15 @@
 				'stops':[],
 			}
 			tour.init();
-			
-			$("#modals .next").click(function(){
-				//console.log("next please");
+			if (tour.stops.length == 0) {
+				$("#explain").addClass("inactive");
+			} else {
+				$("#modals .next").click(function(){
 				tour.next(this);
+			});
+			
+			$("#modals .prev").click(function(){
+				tour.prev(this);
 			});
 			
 			$("#explain").click(function(e){
@@ -88,6 +103,9 @@
 				}
 				e.preventDefault();
 			});
+			}
+			
+			
 		</script>
 		<?php
 		if (isset($page['id'])) {

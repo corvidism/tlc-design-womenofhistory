@@ -45,13 +45,6 @@ enquire.register("screen and (max-width:"+ smallScreen.max+")", {
 });
 
 
-//when hover over
-//header
-//story
-//links
-//lists
-//stats
-
 //clickables = [];
 clickables = ['header','.specs','.story','.links','.lists','.portrait-img'];
 
@@ -66,15 +59,13 @@ for (var i=0;i<clickables.length;i++) {
 
 editing = {
 	'edit-header':function(){
-		console.log("editing header");
-		//oldContent = $("header").detach();
-		//newContent = $("<header></header>")
-		//replace the things with input fields/textareas
-		//and a "done" link
-		//when clicked, update the original
+		$('#modalEditing').foundation('reveal','open');
+	},
+	'full-page-edit-link':function(){
+		$('#modalStory').foundation('reveal','open');
 	},
 	'edit-story':function(){
-		
+		$('#modalStory').foundation('reveal','open');
 	},
 	'edit-links':function(){
 		$('#modalLinks').foundation('reveal','open');
@@ -90,7 +81,16 @@ $(".edit-link").click(function(e){
 	e.preventDefault();
 	var what = $(this).attr("id");
 	
-	console.log(what);
+	if(typeof editing[what] == 'function') {
+		editing[what]();
+	}
+		
+});
+
+$(".add-link").click(function(e){
+	e.preventDefault();
+	var what = $(this).attr("id");
+	
 	if(typeof editing[what] == 'function') {
 		editing[what]();
 	}
