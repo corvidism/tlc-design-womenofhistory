@@ -583,7 +583,7 @@ article.woman .story p {
   margin-bottom: 0.8rem;
 }
 /* line 707, ../sass/screen.scss */
-article.woman .links ul, article.woman .lists ul, article.woman .successes ul {
+article.woman .links ul, article.woman .lists ul {
   list-style: none;
   margin-left: 0;
 }
@@ -731,12 +731,12 @@ div.portrait-img img {
 }
 
 /* line 857, ../sass/screen.scss */
-#edit-lists, #edit-links {
+#edit-lists.edit-link, #edit-links.edit-link {
   visibility: visible;
 }
 @media screen and (min-width: 40.063em) {
   /* line 857, ../sass/screen.scss */
-  #edit-lists, #edit-links {
+  #edit-lists.edit-link, #edit-links.edit-link {
     visibility: hidden;
   }
 }

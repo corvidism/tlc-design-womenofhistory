@@ -160,19 +160,22 @@ require_once 'header.php';
 			
 		</div>
 		
-		
+		<?php if ($woman['firsts'] != '') : ?>
 			<div class="successes small-12 columns">
-				<ul class="awards">
-					<li></li>
-				</ul>
+				<h3>Inventions, firsts, awards</h3>
 				<ul class="firsts">
-					<li></li>
-				</ul>
-				<ul class="inventions">
-					<li></li>
-				</ul>
-				<p id="edit-portrait" class="notice edit-link"><a href="">Edit</a> successes.</p>
+		<?php 
+		$firsts = explode(";",$woman['firsts']);
+		foreach ($firsts as $first) : ?>
+			<li><?php echo $first; ?></li> 
+		<?php endforeach;
+		?>
+			</ul>
+				<p id="edit-successes" class="notice edit-link"><a href="">Edit</a> successes.</p>
 			</div>
+		<?php endif; ?>
+		
+			
 			<div id="links" class="links small-12 columns">
 				<h3>Links</h3>
 				<?php
@@ -201,7 +204,10 @@ require_once 'header.php';
 			<?php
 			
 			$lists = $data_source->getPublicListsByWoman($woman['id']);
-			foreach($lists as $list)  : 
+			
+			if (sizeof($lists)==0) : ?>
+				<p id="edit-lists" class="notice"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
+			<?php else : foreach($lists as $list)  : 
 				?>
 				<li class="row">
 					<div class="list-desc small-10 columns">
@@ -217,19 +223,11 @@ require_once 'header.php';
 					</div>
 				</li>										
 			<?php
-				 
-			endforeach;
-			?>
-			</ul>
+			endforeach;?>
 			<p id="edit-lists" class="notice edit-link"><a href="">Add</a> <?php echo $woman['name']?> to a list...</p>
+			<?php endif; ?>
+			</ul>			
 		</div>
-		<div class="comments small-12 columns">
-			<h3>Comments (4)</h3>
-			<p class="notice"><a href="">Show</a> comments...</p>
-			<div class="comments-inner">
-				
-			</div>
-		</div>		
 		</div>
 		
 		

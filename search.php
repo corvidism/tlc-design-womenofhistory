@@ -131,7 +131,6 @@ logme($query);
 					'place_died'=>'her place of death',
 					'date_born'=>'her date of birth',
 					'date_died'=>'her date of death',
-					'inventions'=>'her inventions',
 					'firsts'=>'her firsts',
 				 	'story'=>'her story',
 				 	'tags'=>'her tags', // 'that,this,else'
