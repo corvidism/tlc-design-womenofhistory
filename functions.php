@@ -38,7 +38,7 @@ function logmeline($message) {
 	
 }
 			
-function form_date($date,$long=false) {
+function form_date($date,$short=false) {
 	//stupid formatting shiv. should be done somewhere else, not sure where tho. On db load?
 	$date_format = "Y/m/d";
 	$slashed = strpos($date,"/");
@@ -47,7 +47,7 @@ function form_date($date,$long=false) {
 		return $date;
 	} else {
 		$date_array = explode("/", $date);
-		if ($date_array[1]=='00') {
+		if ($short) {
 			$year = $date_array[0];
 			if (isset($year[0]) && $year[0] == "-") {
 				return substr($year,1,strlen($year))."&nbsp;BCE";
@@ -55,14 +55,23 @@ function form_date($date,$long=false) {
 				return $year."&nbsp;CE";
 			}
 		} else {
-			$datetime = date_create_from_format($date_format, $date);
-			if ($long) {
-				$datestr = date_format($datetime, "jS F Y");
+			if ($date_array[1]=='00') {
+				$year = $date_array[0];
+				if (isset($year[0]) && $year[0] == "-") {
+					return substr($year,1,strlen($year))."&nbsp;BCE";
+				} else {
+					return $year."&nbsp;CE";
+				}
 			} else {
-				$datestr = date_format($datetime,"Y");
-			}			
-			return $datestr;
-		}
+				$datetime = date_create_from_format($date_format, $date);
+				if ($long) {
+					$datestr = date_format($datetime, "jS F Y");
+				} else {
+					$datestr = date_format($datetime,"Y");
+				}			
+				return $datestr;
+			}
+		}		
 	}
 }
 
@@ -70,11 +79,10 @@ function format_date_place($woman,$form='short') {
 	
 	
 	if ($form=='short') {
-		$db=form_date($woman['date_born']);
+		$db=form_date($woman['date_born'],true);
 	 $pb=$woman['place_born'];
-	 $dd=form_date($woman['date_died']);
+	 $dd=form_date($woman['date_died'],true);
 	 $pd=$woman['place_died'];
-	
 		if (is_null($db)) {
 		 	$date_place = "";
 			// 0 0
@@ -82,7 +90,7 @@ function format_date_place($woman,$form='short') {
 			$date_place = "$db";
 			//1 0
 		} else {
-			$date_place = "$db – $dd";
+			$date_place = $db."–".$dd;
 		}
 	} elseif ($form=='long') {
 		$db=form_date($woman['date_born'],true);
@@ -97,17 +105,17 @@ function format_date_place($woman,$form='short') {
 		 	$date_place ="$db";
 			// 1 0 0 0
 			if (!is_null($dd)) {
-				$date_place .=" – $dd";
+				$date_place .="–".$dd;
 				// 1 0 1 0
 			}
 		 } elseif (is_null($dd)) {
 		 	$date_place = "$db, $pb";
 			// 1 1 0 0
 		 } elseif (is_null($pd)) {
-		 	$date_place = "$db – $dd, $db";
+		 	$date_place = $db." – ".$dd.", ".$db;
 			// 1 1 1 0
 		 } else {
-		 	$date_place = "$db, $pb – $dd, $pd";
+		 	$date_place = $db.", ".$pb." – ".$dd.", ".$pd;
 			// 1 1 1 1
 		 };
 	} 

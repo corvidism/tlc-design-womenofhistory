@@ -1386,7 +1386,8 @@ $num:length($colorsets);
       #searchform .logic,
       #select-women,
       .select:hover,
-      #list-sort-controls
+      #list-sort-controls,
+      #submit-button
       {
         color:$grey;
       }
@@ -1429,9 +1430,10 @@ $num:length($colorsets);
       
       .switch-box .switch input:checked + label,
       .thumb-placeholder,
-      a:active
-      button:active,
-      button:focus
+      //a:focus,
+      a:active,
+      #submit-button:active,
+      #submit-button:focus
        {
         background-color:fade-out($bg_color,0.7) !important;
       }
@@ -1451,11 +1453,11 @@ $num:length($colorsets);
       
       //accent
       a:hover,a:focus,
+      #submit-button:hover,
       .woman.selected h3 a,
       #menutitle,
       .description p:before,
-      #submit-button,
-      #list-box.interactive li.woman:hover 
+      //#list-box.interactive li.woman:hover 
        {
         color: $accent !important;
       }
@@ -1490,7 +1492,7 @@ $num:length($colorsets);
         li.woman {
           .img-side {
             //faded out bg_color
-            background-color:fade-out($bg_color,0.8);
+            background-color:fade-out($bg_color,0.6);
           }
           
           .img-side.img-set {
@@ -1500,7 +1502,12 @@ $num:length($colorsets);
           &:hover {
             .img-side {
               //+accent border
-              border-left-color:$accent;
+              //border-left-color:$accent;
+              
+              &:before {
+              background-color:fade-out($accent,0.5);
+              }
+              
             }
             
             .img-side.img-set {
@@ -1519,28 +1526,29 @@ $num:length($colorsets);
         li.woman.selected {
           .img-side {
             //overlay
-            background-color:transparent; //needed so the colors don't mix
+            //background-color:transparent; //needed so the colors don't mix
+            background-color:fade-out($accent,0.5);
             
-            &:before {
-                background-color:fade-out($accent,0.5);
-              }
-              
-              
-              
-              .img-side.img-set {
-                //overlay
-              }
               
           }
+          .img-side.img-set {
+                //overlay
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
+            }
           
           &:hover {
             .img-side {
+                &:before {
+                  background-color:fade-out($accent,0.5);
+                }
                 //border + overlay
                 //this should inherit previous
               }
             .img-side.img-set {
                 &:before {
-                  background-color:fade-out($accent,0.5);
+                  background-color:fade-out($accent,0.2);
                 }
              }
             
@@ -1622,8 +1630,15 @@ $num:length($colorsets);
           }  
           
         }
-
         
+        #explain.inactive {
+          color:fade-out($type-color,0.6);
+          
+          &:hover {
+            color:fade-out($type-color,0.6) !important;
+            background-color:$bg_base;
+          }
+        } 
     }
 }
 

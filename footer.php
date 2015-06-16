@@ -29,7 +29,7 @@
 			
 			pageStyle = {
 				'now':0,
-				'all': ['style1','style2','style3','style4','style5'],
+				'all': ['style1','style2','style3','style4'],
 				'max-width':'62.5rem',
 				'max-width-xxlarge':'110rem',
 			};
